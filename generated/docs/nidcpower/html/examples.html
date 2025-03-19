@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; NI-DCPower Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gRPC Support" href="grpc_session_options.html" />
+    <link rel="prev" title="Exceptions and Warnings" href="errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-DCPower Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidcpower.html">nidcpower module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidcpower.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidcpower.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidcpower.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nidcpower-advanced-sequence-py">nidcpower_advanced_sequence.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidcpower-lcr-source-ac-voltage-py">nidcpower_lcr_source_ac_voltage.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidcpower-measure-record-py">nidcpower_measure_record.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidcpower-source-delay-measure-py">nidcpower_source_delay_measure.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-DCPower Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidcpower.html">nidcpower module</a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/releases/download/1.4.11/nidcpower_examples.zip">You can download all nidcpower examples here</a></p>
+<section id="nidcpower-advanced-sequence-py">
+<h2>nidcpower_advanced_sequence.py<a class="headerlink" href="#nidcpower-advanced-sequence-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidcpower/examples/nidcpower_advanced_sequence.py">(nidcpower_advanced_sequence.py)</a></span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">hightime</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidcpower</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">voltage_max</span><span class="p">,</span> <span class="n">current_max</span><span class="p">,</span> <span class="n">points_per_output_function</span><span class="p">,</span> <span class="n">source_delay</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="k">with</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">11</span>        <span class="c1"># Configure the session.</span>
+<span class="linenos">12</span>        <span class="n">session</span><span class="o">.</span><span class="n">source_mode</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">SourceMode</span><span class="o">.</span><span class="n">SEQUENCE</span>
+<span class="linenos">13</span>        <span class="n">session</span><span class="o">.</span><span class="n">voltage_level_autorange</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">14</span>        <span class="n">session</span><span class="o">.</span><span class="n">current_limit_autorange</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">15</span>        <span class="n">session</span><span class="o">.</span><span class="n">source_delay</span> <span class="o">=</span> <span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">source_delay</span><span class="p">)</span>
+<span class="linenos">16</span>        <span class="n">properties_used</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;output_function&#39;</span><span class="p">,</span> <span class="s1">&#39;voltage_level&#39;</span><span class="p">,</span> <span class="s1">&#39;current_level&#39;</span><span class="p">]</span>
+<span class="linenos">17</span>        <span class="n">session</span><span class="o">.</span><span class="n">create_advanced_sequence</span><span class="p">(</span><span class="n">sequence_name</span><span class="o">=</span><span class="s1">&#39;my_sequence&#39;</span><span class="p">,</span> <span class="n">property_names</span><span class="o">=</span><span class="n">properties_used</span><span class="p">,</span> <span class="n">set_as_active_sequence</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>        <span class="n">voltage_per_step</span> <span class="o">=</span> <span class="n">voltage_max</span> <span class="o">/</span> <span class="n">points_per_output_function</span>
+<span class="linenos">20</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">points_per_output_function</span><span class="p">):</span>
+<span class="linenos">21</span>            <span class="n">session</span><span class="o">.</span><span class="n">create_advanced_sequence_step</span><span class="p">(</span><span class="n">set_as_active_step</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">22</span>            <span class="n">session</span><span class="o">.</span><span class="n">output_function</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">OutputFunction</span><span class="o">.</span><span class="n">DC_VOLTAGE</span>
+<span class="linenos">23</span>            <span class="n">session</span><span class="o">.</span><span class="n">voltage_level</span> <span class="o">=</span> <span class="n">voltage_per_step</span> <span class="o">*</span> <span class="n">i</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>        <span class="n">current_per_step</span> <span class="o">=</span> <span class="n">current_max</span> <span class="o">/</span> <span class="n">points_per_output_function</span>
+<span class="linenos">26</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">points_per_output_function</span><span class="p">):</span>
+<span class="linenos">27</span>            <span class="n">session</span><span class="o">.</span><span class="n">create_advanced_sequence_step</span><span class="p">(</span><span class="n">set_as_active_step</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">28</span>            <span class="n">session</span><span class="o">.</span><span class="n">output_function</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">OutputFunction</span><span class="o">.</span><span class="n">DC_CURRENT</span>
+<span class="linenos">29</span>            <span class="n">session</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">current_per_step</span> <span class="o">*</span> <span class="n">i</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>        <span class="c1"># Calculate the timeout.</span>
+<span class="linenos">32</span>        <span class="n">aperture_time</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">aperture_time</span>
+<span class="linenos">33</span>        <span class="n">total_points</span> <span class="o">=</span> <span class="n">points_per_output_function</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="linenos">34</span>        <span class="n">timeout</span> <span class="o">=</span> <span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="p">((</span><span class="n">source_delay</span> <span class="o">+</span> <span class="n">aperture_time</span><span class="p">)</span> <span class="o">*</span> <span class="n">total_points</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">37</span>            <span class="n">channel_indices</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;0-</span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">channel_count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="linenos">38</span>            <span class="n">channels</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_channel_names</span><span class="p">(</span><span class="n">channel_indices</span><span class="p">)</span>
+<span class="linenos">39</span>            <span class="n">measurement_group</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_multiple</span><span class="p">(</span><span class="n">total_points</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">]</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>        <span class="n">session</span><span class="o">.</span><span class="n">delete_advanced_sequence</span><span class="p">(</span><span class="n">sequence_name</span><span class="o">=</span><span class="s1">&#39;my_sequence&#39;</span><span class="p">)</span>
+<span class="linenos">42</span>        <span class="n">line_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:&lt;15}</span><span class="s1"> </span><span class="si">{:&lt;4}</span><span class="s1"> </span><span class="si">{:&lt;10}</span><span class="s1"> </span><span class="si">{:&lt;10}</span><span class="s1"> </span><span class="si">{:&lt;6}</span><span class="s1">&#39;</span>
+<span class="linenos">43</span>        <span class="nb">print</span><span class="p">(</span><span class="n">line_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Num&#39;</span><span class="p">,</span> <span class="s1">&#39;Voltage&#39;</span><span class="p">,</span> <span class="s1">&#39;Current&#39;</span><span class="p">,</span> <span class="s1">&#39;In Compliance&#39;</span><span class="p">))</span>
+<span class="linenos">44</span>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">measurements</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">measurement_group</span><span class="p">):</span>
+<span class="linenos">45</span>            <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">46</span>            <span class="n">channel_name</span> <span class="o">=</span> <span class="n">channels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos">47</span>            <span class="k">for</span> <span class="n">measurement</span> <span class="ow">in</span> <span class="n">measurements</span><span class="p">:</span>
+<span class="linenos">48</span>                <span class="nb">print</span><span class="p">(</span><span class="n">line_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">measurement</span><span class="o">.</span><span class="n">voltage</span><span class="p">,</span> <span class="n">measurement</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">measurement</span><span class="o">.</span><span class="n">in_compliance</span><span class="p">)))</span>
+<span class="linenos">49</span>                <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">53</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Output ramping voltage to voltage max, then ramping current to current max.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">54</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2/0, PXI1Slot3/0-1&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource names of NI SMUs.&#39;</span><span class="p">)</span>
+<span class="linenos">55</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--number-steps&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of steps per output function&#39;</span><span class="p">)</span>
+<span class="linenos">56</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage-max&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Maximum voltage (V)&#39;</span><span class="p">)</span>
+<span class="linenos">57</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--current-max&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Maximum Current (I)&#39;</span><span class="p">)</span>
+<span class="linenos">58</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--delay&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source delay (s)&#39;</span><span class="p">)</span>
+<span class="linenos">59</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">60</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">61</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage_max</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">current_max</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">number_steps</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">delay</span><span class="p">)</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">65</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">66</span>
+<span class="linenos">67</span>
+<span class="linenos">68</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">69</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4162; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">70</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">71</span>
+<span class="linenos">72</span>
+<span class="linenos">73</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">74</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4162&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">75</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2/0, PXI1Slot3/1&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+<span class="linenos">76</span>
+<span class="linenos">77</span>
+<span class="linenos">78</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">79</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">80</span>
+<span class="linenos">81</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidcpower-lcr-source-ac-voltage-py">
+<h2>nidcpower_lcr_source_ac_voltage.py<a class="headerlink" href="#nidcpower-lcr-source-ac-voltage-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidcpower/examples/nidcpower_lcr_source_ac_voltage.py">(nidcpower_lcr_source_ac_voltage.py)</a></span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos">  4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidcpower</span>
+<span class="linenos">  5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span>
+<span class="linenos">  9</span>    <span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos"> 10</span>    <span class="n">options</span><span class="p">,</span>
+<span class="linenos"> 11</span>    <span class="n">lcr_frequency</span><span class="p">,</span>
+<span class="linenos"> 12</span>    <span class="n">lcr_impedance_range</span><span class="p">,</span>
+<span class="linenos"> 13</span>    <span class="n">cable_length</span><span class="p">,</span>
+<span class="linenos"> 14</span>    <span class="n">lcr_voltage_rms</span><span class="p">,</span>
+<span class="linenos"> 15</span>    <span class="n">lcr_dc_bias_source</span><span class="p">,</span>
+<span class="linenos"> 16</span>    <span class="n">lcr_dc_bias_voltage_level</span><span class="p">,</span>
+<span class="linenos"> 17</span>    <span class="n">lcr_measurement_time</span><span class="p">,</span>
+<span class="linenos"> 18</span>    <span class="n">lcr_custom_measurement_time</span><span class="p">,</span>
+<span class="linenos"> 19</span>    <span class="n">lcr_source_delay_mode</span><span class="p">,</span>
+<span class="linenos"> 20</span>    <span class="n">source_delay</span><span class="p">,</span>
+<span class="linenos"> 21</span><span class="p">):</span>
+<span class="linenos"> 22</span>    <span class="k">with</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos"> 23</span>        <span class="c1"># Configure the session.</span>
+<span class="linenos"> 24</span>        <span class="n">session</span><span class="o">.</span><span class="n">instrument_mode</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">InstrumentMode</span><span class="o">.</span><span class="n">LCR</span>
+<span class="linenos"> 25</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_stimulus_function</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRStimulusFunction</span><span class="o">.</span><span class="n">VOLTAGE</span>
+<span class="linenos"> 26</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_frequency</span> <span class="o">=</span> <span class="n">lcr_frequency</span>
+<span class="linenos"> 27</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_impedance_range</span> <span class="o">=</span> <span class="n">lcr_impedance_range</span>
+<span class="linenos"> 28</span>        <span class="n">session</span><span class="o">.</span><span class="n">cable_length</span> <span class="o">=</span> <span class="n">cable_length</span>
+<span class="linenos"> 29</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_voltage_amplitude</span> <span class="o">=</span> <span class="n">lcr_voltage_rms</span>
+<span class="linenos"> 30</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_dc_bias_source</span> <span class="o">=</span> <span class="n">lcr_dc_bias_source</span>
+<span class="linenos"> 31</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_dc_bias_voltage_level</span> <span class="o">=</span> <span class="n">lcr_dc_bias_voltage_level</span>
+<span class="linenos"> 32</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_measurement_time</span> <span class="o">=</span> <span class="n">lcr_measurement_time</span>
+<span class="linenos"> 33</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_custom_measurement_time</span> <span class="o">=</span> <span class="n">lcr_custom_measurement_time</span>
+<span class="linenos"> 34</span>        <span class="n">session</span><span class="o">.</span><span class="n">lcr_source_delay_mode</span> <span class="o">=</span> <span class="n">lcr_source_delay_mode</span>
+<span class="linenos"> 35</span>        <span class="n">session</span><span class="o">.</span><span class="n">source_delay</span> <span class="o">=</span> <span class="n">source_delay</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos"> 38</span>            <span class="c1"># Low frequencies require longer settling times than the default timeout for</span>
+<span class="linenos"> 39</span>            <span class="c1"># wait_for_event(), hence 5.0s is set here as a reasonable timeout value</span>
+<span class="linenos"> 40</span>            <span class="n">session</span><span class="o">.</span><span class="n">wait_for_event</span><span class="p">(</span><span class="n">event_id</span><span class="o">=</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">Event</span><span class="o">.</span><span class="n">SOURCE_COMPLETE</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="linenos"> 41</span>            <span class="n">measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">measure_multiple_lcr</span><span class="p">()</span>
+<span class="linenos"> 42</span>            <span class="k">for</span> <span class="n">measurement</span> <span class="ow">in</span> <span class="n">measurements</span><span class="p">:</span>
+<span class="linenos"> 43</span>                <span class="nb">print</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span>        <span class="n">session</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos"> 49</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="linenos"> 50</span>        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Output the specified AC voltage and DC bias voltage, then takes LCR measurements&#39;</span><span class="p">,</span>
+<span class="linenos"> 51</span>        <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+<span class="linenos"> 52</span>    <span class="p">)</span>
+<span class="linenos"> 53</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2/0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource names of NI SMUs&#39;</span><span class="p">)</span>
+<span class="linenos"> 54</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-frequency&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">10.0e3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="linenos"> 55</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-impedance-range&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR impedance range (Ω)&#39;</span><span class="p">)</span>
+<span class="linenos"> 56</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--cable-length&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;NI_STANDARD_2M&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">CableLength</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Cable length&#39;</span><span class="p">)</span>
+<span class="linenos"> 57</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-voltage-rms&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">700.0e-3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR voltage RMS (V RMS)&#39;</span><span class="p">)</span>
+<span class="linenos"> 58</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-dc-bias-source&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;OFF&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRDCBiasSource</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR DC bias source&#39;</span><span class="p">)</span>
+<span class="linenos"> 59</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-dv&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-dc-bias-voltage_level&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR DC bias voltage (V)&#39;</span><span class="p">)</span>
+<span class="linenos"> 60</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-measurement-time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;MEDIUM&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRMeasurementTime</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR measurement time&#39;</span><span class="p">)</span>
+<span class="linenos"> 61</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-ct&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-custom-measurement-time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">10.0e-3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR custom measurement time (s)&#39;</span><span class="p">)</span>
+<span class="linenos"> 62</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-sm&#39;</span><span class="p">,</span> <span class="s1">&#39;--lcr-source-delay-mode&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;AUTOMATIC&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRSourceDelayMode</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;LCR source delay mode&#39;</span><span class="p">)</span>
+<span class="linenos"> 63</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--source-delay&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">16.66e-3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source delay (s)&#39;</span><span class="p">)</span>
+<span class="linenos"> 64</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos"> 65</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos"> 66</span>    <span class="n">example</span><span class="p">(</span>
+<span class="linenos"> 67</span>        <span class="n">resource_name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos"> 68</span>        <span class="n">options</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span>
+<span class="linenos"> 69</span>        <span class="n">lcr_frequency</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lcr_frequency</span><span class="p">,</span>
+<span class="linenos"> 70</span>        <span class="n">lcr_impedance_range</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lcr_impedance_range</span><span class="p">,</span>
+<span class="linenos"> 71</span>        <span class="n">cable_length</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">CableLength</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">cable_length</span><span class="p">),</span>
+<span class="linenos"> 72</span>        <span class="n">lcr_voltage_rms</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lcr_voltage_rms</span><span class="p">,</span>
+<span class="linenos"> 73</span>        <span class="n">lcr_dc_bias_source</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRDCBiasSource</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lcr_dc_bias_source</span><span class="p">),</span>
+<span class="linenos"> 74</span>        <span class="n">lcr_dc_bias_voltage_level</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lcr_dc_bias_voltage_level</span><span class="p">,</span>
+<span class="linenos"> 75</span>        <span class="n">lcr_measurement_time</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRMeasurementTime</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lcr_measurement_time</span><span class="p">),</span>
+<span class="linenos"> 76</span>        <span class="n">lcr_custom_measurement_time</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lcr_custom_measurement_time</span><span class="p">,</span>
+<span class="linenos"> 77</span>        <span class="n">lcr_source_delay_mode</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRSourceDelayMode</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lcr_source_delay_mode</span><span class="p">),</span>
+<span class="linenos"> 78</span>        <span class="n">source_delay</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">source_delay</span><span class="p">,</span>
+<span class="linenos"> 79</span>    <span class="p">)</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos"> 83</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos"> 84</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos"> 87</span>    <span class="n">example</span><span class="p">(</span>
+<span class="linenos"> 88</span>        <span class="n">resource_name</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2/0&#39;</span><span class="p">,</span>
+<span class="linenos"> 89</span>        <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4190&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">},</span>
+<span class="linenos"> 90</span>        <span class="n">lcr_frequency</span><span class="o">=</span><span class="mf">10.0e3</span><span class="p">,</span>
+<span class="linenos"> 91</span>        <span class="n">lcr_impedance_range</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos"> 92</span>        <span class="n">cable_length</span><span class="o">=</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">CableLength</span><span class="o">.</span><span class="n">NI_STANDARD_2M</span><span class="p">,</span>
+<span class="linenos"> 93</span>        <span class="n">lcr_voltage_rms</span><span class="o">=</span><span class="mf">700.0e-3</span><span class="p">,</span>
+<span class="linenos"> 94</span>        <span class="n">lcr_dc_bias_source</span><span class="o">=</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRDCBiasSource</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span>
+<span class="linenos"> 95</span>        <span class="n">lcr_dc_bias_voltage_level</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos"> 96</span>        <span class="n">lcr_measurement_time</span><span class="o">=</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRMeasurementTime</span><span class="o">.</span><span class="n">MEDIUM</span><span class="p">,</span>
+<span class="linenos"> 97</span>        <span class="n">lcr_custom_measurement_time</span><span class="o">=</span><span class="mf">10.0e-3</span><span class="p">,</span>
+<span class="linenos"> 98</span>        <span class="n">lcr_source_delay_mode</span><span class="o">=</span><span class="n">nidcpower</span><span class="o">.</span><span class="n">LCRSourceDelayMode</span><span class="o">.</span><span class="n">AUTOMATIC</span><span class="p">,</span>
+<span class="linenos"> 99</span>        <span class="n">source_delay</span><span class="o">=</span><span class="mf">16.66e-3</span><span class="p">,</span>
+<span class="linenos">100</span>    <span class="p">)</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">104</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4190; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">105</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">109</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidcpower-measure-record-py">
+<h2>nidcpower_measure_record.py<a class="headerlink" href="#nidcpower-measure-record-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidcpower/examples/nidcpower_measure_record.py">(nidcpower_measure_record.py)</a></span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidcpower</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="k">with</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="c1"># Configure the session.</span>
+<span class="linenos">11</span>        <span class="n">session</span><span class="o">.</span><span class="n">measure_record_length</span> <span class="o">=</span> <span class="n">length</span>
+<span class="linenos">12</span>        <span class="n">session</span><span class="o">.</span><span class="n">measure_record_length_is_finite</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">13</span>        <span class="n">session</span><span class="o">.</span><span class="n">measure_when</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">MeasureWhen</span><span class="o">.</span><span class="n">AUTOMATICALLY_AFTER_SOURCE_COMPLETE</span>
+<span class="linenos">14</span>        <span class="n">session</span><span class="o">.</span><span class="n">output_function</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">OutputFunction</span><span class="o">.</span><span class="n">DC_VOLTAGE</span>
+<span class="linenos">15</span>        <span class="n">session</span><span class="o">.</span><span class="n">voltage_level</span> <span class="o">=</span> <span class="n">voltage</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>        <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="linenos">18</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Effective measurement rate: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">measure_record_delta_time</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1"> S/s&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel           Num  Voltage    Current    In Compliance&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>        <span class="n">row_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0:15}</span><span class="s1"> </span><span class="si">{1:3d}</span><span class="s1">    </span><span class="si">{2:8.6f}</span><span class="s1">   </span><span class="si">{3:8.6f}</span><span class="s1">   </span><span class="si">{4}</span><span class="s1">&#39;</span>
+<span class="linenos">22</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">23</span>            <span class="n">channel_indices</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;0-</span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">channel_count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="linenos">24</span>            <span class="n">channels</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_channel_names</span><span class="p">(</span><span class="n">channel_indices</span><span class="p">)</span>
+<span class="linenos">25</span>            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">channel_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channels</span><span class="p">):</span>
+<span class="linenos">26</span>                <span class="n">samples_acquired</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">27</span>                <span class="k">while</span> <span class="n">samples_acquired</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">:</span>
+<span class="linenos">28</span>                    <span class="n">measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel_name</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_multiple</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">fetch_backlog</span><span class="p">)</span>
+<span class="linenos">29</span>                    <span class="n">samples_acquired</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+<span class="linenos">30</span>                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measurements</span><span class="p">)):</span>
+<span class="linenos">31</span>                        <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">measurements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span><span class="p">,</span> <span class="n">measurements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">measurements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">in_compliance</span><span class="p">))</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">35</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Outputs the specified voltage, then takes the specified number of voltage and current readings.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2/0, PXI1Slot3/0-1&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource names of NI SMUs.&#39;</span><span class="p">)</span>
+<span class="linenos">37</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--length&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measure record length per channel&#39;</span><span class="p">)</span>
+<span class="linenos">38</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage level (V)&#39;</span><span class="p">)</span>
+<span class="linenos">39</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">41</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">45</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">49</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4162&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">50</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2/0, PXI1Slot3/1&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">54</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4162; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">55</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span>
+<span class="linenos">58</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">59</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidcpower-source-delay-measure-py">
+<h2>nidcpower_source_delay_measure.py<a class="headerlink" href="#nidcpower-source-delay-measure-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidcpower/examples/nidcpower_source_delay_measure.py">(nidcpower_source_delay_measure.py)</a></span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">hightime</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidcpower</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span><span class="w"> </span><span class="nf">print_fetched_measurements</span><span class="p">(</span><span class="n">measurements</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;             Voltage : </span><span class="si">{</span><span class="n">measurements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span><span class="si">:</span><span class="s1">f</span><span class="si">}</span><span class="s1"> V&#39;</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;              Current: </span><span class="si">{</span><span class="n">measurements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">current</span><span class="si">:</span><span class="s1">f</span><span class="si">}</span><span class="s1"> A&#39;</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;        In compliance: </span><span class="si">{</span><span class="n">measurements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">in_compliance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">voltage1</span><span class="p">,</span> <span class="n">voltage2</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="linenos">16</span>    <span class="n">timeout</span> <span class="o">=</span> <span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="p">(</span><span class="n">delay</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="k">with</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">19</span>        <span class="c1"># Configure the session.</span>
+<span class="linenos">20</span>        <span class="n">session</span><span class="o">.</span><span class="n">source_mode</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">SourceMode</span><span class="o">.</span><span class="n">SINGLE_POINT</span>
+<span class="linenos">21</span>        <span class="n">session</span><span class="o">.</span><span class="n">output_function</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">OutputFunction</span><span class="o">.</span><span class="n">DC_VOLTAGE</span>
+<span class="linenos">22</span>        <span class="n">session</span><span class="o">.</span><span class="n">current_limit</span> <span class="o">=</span> <span class="mf">.06</span>
+<span class="linenos">23</span>        <span class="n">session</span><span class="o">.</span><span class="n">voltage_level_range</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="linenos">24</span>        <span class="n">session</span><span class="o">.</span><span class="n">current_limit_range</span> <span class="o">=</span> <span class="mf">.06</span>
+<span class="linenos">25</span>        <span class="n">session</span><span class="o">.</span><span class="n">source_delay</span> <span class="o">=</span> <span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">delay</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="n">session</span><span class="o">.</span><span class="n">measure_when</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">MeasureWhen</span><span class="o">.</span><span class="n">AUTOMATICALLY_AFTER_SOURCE_COMPLETE</span>
+<span class="linenos">27</span>        <span class="n">session</span><span class="o">.</span><span class="n">voltage_level</span> <span class="o">=</span> <span class="n">voltage1</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">30</span>            <span class="n">channel_indices</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;0-</span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">channel_count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="linenos">31</span>            <span class="n">channels</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_channel_names</span><span class="p">(</span><span class="n">channel_indices</span><span class="p">)</span>
+<span class="linenos">32</span>            <span class="k">for</span> <span class="n">channel_name</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
+<span class="linenos">33</span>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Channel: </span><span class="si">{</span><span class="n">channel_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">34</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------&#39;</span><span class="p">)</span>
+<span class="linenos">35</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Voltage 1:&#39;</span><span class="p">)</span>
+<span class="linenos">36</span>                <span class="n">print_fetched_measurements</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel_name</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_multiple</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">))</span>
+<span class="linenos">37</span>                <span class="n">session</span><span class="o">.</span><span class="n">voltage_level</span> <span class="o">=</span> <span class="n">voltage2</span>  <span class="c1"># on-the-fly set</span>
+<span class="linenos">38</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Voltage 2:&#39;</span><span class="p">)</span>
+<span class="linenos">39</span>                <span class="n">print_fetched_measurements</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel_name</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_multiple</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">))</span>
+<span class="linenos">40</span>                <span class="n">session</span><span class="o">.</span><span class="n">output_enabled</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">41</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">45</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Outputs voltage 1, waits for source delay, and then takes a measurement. Then orepeat with voltage 2.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">46</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2/0, PXI1Slot3/0-1&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource names of an NI SMUs.&#39;</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v1&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage1&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage level 1 (V)&#39;</span><span class="p">)</span>
+<span class="linenos">48</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v2&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage2&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage level 2 (V)&#39;</span><span class="p">)</span>
+<span class="linenos">49</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--delay&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source delay (s)&#39;</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">51</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">52</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage1</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage2</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">delay</span><span class="p">)</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">56</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">57</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">60</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4162; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">61</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">65</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4162&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">66</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2/0, PXI1Slot3/1&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+<span class="linenos">67</span>
+<span class="linenos">68</span>
+<span class="linenos">69</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">70</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">71</span>
+<span class="linenos">72</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="errors.html" class="btn btn-neutral float-left" title="Exceptions and Warnings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grpc_session_options.html" class="btn btn-neutral float-right" title="gRPC Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

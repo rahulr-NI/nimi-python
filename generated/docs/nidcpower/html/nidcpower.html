@@ -1,0 +1,1715 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nidcpower module &mdash; NI-DCPower Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session" href="class.html" />
+    <link rel="prev" title="NI-DCPower Python API Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-DCPower Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nidcpower module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-DCPower Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">nidcpower module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nidcpower.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nidcpower-module">
+<h1>nidcpower module<a class="headerlink" href="#nidcpower-module" title="Link to this heading"></a></h1>
+<section id="installation">
+<span id="nidcpower-installation-section"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>As a prerequisite to using the <strong>nidcpower</strong> module, you must install the NI-DCPower runtime on your system. Visit <a class="reference external" href="http://www.ni.com/downloads/">ni.com/downloads</a> to download the driver runtime for your devices.</p>
+<p>The nimi-python modules (i.e. for <strong>NI-DCPower</strong>) can be installed with <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install nidcpower~=1.4.11
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>The following is a basic example of using the <strong>nidcpower</strong> module to open a session to a Source Meter Unit and measure voltage and current.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nidcpower</span>
+<span class="c1"># Configure the session.</span>
+
+<span class="k">with</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2/0&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">measure_record_length</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">measure_record_length_is_finite</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">measure_when</span> <span class="o">=</span> <span class="n">nidcpower</span><span class="o">.</span><span class="n">MeasureWhen</span><span class="o">.</span><span class="n">AUTOMATICALLY_AFTER_SOURCE_COMPLETE</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">voltage_level</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Effective measurement rate: </span><span class="si">{}</span><span class="s1"> S/s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">measure_record_delta_time</span> <span class="o">/</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">samples_acquired</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel           Num  Voltage    Current    In Compliance&#39;</span><span class="p">)</span>
+    <span class="n">row_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0:15}</span><span class="s1"> </span><span class="si">{1:3d}</span><span class="s1">    </span><span class="si">{2:8.6f}</span><span class="s1">   </span><span class="si">{3:8.6f}</span><span class="s1">   </span><span class="si">{4}</span><span class="s1">&#39;</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+        <span class="n">channel_indices</span> <span class="o">=</span> <span class="s1">&#39;0-</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channel_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_channel_names</span><span class="p">(</span><span class="n">channel_indices</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">channel_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channels</span><span class="p">):</span>
+            <span class="n">samples_acquired</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">samples_acquired</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+                <span class="n">measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel_name</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_multiple</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="n">fetch_backlog</span><span class="p">)</span>
+                <span class="n">samples_acquired</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measurements</span><span class="p">)):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">channel_name</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">measurements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">voltage</span><span class="p">,</span> <span class="n">measurements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">measurements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">in_compliance</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/tree/master/src/nidcpower/examples">Other usage examples can be found on GitHub.</a></p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#nidcpower.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#methods">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#abort">abort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.abort"><code class="docutils literal notranslate"><span class="pre">abort()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-latched-output-cutoff-state">clear_latched_output_cutoff_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.clear_latched_output_cutoff_state"><code class="docutils literal notranslate"><span class="pre">clear_latched_output_cutoff_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#close">close</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#commit">commit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.commit"><code class="docutils literal notranslate"><span class="pre">commit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-aperture-time">configure_aperture_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.configure_aperture_time"><code class="docutils literal notranslate"><span class="pre">configure_aperture_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-lcr-compensation">configure_lcr_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.configure_lcr_compensation"><code class="docutils literal notranslate"><span class="pre">configure_lcr_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-lcr-custom-cable-compensation">configure_lcr_custom_cable_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.configure_lcr_custom_cable_compensation"><code class="docutils literal notranslate"><span class="pre">configure_lcr_custom_cable_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-advanced-sequence">create_advanced_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.create_advanced_sequence"><code class="docutils literal notranslate"><span class="pre">create_advanced_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-advanced-sequence-commit-step">create_advanced_sequence_commit_step</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.create_advanced_sequence_commit_step"><code class="docutils literal notranslate"><span class="pre">create_advanced_sequence_commit_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-advanced-sequence-step">create_advanced_sequence_step</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.create_advanced_sequence_step"><code class="docutils literal notranslate"><span class="pre">create_advanced_sequence_step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#delete-advanced-sequence">delete_advanced_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.delete_advanced_sequence"><code class="docutils literal notranslate"><span class="pre">delete_advanced_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disable">disable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.disable"><code class="docutils literal notranslate"><span class="pre">disable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-buffer">export_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.export_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-file">export_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.export_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-multiple">fetch_multiple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.fetch_multiple"><code class="docutils literal notranslate"><span class="pre">fetch_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-multiple-lcr">fetch_multiple_lcr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.fetch_multiple_lcr"><code class="docutils literal notranslate"><span class="pre">fetch_multiple_lcr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-channel-name">get_channel_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_channel_name"><code class="docutils literal notranslate"><span class="pre">get_channel_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-channel-names">get_channel_names</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_channel_names"><code class="docutils literal notranslate"><span class="pre">get_channel_names()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-last-date-and-time">get_ext_cal_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_ext_cal_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-last-temp">get_ext_cal_last_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_ext_cal_last_temp"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_last_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-recommended-interval">get_ext_cal_recommended_interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_ext_cal_recommended_interval"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_recommended_interval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-lcr-compensation-data">get_lcr_compensation_data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_lcr_compensation_data"><code class="docutils literal notranslate"><span class="pre">get_lcr_compensation_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-lcr-compensation-last-date-and-time">get_lcr_compensation_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_lcr_compensation_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_lcr_compensation_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-lcr-custom-cable-compensation-data">get_lcr_custom_cable_compensation_data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_lcr_custom_cable_compensation_data"><code class="docutils literal notranslate"><span class="pre">get_lcr_custom_cable_compensation_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-last-date-and-time">get_self_cal_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_self_cal_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_self_cal_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-last-temp">get_self_cal_last_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.get_self_cal_last_temp"><code class="docutils literal notranslate"><span class="pre">get_self_cal_last_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-buffer">import_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.import_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-file">import_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.import_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#initiate">initiate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.initiate"><code class="docutils literal notranslate"><span class="pre">initiate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lock">lock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure">measure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure"><code class="docutils literal notranslate"><span class="pre">measure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-multiple">measure_multiple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_multiple"><code class="docutils literal notranslate"><span class="pre">measure_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-multiple-lcr">measure_multiple_lcr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_multiple_lcr"><code class="docutils literal notranslate"><span class="pre">measure_multiple_lcr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-lcr-load-compensation">perform_lcr_load_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_load_compensation"><code class="docutils literal notranslate"><span class="pre">perform_lcr_load_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-lcr-open-compensation">perform_lcr_open_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_open_compensation"><code class="docutils literal notranslate"><span class="pre">perform_lcr_open_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-lcr-open-custom-cable-compensation">perform_lcr_open_custom_cable_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_open_custom_cable_compensation"><code class="docutils literal notranslate"><span class="pre">perform_lcr_open_custom_cable_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-lcr-short-compensation">perform_lcr_short_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_short_compensation"><code class="docutils literal notranslate"><span class="pre">perform_lcr_short_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-lcr-short-custom-cable-compensation">perform_lcr_short_custom_cable_compensation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_short_custom_cable_compensation"><code class="docutils literal notranslate"><span class="pre">perform_lcr_short_custom_cable_compensation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-in-compliance">query_in_compliance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_in_compliance"><code class="docutils literal notranslate"><span class="pre">query_in_compliance()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-latched-output-cutoff-state">query_latched_output_cutoff_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_latched_output_cutoff_state"><code class="docutils literal notranslate"><span class="pre">query_latched_output_cutoff_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-max-current-limit">query_max_current_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_max_current_limit"><code class="docutils literal notranslate"><span class="pre">query_max_current_limit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-max-voltage-level">query_max_voltage_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_max_voltage_level"><code class="docutils literal notranslate"><span class="pre">query_max_voltage_level()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-min-current-limit">query_min_current_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_min_current_limit"><code class="docutils literal notranslate"><span class="pre">query_min_current_limit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-output-state">query_output_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_output_state"><code class="docutils literal notranslate"><span class="pre">query_output_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read-current-temperature">read_current_temperature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.read_current_temperature"><code class="docutils literal notranslate"><span class="pre">read_current_temperature()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset">reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-device">reset_device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.reset_device"><code class="docutils literal notranslate"><span class="pre">reset_device()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-with-defaults">reset_with_defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.reset_with_defaults"><code class="docutils literal notranslate"><span class="pre">reset_with_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-cal">self_cal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.self_cal"><code class="docutils literal notranslate"><span class="pre">self_cal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-test">self_test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.self_test"><code class="docutils literal notranslate"><span class="pre">self_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#send-software-edge-trigger">send_software_edge_trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.send_software_edge_trigger"><code class="docutils literal notranslate"><span class="pre">send_software_edge_trigger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#set-sequence">set_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.set_sequence"><code class="docutils literal notranslate"><span class="pre">set_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#unlock">unlock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wait-for-event">wait_for_event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.wait_for_event"><code class="docutils literal notranslate"><span class="pre">wait_for_event()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#properties">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#active-advanced-sequence">active_advanced_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.active_advanced_sequence"><code class="docutils literal notranslate"><span class="pre">active_advanced_sequence</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#active-advanced-sequence-step">active_advanced_sequence_step</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.active_advanced_sequence_step"><code class="docutils literal notranslate"><span class="pre">active_advanced_sequence_step</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#actual-power-allocation">actual_power_allocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.actual_power_allocation"><code class="docutils literal notranslate"><span class="pre">actual_power_allocation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#aperture-time">aperture_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.aperture_time"><code class="docutils literal notranslate"><span class="pre">aperture_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#aperture-time-auto-mode">aperture_time_auto_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.aperture_time_auto_mode"><code class="docutils literal notranslate"><span class="pre">aperture_time_auto_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#aperture-time-units">aperture_time_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.aperture_time_units"><code class="docutils literal notranslate"><span class="pre">aperture_time_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange">autorange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange"><code class="docutils literal notranslate"><span class="pre">autorange</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-aperture-time-mode">autorange_aperture_time_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_aperture_time_mode"><code class="docutils literal notranslate"><span class="pre">autorange_aperture_time_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-behavior">autorange_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_behavior"><code class="docutils literal notranslate"><span class="pre">autorange_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-maximum-delay-after-range-change">autorange_maximum_delay_after_range_change</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_maximum_delay_after_range_change"><code class="docutils literal notranslate"><span class="pre">autorange_maximum_delay_after_range_change</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-minimum-aperture-time">autorange_minimum_aperture_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_minimum_aperture_time"><code class="docutils literal notranslate"><span class="pre">autorange_minimum_aperture_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-minimum-aperture-time-units">autorange_minimum_aperture_time_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_minimum_aperture_time_units"><code class="docutils literal notranslate"><span class="pre">autorange_minimum_aperture_time_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-minimum-current-range">autorange_minimum_current_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_minimum_current_range"><code class="docutils literal notranslate"><span class="pre">autorange_minimum_current_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-minimum-voltage-range">autorange_minimum_voltage_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_minimum_voltage_range"><code class="docutils literal notranslate"><span class="pre">autorange_minimum_voltage_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#autorange-threshold-mode">autorange_threshold_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.autorange_threshold_mode"><code class="docutils literal notranslate"><span class="pre">autorange_threshold_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#auto-zero">auto_zero</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.auto_zero"><code class="docutils literal notranslate"><span class="pre">auto_zero</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#auxiliary-power-source-available">auxiliary_power_source_available</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.auxiliary_power_source_available"><code class="docutils literal notranslate"><span class="pre">auxiliary_power_source_available</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#cable-length">cable_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.cable_length"><code class="docutils literal notranslate"><span class="pre">cable_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-count">channel_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.channel_count"><code class="docutils literal notranslate"><span class="pre">channel_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#compliance-limit-symmetry">compliance_limit_symmetry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.compliance_limit_symmetry"><code class="docutils literal notranslate"><span class="pre">compliance_limit_symmetry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#conduction-voltage-mode">conduction_voltage_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.conduction_voltage_mode"><code class="docutils literal notranslate"><span class="pre">conduction_voltage_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#conduction-voltage-off-threshold">conduction_voltage_off_threshold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.conduction_voltage_off_threshold"><code class="docutils literal notranslate"><span class="pre">conduction_voltage_off_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#conduction-voltage-on-threshold">conduction_voltage_on_threshold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.conduction_voltage_on_threshold"><code class="docutils literal notranslate"><span class="pre">conduction_voltage_on_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-compensation-frequency">current_compensation_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_compensation_frequency"><code class="docutils literal notranslate"><span class="pre">current_compensation_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-gain-bandwidth">current_gain_bandwidth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_gain_bandwidth"><code class="docutils literal notranslate"><span class="pre">current_gain_bandwidth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-level">current_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_level"><code class="docutils literal notranslate"><span class="pre">current_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-level-autorange">current_level_autorange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_level_autorange"><code class="docutils literal notranslate"><span class="pre">current_level_autorange</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-level-falling-slew-rate">current_level_falling_slew_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_level_falling_slew_rate"><code class="docutils literal notranslate"><span class="pre">current_level_falling_slew_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-level-range">current_level_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_level_range"><code class="docutils literal notranslate"><span class="pre">current_level_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-level-rising-slew-rate">current_level_rising_slew_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_level_rising_slew_rate"><code class="docutils literal notranslate"><span class="pre">current_level_rising_slew_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-limit">current_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_limit"><code class="docutils literal notranslate"><span class="pre">current_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-limit-autorange">current_limit_autorange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_limit_autorange"><code class="docutils literal notranslate"><span class="pre">current_limit_autorange</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-limit-behavior">current_limit_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_limit_behavior"><code class="docutils literal notranslate"><span class="pre">current_limit_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-limit-high">current_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_limit_high"><code class="docutils literal notranslate"><span class="pre">current_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-limit-low">current_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_limit_low"><code class="docutils literal notranslate"><span class="pre">current_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-limit-range">current_limit_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_limit_range"><code class="docutils literal notranslate"><span class="pre">current_limit_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-pole-zero-ratio">current_pole_zero_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.current_pole_zero_ratio"><code class="docutils literal notranslate"><span class="pre">current_pole_zero_ratio</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#dc-noise-rejection">dc_noise_rejection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.dc_noise_rejection"><code class="docutils literal notranslate"><span class="pre">dc_noise_rejection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-measure-trigger-input-terminal">digital_edge_measure_trigger_input_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.digital_edge_measure_trigger_input_terminal"><code class="docutils literal notranslate"><span class="pre">digital_edge_measure_trigger_input_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-pulse-trigger-input-terminal">digital_edge_pulse_trigger_input_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.digital_edge_pulse_trigger_input_terminal"><code class="docutils literal notranslate"><span class="pre">digital_edge_pulse_trigger_input_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-sequence-advance-trigger-input-terminal">digital_edge_sequence_advance_trigger_input_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.digital_edge_sequence_advance_trigger_input_terminal"><code class="docutils literal notranslate"><span class="pre">digital_edge_sequence_advance_trigger_input_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-shutdown-trigger-input-terminal">digital_edge_shutdown_trigger_input_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.digital_edge_shutdown_trigger_input_terminal"><code class="docutils literal notranslate"><span class="pre">digital_edge_shutdown_trigger_input_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-source-trigger-input-terminal">digital_edge_source_trigger_input_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.digital_edge_source_trigger_input_terminal"><code class="docutils literal notranslate"><span class="pre">digital_edge_source_trigger_input_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-start-trigger-input-terminal">digital_edge_start_trigger_input_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.digital_edge_start_trigger_input_terminal"><code class="docutils literal notranslate"><span class="pre">digital_edge_start_trigger_input_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#driver-setup">driver_setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.driver_setup"><code class="docutils literal notranslate"><span class="pre">driver_setup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-measure-trigger-output-terminal">exported_measure_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.exported_measure_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_measure_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-pulse-trigger-output-terminal">exported_pulse_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.exported_pulse_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_pulse_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-sequence-advance-trigger-output-terminal">exported_sequence_advance_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.exported_sequence_advance_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_sequence_advance_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-source-trigger-output-terminal">exported_source_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.exported_source_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_source_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-start-trigger-output-terminal">exported_start_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.exported_start_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_start_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-backlog">fetch_backlog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.fetch_backlog"><code class="docutils literal notranslate"><span class="pre">fetch_backlog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-firmware-revision">instrument_firmware_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.instrument_firmware_revision"><code class="docutils literal notranslate"><span class="pre">instrument_firmware_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-manufacturer">instrument_manufacturer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.instrument_manufacturer"><code class="docutils literal notranslate"><span class="pre">instrument_manufacturer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-mode">instrument_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.instrument_mode"><code class="docutils literal notranslate"><span class="pre">instrument_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-model">instrument_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.instrument_model"><code class="docutils literal notranslate"><span class="pre">instrument_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#interlock-input-open">interlock_input_open</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.interlock_input_open"><code class="docutils literal notranslate"><span class="pre">interlock_input_open</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#io-resource-descriptor">io_resource_descriptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.io_resource_descriptor"><code class="docutils literal notranslate"><span class="pre">io_resource_descriptor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#isolation-state">isolation_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.isolation_state"><code class="docutils literal notranslate"><span class="pre">isolation_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-actual-load-reactance">lcr_actual_load_reactance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_actual_load_reactance"><code class="docutils literal notranslate"><span class="pre">lcr_actual_load_reactance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-actual-load-resistance">lcr_actual_load_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_actual_load_resistance"><code class="docutils literal notranslate"><span class="pre">lcr_actual_load_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-ac-dither-enabled">lcr_ac_dither_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_ac_dither_enabled"><code class="docutils literal notranslate"><span class="pre">lcr_ac_dither_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-ac-electrical-cable-length-delay">lcr_ac_electrical_cable_length_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_ac_electrical_cable_length_delay"><code class="docutils literal notranslate"><span class="pre">lcr_ac_electrical_cable_length_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-automatic-level-control">lcr_automatic_level_control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_automatic_level_control"><code class="docutils literal notranslate"><span class="pre">lcr_automatic_level_control</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-current-amplitude">lcr_current_amplitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_current_amplitude"><code class="docutils literal notranslate"><span class="pre">lcr_current_amplitude</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-current-range">lcr_current_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_current_range"><code class="docutils literal notranslate"><span class="pre">lcr_current_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-custom-measurement-time">lcr_custom_measurement_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_custom_measurement_time"><code class="docutils literal notranslate"><span class="pre">lcr_custom_measurement_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-automatic-level-control">lcr_dc_bias_automatic_level_control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_automatic_level_control"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_automatic_level_control</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-current-level">lcr_dc_bias_current_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_current_level"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_current_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-current-range">lcr_dc_bias_current_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_current_range"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_current_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-source">lcr_dc_bias_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_source"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-transient-response">lcr_dc_bias_transient_response</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_transient_response"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_transient_response</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-voltage-level">lcr_dc_bias_voltage_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_voltage_level"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_voltage_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-dc-bias-voltage-range">lcr_dc_bias_voltage_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_voltage_range"><code class="docutils literal notranslate"><span class="pre">lcr_dc_bias_voltage_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-frequency">lcr_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_frequency"><code class="docutils literal notranslate"><span class="pre">lcr_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-impedance-auto-range">lcr_impedance_auto_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_impedance_auto_range"><code class="docutils literal notranslate"><span class="pre">lcr_impedance_auto_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-impedance-range">lcr_impedance_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_impedance_range"><code class="docutils literal notranslate"><span class="pre">lcr_impedance_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-impedance-range-source">lcr_impedance_range_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_impedance_range_source"><code class="docutils literal notranslate"><span class="pre">lcr_impedance_range_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-load-capacitance">lcr_load_capacitance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_load_capacitance"><code class="docutils literal notranslate"><span class="pre">lcr_load_capacitance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-load-compensation-enabled">lcr_load_compensation_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_load_compensation_enabled"><code class="docutils literal notranslate"><span class="pre">lcr_load_compensation_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-load-inductance">lcr_load_inductance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_load_inductance"><code class="docutils literal notranslate"><span class="pre">lcr_load_inductance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-load-resistance">lcr_load_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_load_resistance"><code class="docutils literal notranslate"><span class="pre">lcr_load_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-measured-load-reactance">lcr_measured_load_reactance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_measured_load_reactance"><code class="docutils literal notranslate"><span class="pre">lcr_measured_load_reactance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-measured-load-resistance">lcr_measured_load_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_measured_load_resistance"><code class="docutils literal notranslate"><span class="pre">lcr_measured_load_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-measurement-time">lcr_measurement_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_measurement_time"><code class="docutils literal notranslate"><span class="pre">lcr_measurement_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-open-compensation-enabled">lcr_open_compensation_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_open_compensation_enabled"><code class="docutils literal notranslate"><span class="pre">lcr_open_compensation_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-open-conductance">lcr_open_conductance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_open_conductance"><code class="docutils literal notranslate"><span class="pre">lcr_open_conductance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-open-short-load-compensation-data-source">lcr_open_short_load_compensation_data_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_open_short_load_compensation_data_source"><code class="docutils literal notranslate"><span class="pre">lcr_open_short_load_compensation_data_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-open-susceptance">lcr_open_susceptance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_open_susceptance"><code class="docutils literal notranslate"><span class="pre">lcr_open_susceptance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-short-compensation-enabled">lcr_short_compensation_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_short_compensation_enabled"><code class="docutils literal notranslate"><span class="pre">lcr_short_compensation_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-short-custom-cable-compensation-enabled">lcr_short_custom_cable_compensation_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_short_custom_cable_compensation_enabled"><code class="docutils literal notranslate"><span class="pre">lcr_short_custom_cable_compensation_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-short-reactance">lcr_short_reactance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_short_reactance"><code class="docutils literal notranslate"><span class="pre">lcr_short_reactance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-short-resistance">lcr_short_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_short_resistance"><code class="docutils literal notranslate"><span class="pre">lcr_short_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-source-aperture-time">lcr_source_aperture_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_source_aperture_time"><code class="docutils literal notranslate"><span class="pre">lcr_source_aperture_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-source-delay-mode">lcr_source_delay_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_source_delay_mode"><code class="docutils literal notranslate"><span class="pre">lcr_source_delay_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-stimulus-function">lcr_stimulus_function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_stimulus_function"><code class="docutils literal notranslate"><span class="pre">lcr_stimulus_function</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-voltage-amplitude">lcr_voltage_amplitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_voltage_amplitude"><code class="docutils literal notranslate"><span class="pre">lcr_voltage_amplitude</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lcr-voltage-range">lcr_voltage_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.lcr_voltage_range"><code class="docutils literal notranslate"><span class="pre">lcr_voltage_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#logical-name">logical_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.logical_name"><code class="docutils literal notranslate"><span class="pre">logical_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-buffer-size">measure_buffer_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_buffer_size"><code class="docutils literal notranslate"><span class="pre">measure_buffer_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-complete-event-delay">measure_complete_event_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_complete_event_delay"><code class="docutils literal notranslate"><span class="pre">measure_complete_event_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-complete-event-output-behavior">measure_complete_event_output_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_complete_event_output_behavior"><code class="docutils literal notranslate"><span class="pre">measure_complete_event_output_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-complete-event-output-terminal">measure_complete_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_complete_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">measure_complete_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-complete-event-pulse-polarity">measure_complete_event_pulse_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_complete_event_pulse_polarity"><code class="docutils literal notranslate"><span class="pre">measure_complete_event_pulse_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-complete-event-pulse-width">measure_complete_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_complete_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">measure_complete_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-complete-event-toggle-initial-state">measure_complete_event_toggle_initial_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_complete_event_toggle_initial_state"><code class="docutils literal notranslate"><span class="pre">measure_complete_event_toggle_initial_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-record-delta-time">measure_record_delta_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_record_delta_time"><code class="docutils literal notranslate"><span class="pre">measure_record_delta_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-record-length">measure_record_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_record_length"><code class="docutils literal notranslate"><span class="pre">measure_record_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-record-length-is-finite">measure_record_length_is_finite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_record_length_is_finite"><code class="docutils literal notranslate"><span class="pre">measure_record_length_is_finite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-trigger-type">measure_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_trigger_type"><code class="docutils literal notranslate"><span class="pre">measure_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#measure-when">measure_when</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.measure_when"><code class="docutils literal notranslate"><span class="pre">measure_when</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#merged-channels">merged_channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.merged_channels"><code class="docutils literal notranslate"><span class="pre">merged_channels</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-capacitance">output_capacitance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_capacitance"><code class="docutils literal notranslate"><span class="pre">output_capacitance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-connected">output_connected</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_connected"><code class="docutils literal notranslate"><span class="pre">output_connected</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-current-change-limit-high">output_cutoff_current_change_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_current_change_limit_high"><code class="docutils literal notranslate"><span class="pre">output_cutoff_current_change_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-current-change-limit-low">output_cutoff_current_change_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_current_change_limit_low"><code class="docutils literal notranslate"><span class="pre">output_cutoff_current_change_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-current-measure-limit-high">output_cutoff_current_measure_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_current_measure_limit_high"><code class="docutils literal notranslate"><span class="pre">output_cutoff_current_measure_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-current-measure-limit-low">output_cutoff_current_measure_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_current_measure_limit_low"><code class="docutils literal notranslate"><span class="pre">output_cutoff_current_measure_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-current-overrange-enabled">output_cutoff_current_overrange_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_current_overrange_enabled"><code class="docutils literal notranslate"><span class="pre">output_cutoff_current_overrange_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-delay">output_cutoff_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_delay"><code class="docutils literal notranslate"><span class="pre">output_cutoff_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-enabled">output_cutoff_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_enabled"><code class="docutils literal notranslate"><span class="pre">output_cutoff_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-voltage-change-limit-high">output_cutoff_voltage_change_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_voltage_change_limit_high"><code class="docutils literal notranslate"><span class="pre">output_cutoff_voltage_change_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-voltage-change-limit-low">output_cutoff_voltage_change_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_voltage_change_limit_low"><code class="docutils literal notranslate"><span class="pre">output_cutoff_voltage_change_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-voltage-measure-limit-high">output_cutoff_voltage_measure_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_voltage_measure_limit_high"><code class="docutils literal notranslate"><span class="pre">output_cutoff_voltage_measure_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-voltage-measure-limit-low">output_cutoff_voltage_measure_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_voltage_measure_limit_low"><code class="docutils literal notranslate"><span class="pre">output_cutoff_voltage_measure_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-voltage-output-limit-high">output_cutoff_voltage_output_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_voltage_output_limit_high"><code class="docutils literal notranslate"><span class="pre">output_cutoff_voltage_output_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-cutoff-voltage-output-limit-low">output_cutoff_voltage_output_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_cutoff_voltage_output_limit_low"><code class="docutils literal notranslate"><span class="pre">output_cutoff_voltage_output_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-enabled">output_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_enabled"><code class="docutils literal notranslate"><span class="pre">output_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-function">output_function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_function"><code class="docutils literal notranslate"><span class="pre">output_function</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-resistance">output_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.output_resistance"><code class="docutils literal notranslate"><span class="pre">output_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#overranging-enabled">overranging_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.overranging_enabled"><code class="docutils literal notranslate"><span class="pre">overranging_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ovp-enabled">ovp_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.ovp_enabled"><code class="docutils literal notranslate"><span class="pre">ovp_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ovp-limit">ovp_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.ovp_limit"><code class="docutils literal notranslate"><span class="pre">ovp_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#power-allocation-mode">power_allocation_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.power_allocation_mode"><code class="docutils literal notranslate"><span class="pre">power_allocation_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#power-line-frequency">power_line_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.power_line_frequency"><code class="docutils literal notranslate"><span class="pre">power_line_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#power-source">power_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.power_source"><code class="docutils literal notranslate"><span class="pre">power_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#power-source-in-use">power_source_in_use</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.power_source_in_use"><code class="docutils literal notranslate"><span class="pre">power_source_in_use</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-current-level">pulse_bias_current_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_current_level"><code class="docutils literal notranslate"><span class="pre">pulse_bias_current_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-current-limit">pulse_bias_current_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_current_limit"><code class="docutils literal notranslate"><span class="pre">pulse_bias_current_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-current-limit-high">pulse_bias_current_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_current_limit_high"><code class="docutils literal notranslate"><span class="pre">pulse_bias_current_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-current-limit-low">pulse_bias_current_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_current_limit_low"><code class="docutils literal notranslate"><span class="pre">pulse_bias_current_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-delay">pulse_bias_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_delay"><code class="docutils literal notranslate"><span class="pre">pulse_bias_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-voltage-level">pulse_bias_voltage_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_voltage_level"><code class="docutils literal notranslate"><span class="pre">pulse_bias_voltage_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-voltage-limit">pulse_bias_voltage_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_voltage_limit"><code class="docutils literal notranslate"><span class="pre">pulse_bias_voltage_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-voltage-limit-high">pulse_bias_voltage_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_voltage_limit_high"><code class="docutils literal notranslate"><span class="pre">pulse_bias_voltage_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-bias-voltage-limit-low">pulse_bias_voltage_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_bias_voltage_limit_low"><code class="docutils literal notranslate"><span class="pre">pulse_bias_voltage_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-complete-event-output-terminal">pulse_complete_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_complete_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">pulse_complete_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-complete-event-pulse-polarity">pulse_complete_event_pulse_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_complete_event_pulse_polarity"><code class="docutils literal notranslate"><span class="pre">pulse_complete_event_pulse_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-complete-event-pulse-width">pulse_complete_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_complete_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">pulse_complete_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-current-level">pulse_current_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_current_level"><code class="docutils literal notranslate"><span class="pre">pulse_current_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-current-level-range">pulse_current_level_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_current_level_range"><code class="docutils literal notranslate"><span class="pre">pulse_current_level_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-current-limit">pulse_current_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_current_limit"><code class="docutils literal notranslate"><span class="pre">pulse_current_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-current-limit-high">pulse_current_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_current_limit_high"><code class="docutils literal notranslate"><span class="pre">pulse_current_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-current-limit-low">pulse_current_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_current_limit_low"><code class="docutils literal notranslate"><span class="pre">pulse_current_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-current-limit-range">pulse_current_limit_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_current_limit_range"><code class="docutils literal notranslate"><span class="pre">pulse_current_limit_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-off-time">pulse_off_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_off_time"><code class="docutils literal notranslate"><span class="pre">pulse_off_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-on-time">pulse_on_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_on_time"><code class="docutils literal notranslate"><span class="pre">pulse_on_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-trigger-type">pulse_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_trigger_type"><code class="docutils literal notranslate"><span class="pre">pulse_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-voltage-level">pulse_voltage_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_voltage_level"><code class="docutils literal notranslate"><span class="pre">pulse_voltage_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-voltage-level-range">pulse_voltage_level_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_voltage_level_range"><code class="docutils literal notranslate"><span class="pre">pulse_voltage_level_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-voltage-limit">pulse_voltage_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_voltage_limit"><code class="docutils literal notranslate"><span class="pre">pulse_voltage_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-voltage-limit-high">pulse_voltage_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_voltage_limit_high"><code class="docutils literal notranslate"><span class="pre">pulse_voltage_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-voltage-limit-low">pulse_voltage_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_voltage_limit_low"><code class="docutils literal notranslate"><span class="pre">pulse_voltage_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pulse-voltage-limit-range">pulse_voltage_limit_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.pulse_voltage_limit_range"><code class="docutils literal notranslate"><span class="pre">pulse_voltage_limit_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-instrument-status">query_instrument_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.query_instrument_status"><code class="docutils literal notranslate"><span class="pre">query_instrument_status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-pulse-trigger-event-output-terminal">ready_for_pulse_trigger_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.ready_for_pulse_trigger_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">ready_for_pulse_trigger_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-pulse-trigger-event-pulse-polarity">ready_for_pulse_trigger_event_pulse_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.ready_for_pulse_trigger_event_pulse_polarity"><code class="docutils literal notranslate"><span class="pre">ready_for_pulse_trigger_event_pulse_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-pulse-trigger-event-pulse-width">ready_for_pulse_trigger_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.ready_for_pulse_trigger_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">ready_for_pulse_trigger_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#requested-power-allocation">requested_power_allocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.requested_power_allocation"><code class="docutils literal notranslate"><span class="pre">requested_power_allocation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-average-before-measurement">reset_average_before_measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.reset_average_before_measurement"><code class="docutils literal notranslate"><span class="pre">reset_average_before_measurement</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#samples-to-average">samples_to_average</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.samples_to_average"><code class="docutils literal notranslate"><span class="pre">samples_to_average</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-calibration-persistence">self_calibration_persistence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.self_calibration_persistence"><code class="docutils literal notranslate"><span class="pre">self_calibration_persistence</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sense">sense</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sense"><code class="docutils literal notranslate"><span class="pre">sense</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-advance-trigger-type">sequence_advance_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_advance_trigger_type"><code class="docutils literal notranslate"><span class="pre">sequence_advance_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-engine-done-event-output-behavior">sequence_engine_done_event_output_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_engine_done_event_output_behavior"><code class="docutils literal notranslate"><span class="pre">sequence_engine_done_event_output_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-engine-done-event-output-terminal">sequence_engine_done_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_engine_done_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">sequence_engine_done_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-engine-done-event-pulse-polarity">sequence_engine_done_event_pulse_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_engine_done_event_pulse_polarity"><code class="docutils literal notranslate"><span class="pre">sequence_engine_done_event_pulse_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-engine-done-event-pulse-width">sequence_engine_done_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_engine_done_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">sequence_engine_done_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-engine-done-event-toggle-initial-state">sequence_engine_done_event_toggle_initial_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_engine_done_event_toggle_initial_state"><code class="docutils literal notranslate"><span class="pre">sequence_engine_done_event_toggle_initial_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-iteration-complete-event-output-behavior">sequence_iteration_complete_event_output_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_iteration_complete_event_output_behavior"><code class="docutils literal notranslate"><span class="pre">sequence_iteration_complete_event_output_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-iteration-complete-event-output-terminal">sequence_iteration_complete_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_iteration_complete_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">sequence_iteration_complete_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-iteration-complete-event-pulse-polarity">sequence_iteration_complete_event_pulse_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_iteration_complete_event_pulse_polarity"><code class="docutils literal notranslate"><span class="pre">sequence_iteration_complete_event_pulse_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-iteration-complete-event-pulse-width">sequence_iteration_complete_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_iteration_complete_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">sequence_iteration_complete_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-iteration-complete-event-toggle-initial-state">sequence_iteration_complete_event_toggle_initial_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_iteration_complete_event_toggle_initial_state"><code class="docutils literal notranslate"><span class="pre">sequence_iteration_complete_event_toggle_initial_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-loop-count">sequence_loop_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_loop_count"><code class="docutils literal notranslate"><span class="pre">sequence_loop_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-loop-count-is-finite">sequence_loop_count_is_finite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_loop_count_is_finite"><code class="docutils literal notranslate"><span class="pre">sequence_loop_count_is_finite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-step-delta-time">sequence_step_delta_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_step_delta_time"><code class="docutils literal notranslate"><span class="pre">sequence_step_delta_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sequence-step-delta-time-enabled">sequence_step_delta_time_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.sequence_step_delta_time_enabled"><code class="docutils literal notranslate"><span class="pre">sequence_step_delta_time_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#serial-number">serial_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.serial_number"><code class="docutils literal notranslate"><span class="pre">serial_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#shutdown-trigger-type">shutdown_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.shutdown_trigger_type"><code class="docutils literal notranslate"><span class="pre">shutdown_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#simulate">simulate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.simulate"><code class="docutils literal notranslate"><span class="pre">simulate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-complete-event-output-behavior">source_complete_event_output_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_complete_event_output_behavior"><code class="docutils literal notranslate"><span class="pre">source_complete_event_output_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-complete-event-output-terminal">source_complete_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_complete_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">source_complete_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-complete-event-pulse-polarity">source_complete_event_pulse_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_complete_event_pulse_polarity"><code class="docutils literal notranslate"><span class="pre">source_complete_event_pulse_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-complete-event-pulse-width">source_complete_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_complete_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">source_complete_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-complete-event-toggle-initial-state">source_complete_event_toggle_initial_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_complete_event_toggle_initial_state"><code class="docutils literal notranslate"><span class="pre">source_complete_event_toggle_initial_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-delay">source_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_delay"><code class="docutils literal notranslate"><span class="pre">source_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-mode">source_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_mode"><code class="docutils literal notranslate"><span class="pre">source_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#source-trigger-type">source_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.source_trigger_type"><code class="docutils literal notranslate"><span class="pre">source_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-description">specific_driver_description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.specific_driver_description"><code class="docutils literal notranslate"><span class="pre">specific_driver_description</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-prefix">specific_driver_prefix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.specific_driver_prefix"><code class="docutils literal notranslate"><span class="pre">specific_driver_prefix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-revision">specific_driver_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.specific_driver_revision"><code class="docutils literal notranslate"><span class="pre">specific_driver_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-vendor">specific_driver_vendor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.specific_driver_vendor"><code class="docutils literal notranslate"><span class="pre">specific_driver_vendor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#start-trigger-type">start_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.start_trigger_type"><code class="docutils literal notranslate"><span class="pre">start_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#supported-instrument-models">supported_instrument_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.supported_instrument_models"><code class="docutils literal notranslate"><span class="pre">supported_instrument_models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#transient-response">transient_response</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.transient_response"><code class="docutils literal notranslate"><span class="pre">transient_response</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-compensation-frequency">voltage_compensation_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_compensation_frequency"><code class="docutils literal notranslate"><span class="pre">voltage_compensation_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-gain-bandwidth">voltage_gain_bandwidth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_gain_bandwidth"><code class="docutils literal notranslate"><span class="pre">voltage_gain_bandwidth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-level">voltage_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_level"><code class="docutils literal notranslate"><span class="pre">voltage_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-level-autorange">voltage_level_autorange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_level_autorange"><code class="docutils literal notranslate"><span class="pre">voltage_level_autorange</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-level-range">voltage_level_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_level_range"><code class="docutils literal notranslate"><span class="pre">voltage_level_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-limit">voltage_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_limit"><code class="docutils literal notranslate"><span class="pre">voltage_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-limit-autorange">voltage_limit_autorange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_limit_autorange"><code class="docutils literal notranslate"><span class="pre">voltage_limit_autorange</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-limit-high">voltage_limit_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_limit_high"><code class="docutils literal notranslate"><span class="pre">voltage_limit_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-limit-low">voltage_limit_low</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_limit_low"><code class="docutils literal notranslate"><span class="pre">voltage_limit_low</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-limit-range">voltage_limit_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_limit_range"><code class="docutils literal notranslate"><span class="pre">voltage_limit_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#voltage-pole-zero-ratio">voltage_pole_zero_ratio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidcpower.Session.voltage_pole_zero_ratio"><code class="docutils literal notranslate"><span class="pre">voltage_pole_zero_ratio</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#channels">channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#nidcpower.Session.nidcpower.Session.channels"><code class="docutils literal notranslate"><span class="pre">nidcpower.Session.channels</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#instruments">instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#nidcpower.Session.nidcpower.Session.instruments"><code class="docutils literal notranslate"><span class="pre">nidcpower.Session.instruments</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#aperturetimeautomode">ApertureTimeAutoMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeAutoMode"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeAutoMode.OFF"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeAutoMode.SHORT"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.SHORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeAutoMode.NORMAL"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeAutoMode.LONG"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.LONG</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#aperturetimeunits">ApertureTimeUnits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeUnits"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.SECONDS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ApertureTimeUnits.POWER_LINE_CYCLES"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.POWER_LINE_CYCLES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#autozero">AutoZero</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.AutoZero"><code class="docutils literal notranslate"><span class="pre">AutoZero</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutoZero.OFF"><code class="docutils literal notranslate"><span class="pre">AutoZero.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutoZero.ONCE"><code class="docutils literal notranslate"><span class="pre">AutoZero.ONCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutoZero.ON"><code class="docutils literal notranslate"><span class="pre">AutoZero.ON</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#autorangeaperturetimemode">AutorangeApertureTimeMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.AutorangeApertureTimeMode"><code class="docutils literal notranslate"><span class="pre">AutorangeApertureTimeMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeApertureTimeMode.AUTO"><code class="docutils literal notranslate"><span class="pre">AutorangeApertureTimeMode.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeApertureTimeMode.CUSTOM"><code class="docutils literal notranslate"><span class="pre">AutorangeApertureTimeMode.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#autorangebehavior">AutorangeBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.AutorangeBehavior"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeBehavior.UP_TO_LIMIT_THEN_DOWN"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior.UP_TO_LIMIT_THEN_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeBehavior.UP"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior.UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeBehavior.UP_AND_DOWN"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior.UP_AND_DOWN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#autorangethresholdmode">AutorangeThresholdMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.AutorangeThresholdMode"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeThresholdMode.NORMAL"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeThresholdMode.FAST_STEP"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.FAST_STEP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeThresholdMode.HIGH_HYSTERESIS"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.HIGH_HYSTERESIS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeThresholdMode.MEDIUM_HYSTERESIS"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.MEDIUM_HYSTERESIS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.AutorangeThresholdMode.HOLD"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.HOLD</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#cablelength">CableLength</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.CableLength"><code class="docutils literal notranslate"><span class="pre">CableLength</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.ZERO_M"><code class="docutils literal notranslate"><span class="pre">CableLength.ZERO_M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_0_5M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_0_5M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_1M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_1M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_2M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_2M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_4M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_4M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_1M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_TRIAXIAL_1M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_2M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_TRIAXIAL_2M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_4M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_TRIAXIAL_4M</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.CUSTOM_ONBOARD_STORAGE"><code class="docutils literal notranslate"><span class="pre">CableLength.CUSTOM_ONBOARD_STORAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CableLength.CUSTOM_AS_CONFIGURED"><code class="docutils literal notranslate"><span class="pre">CableLength.CUSTOM_AS_CONFIGURED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#compliancelimitsymmetry">ComplianceLimitSymmetry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.ComplianceLimitSymmetry"><code class="docutils literal notranslate"><span class="pre">ComplianceLimitSymmetry</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ComplianceLimitSymmetry.SYMMETRIC"><code class="docutils literal notranslate"><span class="pre">ComplianceLimitSymmetry.SYMMETRIC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ComplianceLimitSymmetry.ASYMMETRIC"><code class="docutils literal notranslate"><span class="pre">ComplianceLimitSymmetry.ASYMMETRIC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#conductionvoltagemode">ConductionVoltageMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.ConductionVoltageMode"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ConductionVoltageMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ConductionVoltageMode.ENABLED"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode.ENABLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.ConductionVoltageMode.DISABLED"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode.DISABLED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#currentlimitbehavior">CurrentLimitBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.CurrentLimitBehavior"><code class="docutils literal notranslate"><span class="pre">CurrentLimitBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CurrentLimitBehavior.REGULATE"><code class="docutils literal notranslate"><span class="pre">CurrentLimitBehavior.REGULATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.CurrentLimitBehavior.TRIP"><code class="docutils literal notranslate"><span class="pre">CurrentLimitBehavior.TRIP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#dcnoiserejection">DCNoiseRejection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.DCNoiseRejection"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.DCNoiseRejection.SECOND_ORDER"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.SECOND_ORDER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.DCNoiseRejection.NORMAL"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.NORMAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#event">Event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Event.SOURCE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.SOURCE_COMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Event.MEASURE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.MEASURE_COMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Event.SEQUENCE_ITERATION_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.SEQUENCE_ITERATION_COMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Event.SEQUENCE_ENGINE_DONE"><code class="docutils literal notranslate"><span class="pre">Event.SEQUENCE_ENGINE_DONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Event.PULSE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.PULSE_COMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Event.READY_FOR_PULSE_TRIGGER"><code class="docutils literal notranslate"><span class="pre">Event.READY_FOR_PULSE_TRIGGER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#eventoutputbehavior">EventOutputBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.EventOutputBehavior"><code class="docutils literal notranslate"><span class="pre">EventOutputBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.EventOutputBehavior.PULSE"><code class="docutils literal notranslate"><span class="pre">EventOutputBehavior.PULSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.EventOutputBehavior.TOGGLE"><code class="docutils literal notranslate"><span class="pre">EventOutputBehavior.TOGGLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#eventtoggleinitialstate">EventToggleInitialState</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.EventToggleInitialState"><code class="docutils literal notranslate"><span class="pre">EventToggleInitialState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.EventToggleInitialState.LOW"><code class="docutils literal notranslate"><span class="pre">EventToggleInitialState.LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.EventToggleInitialState.HIGH"><code class="docutils literal notranslate"><span class="pre">EventToggleInitialState.HIGH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#instrumentmode">InstrumentMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.InstrumentMode"><code class="docutils literal notranslate"><span class="pre">InstrumentMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.InstrumentMode.SMU_PS"><code class="docutils literal notranslate"><span class="pre">InstrumentMode.SMU_PS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.InstrumentMode.LCR"><code class="docutils literal notranslate"><span class="pre">InstrumentMode.LCR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.InstrumentMode.E_LOAD"><code class="docutils literal notranslate"><span class="pre">InstrumentMode.E_LOAD</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrcompensationtype">LCRCompensationType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRCompensationType"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRCompensationType.OPEN"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.OPEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRCompensationType.SHORT"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.SHORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRCompensationType.LOAD"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.LOAD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRCompensationType.OPEN_CUSTOM_CABLE"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.OPEN_CUSTOM_CABLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRCompensationType.SHORT_CUSTOM_CABLE"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.SHORT_CUSTOM_CABLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrdcbiassource">LCRDCBiasSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasSource"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasSource.OFF"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasSource.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource.VOLTAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasSource.CURRENT"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrdcbiastransientresponse">LCRDCBiasTransientResponse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasTransientResponse"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasTransientResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasTransientResponse.NORMAL"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasTransientResponse.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRDCBiasTransientResponse.CUSTOM"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasTransientResponse.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrimpedancerangesource">LCRImpedanceRangeSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRImpedanceRangeSource"><code class="docutils literal notranslate"><span class="pre">LCRImpedanceRangeSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRImpedanceRangeSource.IMPEDANCE_RANGE"><code class="docutils literal notranslate"><span class="pre">LCRImpedanceRangeSource.IMPEDANCE_RANGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRImpedanceRangeSource.LOAD_CONFIGURATION"><code class="docutils literal notranslate"><span class="pre">LCRImpedanceRangeSource.LOAD_CONFIGURATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrmeasurementtime">LCRMeasurementTime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRMeasurementTime"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRMeasurementTime.SHORT"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.SHORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRMeasurementTime.MEDIUM"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.MEDIUM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRMeasurementTime.LONG"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.LONG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRMeasurementTime.CUSTOM"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcropenshortloadcompensationdatasource">LCROpenShortLoadCompensationDataSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCROpenShortLoadCompensationDataSource"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCROpenShortLoadCompensationDataSource.ONBOARD_STORAGE"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource.ONBOARD_STORAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCROpenShortLoadCompensationDataSource.AS_DEFINED"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource.AS_DEFINED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCROpenShortLoadCompensationDataSource.AS_CONFIGURED"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource.AS_CONFIGURED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrreferencevaluetype">LCRReferenceValueType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRReferenceValueType"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRReferenceValueType.IMPEDANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IMPEDANCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRReferenceValueType.IDEAL_CAPACITANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IDEAL_CAPACITANCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRReferenceValueType.IDEAL_INDUCTANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IDEAL_INDUCTANCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRReferenceValueType.IDEAL_RESISTANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IDEAL_RESISTANCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrsourcedelaymode">LCRSourceDelayMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRSourceDelayMode"><code class="docutils literal notranslate"><span class="pre">LCRSourceDelayMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRSourceDelayMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">LCRSourceDelayMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRSourceDelayMode.MANUAL"><code class="docutils literal notranslate"><span class="pre">LCRSourceDelayMode.MANUAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lcrstimulusfunction">LCRStimulusFunction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.LCRStimulusFunction"><code class="docutils literal notranslate"><span class="pre">LCRStimulusFunction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRStimulusFunction.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">LCRStimulusFunction.VOLTAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.LCRStimulusFunction.CURRENT"><code class="docutils literal notranslate"><span class="pre">LCRStimulusFunction.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#measurewhen">MeasureWhen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.MeasureWhen"><code class="docutils literal notranslate"><span class="pre">MeasureWhen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.MeasureWhen.ON_DEMAND"><code class="docutils literal notranslate"><span class="pre">MeasureWhen.ON_DEMAND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.MeasureWhen.ON_MEASURE_TRIGGER"><code class="docutils literal notranslate"><span class="pre">MeasureWhen.ON_MEASURE_TRIGGER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#measurementtypes">MeasurementTypes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.MeasurementTypes"><code class="docutils literal notranslate"><span class="pre">MeasurementTypes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.MeasurementTypes.CURRENT"><code class="docutils literal notranslate"><span class="pre">MeasurementTypes.CURRENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.MeasurementTypes.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">MeasurementTypes.VOLTAGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#outputcapacitance">OutputCapacitance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.OutputCapacitance"><code class="docutils literal notranslate"><span class="pre">OutputCapacitance</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCapacitance.LOW"><code class="docutils literal notranslate"><span class="pre">OutputCapacitance.LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCapacitance.HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCapacitance.HIGH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#outputcutoffreason">OutputCutoffReason</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.ALL"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.ALL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_OUTPUT_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_OUTPUT_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.CURRENT_MEASURE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_MEASURE_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.CURRENT_MEASURE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_MEASURE_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_CHANGE_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_CHANGE_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.CURRENT_CHANGE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_CHANGE_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.CURRENT_CHANGE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_CHANGE_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.CURRENT_SATURATED"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_SATURATED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_MEASURE_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_MEASURE_LOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#outputfunction">OutputFunction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.OutputFunction"><code class="docutils literal notranslate"><span class="pre">OutputFunction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputFunction.DC_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">OutputFunction.DC_VOLTAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputFunction.DC_CURRENT"><code class="docutils literal notranslate"><span class="pre">OutputFunction.DC_CURRENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputFunction.PULSE_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">OutputFunction.PULSE_VOLTAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputFunction.PULSE_CURRENT"><code class="docutils literal notranslate"><span class="pre">OutputFunction.PULSE_CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#outputstates">OutputStates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.OutputStates"><code class="docutils literal notranslate"><span class="pre">OutputStates</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputStates.CONSTANT_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">OutputStates.CONSTANT_VOLTAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputStates.CONSTANT_CURRENT"><code class="docutils literal notranslate"><span class="pre">OutputStates.CONSTANT_CURRENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.OutputStates.INHIBITED"><code class="docutils literal notranslate"><span class="pre">OutputStates.INHIBITED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#polarity">Polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.Polarity"><code class="docutils literal notranslate"><span class="pre">Polarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Polarity.HIGH"><code class="docutils literal notranslate"><span class="pre">Polarity.HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Polarity.LOW"><code class="docutils literal notranslate"><span class="pre">Polarity.LOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#powerallocationmode">PowerAllocationMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.PowerAllocationMode"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerAllocationMode.DISABLED"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode.DISABLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerAllocationMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerAllocationMode.MANUAL"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode.MANUAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#powersource">PowerSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.PowerSource"><code class="docutils literal notranslate"><span class="pre">PowerSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerSource.INTERNAL"><code class="docutils literal notranslate"><span class="pre">PowerSource.INTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerSource.AUXILIARY"><code class="docutils literal notranslate"><span class="pre">PowerSource.AUXILIARY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerSource.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">PowerSource.AUTOMATIC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#powersourceinuse">PowerSourceInUse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.PowerSourceInUse"><code class="docutils literal notranslate"><span class="pre">PowerSourceInUse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerSourceInUse.INTERNAL"><code class="docutils literal notranslate"><span class="pre">PowerSourceInUse.INTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.PowerSourceInUse.AUXILIARY"><code class="docutils literal notranslate"><span class="pre">PowerSourceInUse.AUXILIARY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#selfcalibrationpersistence">SelfCalibrationPersistence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.SelfCalibrationPersistence"><code class="docutils literal notranslate"><span class="pre">SelfCalibrationPersistence</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SelfCalibrationPersistence.KEEP_IN_MEMORY"><code class="docutils literal notranslate"><span class="pre">SelfCalibrationPersistence.KEEP_IN_MEMORY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SelfCalibrationPersistence.WRITE_TO_EEPROM"><code class="docutils literal notranslate"><span class="pre">SelfCalibrationPersistence.WRITE_TO_EEPROM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#sendsoftwareedgetriggertype">SendSoftwareEdgeTriggerType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType.START"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.START</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType.SOURCE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.SOURCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType.MEASURE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.MEASURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType.SEQUENCE_ADVANCE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.SEQUENCE_ADVANCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType.PULSE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.PULSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SendSoftwareEdgeTriggerType.SHUTDOWN"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.SHUTDOWN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#sense">Sense</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.Sense"><code class="docutils literal notranslate"><span class="pre">Sense</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Sense.LOCAL"><code class="docutils literal notranslate"><span class="pre">Sense.LOCAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.Sense.REMOTE"><code class="docutils literal notranslate"><span class="pre">Sense.REMOTE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#sourcemode">SourceMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.SourceMode"><code class="docutils literal notranslate"><span class="pre">SourceMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SourceMode.SINGLE_POINT"><code class="docutils literal notranslate"><span class="pre">SourceMode.SINGLE_POINT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.SourceMode.SEQUENCE"><code class="docutils literal notranslate"><span class="pre">SourceMode.SEQUENCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#transientresponse">TransientResponse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.TransientResponse"><code class="docutils literal notranslate"><span class="pre">TransientResponse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TransientResponse.NORMAL"><code class="docutils literal notranslate"><span class="pre">TransientResponse.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TransientResponse.FAST"><code class="docutils literal notranslate"><span class="pre">TransientResponse.FAST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TransientResponse.SLOW"><code class="docutils literal notranslate"><span class="pre">TransientResponse.SLOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TransientResponse.CUSTOM"><code class="docutils literal notranslate"><span class="pre">TransientResponse.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggertype">TriggerType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidcpower.TriggerType"><code class="docutils literal notranslate"><span class="pre">TriggerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TriggerType.NONE"><code class="docutils literal notranslate"><span class="pre">TriggerType.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidcpower.TriggerType.SOFTWARE_EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.SOFTWARE_EDGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Exceptions and Warnings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#error">Error</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivererror">DriverError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.DriverError"><code class="docutils literal notranslate"><span class="pre">DriverError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#unsupportedconfigurationerror">UnsupportedConfigurationError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.UnsupportedConfigurationError"><code class="docutils literal notranslate"><span class="pre">UnsupportedConfigurationError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivernotinstallederror">DriverNotInstalledError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.DriverNotInstalledError"><code class="docutils literal notranslate"><span class="pre">DriverNotInstalledError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertooolderror">DriverTooOldError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.DriverTooOldError"><code class="docutils literal notranslate"><span class="pre">DriverTooOldError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertoonewerror">DriverTooNewError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.DriverTooNewError"><code class="docutils literal notranslate"><span class="pre">DriverTooNewError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#invalidrepeatedcapabilityerror">InvalidRepeatedCapabilityError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.InvalidRepeatedCapabilityError"><code class="docutils literal notranslate"><span class="pre">InvalidRepeatedCapabilityError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#selftesterror">SelfTestError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.SelfTestError"><code class="docutils literal notranslate"><span class="pre">SelfTestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#rpcerror">RpcError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.RpcError"><code class="docutils literal notranslate"><span class="pre">RpcError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#driverwarning">DriverWarning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidcpower.errors.DriverWarning"><code class="docutils literal notranslate"><span class="pre">DriverWarning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidcpower-advanced-sequence-py">nidcpower_advanced_sequence.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidcpower-lcr-source-ac-voltage-py">nidcpower_lcr_source_ac_voltage.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidcpower-measure-record-py">nidcpower_measure_record.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidcpower-source-delay-measure-py">nidcpower_source_delay_measure.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#sessioninitializationbehavior">SessionInitializationBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#nidcpower.SessionInitializationBehavior"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nidcpower.SessionInitializationBehavior.AUTO"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nidcpower.SessionInitializationBehavior.INITIALIZE_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.INITIALIZE_SERVER_SESSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nidcpower.SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#grpcsessionoptions">GrpcSessionOptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#nidcpower.GrpcSessionOptions"><code class="docutils literal notranslate"><span class="pre">GrpcSessionOptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NI-DCPower Python API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="class.html" class="btn btn-neutral float-right" title="Session" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
