@@ -20,7 +20,6 @@ generated/driver_file_built
 generated/printed_global_files
 generated/junit/
 generated/*/coverage.xml
-myenv/*
 
 .eggs/
 .tox/
