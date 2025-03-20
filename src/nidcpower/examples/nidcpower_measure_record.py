@@ -3,7 +3,7 @@
 import argparse
 import nidcpower
 import sys
-
+ 
 
 def example(resource_name, options, voltage, length):
     with nidcpower.Session(resource_name=resource_name, options=options) as session:
