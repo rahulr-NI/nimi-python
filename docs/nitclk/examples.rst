@@ -1,7 +1,7 @@
 Examples
 ========
 
-`You can download all nitclk examples here <https://github.com/ni/nimi-python/releases/download/1.4.10/nitclk_examples.zip>`_
+`You can download all nitclk examples here <https://github.com/ni/nimi-python/releases/download/1.4.11/nitclk_examples.zip>`_
 
 nitclk_niscope_synchronize_with_trigger.py
 ------------------------------------------
@@ -10,5 +10,5 @@ nitclk_niscope_synchronize_with_trigger.py
    :language: python
    :linenos:
    :encoding: utf8
-   :caption: `(nitclk_niscope_synchronize_with_trigger.py) <https://github.com/ni/nimi-python/blob/1.4.10/src/nitclk/examples/nitclk_niscope_synchronize_with_trigger.py>`_
+   :caption: `(nitclk_niscope_synchronize_with_trigger.py) <https://github.com/ni/nimi-python/blob/1.4.11/src/nitclk/examples/nitclk_niscope_synchronize_with_trigger.py>`_
 
