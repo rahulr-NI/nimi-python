@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session &mdash; NI-ModInst Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="nimodinst module" href="nimodinst.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-ModInst Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nimodinst.html">nimodinst module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nimodinst.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nimodinst.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nimodinst.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nimodinst.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#close">close</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bus-number">bus_number</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.bus_number"><code class="docutils literal notranslate"><span class="pre">bus_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#chassis-number">chassis_number</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.chassis_number"><code class="docutils literal notranslate"><span class="pre">chassis_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#device-model">device_model</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.device_model"><code class="docutils literal notranslate"><span class="pre">device_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#device-name">device_name</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.device_name"><code class="docutils literal notranslate"><span class="pre">device_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#max-pciexpress-link-width">max_pciexpress_link_width</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.max_pciexpress_link_width"><code class="docutils literal notranslate"><span class="pre">max_pciexpress_link_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pciexpress-link-width">pciexpress_link_width</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.pciexpress_link_width"><code class="docutils literal notranslate"><span class="pre">pciexpress_link_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#serial-number">serial_number</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.serial_number"><code class="docutils literal notranslate"><span class="pre">serial_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#slot-number">slot_number</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.slot_number"><code class="docutils literal notranslate"><span class="pre">slot_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#socket-number">socket_number</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nimodinst.Session.socket_number"><code class="docutils literal notranslate"><span class="pre">socket_number</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-ModInst Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nimodinst.html">nimodinst module</a></li>
+      <li class="breadcrumb-item active">Session</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/class.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="session">
+<span id="module-nimodinst"></span><h1><a class="toc-backref" href="#id2" role="doc-backlink">Session</a><a class="headerlink" href="#session" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="nimodinst.Session">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nimodinst.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driver</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nimodinst.Session" title="Link to this definition"></a></dt>
+<dd><p>Creates a handle to a list of installed devices supported by the
+specified driver. Call this method and pass in the name of an NI
+instrument driver, such as “NI-SCOPE”. This method
+searches the system and constructs a list of all the installed devices
+that are supported by that driver, and then returns both a handle to
+this list and the number of devices found. The handle is used with other
+methods to query for properties such as device name and model, and to
+safely discard the list when finished. Note This handle reflects the
+system state when the handle is created (that is, when you call this
+method. If you remove devices from the system or rename them in
+Measurement &amp; Automation Explorer (MAX), this handle may not refer to an
+accurate list of devices. You should destroy the handle using
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">nimodinst.Session._close_installed_devices_session()</span></code> and create a new handle using
+this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>driver</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – A string specifying the driver whose supported devices you want to find.
+This string is not case-sensitive. Some examples are: NI-SCOPE niScope
+NI-FGEN niFgen NI-HSDIO niHSDIO NI-DMM niDMM NI-SWITCH niSwitch Note If
+you use the empty string for this parameter, NI-ModInst creates a list
+of all Modular Instruments devices installed in the system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="methods">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Methods</a><a class="headerlink" href="#methods" title="Link to this heading"></a></h1>
+<section id="close">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">close</a><a class="headerlink" href="#close" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nimodinst.Session.close">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nimodinst.Session.close" title="Link to this definition"></a></dt>
+<dd><p>Cleans up the NI-ModInst session created by a call to
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">nimodinst.Session._open_installed_devices_session()</span></code>. Call this method when you are
+finished using the session handle and do not use this handle again.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is not needed when using the session context manager</p>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+</section>
+<section id="properties">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Link to this heading"></a></h1>
+<section id="bus-number">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">bus_number</a><a class="headerlink" href="#bus-number" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.bus_number">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">bus_number</span></span><a class="headerlink" href="#nimodinst.Session.bus_number" title="Link to this definition"></a></dt>
+<dd><p>The bus on which the device has been enumerated.</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_BUS_NUMBER</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="chassis-number">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">chassis_number</a><a class="headerlink" href="#chassis-number" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.chassis_number">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">chassis_number</span></span><a class="headerlink" href="#nimodinst.Session.chassis_number" title="Link to this definition"></a></dt>
+<dd><p>The number of the chassis in which the device is installed. This property can only be queried for PXI devices installed in a chassis that has been properly identified in MAX.</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_CHASSIS_NUMBER</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="device-model">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">device_model</a><a class="headerlink" href="#device-model" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.device_model">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">device_model</span></span><a class="headerlink" href="#nimodinst.Session.device_model" title="Link to this definition"></a></dt>
+<dd><p>The model of the device (for example, NI PXI-5122)</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>str</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_DEVICE_MODEL</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="device-name">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">device_name</a><a class="headerlink" href="#device-name" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.device_name">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">device_name</span></span><a class="headerlink" href="#nimodinst.Session.device_name" title="Link to this definition"></a></dt>
+<dd><p>The name of the device, which can be used to open an instrument driver session for that device</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>str</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_DEVICE_NAME</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="max-pciexpress-link-width">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">max_pciexpress_link_width</a><a class="headerlink" href="#max-pciexpress-link-width" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.max_pciexpress_link_width">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">max_pciexpress_link_width</span></span><a class="headerlink" href="#nimodinst.Session.max_pciexpress_link_width" title="Link to this definition"></a></dt>
+<dd><p><strong>MAX_PCIEXPRESS_LINK_WIDTH</strong></p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_MAX_PCIEXPRESS_LINK_WIDTH</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="pciexpress-link-width">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">pciexpress_link_width</a><a class="headerlink" href="#pciexpress-link-width" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.pciexpress_link_width">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">pciexpress_link_width</span></span><a class="headerlink" href="#nimodinst.Session.pciexpress_link_width" title="Link to this definition"></a></dt>
+<dd><p><strong>PCIEXPRESS_LINK_WIDTH</strong></p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_PCIEXPRESS_LINK_WIDTH</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="serial-number">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">serial_number</a><a class="headerlink" href="#serial-number" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.serial_number">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">serial_number</span></span><a class="headerlink" href="#nimodinst.Session.serial_number" title="Link to this definition"></a></dt>
+<dd><p>The serial number of the device</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>str</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_SERIAL_NUMBER</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="slot-number">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">slot_number</a><a class="headerlink" href="#slot-number" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.slot_number">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">slot_number</span></span><a class="headerlink" href="#nimodinst.Session.slot_number" title="Link to this definition"></a></dt>
+<dd><p>The slot (for example, in a PXI chassis) in which the device is installed. This property can only be queried for PXI devices installed in a chassis that has been properly identified in MAX.</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_SLOT_NUMBER</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="socket-number">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">socket_number</a><a class="headerlink" href="#socket-number" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py attribute">
+<dt class="sig sig-object py" id="nimodinst.Session.socket_number">
+<span class="sig-prename descclassname"><span class="pre">nimodinst.Session.</span></span><span class="sig-name descname"><span class="pre">socket_number</span></span><a class="headerlink" href="#nimodinst.Session.socket_number" title="Link to this definition"></a></dt>
+<dd><p>The socket number on which the device has been enumerated</p>
+<p>The following table lists the characteristics of this property.</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Characteristic</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datatype</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Permissions</p></td>
+<td><p>read only</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This property corresponds to the following LabVIEW Property or C Attribute:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>C Attribute: <strong>NIMODINST_ATTR_SOCKET_NUMBER</strong></p></li>
+</ul>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</div></blockquote>
+<nav class="contents" id="id1">
+<p class="topic-title">Session</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#session" id="id2">Session</a></p></li>
+<li><p><a class="reference internal" href="#methods" id="id3">Methods</a></p>
+<ul>
+<li><p><a class="reference internal" href="#close" id="id4">close</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#properties" id="id5">Properties</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bus-number" id="id6">bus_number</a></p></li>
+<li><p><a class="reference internal" href="#chassis-number" id="id7">chassis_number</a></p></li>
+<li><p><a class="reference internal" href="#device-model" id="id8">device_model</a></p></li>
+<li><p><a class="reference internal" href="#device-name" id="id9">device_name</a></p></li>
+<li><p><a class="reference internal" href="#max-pciexpress-link-width" id="id10">max_pciexpress_link_width</a></p></li>
+<li><p><a class="reference internal" href="#pciexpress-link-width" id="id11">pciexpress_link_width</a></p></li>
+<li><p><a class="reference internal" href="#serial-number" id="id12">serial_number</a></p></li>
+<li><p><a class="reference internal" href="#slot-number" id="id13">slot_number</a></p></li>
+<li><p><a class="reference internal" href="#socket-number" id="id14">socket_number</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nimodinst.html" class="btn btn-neutral float-left" title="nimodinst module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

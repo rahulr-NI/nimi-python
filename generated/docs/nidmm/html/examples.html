@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; NI-DMM Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gRPC Support" href="grpc_session_options.html" />
+    <link rel="prev" title="Exceptions and Warnings" href="errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-DMM Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidmm.html">nidmm module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidmm.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidmm.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidmm.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nidmm-fetch-waveform-py">nidmm_fetch_waveform.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidmm-measurement-py">nidmm_measurement.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidmm-multi-point-measurement-py">nidmm_multi_point_measurement.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-DMM Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidmm.html">nidmm module</a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/releases/download/1.4.11/nidmm_examples.zip">You can download all nidmm examples here</a></p>
+<section id="nidmm-fetch-waveform-py">
+<h2>nidmm_fetch_waveform.py<a class="headerlink" href="#nidmm-fetch-waveform-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidmm/examples/nidmm_fetch_waveform.py">(nidmm_fetch_waveform.py)</a></span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidmm</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="nb">range</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="k">with</span> <span class="n">nidmm</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">11</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_waveform_acquisition</span><span class="p">(</span><span class="n">measurement_function</span><span class="o">=</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="p">[</span><span class="n">function</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="nb">range</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span> <span class="n">waveform_points</span><span class="o">=</span><span class="n">points</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">13</span>            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">14</span>                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="linenos">15</span>                <span class="n">backlog</span><span class="p">,</span> <span class="n">acquisition_state</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">read_status</span><span class="p">()</span>
+<span class="linenos">16</span>                <span class="k">if</span> <span class="n">acquisition_state</span> <span class="o">==</span> <span class="n">nidmm</span><span class="o">.</span><span class="n">AcquisitionStatus</span><span class="o">.</span><span class="n">FINISHED_WITH_NO_BACKLOG</span><span class="p">:</span>
+<span class="linenos">17</span>                    <span class="k">break</span>
+<span class="linenos">18</span>                <span class="n">measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">fetch_waveform</span><span class="p">(</span><span class="n">array_size</span><span class="o">=</span><span class="n">backlog</span><span class="p">)</span>
+<span class="linenos">19</span>                <span class="nb">print</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">23</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs a waveform acquisition using the NI-DMM API.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digital multimeter.&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--function&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;WAVEFORM_VOLTAGE&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measurement function.&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--range&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measurement range.&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--points&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Specifies the number of points to acquire before the waveform acquisition completes.&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--rate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Specifies the rate of the acquisition in samples per second.&#39;</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">range</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">35</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">39</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4082&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">40</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="s1">&#39;WAVEFORM_VOLTAGE&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">44</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4082; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">45</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">49</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidmm-measurement-py">
+<h2>nidmm_measurement.py<a class="headerlink" href="#nidmm-measurement-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidmm/examples/nidmm_measurement.py">(nidmm_measurement.py)</a></span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidmm</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">option_string</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="nb">range</span><span class="p">,</span> <span class="n">digits</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="k">with</span> <span class="n">nidmm</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">option_string</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_measurement_digits</span><span class="p">(</span><span class="n">measurement_function</span><span class="o">=</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="p">[</span><span class="n">function</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="nb">range</span><span class="p">,</span> <span class="n">resolution_digits</span><span class="o">=</span><span class="n">digits</span><span class="p">)</span>
+<span class="linenos">11</span>        <span class="nb">print</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">15</span>    <span class="n">supported_functions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="linenos">16</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs a single measurement using the NI-DMM API.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digital multimeter.&#39;</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--function&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">supported_functions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">choices</span><span class="o">=</span><span class="n">supported_functions</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measurement function.&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--range&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measurement range.&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--digits&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Digits of resolution for the measurement.&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">range</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">27</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">31</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4082&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">32</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="s1">&#39;DC_VOLTS&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">)</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">36</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4082; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">37</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">41</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidmm-multi-point-measurement-py">
+<h2>nidmm_multi_point_measurement.py<a class="headerlink" href="#nidmm-multi-point-measurement-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidmm/examples/nidmm_multi_point_measurement.py">(nidmm_multi_point_measurement.py)</a></span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidmm</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="nb">range</span><span class="p">,</span> <span class="n">digits</span><span class="p">,</span> <span class="n">samples</span><span class="p">,</span> <span class="n">triggers</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="k">with</span> <span class="n">nidmm</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_measurement_digits</span><span class="p">(</span><span class="n">measurement_function</span><span class="o">=</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="p">[</span><span class="n">function</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="nb">range</span><span class="p">,</span> <span class="n">resolution_digits</span><span class="o">=</span><span class="n">digits</span><span class="p">)</span>
+<span class="linenos">11</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_multi_point</span><span class="p">(</span><span class="n">trigger_count</span><span class="o">=</span><span class="n">triggers</span><span class="p">,</span> <span class="n">sample_count</span><span class="o">=</span><span class="n">samples</span><span class="p">)</span>
+<span class="linenos">12</span>        <span class="n">measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">read_multi_point</span><span class="p">(</span><span class="n">array_size</span><span class="o">=</span><span class="n">samples</span><span class="p">)</span>
+<span class="linenos">13</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Measurements: &#39;</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">17</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs a multipoint measurement using the NI-DMM API.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digital multimeter.&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--function&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;DC_VOLTS&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measurement function.&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--range&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measurement range.&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--digits&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Digits of resolution for the measurement.&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--samples&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The number of measurements the DMM makes.&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--triggers&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Sets the number of triggers you want the DMM to receive before returning to the Idle state.&#39;</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">function</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">range</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">triggers</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">30</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">34</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;4082&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">35</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="s1">&#39;DC_VOLTS&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">39</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:4082; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">40</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">44</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="errors.html" class="btn btn-neutral float-left" title="Exceptions and Warnings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grpc_session_options.html" class="btn btn-neutral float-right" title="gRPC Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

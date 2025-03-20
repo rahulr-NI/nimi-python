@@ -1,0 +1,1534 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>niscope module &mdash; NI-SCOPE Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session" href="class.html" />
+    <link rel="prev" title="NI-SCOPE Python API Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-SCOPE Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">niscope module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-SCOPE Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">niscope module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/niscope.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="niscope-module">
+<h1>niscope module<a class="headerlink" href="#niscope-module" title="Link to this heading"></a></h1>
+<section id="installation">
+<span id="niscope-installation-section"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>As a prerequisite to using the <strong>niscope</strong> module, you must install the NI-SCOPE runtime on your system. Visit <a class="reference external" href="http://www.ni.com/downloads/">ni.com/downloads</a> to download the driver runtime for your devices.</p>
+<p>The nimi-python modules (i.e. for <strong>NI-SCOPE</strong>) can be installed with <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install niscope~=1.4.11
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>The following is a basic example of using the <strong>niscope</strong> module to open a session to a High Speed Digitizer and capture a single record of 1000 points.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">niscope</span>
+<span class="k">with</span> <span class="n">niscope</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="s2">&quot;Dev1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">configure_vertical</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">AC</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">configure_vertical</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">DC</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">configure_horizontal_timing</span><span class="p">(</span><span class="n">min_sample_rate</span><span class="o">=</span><span class="mi">50000000</span><span class="p">,</span> <span class="n">min_num_pts</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">ref_position</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">enforce_realtime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+        <span class="n">waveforms</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">num_records</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">wfm</span> <span class="ow">in</span> <span class="n">waveforms</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel </span><span class="si">{}</span><span class="s1">, record </span><span class="si">{}</span><span class="s1"> samples acquired: </span><span class="si">{:,}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wfm</span><span class="o">.</span><span class="n">channel</span><span class="p">,</span> <span class="n">wfm</span><span class="o">.</span><span class="n">record</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">wfm</span><span class="o">.</span><span class="n">samples</span><span class="p">)))</span>
+
+    <span class="c1"># Find all channel 1 records (Note channel name is always a string even if integers used in channel[])</span>
+    <span class="n">chan1</span> <span class="o">=</span> <span class="p">[</span><span class="n">wfm</span> <span class="k">for</span> <span class="n">wfm</span> <span class="ow">in</span> <span class="n">waveforms</span> <span class="k">if</span> <span class="n">wfm</span><span class="o">.</span><span class="n">channel</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Find all record number 3</span>
+    <span class="n">rec3</span> <span class="o">=</span> <span class="p">[</span><span class="n">wfm</span> <span class="k">for</span> <span class="n">wfm</span> <span class="ow">in</span> <span class="n">waveforms</span> <span class="k">if</span> <span class="n">wfm</span><span class="o">.</span><span class="n">record</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If you need faster fetch performance, or to directly interface with <a class="reference external" href="https://www.scipy.org/">SciPy</a>, you can use the <strong>fetch_into()</strong> method instead of <strong>fetch()</strong>. See the fetch_into example.</p>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/tree/master/src/niscope/examples">Other usage examples can be found on GitHub.</a></p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#niscope.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#methods">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#abort">abort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.abort"><code class="docutils literal notranslate"><span class="pre">abort()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#acquisition-status">acquisition_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.acquisition_status"><code class="docutils literal notranslate"><span class="pre">acquisition_status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#add-waveform-processing">add_waveform_processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.add_waveform_processing"><code class="docutils literal notranslate"><span class="pre">add_waveform_processing()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#auto-setup">auto_setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.auto_setup"><code class="docutils literal notranslate"><span class="pre">auto_setup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-waveform-measurement-stats">clear_waveform_measurement_stats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.clear_waveform_measurement_stats"><code class="docutils literal notranslate"><span class="pre">clear_waveform_measurement_stats()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-waveform-processing">clear_waveform_processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.clear_waveform_processing"><code class="docutils literal notranslate"><span class="pre">clear_waveform_processing()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#close">close</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#commit">commit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.commit"><code class="docutils literal notranslate"><span class="pre">commit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-chan-characteristics">configure_chan_characteristics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_chan_characteristics"><code class="docutils literal notranslate"><span class="pre">configure_chan_characteristics()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-equalization-filter-coefficients">configure_equalization_filter_coefficients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_equalization_filter_coefficients"><code class="docutils literal notranslate"><span class="pre">configure_equalization_filter_coefficients()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-horizontal-timing">configure_horizontal_timing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_horizontal_timing"><code class="docutils literal notranslate"><span class="pre">configure_horizontal_timing()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-digital">configure_trigger_digital</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_digital"><code class="docutils literal notranslate"><span class="pre">configure_trigger_digital()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-edge">configure_trigger_edge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_edge"><code class="docutils literal notranslate"><span class="pre">configure_trigger_edge()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-hysteresis">configure_trigger_hysteresis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_hysteresis"><code class="docutils literal notranslate"><span class="pre">configure_trigger_hysteresis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-immediate">configure_trigger_immediate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_immediate"><code class="docutils literal notranslate"><span class="pre">configure_trigger_immediate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-software">configure_trigger_software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_software"><code class="docutils literal notranslate"><span class="pre">configure_trigger_software()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-video">configure_trigger_video</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_video"><code class="docutils literal notranslate"><span class="pre">configure_trigger_video()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger-window">configure_trigger_window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_trigger_window"><code class="docutils literal notranslate"><span class="pre">configure_trigger_window()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-vertical">configure_vertical</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.configure_vertical"><code class="docutils literal notranslate"><span class="pre">configure_vertical()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disable">disable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.disable"><code class="docutils literal notranslate"><span class="pre">disable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-buffer">export_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.export_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-file">export_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.export_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch">fetch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.fetch"><code class="docutils literal notranslate"><span class="pre">fetch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-array-measurement">fetch_array_measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.fetch_array_measurement"><code class="docutils literal notranslate"><span class="pre">fetch_array_measurement()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-into">fetch_into</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.fetch_into"><code class="docutils literal notranslate"><span class="pre">fetch_into()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-measurement-stats">fetch_measurement_stats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.fetch_measurement_stats"><code class="docutils literal notranslate"><span class="pre">fetch_measurement_stats()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-channel-names">get_channel_names</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.get_channel_names"><code class="docutils literal notranslate"><span class="pre">get_channel_names()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-equalization-filter-coefficients">get_equalization_filter_coefficients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.get_equalization_filter_coefficients"><code class="docutils literal notranslate"><span class="pre">get_equalization_filter_coefficients()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-last-date-and-time">get_ext_cal_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.get_ext_cal_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-last-temp">get_ext_cal_last_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.get_ext_cal_last_temp"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_last_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-last-date-and-time">get_self_cal_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.get_self_cal_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_self_cal_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-last-temp">get_self_cal_last_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.get_self_cal_last_temp"><code class="docutils literal notranslate"><span class="pre">get_self_cal_last_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-buffer">import_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.import_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-file">import_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.import_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#initiate">initiate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.initiate"><code class="docutils literal notranslate"><span class="pre">initiate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lock">lock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#probe-compensation-signal-start">probe_compensation_signal_start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.probe_compensation_signal_start"><code class="docutils literal notranslate"><span class="pre">probe_compensation_signal_start()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#probe-compensation-signal-stop">probe_compensation_signal_stop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.probe_compensation_signal_stop"><code class="docutils literal notranslate"><span class="pre">probe_compensation_signal_stop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read">read</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset">reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-device">reset_device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.reset_device"><code class="docutils literal notranslate"><span class="pre">reset_device()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-with-defaults">reset_with_defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.reset_with_defaults"><code class="docutils literal notranslate"><span class="pre">reset_with_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-cal">self_cal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.self_cal"><code class="docutils literal notranslate"><span class="pre">self_cal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-test">self_test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.self_test"><code class="docutils literal notranslate"><span class="pre">self_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#send-software-trigger-edge">send_software_trigger_edge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.send_software_trigger_edge"><code class="docutils literal notranslate"><span class="pre">send_software_trigger_edge()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#unlock">unlock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#properties">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#absolute-sample-clock-offset">absolute_sample_clock_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.absolute_sample_clock_offset"><code class="docutils literal notranslate"><span class="pre">absolute_sample_clock_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#acquisition-start-time">acquisition_start_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.acquisition_start_time"><code class="docutils literal notranslate"><span class="pre">acquisition_start_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#acquisition-type">acquisition_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.acquisition_type"><code class="docutils literal notranslate"><span class="pre">acquisition_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#acq-arm-source">acq_arm_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.acq_arm_source"><code class="docutils literal notranslate"><span class="pre">acq_arm_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#advance-trigger-terminal-name">advance_trigger_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.advance_trigger_terminal_name"><code class="docutils literal notranslate"><span class="pre">advance_trigger_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#adv-trig-src">adv_trig_src</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.adv_trig_src"><code class="docutils literal notranslate"><span class="pre">adv_trig_src</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#allow-more-records-than-memory">allow_more_records_than_memory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.allow_more_records_than_memory"><code class="docutils literal notranslate"><span class="pre">allow_more_records_than_memory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arm-ref-trig-src">arm_ref_trig_src</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.arm_ref_trig_src"><code class="docutils literal notranslate"><span class="pre">arm_ref_trig_src</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#backlog">backlog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.backlog"><code class="docutils literal notranslate"><span class="pre">backlog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#bandpass-filter-enabled">bandpass_filter_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.bandpass_filter_enabled"><code class="docutils literal notranslate"><span class="pre">bandpass_filter_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#binary-sample-width">binary_sample_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.binary_sample_width"><code class="docutils literal notranslate"><span class="pre">binary_sample_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#cable-sense-mode">cable_sense_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.cable_sense_mode"><code class="docutils literal notranslate"><span class="pre">cable_sense_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#cable-sense-signal-enable">cable_sense_signal_enable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.cable_sense_signal_enable"><code class="docutils literal notranslate"><span class="pre">cable_sense_signal_enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#cable-sense-voltage">cable_sense_voltage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.cable_sense_voltage"><code class="docutils literal notranslate"><span class="pre">cable_sense_voltage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-count">channel_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.channel_count"><code class="docutils literal notranslate"><span class="pre">channel_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-enabled">channel_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.channel_enabled"><code class="docutils literal notranslate"><span class="pre">channel_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-terminal-configuration">channel_terminal_configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.channel_terminal_configuration"><code class="docutils literal notranslate"><span class="pre">channel_terminal_configuration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-block-size">data_transfer_block_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.data_transfer_block_size"><code class="docutils literal notranslate"><span class="pre">data_transfer_block_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-maximum-bandwidth">data_transfer_maximum_bandwidth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.data_transfer_maximum_bandwidth"><code class="docutils literal notranslate"><span class="pre">data_transfer_maximum_bandwidth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-preferred-packet-size">data_transfer_preferred_packet_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.data_transfer_preferred_packet_size"><code class="docutils literal notranslate"><span class="pre">data_transfer_preferred_packet_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#device-temperature">device_temperature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.device_temperature"><code class="docutils literal notranslate"><span class="pre">device_temperature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#enabled-channels">enabled_channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.enabled_channels"><code class="docutils literal notranslate"><span class="pre">enabled_channels</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#enable-dc-restore">enable_dc_restore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.enable_dc_restore"><code class="docutils literal notranslate"><span class="pre">enable_dc_restore</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#enable-time-interleaved-sampling">enable_time_interleaved_sampling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.enable_time_interleaved_sampling"><code class="docutils literal notranslate"><span class="pre">enable_time_interleaved_sampling</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#end-of-acquisition-event-output-terminal">end_of_acquisition_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.end_of_acquisition_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">end_of_acquisition_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#end-of-acquisition-event-terminal-name">end_of_acquisition_event_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.end_of_acquisition_event_terminal_name"><code class="docutils literal notranslate"><span class="pre">end_of_acquisition_event_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#end-of-record-event-output-terminal">end_of_record_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.end_of_record_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">end_of_record_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#end-of-record-event-terminal-name">end_of_record_event_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.end_of_record_event_terminal_name"><code class="docutils literal notranslate"><span class="pre">end_of_record_event_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#end-of-record-to-advance-trigger-holdoff">end_of_record_to_advance_trigger_holdoff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.end_of_record_to_advance_trigger_holdoff"><code class="docutils literal notranslate"><span class="pre">end_of_record_to_advance_trigger_holdoff</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#equalization-filter-enabled">equalization_filter_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.equalization_filter_enabled"><code class="docutils literal notranslate"><span class="pre">equalization_filter_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#equalization-num-coefficients">equalization_num_coefficients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.equalization_num_coefficients"><code class="docutils literal notranslate"><span class="pre">equalization_num_coefficients</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-advance-trigger-output-terminal">exported_advance_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.exported_advance_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_advance_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-ref-trigger-output-terminal">exported_ref_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.exported_ref_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_ref_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-start-trigger-output-terminal">exported_start_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.exported_start_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_start_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#flex-fir-antialias-filter-type">flex_fir_antialias_filter_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.flex_fir_antialias_filter_type"><code class="docutils literal notranslate"><span class="pre">flex_fir_antialias_filter_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fpga-bitfile-path">fpga_bitfile_path</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.fpga_bitfile_path"><code class="docutils literal notranslate"><span class="pre">fpga_bitfile_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#glitch-condition">glitch_condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.glitch_condition"><code class="docutils literal notranslate"><span class="pre">glitch_condition</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#glitch-polarity">glitch_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.glitch_polarity"><code class="docutils literal notranslate"><span class="pre">glitch_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#glitch-width">glitch_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.glitch_width"><code class="docutils literal notranslate"><span class="pre">glitch_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#high-pass-filter-frequency">high_pass_filter_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.high_pass_filter_frequency"><code class="docutils literal notranslate"><span class="pre">high_pass_filter_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-enforce-realtime">horz_enforce_realtime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_enforce_realtime"><code class="docutils literal notranslate"><span class="pre">horz_enforce_realtime</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-min-num-pts">horz_min_num_pts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_min_num_pts"><code class="docutils literal notranslate"><span class="pre">horz_min_num_pts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-num-records">horz_num_records</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_num_records"><code class="docutils literal notranslate"><span class="pre">horz_num_records</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-record-length">horz_record_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_record_length"><code class="docutils literal notranslate"><span class="pre">horz_record_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-record-ref-position">horz_record_ref_position</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_record_ref_position"><code class="docutils literal notranslate"><span class="pre">horz_record_ref_position</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-sample-rate">horz_sample_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_sample_rate"><code class="docutils literal notranslate"><span class="pre">horz_sample_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#horz-time-per-record">horz_time_per_record</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.horz_time_per_record"><code class="docutils literal notranslate"><span class="pre">horz_time_per_record</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#input-clock-source">input_clock_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.input_clock_source"><code class="docutils literal notranslate"><span class="pre">input_clock_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#input-impedance">input_impedance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.input_impedance"><code class="docutils literal notranslate"><span class="pre">input_impedance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-firmware-revision">instrument_firmware_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.instrument_firmware_revision"><code class="docutils literal notranslate"><span class="pre">instrument_firmware_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-manufacturer">instrument_manufacturer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.instrument_manufacturer"><code class="docutils literal notranslate"><span class="pre">instrument_manufacturer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-model">instrument_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.instrument_model"><code class="docutils literal notranslate"><span class="pre">instrument_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#interleaving-offset-correction-enabled">interleaving_offset_correction_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.interleaving_offset_correction_enabled"><code class="docutils literal notranslate"><span class="pre">interleaving_offset_correction_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#io-resource-descriptor">io_resource_descriptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.io_resource_descriptor"><code class="docutils literal notranslate"><span class="pre">io_resource_descriptor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-probe-comp-on">is_probe_comp_on</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.is_probe_comp_on"><code class="docutils literal notranslate"><span class="pre">is_probe_comp_on</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#logical-name">logical_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.logical_name"><code class="docutils literal notranslate"><span class="pre">logical_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#master-enable">master_enable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.master_enable"><code class="docutils literal notranslate"><span class="pre">master_enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-input-frequency">max_input_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.max_input_frequency"><code class="docutils literal notranslate"><span class="pre">max_input_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-real-time-sampling-rate">max_real_time_sampling_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.max_real_time_sampling_rate"><code class="docutils literal notranslate"><span class="pre">max_real_time_sampling_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-ris-rate">max_ris_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.max_ris_rate"><code class="docutils literal notranslate"><span class="pre">max_ris_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-array-gain">meas_array_gain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_array_gain"><code class="docutils literal notranslate"><span class="pre">meas_array_gain</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-array-offset">meas_array_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_array_offset"><code class="docutils literal notranslate"><span class="pre">meas_array_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-chan-high-ref-level">meas_chan_high_ref_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_chan_high_ref_level"><code class="docutils literal notranslate"><span class="pre">meas_chan_high_ref_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-chan-low-ref-level">meas_chan_low_ref_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_chan_low_ref_level"><code class="docutils literal notranslate"><span class="pre">meas_chan_low_ref_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-chan-mid-ref-level">meas_chan_mid_ref_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_chan_mid_ref_level"><code class="docutils literal notranslate"><span class="pre">meas_chan_mid_ref_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-center-freq">meas_filter_center_freq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_center_freq"><code class="docutils literal notranslate"><span class="pre">meas_filter_center_freq</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-cutoff-freq">meas_filter_cutoff_freq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_cutoff_freq"><code class="docutils literal notranslate"><span class="pre">meas_filter_cutoff_freq</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-order">meas_filter_order</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_order"><code class="docutils literal notranslate"><span class="pre">meas_filter_order</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-ripple">meas_filter_ripple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_ripple"><code class="docutils literal notranslate"><span class="pre">meas_filter_ripple</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-taps">meas_filter_taps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_taps"><code class="docutils literal notranslate"><span class="pre">meas_filter_taps</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-transient-waveform-percent">meas_filter_transient_waveform_percent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_transient_waveform_percent"><code class="docutils literal notranslate"><span class="pre">meas_filter_transient_waveform_percent</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-type">meas_filter_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_type"><code class="docutils literal notranslate"><span class="pre">meas_filter_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-filter-width">meas_filter_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_filter_width"><code class="docutils literal notranslate"><span class="pre">meas_filter_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-fir-filter-window">meas_fir_filter_window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_fir_filter_window"><code class="docutils literal notranslate"><span class="pre">meas_fir_filter_window</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-high-ref">meas_high_ref</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_high_ref"><code class="docutils literal notranslate"><span class="pre">meas_high_ref</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-hysteresis-percent">meas_hysteresis_percent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_hysteresis_percent"><code class="docutils literal notranslate"><span class="pre">meas_hysteresis_percent</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-interpolation-sampling-factor">meas_interpolation_sampling_factor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_interpolation_sampling_factor"><code class="docutils literal notranslate"><span class="pre">meas_interpolation_sampling_factor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-last-acq-histogram-size">meas_last_acq_histogram_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_last_acq_histogram_size"><code class="docutils literal notranslate"><span class="pre">meas_last_acq_histogram_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-low-ref">meas_low_ref</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_low_ref"><code class="docutils literal notranslate"><span class="pre">meas_low_ref</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-mid-ref">meas_mid_ref</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_mid_ref"><code class="docutils literal notranslate"><span class="pre">meas_mid_ref</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-other-channel">meas_other_channel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_other_channel"><code class="docutils literal notranslate"><span class="pre">meas_other_channel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-percentage-method">meas_percentage_method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_percentage_method"><code class="docutils literal notranslate"><span class="pre">meas_percentage_method</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-polynomial-interpolation-order">meas_polynomial_interpolation_order</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_polynomial_interpolation_order"><code class="docutils literal notranslate"><span class="pre">meas_polynomial_interpolation_order</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-ref-level-units">meas_ref_level_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_ref_level_units"><code class="docutils literal notranslate"><span class="pre">meas_ref_level_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-time-histogram-high-time">meas_time_histogram_high_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_time_histogram_high_time"><code class="docutils literal notranslate"><span class="pre">meas_time_histogram_high_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-time-histogram-high-volts">meas_time_histogram_high_volts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_time_histogram_high_volts"><code class="docutils literal notranslate"><span class="pre">meas_time_histogram_high_volts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-time-histogram-low-time">meas_time_histogram_low_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_time_histogram_low_time"><code class="docutils literal notranslate"><span class="pre">meas_time_histogram_low_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-time-histogram-low-volts">meas_time_histogram_low_volts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_time_histogram_low_volts"><code class="docutils literal notranslate"><span class="pre">meas_time_histogram_low_volts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-time-histogram-size">meas_time_histogram_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_time_histogram_size"><code class="docutils literal notranslate"><span class="pre">meas_time_histogram_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-voltage-histogram-high-volts">meas_voltage_histogram_high_volts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_voltage_histogram_high_volts"><code class="docutils literal notranslate"><span class="pre">meas_voltage_histogram_high_volts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-voltage-histogram-low-volts">meas_voltage_histogram_low_volts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_voltage_histogram_low_volts"><code class="docutils literal notranslate"><span class="pre">meas_voltage_histogram_low_volts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-voltage-histogram-size">meas_voltage_histogram_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.meas_voltage_histogram_size"><code class="docutils literal notranslate"><span class="pre">meas_voltage_histogram_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#min-sample-rate">min_sample_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.min_sample_rate"><code class="docutils literal notranslate"><span class="pre">min_sample_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#onboard-memory-size">onboard_memory_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.onboard_memory_size"><code class="docutils literal notranslate"><span class="pre">onboard_memory_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-clock-source">output_clock_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.output_clock_source"><code class="docutils literal notranslate"><span class="pre">output_clock_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#pll-lock-status">pll_lock_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.pll_lock_status"><code class="docutils literal notranslate"><span class="pre">pll_lock_status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#points-done">points_done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.points_done"><code class="docutils literal notranslate"><span class="pre">points_done</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#poll-interval">poll_interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.poll_interval"><code class="docutils literal notranslate"><span class="pre">poll_interval</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#probe-attenuation">probe_attenuation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.probe_attenuation"><code class="docutils literal notranslate"><span class="pre">probe_attenuation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-advance-event-output-terminal">ready_for_advance_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ready_for_advance_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">ready_for_advance_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-advance-event-terminal-name">ready_for_advance_event_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ready_for_advance_event_terminal_name"><code class="docutils literal notranslate"><span class="pre">ready_for_advance_event_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-ref-event-output-terminal">ready_for_ref_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ready_for_ref_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">ready_for_ref_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-ref-event-terminal-name">ready_for_ref_event_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ready_for_ref_event_terminal_name"><code class="docutils literal notranslate"><span class="pre">ready_for_ref_event_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-start-event-output-terminal">ready_for_start_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ready_for_start_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">ready_for_start_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-start-event-terminal-name">ready_for_start_event_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ready_for_start_event_terminal_name"><code class="docutils literal notranslate"><span class="pre">ready_for_start_event_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#records-done">records_done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.records_done"><code class="docutils literal notranslate"><span class="pre">records_done</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#record-arm-source">record_arm_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.record_arm_source"><code class="docutils literal notranslate"><span class="pre">record_arm_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ref-clk-rate">ref_clk_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ref_clk_rate"><code class="docutils literal notranslate"><span class="pre">ref_clk_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ref-trigger-detector-location">ref_trigger_detector_location</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ref_trigger_detector_location"><code class="docutils literal notranslate"><span class="pre">ref_trigger_detector_location</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ref-trigger-minimum-quiet-time">ref_trigger_minimum_quiet_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ref_trigger_minimum_quiet_time"><code class="docutils literal notranslate"><span class="pre">ref_trigger_minimum_quiet_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ref-trigger-terminal-name">ref_trigger_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ref_trigger_terminal_name"><code class="docutils literal notranslate"><span class="pre">ref_trigger_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ref-trig-tdc-enable">ref_trig_tdc_enable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ref_trig_tdc_enable"><code class="docutils literal notranslate"><span class="pre">ref_trig_tdc_enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#resolution">resolution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.resolution"><code class="docutils literal notranslate"><span class="pre">resolution</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ris-in-auto-setup-enable">ris_in_auto_setup_enable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ris_in_auto_setup_enable"><code class="docutils literal notranslate"><span class="pre">ris_in_auto_setup_enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ris-method">ris_method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ris_method"><code class="docutils literal notranslate"><span class="pre">ris_method</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ris-num-averages">ris_num_averages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.ris_num_averages"><code class="docutils literal notranslate"><span class="pre">ris_num_averages</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#runt-high-threshold">runt_high_threshold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.runt_high_threshold"><code class="docutils literal notranslate"><span class="pre">runt_high_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#runt-low-threshold">runt_low_threshold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.runt_low_threshold"><code class="docutils literal notranslate"><span class="pre">runt_low_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#runt-polarity">runt_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.runt_polarity"><code class="docutils literal notranslate"><span class="pre">runt_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#runt-time-condition">runt_time_condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.runt_time_condition"><code class="docutils literal notranslate"><span class="pre">runt_time_condition</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#runt-time-high-limit">runt_time_high_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.runt_time_high_limit"><code class="docutils literal notranslate"><span class="pre">runt_time_high_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#runt-time-low-limit">runt_time_low_limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.runt_time_low_limit"><code class="docutils literal notranslate"><span class="pre">runt_time_low_limit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-mode">sample_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.sample_mode"><code class="docutils literal notranslate"><span class="pre">sample_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#samp-clk-timebase-div">samp_clk_timebase_div</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.samp_clk_timebase_div"><code class="docutils literal notranslate"><span class="pre">samp_clk_timebase_div</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-clock-timebase-multiplier">sample_clock_timebase_multiplier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.sample_clock_timebase_multiplier"><code class="docutils literal notranslate"><span class="pre">sample_clock_timebase_multiplier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#samp-clk-timebase-rate">samp_clk_timebase_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.samp_clk_timebase_rate"><code class="docutils literal notranslate"><span class="pre">samp_clk_timebase_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#samp-clk-timebase-src">samp_clk_timebase_src</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.samp_clk_timebase_src"><code class="docutils literal notranslate"><span class="pre">samp_clk_timebase_src</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#serial-number">serial_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.serial_number"><code class="docutils literal notranslate"><span class="pre">serial_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#accessory-gain">accessory_gain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.accessory_gain"><code class="docutils literal notranslate"><span class="pre">accessory_gain</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#accessory-offset">accessory_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.accessory_offset"><code class="docutils literal notranslate"><span class="pre">accessory_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#simulate">simulate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.simulate"><code class="docutils literal notranslate"><span class="pre">simulate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-description">specific_driver_description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.specific_driver_description"><code class="docutils literal notranslate"><span class="pre">specific_driver_description</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-revision">specific_driver_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.specific_driver_revision"><code class="docutils literal notranslate"><span class="pre">specific_driver_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-vendor">specific_driver_vendor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.specific_driver_vendor"><code class="docutils literal notranslate"><span class="pre">specific_driver_vendor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#start-to-ref-trigger-holdoff">start_to_ref_trigger_holdoff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.start_to_ref_trigger_holdoff"><code class="docutils literal notranslate"><span class="pre">start_to_ref_trigger_holdoff</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#start-trigger-terminal-name">start_trigger_terminal_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.start_trigger_terminal_name"><code class="docutils literal notranslate"><span class="pre">start_trigger_terminal_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#supported-instrument-models">supported_instrument_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.supported_instrument_models"><code class="docutils literal notranslate"><span class="pre">supported_instrument_models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-auto-triggered">trigger_auto_triggered</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_auto_triggered"><code class="docutils literal notranslate"><span class="pre">trigger_auto_triggered</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-coupling">trigger_coupling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_coupling"><code class="docutils literal notranslate"><span class="pre">trigger_coupling</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-delay-time">trigger_delay_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_delay_time"><code class="docutils literal notranslate"><span class="pre">trigger_delay_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-holdoff">trigger_holdoff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_holdoff"><code class="docutils literal notranslate"><span class="pre">trigger_holdoff</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-hysteresis">trigger_hysteresis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_hysteresis"><code class="docutils literal notranslate"><span class="pre">trigger_hysteresis</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-impedance">trigger_impedance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_impedance"><code class="docutils literal notranslate"><span class="pre">trigger_impedance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-level">trigger_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_level"><code class="docutils literal notranslate"><span class="pre">trigger_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-modifier">trigger_modifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_modifier"><code class="docutils literal notranslate"><span class="pre">trigger_modifier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-slope">trigger_slope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_slope"><code class="docutils literal notranslate"><span class="pre">trigger_slope</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-source">trigger_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_source"><code class="docutils literal notranslate"><span class="pre">trigger_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-type">trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_type"><code class="docutils literal notranslate"><span class="pre">trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-window-high-level">trigger_window_high_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_window_high_level"><code class="docutils literal notranslate"><span class="pre">trigger_window_high_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-window-low-level">trigger_window_low_level</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_window_low_level"><code class="docutils literal notranslate"><span class="pre">trigger_window_low_level</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-window-mode">trigger_window_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.trigger_window_mode"><code class="docutils literal notranslate"><span class="pre">trigger_window_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#tv-trigger-event">tv_trigger_event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.tv_trigger_event"><code class="docutils literal notranslate"><span class="pre">tv_trigger_event</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#tv-trigger-line-number">tv_trigger_line_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.tv_trigger_line_number"><code class="docutils literal notranslate"><span class="pre">tv_trigger_line_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#tv-trigger-polarity">tv_trigger_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.tv_trigger_polarity"><code class="docutils literal notranslate"><span class="pre">tv_trigger_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#tv-trigger-signal-format">tv_trigger_signal_format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.tv_trigger_signal_format"><code class="docutils literal notranslate"><span class="pre">tv_trigger_signal_format</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#use-spec-initial-x">use_spec_initial_x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.use_spec_initial_x"><code class="docutils literal notranslate"><span class="pre">use_spec_initial_x</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#vertical-coupling">vertical_coupling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.vertical_coupling"><code class="docutils literal notranslate"><span class="pre">vertical_coupling</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#vertical-offset">vertical_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.vertical_offset"><code class="docutils literal notranslate"><span class="pre">vertical_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#vertical-range">vertical_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.vertical_range"><code class="docutils literal notranslate"><span class="pre">vertical_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#width-condition">width_condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.width_condition"><code class="docutils literal notranslate"><span class="pre">width_condition</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#width-high-threshold">width_high_threshold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.width_high_threshold"><code class="docutils literal notranslate"><span class="pre">width_high_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#width-low-threshold">width_low_threshold</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.width_low_threshold"><code class="docutils literal notranslate"><span class="pre">width_low_threshold</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#width-polarity">width_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niscope.Session.width_polarity"><code class="docutils literal notranslate"><span class="pre">width_polarity</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#niscope.Session.tclk"><code class="docutils literal notranslate"><span class="pre">tclk</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#channels">channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#niscope.Session.niscope.Session.channels"><code class="docutils literal notranslate"><span class="pre">niscope.Session.channels</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#instruments">instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#niscope.Session.niscope.Session.instruments"><code class="docutils literal notranslate"><span class="pre">niscope.Session.instruments</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#acquisitionstatus">AcquisitionStatus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.AcquisitionStatus"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.AcquisitionStatus.COMPLETE"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.COMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.AcquisitionStatus.IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.IN_PROGRESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.AcquisitionStatus.STATUS_UNKNOWN"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.STATUS_UNKNOWN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#acquisitiontype">AcquisitionType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.AcquisitionType"><code class="docutils literal notranslate"><span class="pre">AcquisitionType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.AcquisitionType.NORMAL"><code class="docutils literal notranslate"><span class="pre">AcquisitionType.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.AcquisitionType.FLEXRES"><code class="docutils literal notranslate"><span class="pre">AcquisitionType.FLEXRES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.AcquisitionType.DDC"><code class="docutils literal notranslate"><span class="pre">AcquisitionType.DDC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#arraymeasurement">ArrayMeasurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.NO_MEASUREMENT"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.NO_MEASUREMENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.LAST_ACQ_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.LAST_ACQ_HISTOGRAM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.FFT_PHASE_SPECTRUM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FFT_PHASE_SPECTRUM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_VOLTS_RMS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FFT_AMP_SPECTRUM_VOLTS_RMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.MULTI_ACQ_TIME_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTI_ACQ_TIME_HISTOGRAM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.ARRAY_INTEGRAL"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ARRAY_INTEGRAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.DERIVATIVE"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.DERIVATIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.INVERSE"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.INVERSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.HANNING_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.HANNING_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.FLAT_TOP_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FLAT_TOP_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.POLYNOMIAL_INTERPOLATION"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.POLYNOMIAL_INTERPOLATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.MULTIPLY_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTIPLY_CHANNELS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.ADD_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ADD_CHANNELS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.SUBTRACT_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.SUBTRACT_CHANNELS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.DIVIDE_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.DIVIDE_CHANNELS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.MULTI_ACQ_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTI_ACQ_AVERAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.BUTTERWORTH_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.BUTTERWORTH_FILTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.CHEBYSHEV_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.CHEBYSHEV_FILTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_DB"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FFT_AMP_SPECTRUM_DB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.HAMMING_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.HAMMING_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.WINDOWED_FIR_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.WINDOWED_FIR_FILTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.BESSEL_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.BESSEL_FILTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.TRIANGLE_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.TRIANGLE_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.BLACKMAN_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.BLACKMAN_WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.ARRAY_OFFSET"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ARRAY_OFFSET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ArrayMeasurement.ARRAY_GAIN"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ARRAY_GAIN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#cablesensemode">CableSenseMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.CableSenseMode"><code class="docutils literal notranslate"><span class="pre">CableSenseMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.CableSenseMode.DISABLED"><code class="docutils literal notranslate"><span class="pre">CableSenseMode.DISABLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.CableSenseMode.ON_DEMAND"><code class="docutils literal notranslate"><span class="pre">CableSenseMode.ON_DEMAND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#clearablemeasurement">ClearableMeasurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.ALL_MEASUREMENTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.ALL_MEASUREMENTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.MULTI_ACQ_TIME_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MULTI_ACQ_TIME_HISTOGRAM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.MULTI_ACQ_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MULTI_ACQ_AVERAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FREQUENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.AVERAGE_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AVERAGE_FREQUENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.FFT_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FFT_FREQUENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.PERIOD"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.PERIOD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.AVERAGE_PERIOD"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AVERAGE_PERIOD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.RISE_TIME"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.RISE_TIME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.FALL_TIME"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FALL_TIME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.RISE_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.RISE_SLEW_RATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.FALL_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FALL_SLEW_RATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.OVERSHOOT"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.OVERSHOOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.PRESHOOT"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.PRESHOOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_RMS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_RMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_CYCLE_RMS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_CYCLE_RMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.AC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AC_ESTIMATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.FFT_AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FFT_AMPLITUDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_AVERAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_CYCLE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_CYCLE_AVERAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.DC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.DC_ESTIMATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_MAX"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_MAX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_MIN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_MIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HIGH"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_LOW"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AMPLITUDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_TOP"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_TOP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_BASE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_BASE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_BASE_TO_TOP"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_BASE_TO_TOP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.WIDTH_NEG"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.WIDTH_NEG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.WIDTH_POS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.WIDTH_POS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.DUTY_CYCLE_NEG"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.DUTY_CYCLE_NEG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.DUTY_CYCLE_POS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.DUTY_CYCLE_POS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.INTEGRAL"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.INTEGRAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.AREA"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AREA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.CYCLE_AREA"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.CYCLE_AREA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_DELAY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_DELAY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.PHASE_DELAY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.PHASE_DELAY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.LOW_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.LOW_REF_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.MID_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MID_REF_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.HIGH_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.HIGH_REF_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEDIAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEDIAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MODE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MAX"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MAX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MIN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_HITS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_NEW_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_NEW_HITS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEDIAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEDIAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MODE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MAX"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MAX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MIN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_2_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_2_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_3_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_3_STDEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_HITS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ClearableMeasurement.TIME_HISTOGRAM_NEW_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_NEW_HITS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#firfilterwindow">FIRFilterWindow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow.NONE"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow.HANNING"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.HANNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow.FLAT_TOP"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.FLAT_TOP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow.HAMMING"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.HAMMING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow.TRIANGLE"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.TRIANGLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FIRFilterWindow.BLACKMAN"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.BLACKMAN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#fetchrelativeto">FetchRelativeTo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.FetchRelativeTo"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FetchRelativeTo.READ_POINTER"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.READ_POINTER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FetchRelativeTo.PRETRIGGER"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.PRETRIGGER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FetchRelativeTo.NOW"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.NOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FetchRelativeTo.START"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.START</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FetchRelativeTo.TRIGGER"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.TRIGGER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#filtertype">FilterType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.FilterType"><code class="docutils literal notranslate"><span class="pre">FilterType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FilterType.LOWPASS"><code class="docutils literal notranslate"><span class="pre">FilterType.LOWPASS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FilterType.HIGHPASS"><code class="docutils literal notranslate"><span class="pre">FilterType.HIGHPASS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FilterType.BANDPASS"><code class="docutils literal notranslate"><span class="pre">FilterType.BANDPASS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FilterType.BANDSTOP"><code class="docutils literal notranslate"><span class="pre">FilterType.BANDSTOP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#flexfirantialiasfiltertype">FlexFIRAntialiasFilterType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.FlexFIRAntialiasFilterType"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#glitchcondition">GlitchCondition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.GlitchCondition"><code class="docutils literal notranslate"><span class="pre">GlitchCondition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.GlitchCondition.GREATER"><code class="docutils literal notranslate"><span class="pre">GlitchCondition.GREATER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.GlitchCondition.LESS"><code class="docutils literal notranslate"><span class="pre">GlitchCondition.LESS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#glitchpolarity">GlitchPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.GlitchPolarity"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.GlitchPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.GlitchPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity.NEGATIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.GlitchPolarity.EITHER"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity.EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#option">Option</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.Option"><code class="docutils literal notranslate"><span class="pre">Option</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.Option.SELF_CALIBRATE_ALL_CHANNELS"><code class="docutils literal notranslate"><span class="pre">Option.SELF_CALIBRATE_ALL_CHANNELS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.Option.RESTORE_EXTERNAL_CALIBRATION"><code class="docutils literal notranslate"><span class="pre">Option.RESTORE_EXTERNAL_CALIBRATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#percentagemethod">PercentageMethod</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.PercentageMethod"><code class="docutils literal notranslate"><span class="pre">PercentageMethod</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.PercentageMethod.LOWHIGH"><code class="docutils literal notranslate"><span class="pre">PercentageMethod.LOWHIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.PercentageMethod.MINMAX"><code class="docutils literal notranslate"><span class="pre">PercentageMethod.MINMAX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.PercentageMethod.BASETOP"><code class="docutils literal notranslate"><span class="pre">PercentageMethod.BASETOP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#rismethod">RISMethod</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.RISMethod"><code class="docutils literal notranslate"><span class="pre">RISMethod</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RISMethod.EXACT_NUM_AVERAGES"><code class="docutils literal notranslate"><span class="pre">RISMethod.EXACT_NUM_AVERAGES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RISMethod.MIN_NUM_AVERAGES"><code class="docutils literal notranslate"><span class="pre">RISMethod.MIN_NUM_AVERAGES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RISMethod.INCOMPLETE"><code class="docutils literal notranslate"><span class="pre">RISMethod.INCOMPLETE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RISMethod.LIMITED_BIN_WIDTH"><code class="docutils literal notranslate"><span class="pre">RISMethod.LIMITED_BIN_WIDTH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#reflevelunits">RefLevelUnits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.RefLevelUnits"><code class="docutils literal notranslate"><span class="pre">RefLevelUnits</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RefLevelUnits.VOLTS"><code class="docutils literal notranslate"><span class="pre">RefLevelUnits.VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RefLevelUnits.PERCENTAGE"><code class="docutils literal notranslate"><span class="pre">RefLevelUnits.PERCENTAGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#reftriggerdetectorlocation">RefTriggerDetectorLocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.RefTriggerDetectorLocation"><code class="docutils literal notranslate"><span class="pre">RefTriggerDetectorLocation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RefTriggerDetectorLocation.ANALOG_DETECTION_CIRCUIT"><code class="docutils literal notranslate"><span class="pre">RefTriggerDetectorLocation.ANALOG_DETECTION_CIRCUIT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RefTriggerDetectorLocation.DDC_OUTPUT"><code class="docutils literal notranslate"><span class="pre">RefTriggerDetectorLocation.DDC_OUTPUT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#runtpolarity">RuntPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.RuntPolarity"><code class="docutils literal notranslate"><span class="pre">RuntPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RuntPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">RuntPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RuntPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">RuntPolarity.NEGATIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RuntPolarity.EITHER"><code class="docutils literal notranslate"><span class="pre">RuntPolarity.EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#runttimecondition">RuntTimeCondition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.RuntTimeCondition"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RuntTimeCondition.NONE"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RuntTimeCondition.WITHIN"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition.WITHIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.RuntTimeCondition.OUTSIDE"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition.OUTSIDE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#scalarmeasurement">ScalarMeasurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.NO_MEASUREMENT"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.NO_MEASUREMENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.RISE_TIME"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.RISE_TIME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.FALL_TIME"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FALL_TIME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FREQUENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.PERIOD"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.PERIOD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_RMS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_RMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_MAX"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_MAX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_MIN"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_MIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_HIGH"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_LOW"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_AVERAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.WIDTH_NEG"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.WIDTH_NEG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.WIDTH_POS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.WIDTH_POS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.DUTY_CYCLE_NEG"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.DUTY_CYCLE_NEG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.DUTY_CYCLE_POS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.DUTY_CYCLE_POS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AMPLITUDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_CYCLE_RMS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_CYCLE_RMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_CYCLE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_CYCLE_AVERAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.OVERSHOOT"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.OVERSHOOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.PRESHOOT"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.PRESHOOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.LOW_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.LOW_REF_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.MID_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.MID_REF_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.HIGH_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.HIGH_REF_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.AREA"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AREA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.CYCLE_AREA"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.CYCLE_AREA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.INTEGRAL"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.INTEGRAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_BASE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_BASE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_TOP"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_TOP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.FFT_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FFT_FREQUENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.FFT_AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FFT_AMPLITUDE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.RISE_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.RISE_SLEW_RATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.FALL_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FALL_SLEW_RATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.AC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AC_ESTIMATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.DC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.DC_ESTIMATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.TIME_DELAY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.TIME_DELAY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.AVERAGE_PERIOD"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AVERAGE_PERIOD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.AVERAGE_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AVERAGE_FREQUENCY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.VOLTAGE_BASE_TO_TOP"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_BASE_TO_TOP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.ScalarMeasurement.PHASE_DELAY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.PHASE_DELAY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#terminalconfiguration">TerminalConfiguration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.TerminalConfiguration"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TerminalConfiguration.SINGLE_ENDED"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.SINGLE_ENDED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TerminalConfiguration.UNBALANCED_DIFFERENTIAL"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.UNBALANCED_DIFFERENTIAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TerminalConfiguration.DIFFERENTIAL"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.DIFFERENTIAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggercoupling">TriggerCoupling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.TriggerCoupling"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerCoupling.AC"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.AC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerCoupling.DC"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.DC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerCoupling.HF_REJECT"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.HF_REJECT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerCoupling.LF_REJECT"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.LF_REJECT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerCoupling.AC_PLUS_HF_REJECT"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.AC_PLUS_HF_REJECT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggermodifier">TriggerModifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.TriggerModifier"><code class="docutils literal notranslate"><span class="pre">TriggerModifier</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerModifier.NO_TRIGGER_MOD"><code class="docutils literal notranslate"><span class="pre">TriggerModifier.NO_TRIGGER_MOD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerModifier.AUTO"><code class="docutils literal notranslate"><span class="pre">TriggerModifier.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerModifier.AUTO_LEVEL"><code class="docutils literal notranslate"><span class="pre">TriggerModifier.AUTO_LEVEL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggerslope">TriggerSlope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.TriggerSlope"><code class="docutils literal notranslate"><span class="pre">TriggerSlope</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerSlope.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">TriggerSlope.NEGATIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerSlope.POSITIVE"><code class="docutils literal notranslate"><span class="pre">TriggerSlope.POSITIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerSlope.SLOPE_EITHER"><code class="docutils literal notranslate"><span class="pre">TriggerSlope.SLOPE_EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggertype">TriggerType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.TriggerType"><code class="docutils literal notranslate"><span class="pre">TriggerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.EDGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.HYSTERESIS"><code class="docutils literal notranslate"><span class="pre">TriggerType.HYSTERESIS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.DIGITAL"><code class="docutils literal notranslate"><span class="pre">TriggerType.DIGITAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.WINDOW"><code class="docutils literal notranslate"><span class="pre">TriggerType.WINDOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.SOFTWARE"><code class="docutils literal notranslate"><span class="pre">TriggerType.SOFTWARE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.TV"><code class="docutils literal notranslate"><span class="pre">TriggerType.TV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.GLITCH"><code class="docutils literal notranslate"><span class="pre">TriggerType.GLITCH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.WIDTH"><code class="docutils literal notranslate"><span class="pre">TriggerType.WIDTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.RUNT"><code class="docutils literal notranslate"><span class="pre">TriggerType.RUNT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerType.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">TriggerType.IMMEDIATE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggerwindowmode">TriggerWindowMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.TriggerWindowMode"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerWindowMode.ENTERING"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode.ENTERING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerWindowMode.LEAVING"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode.LEAVING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.TriggerWindowMode.ENTERING_OR_LEAVING"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode.ENTERING_OR_LEAVING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#verticalcoupling">VerticalCoupling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.VerticalCoupling"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VerticalCoupling.AC"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling.AC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VerticalCoupling.DC"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling.DC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VerticalCoupling.GND"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling.GND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#videopolarity">VideoPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.VideoPolarity"><code class="docutils literal notranslate"><span class="pre">VideoPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">VideoPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">VideoPolarity.NEGATIVE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#videosignalformat">VideoSignalFormat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.NTSC"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.NTSC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.PAL"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.PAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.SECAM"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.SECAM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.M_PAL"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.M_PAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#videotriggerevent">VideoTriggerEvent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.VideoTriggerEvent"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoTriggerEvent.FIELD1"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.FIELD1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoTriggerEvent.FIELD2"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.FIELD2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoTriggerEvent.ANY_FIELD"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.ANY_FIELD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoTriggerEvent.ANY_LINE"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.ANY_LINE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.VideoTriggerEvent.LINE_NUMBER"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.LINE_NUMBER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#whichtrigger">WhichTrigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.WhichTrigger"><code class="docutils literal notranslate"><span class="pre">WhichTrigger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WhichTrigger.START"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.START</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WhichTrigger.ARM_REFERENCE"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.ARM_REFERENCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WhichTrigger.REFERENCE"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.REFERENCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WhichTrigger.ADVANCE"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.ADVANCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#widthcondition">WidthCondition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.WidthCondition"><code class="docutils literal notranslate"><span class="pre">WidthCondition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WidthCondition.WITHIN"><code class="docutils literal notranslate"><span class="pre">WidthCondition.WITHIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WidthCondition.OUTSIDE"><code class="docutils literal notranslate"><span class="pre">WidthCondition.OUTSIDE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#widthpolarity">WidthPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niscope.WidthPolarity"><code class="docutils literal notranslate"><span class="pre">WidthPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WidthPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">WidthPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WidthPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">WidthPolarity.NEGATIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niscope.WidthPolarity.EITHER"><code class="docutils literal notranslate"><span class="pre">WidthPolarity.EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Exceptions and Warnings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#error">Error</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivererror">DriverError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.DriverError"><code class="docutils literal notranslate"><span class="pre">DriverError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#unsupportedconfigurationerror">UnsupportedConfigurationError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.UnsupportedConfigurationError"><code class="docutils literal notranslate"><span class="pre">UnsupportedConfigurationError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivernotinstallederror">DriverNotInstalledError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.DriverNotInstalledError"><code class="docutils literal notranslate"><span class="pre">DriverNotInstalledError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertooolderror">DriverTooOldError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.DriverTooOldError"><code class="docutils literal notranslate"><span class="pre">DriverTooOldError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertoonewerror">DriverTooNewError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.DriverTooNewError"><code class="docutils literal notranslate"><span class="pre">DriverTooNewError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#invalidrepeatedcapabilityerror">InvalidRepeatedCapabilityError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.InvalidRepeatedCapabilityError"><code class="docutils literal notranslate"><span class="pre">InvalidRepeatedCapabilityError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#selftesterror">SelfTestError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.SelfTestError"><code class="docutils literal notranslate"><span class="pre">SelfTestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#rpcerror">RpcError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.RpcError"><code class="docutils literal notranslate"><span class="pre">RpcError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#driverwarning">DriverWarning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niscope.errors.DriverWarning"><code class="docutils literal notranslate"><span class="pre">DriverWarning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niscope-fetch-py">niscope_fetch.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niscope-fetch-forever-py">niscope_fetch_forever.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niscope-fetch-into-py">niscope_fetch_into.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niscope-read-py">niscope_read.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#sessioninitializationbehavior">SessionInitializationBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#niscope.SessionInitializationBehavior"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#niscope.SessionInitializationBehavior.AUTO"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#niscope.SessionInitializationBehavior.INITIALIZE_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.INITIALIZE_SERVER_SESSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#niscope.SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#grpcsessionoptions">GrpcSessionOptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#niscope.GrpcSessionOptions"><code class="docutils literal notranslate"><span class="pre">GrpcSessionOptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NI-SCOPE Python API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="class.html" class="btn btn-neutral float-right" title="Session" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

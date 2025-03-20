@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; NI-SWITCH Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gRPC Support" href="grpc_session_options.html" />
+    <link rel="prev" title="Exceptions and Warnings" href="errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-SWITCH Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="niswitch.html">niswitch module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="niswitch.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="niswitch.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="niswitch.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niswitch-connect-channels-py">niswitch_connect_channels.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niswitch-get-device-info-py">niswitch_get_device_info.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niswitch-relay-control-py">niswitch_relay_control.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-SWITCH Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="niswitch.html">niswitch module</a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/releases/download/1.4.11/niswitch_examples.zip">You can download all niswitch examples here</a></p>
+<section id="niswitch-connect-channels-py">
+<h2>niswitch_connect_channels.py<a class="headerlink" href="#niswitch-connect-channels-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niswitch/examples/niswitch_connect_channels.py">(niswitch_connect_channels.py)</a></span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">niswitch</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">channel1</span><span class="p">,</span> <span class="n">channel2</span><span class="p">,</span> <span class="n">topology</span><span class="p">,</span> <span class="n">simulate</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="c1"># if we are simulating resource name must be blank</span>
+<span class="linenos">10</span>    <span class="n">resource_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">simulate</span> <span class="k">else</span> <span class="n">resource_name</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="k">with</span> <span class="n">niswitch</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">topology</span><span class="o">=</span><span class="n">topology</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="n">simulate</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="n">session</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">channel1</span><span class="o">=</span><span class="n">channel1</span><span class="p">,</span> <span class="n">channel2</span><span class="o">=</span><span class="n">channel2</span><span class="p">)</span>
+<span class="linenos">14</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel &#39;</span><span class="p">,</span> <span class="n">channel1</span><span class="p">,</span> <span class="s1">&#39; and &#39;</span><span class="p">,</span> <span class="n">channel2</span><span class="p">,</span> <span class="s1">&#39; are now connected.&#39;</span><span class="p">)</span>
+<span class="linenos">15</span>        <span class="n">session</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">channel1</span><span class="o">=</span><span class="n">channel1</span><span class="p">,</span> <span class="n">channel2</span><span class="o">=</span><span class="n">channel2</span><span class="p">)</span>
+<span class="linenos">16</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel &#39;</span><span class="p">,</span> <span class="n">channel1</span><span class="p">,</span> <span class="s1">&#39; and &#39;</span><span class="p">,</span> <span class="n">channel2</span><span class="p">,</span> <span class="s1">&#39; are now disconnected.&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">20</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs a connection with NI-SWITCH Channels.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI switch.&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-ch1&#39;</span><span class="p">,</span> <span class="s1">&#39;--channel1&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel One.&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-ch2&#39;</span><span class="p">,</span> <span class="s1">&#39;--channel2&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel Two.&#39;</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--topology&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Configured Topology&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Topology.&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Simulate device.&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">channel1</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">channel2</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">31</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">,</span> <span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="s1">&#39;2737/2-Wire 4x64 Matrix&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">35</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--topology&#39;</span><span class="p">,</span> <span class="s1">&#39;2737/2-Wire 4x64 Matrix&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">]</span>
+<span class="linenos">36</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">40</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">44</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="niswitch-get-device-info-py">
+<h2>niswitch_get_device_info.py<a class="headerlink" href="#niswitch-get-device-info-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niswitch/examples/niswitch_get_device_info.py">(niswitch_get_device_info.py)</a></span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">niswitch</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">topology</span><span class="p">,</span> <span class="n">simulate</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">relay</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="c1"># if we are simulating resource name must be blank</span>
+<span class="linenos">10</span>    <span class="n">resource_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">simulate</span> <span class="k">else</span> <span class="n">resource_name</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="k">with</span> <span class="n">niswitch</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">topology</span><span class="o">=</span><span class="n">topology</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="n">simulate</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="k">if</span> <span class="n">device</span><span class="p">:</span>
+<span class="linenos">14</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device Info:&#39;</span><span class="p">)</span>
+<span class="linenos">15</span>            <span class="n">row_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:&lt;18}</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">16</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Device Name: &#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">io_resource_descriptor</span><span class="p">))</span>
+<span class="linenos">17</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Device Model: &#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">instrument_model</span><span class="p">))</span>
+<span class="linenos">18</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Driver Revision: &#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">specific_driver_revision</span><span class="p">))</span>
+<span class="linenos">19</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Channel count: &#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">channel_count</span><span class="p">))</span>
+<span class="linenos">20</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Relay count: &#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">number_of_relays</span><span class="p">))</span>
+<span class="linenos">21</span>        <span class="k">if</span> <span class="n">channel</span><span class="p">:</span>
+<span class="linenos">22</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Channel Info:&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>            <span class="n">row_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:6}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{:&lt;15}{:&lt;22}{:6}</span><span class="s1">&#39;</span>
+<span class="linenos">24</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Is Configuration&#39;</span><span class="p">,</span> <span class="s1">&#39;Is Source&#39;</span><span class="p">))</span>
+<span class="linenos">25</span>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">channel_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">26</span>                <span class="n">channel_name</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_channel_name</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">27</span>                <span class="n">channel</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel_name</span><span class="p">]</span>
+<span class="linenos">28</span>                <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">channel_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel</span><span class="o">.</span><span class="n">is_configuration_channel</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel</span><span class="o">.</span><span class="n">is_source_channel</span><span class="p">)))</span>
+<span class="linenos">29</span>        <span class="k">if</span> <span class="n">relay</span><span class="p">:</span>
+<span class="linenos">30</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Relay Info:&#39;</span><span class="p">)</span>
+<span class="linenos">31</span>            <span class="n">row_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:6}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{:&lt;15}{:&lt;22}{:6}</span><span class="s1">&#39;</span>
+<span class="linenos">32</span>            <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Position&#39;</span><span class="p">,</span> <span class="s1">&#39;Count&#39;</span><span class="p">))</span>
+<span class="linenos">33</span>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">number_of_relays</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos">34</span>                <span class="n">relay_name</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_relay_name</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">35</span>                <span class="nb">print</span><span class="p">(</span><span class="n">row_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">relay_name</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">get_relay_position</span><span class="p">(</span><span class="n">relay_name</span><span class="o">=</span><span class="n">relay_name</span><span class="p">),</span> <span class="n">session</span><span class="o">.</span><span class="n">get_relay_count</span><span class="p">(</span><span class="n">relay_name</span><span class="o">=</span><span class="n">relay_name</span><span class="p">)))</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">39</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Prints information for the specified NI-SWITCH.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI switch.&#39;</span><span class="p">)</span>
+<span class="linenos">41</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--device&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Prints information for the device&#39;</span><span class="p">)</span>
+<span class="linenos">42</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--channel&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Prints information for all channels on the device&#39;</span><span class="p">)</span>
+<span class="linenos">43</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--relay&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Prints information for all relays on the device&#39;</span><span class="p">)</span>
+<span class="linenos">44</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--topology&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Configured Topology&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Topology.&#39;</span><span class="p">)</span>
+<span class="linenos">45</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Simulate device.&#39;</span><span class="p">)</span>
+<span class="linenos">46</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">device</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">channel</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">relay</span><span class="p">):</span>
+<span class="linenos">49</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You must specify at least one of -d, -c, or -r!&#39;</span><span class="p">)</span>
+<span class="linenos">50</span>        <span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="linenos">51</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">channel</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">relay</span><span class="p">)</span>
+<span class="linenos">54</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">57</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;2737/2-Wire 4x64 Matrix&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">61</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--topology&#39;</span><span class="p">,</span> <span class="s1">&#39;2737/2-Wire 4x64 Matrix&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="s1">&#39;--device&#39;</span><span class="p">,</span> <span class="s1">&#39;--channel&#39;</span><span class="p">,</span> <span class="s1">&#39;--relay&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">62</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">66</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">67</span>
+<span class="linenos">68</span>
+<span class="linenos">69</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">70</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">71</span>
+<span class="linenos">72</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="niswitch-relay-control-py">
+<h2>niswitch_relay_control.py<a class="headerlink" href="#niswitch-relay-control-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niswitch/examples/niswitch_relay_control.py">(niswitch_relay_control.py)</a></span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">niswitch</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">topology</span><span class="p">,</span> <span class="n">simulate</span><span class="p">,</span> <span class="n">relay</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="c1"># if we are simulating resource name must be blank</span>
+<span class="linenos">10</span>    <span class="n">resource_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">simulate</span> <span class="k">else</span> <span class="n">resource_name</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="k">with</span> <span class="n">niswitch</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">topology</span><span class="o">=</span><span class="n">topology</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="n">simulate</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="n">session</span><span class="o">.</span><span class="n">relay_control</span><span class="p">(</span><span class="n">relay_name</span><span class="o">=</span><span class="n">relay</span><span class="p">,</span> <span class="n">relay_action</span><span class="o">=</span><span class="n">niswitch</span><span class="o">.</span><span class="n">RelayAction</span><span class="p">[</span><span class="n">action</span><span class="p">])</span>
+<span class="linenos">14</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Relay &#39;</span><span class="p">,</span> <span class="n">relay</span><span class="p">,</span> <span class="s1">&#39; has had the action &#39;</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="s1">&#39; performed.&#39;</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">18</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs relay control with NI-SWITCH relays.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI switch.&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--relay&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;k0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Relay Name.&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="s1">&#39;--action&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">niswitch</span><span class="o">.</span><span class="n">RelayAction</span><span class="o">.</span><span class="n">__members__</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Relay Action.&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--topology&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Configured Topology&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Topology.&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Simulate device.&#39;</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">relay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">action</span><span class="p">)</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">29</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;2737/2-Wire 4x64 Matrix&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;kr0c0&#39;</span><span class="p">,</span> <span class="s1">&#39;OPEN&#39;</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">33</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--topology&#39;</span><span class="p">,</span> <span class="s1">&#39;2737/2-Wire 4x64 Matrix&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="s1">&#39;--relay&#39;</span><span class="p">,</span> <span class="s1">&#39;kr0c0&#39;</span><span class="p">]</span>
+<span class="linenos">34</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">38</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">42</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="errors.html" class="btn btn-neutral float-left" title="Exceptions and Warnings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grpc_session_options.html" class="btn btn-neutral float-right" title="gRPC Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
