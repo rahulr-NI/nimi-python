@@ -1,0 +1,1620 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enums &mdash; NI-DCPower Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="Repeated Capabilities" href="rep_caps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-DCPower Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidcpower.html">nidcpower module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidcpower.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidcpower.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidcpower.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aperturetimeautomode">ApertureTimeAutoMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.ApertureTimeAutoMode"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ApertureTimeAutoMode.OFF"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ApertureTimeAutoMode.SHORT"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.SHORT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ApertureTimeAutoMode.NORMAL"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.NORMAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ApertureTimeAutoMode.LONG"><code class="docutils literal notranslate"><span class="pre">ApertureTimeAutoMode.LONG</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#aperturetimeunits">ApertureTimeUnits</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.ApertureTimeUnits"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ApertureTimeUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.SECONDS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ApertureTimeUnits.POWER_LINE_CYCLES"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.POWER_LINE_CYCLES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#autozero">AutoZero</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.AutoZero"><code class="docutils literal notranslate"><span class="pre">AutoZero</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutoZero.OFF"><code class="docutils literal notranslate"><span class="pre">AutoZero.OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutoZero.ONCE"><code class="docutils literal notranslate"><span class="pre">AutoZero.ONCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutoZero.ON"><code class="docutils literal notranslate"><span class="pre">AutoZero.ON</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#autorangeaperturetimemode">AutorangeApertureTimeMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.AutorangeApertureTimeMode"><code class="docutils literal notranslate"><span class="pre">AutorangeApertureTimeMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeApertureTimeMode.AUTO"><code class="docutils literal notranslate"><span class="pre">AutorangeApertureTimeMode.AUTO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeApertureTimeMode.CUSTOM"><code class="docutils literal notranslate"><span class="pre">AutorangeApertureTimeMode.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#autorangebehavior">AutorangeBehavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.AutorangeBehavior"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeBehavior.UP_TO_LIMIT_THEN_DOWN"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior.UP_TO_LIMIT_THEN_DOWN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeBehavior.UP"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior.UP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeBehavior.UP_AND_DOWN"><code class="docutils literal notranslate"><span class="pre">AutorangeBehavior.UP_AND_DOWN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#autorangethresholdmode">AutorangeThresholdMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.AutorangeThresholdMode"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeThresholdMode.NORMAL"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.NORMAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeThresholdMode.FAST_STEP"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.FAST_STEP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeThresholdMode.HIGH_HYSTERESIS"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.HIGH_HYSTERESIS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeThresholdMode.MEDIUM_HYSTERESIS"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.MEDIUM_HYSTERESIS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.AutorangeThresholdMode.HOLD"><code class="docutils literal notranslate"><span class="pre">AutorangeThresholdMode.HOLD</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cablelength">CableLength</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.CableLength"><code class="docutils literal notranslate"><span class="pre">CableLength</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.ZERO_M"><code class="docutils literal notranslate"><span class="pre">CableLength.ZERO_M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_0_5M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_0_5M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_1M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_1M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_2M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_2M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_4M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_4M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_1M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_TRIAXIAL_1M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_2M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_TRIAXIAL_2M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_4M"><code class="docutils literal notranslate"><span class="pre">CableLength.NI_STANDARD_TRIAXIAL_4M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.CUSTOM_ONBOARD_STORAGE"><code class="docutils literal notranslate"><span class="pre">CableLength.CUSTOM_ONBOARD_STORAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CableLength.CUSTOM_AS_CONFIGURED"><code class="docutils literal notranslate"><span class="pre">CableLength.CUSTOM_AS_CONFIGURED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#compliancelimitsymmetry">ComplianceLimitSymmetry</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.ComplianceLimitSymmetry"><code class="docutils literal notranslate"><span class="pre">ComplianceLimitSymmetry</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ComplianceLimitSymmetry.SYMMETRIC"><code class="docutils literal notranslate"><span class="pre">ComplianceLimitSymmetry.SYMMETRIC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ComplianceLimitSymmetry.ASYMMETRIC"><code class="docutils literal notranslate"><span class="pre">ComplianceLimitSymmetry.ASYMMETRIC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conductionvoltagemode">ConductionVoltageMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.ConductionVoltageMode"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ConductionVoltageMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ConductionVoltageMode.ENABLED"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode.ENABLED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.ConductionVoltageMode.DISABLED"><code class="docutils literal notranslate"><span class="pre">ConductionVoltageMode.DISABLED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#currentlimitbehavior">CurrentLimitBehavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.CurrentLimitBehavior"><code class="docutils literal notranslate"><span class="pre">CurrentLimitBehavior</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CurrentLimitBehavior.REGULATE"><code class="docutils literal notranslate"><span class="pre">CurrentLimitBehavior.REGULATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.CurrentLimitBehavior.TRIP"><code class="docutils literal notranslate"><span class="pre">CurrentLimitBehavior.TRIP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#dcnoiserejection">DCNoiseRejection</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.DCNoiseRejection"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.DCNoiseRejection.SECOND_ORDER"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.SECOND_ORDER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.DCNoiseRejection.NORMAL"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.NORMAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#event">Event</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Event.SOURCE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.SOURCE_COMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Event.MEASURE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.MEASURE_COMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Event.SEQUENCE_ITERATION_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.SEQUENCE_ITERATION_COMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Event.SEQUENCE_ENGINE_DONE"><code class="docutils literal notranslate"><span class="pre">Event.SEQUENCE_ENGINE_DONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Event.PULSE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">Event.PULSE_COMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Event.READY_FOR_PULSE_TRIGGER"><code class="docutils literal notranslate"><span class="pre">Event.READY_FOR_PULSE_TRIGGER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#eventoutputbehavior">EventOutputBehavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.EventOutputBehavior"><code class="docutils literal notranslate"><span class="pre">EventOutputBehavior</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.EventOutputBehavior.PULSE"><code class="docutils literal notranslate"><span class="pre">EventOutputBehavior.PULSE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.EventOutputBehavior.TOGGLE"><code class="docutils literal notranslate"><span class="pre">EventOutputBehavior.TOGGLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#eventtoggleinitialstate">EventToggleInitialState</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.EventToggleInitialState"><code class="docutils literal notranslate"><span class="pre">EventToggleInitialState</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.EventToggleInitialState.LOW"><code class="docutils literal notranslate"><span class="pre">EventToggleInitialState.LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.EventToggleInitialState.HIGH"><code class="docutils literal notranslate"><span class="pre">EventToggleInitialState.HIGH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#instrumentmode">InstrumentMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.InstrumentMode"><code class="docutils literal notranslate"><span class="pre">InstrumentMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.InstrumentMode.SMU_PS"><code class="docutils literal notranslate"><span class="pre">InstrumentMode.SMU_PS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.InstrumentMode.LCR"><code class="docutils literal notranslate"><span class="pre">InstrumentMode.LCR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.InstrumentMode.E_LOAD"><code class="docutils literal notranslate"><span class="pre">InstrumentMode.E_LOAD</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrcompensationtype">LCRCompensationType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRCompensationType"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRCompensationType.OPEN"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.OPEN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRCompensationType.SHORT"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.SHORT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRCompensationType.LOAD"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.LOAD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRCompensationType.OPEN_CUSTOM_CABLE"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.OPEN_CUSTOM_CABLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRCompensationType.SHORT_CUSTOM_CABLE"><code class="docutils literal notranslate"><span class="pre">LCRCompensationType.SHORT_CUSTOM_CABLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrdcbiassource">LCRDCBiasSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRDCBiasSource"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRDCBiasSource.OFF"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource.OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRDCBiasSource.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource.VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRDCBiasSource.CURRENT"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasSource.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrdcbiastransientresponse">LCRDCBiasTransientResponse</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRDCBiasTransientResponse"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasTransientResponse</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRDCBiasTransientResponse.NORMAL"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasTransientResponse.NORMAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRDCBiasTransientResponse.CUSTOM"><code class="docutils literal notranslate"><span class="pre">LCRDCBiasTransientResponse.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrimpedancerangesource">LCRImpedanceRangeSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRImpedanceRangeSource"><code class="docutils literal notranslate"><span class="pre">LCRImpedanceRangeSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRImpedanceRangeSource.IMPEDANCE_RANGE"><code class="docutils literal notranslate"><span class="pre">LCRImpedanceRangeSource.IMPEDANCE_RANGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRImpedanceRangeSource.LOAD_CONFIGURATION"><code class="docutils literal notranslate"><span class="pre">LCRImpedanceRangeSource.LOAD_CONFIGURATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrmeasurementtime">LCRMeasurementTime</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRMeasurementTime"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRMeasurementTime.SHORT"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.SHORT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRMeasurementTime.MEDIUM"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.MEDIUM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRMeasurementTime.LONG"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.LONG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRMeasurementTime.CUSTOM"><code class="docutils literal notranslate"><span class="pre">LCRMeasurementTime.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcropenshortloadcompensationdatasource">LCROpenShortLoadCompensationDataSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCROpenShortLoadCompensationDataSource"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCROpenShortLoadCompensationDataSource.ONBOARD_STORAGE"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource.ONBOARD_STORAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCROpenShortLoadCompensationDataSource.AS_DEFINED"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource.AS_DEFINED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCROpenShortLoadCompensationDataSource.AS_CONFIGURED"><code class="docutils literal notranslate"><span class="pre">LCROpenShortLoadCompensationDataSource.AS_CONFIGURED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrreferencevaluetype">LCRReferenceValueType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRReferenceValueType"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRReferenceValueType.IMPEDANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IMPEDANCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRReferenceValueType.IDEAL_CAPACITANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IDEAL_CAPACITANCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRReferenceValueType.IDEAL_INDUCTANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IDEAL_INDUCTANCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRReferenceValueType.IDEAL_RESISTANCE"><code class="docutils literal notranslate"><span class="pre">LCRReferenceValueType.IDEAL_RESISTANCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrsourcedelaymode">LCRSourceDelayMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRSourceDelayMode"><code class="docutils literal notranslate"><span class="pre">LCRSourceDelayMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRSourceDelayMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">LCRSourceDelayMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRSourceDelayMode.MANUAL"><code class="docutils literal notranslate"><span class="pre">LCRSourceDelayMode.MANUAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lcrstimulusfunction">LCRStimulusFunction</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.LCRStimulusFunction"><code class="docutils literal notranslate"><span class="pre">LCRStimulusFunction</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRStimulusFunction.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">LCRStimulusFunction.VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.LCRStimulusFunction.CURRENT"><code class="docutils literal notranslate"><span class="pre">LCRStimulusFunction.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#measurewhen">MeasureWhen</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.MeasureWhen"><code class="docutils literal notranslate"><span class="pre">MeasureWhen</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE"><code class="docutils literal notranslate"><span class="pre">MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.MeasureWhen.ON_DEMAND"><code class="docutils literal notranslate"><span class="pre">MeasureWhen.ON_DEMAND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.MeasureWhen.ON_MEASURE_TRIGGER"><code class="docutils literal notranslate"><span class="pre">MeasureWhen.ON_MEASURE_TRIGGER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#measurementtypes">MeasurementTypes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.MeasurementTypes"><code class="docutils literal notranslate"><span class="pre">MeasurementTypes</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.MeasurementTypes.CURRENT"><code class="docutils literal notranslate"><span class="pre">MeasurementTypes.CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.MeasurementTypes.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">MeasurementTypes.VOLTAGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#outputcapacitance">OutputCapacitance</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.OutputCapacitance"><code class="docutils literal notranslate"><span class="pre">OutputCapacitance</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCapacitance.LOW"><code class="docutils literal notranslate"><span class="pre">OutputCapacitance.LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCapacitance.HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCapacitance.HIGH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#outputcutoffreason">OutputCutoffReason</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.OutputCutoffReason"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.ALL"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.ALL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_OUTPUT_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_OUTPUT_LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.CURRENT_MEASURE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_MEASURE_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.CURRENT_MEASURE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_MEASURE_LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_CHANGE_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_CHANGE_LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.CURRENT_CHANGE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_CHANGE_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.CURRENT_CHANGE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_CHANGE_LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.CURRENT_SATURATED"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.CURRENT_SATURATED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_HIGH"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_MEASURE_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_LOW"><code class="docutils literal notranslate"><span class="pre">OutputCutoffReason.VOLTAGE_MEASURE_LOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#outputfunction">OutputFunction</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.OutputFunction"><code class="docutils literal notranslate"><span class="pre">OutputFunction</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputFunction.DC_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">OutputFunction.DC_VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputFunction.DC_CURRENT"><code class="docutils literal notranslate"><span class="pre">OutputFunction.DC_CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputFunction.PULSE_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">OutputFunction.PULSE_VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputFunction.PULSE_CURRENT"><code class="docutils literal notranslate"><span class="pre">OutputFunction.PULSE_CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#outputstates">OutputStates</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.OutputStates"><code class="docutils literal notranslate"><span class="pre">OutputStates</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputStates.CONSTANT_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">OutputStates.CONSTANT_VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputStates.CONSTANT_CURRENT"><code class="docutils literal notranslate"><span class="pre">OutputStates.CONSTANT_CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.OutputStates.INHIBITED"><code class="docutils literal notranslate"><span class="pre">OutputStates.INHIBITED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#polarity">Polarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.Polarity"><code class="docutils literal notranslate"><span class="pre">Polarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Polarity.HIGH"><code class="docutils literal notranslate"><span class="pre">Polarity.HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Polarity.LOW"><code class="docutils literal notranslate"><span class="pre">Polarity.LOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#powerallocationmode">PowerAllocationMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.PowerAllocationMode"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerAllocationMode.DISABLED"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode.DISABLED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerAllocationMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerAllocationMode.MANUAL"><code class="docutils literal notranslate"><span class="pre">PowerAllocationMode.MANUAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#powersource">PowerSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.PowerSource"><code class="docutils literal notranslate"><span class="pre">PowerSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerSource.INTERNAL"><code class="docutils literal notranslate"><span class="pre">PowerSource.INTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerSource.AUXILIARY"><code class="docutils literal notranslate"><span class="pre">PowerSource.AUXILIARY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerSource.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">PowerSource.AUTOMATIC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#powersourceinuse">PowerSourceInUse</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.PowerSourceInUse"><code class="docutils literal notranslate"><span class="pre">PowerSourceInUse</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerSourceInUse.INTERNAL"><code class="docutils literal notranslate"><span class="pre">PowerSourceInUse.INTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.PowerSourceInUse.AUXILIARY"><code class="docutils literal notranslate"><span class="pre">PowerSourceInUse.AUXILIARY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#selfcalibrationpersistence">SelfCalibrationPersistence</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.SelfCalibrationPersistence"><code class="docutils literal notranslate"><span class="pre">SelfCalibrationPersistence</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SelfCalibrationPersistence.KEEP_IN_MEMORY"><code class="docutils literal notranslate"><span class="pre">SelfCalibrationPersistence.KEEP_IN_MEMORY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SelfCalibrationPersistence.WRITE_TO_EEPROM"><code class="docutils literal notranslate"><span class="pre">SelfCalibrationPersistence.WRITE_TO_EEPROM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sendsoftwareedgetriggertype">SendSoftwareEdgeTriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType.START"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.START</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType.SOURCE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.SOURCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType.MEASURE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.MEASURE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType.SEQUENCE_ADVANCE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.SEQUENCE_ADVANCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType.PULSE"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.PULSE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SendSoftwareEdgeTriggerType.SHUTDOWN"><code class="docutils literal notranslate"><span class="pre">SendSoftwareEdgeTriggerType.SHUTDOWN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sense">Sense</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.Sense"><code class="docutils literal notranslate"><span class="pre">Sense</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Sense.LOCAL"><code class="docutils literal notranslate"><span class="pre">Sense.LOCAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.Sense.REMOTE"><code class="docutils literal notranslate"><span class="pre">Sense.REMOTE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sourcemode">SourceMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.SourceMode"><code class="docutils literal notranslate"><span class="pre">SourceMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SourceMode.SINGLE_POINT"><code class="docutils literal notranslate"><span class="pre">SourceMode.SINGLE_POINT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.SourceMode.SEQUENCE"><code class="docutils literal notranslate"><span class="pre">SourceMode.SEQUENCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transientresponse">TransientResponse</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.TransientResponse"><code class="docutils literal notranslate"><span class="pre">TransientResponse</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TransientResponse.NORMAL"><code class="docutils literal notranslate"><span class="pre">TransientResponse.NORMAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TransientResponse.FAST"><code class="docutils literal notranslate"><span class="pre">TransientResponse.FAST</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TransientResponse.SLOW"><code class="docutils literal notranslate"><span class="pre">TransientResponse.SLOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TransientResponse.CUSTOM"><code class="docutils literal notranslate"><span class="pre">TransientResponse.CUSTOM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggertype">TriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidcpower.TriggerType"><code class="docutils literal notranslate"><span class="pre">TriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TriggerType.NONE"><code class="docutils literal notranslate"><span class="pre">TriggerType.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidcpower.TriggerType.SOFTWARE_EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.SOFTWARE_EDGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-DCPower Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidcpower.html">nidcpower module</a></li>
+      <li class="breadcrumb-item active">Enums</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enums.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h1>
+<p>Enums used in NI-DCPower</p>
+<section id="aperturetimeautomode">
+<h2>ApertureTimeAutoMode<a class="headerlink" href="#aperturetimeautomode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeAutoMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">ApertureTimeAutoMode</span></span><a class="headerlink" href="#nidcpower.ApertureTimeAutoMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeAutoMode.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><a class="headerlink" href="#nidcpower.ApertureTimeAutoMode.OFF" title="Link to this definition"></a></dt>
+<dd><p>Disables automatic aperture time scaling. The <a class="reference internal" href="class.html#nidcpower.Session.aperture_time" title="nidcpower.Session.aperture_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.aperture_time</span></code></a> property specifies the aperture time for all ranges.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeAutoMode.SHORT">
+<span class="sig-name descname"><span class="pre">SHORT</span></span><a class="headerlink" href="#nidcpower.ApertureTimeAutoMode.SHORT" title="Link to this definition"></a></dt>
+<dd><p>Prioritizes measurement speed over measurement accuracy by quickly scaling down aperture time in larger current ranges. The <a class="reference internal" href="class.html#nidcpower.Session.aperture_time" title="nidcpower.Session.aperture_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.aperture_time</span></code></a> property specifies the aperture time for the minimum range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeAutoMode.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#nidcpower.ApertureTimeAutoMode.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>Balances measurement accuracy and speed by scaling down aperture time in larger current ranges. The <a class="reference internal" href="class.html#nidcpower.Session.aperture_time" title="nidcpower.Session.aperture_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.aperture_time</span></code></a> property specifies the aperture time for the minimum range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeAutoMode.LONG">
+<span class="sig-name descname"><span class="pre">LONG</span></span><a class="headerlink" href="#nidcpower.ApertureTimeAutoMode.LONG" title="Link to this definition"></a></dt>
+<dd><p>Prioritizes accuracy while still decreasing measurement time by slowly scaling down aperture time in larger current ranges. The <a class="reference internal" href="class.html#nidcpower.Session.aperture_time" title="nidcpower.Session.aperture_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.aperture_time</span></code></a> property specifies the aperture time for the minimum range.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="aperturetimeunits">
+<h2>ApertureTimeUnits<a class="headerlink" href="#aperturetimeunits" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeUnits">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">ApertureTimeUnits</span></span><a class="headerlink" href="#nidcpower.ApertureTimeUnits" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeUnits.SECONDS">
+<span class="sig-name descname"><span class="pre">SECONDS</span></span><a class="headerlink" href="#nidcpower.ApertureTimeUnits.SECONDS" title="Link to this definition"></a></dt>
+<dd><p>Specifies aperture time in seconds.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ApertureTimeUnits.POWER_LINE_CYCLES">
+<span class="sig-name descname"><span class="pre">POWER_LINE_CYCLES</span></span><a class="headerlink" href="#nidcpower.ApertureTimeUnits.POWER_LINE_CYCLES" title="Link to this definition"></a></dt>
+<dd><p>Specifies aperture time in power line cycles (PLCs).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="autozero">
+<h2>AutoZero<a class="headerlink" href="#autozero" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.AutoZero">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">AutoZero</span></span><a class="headerlink" href="#nidcpower.AutoZero" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutoZero.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><a class="headerlink" href="#nidcpower.AutoZero.OFF" title="Link to this definition"></a></dt>
+<dd><p>Disables auto zero.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutoZero.ONCE">
+<span class="sig-name descname"><span class="pre">ONCE</span></span><a class="headerlink" href="#nidcpower.AutoZero.ONCE" title="Link to this definition"></a></dt>
+<dd><p>Makes zero conversions following the first measurement after initiating the device.  The device uses these zero conversions for the preceding measurement and future measurements until the device is reinitiated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutoZero.ON">
+<span class="sig-name descname"><span class="pre">ON</span></span><a class="headerlink" href="#nidcpower.AutoZero.ON" title="Link to this definition"></a></dt>
+<dd><p>Makes zero conversions for every measurement.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="autorangeaperturetimemode">
+<h2>AutorangeApertureTimeMode<a class="headerlink" href="#autorangeaperturetimemode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.AutorangeApertureTimeMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">AutorangeApertureTimeMode</span></span><a class="headerlink" href="#nidcpower.AutorangeApertureTimeMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeApertureTimeMode.AUTO">
+<span class="sig-name descname"><span class="pre">AUTO</span></span><a class="headerlink" href="#nidcpower.AutorangeApertureTimeMode.AUTO" title="Link to this definition"></a></dt>
+<dd><p>NI-DCPower optimizes the aperture time for the autorange algorithm based on the module range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeApertureTimeMode.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><a class="headerlink" href="#nidcpower.AutorangeApertureTimeMode.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>The user specifies a minimum aperture time for the algorithm using the <a class="reference internal" href="class.html#nidcpower.Session.autorange_minimum_aperture_time" title="nidcpower.Session.autorange_minimum_aperture_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.autorange_minimum_aperture_time</span></code></a> property and the corresponding <a class="reference internal" href="class.html#nidcpower.Session.autorange_minimum_aperture_time_units" title="nidcpower.Session.autorange_minimum_aperture_time_units"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.autorange_minimum_aperture_time_units</span></code></a> property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="autorangebehavior">
+<h2>AutorangeBehavior<a class="headerlink" href="#autorangebehavior" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.AutorangeBehavior">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">AutorangeBehavior</span></span><a class="headerlink" href="#nidcpower.AutorangeBehavior" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeBehavior.UP_TO_LIMIT_THEN_DOWN">
+<span class="sig-name descname"><span class="pre">UP_TO_LIMIT_THEN_DOWN</span></span><a class="headerlink" href="#nidcpower.AutorangeBehavior.UP_TO_LIMIT_THEN_DOWN" title="Link to this definition"></a></dt>
+<dd><p>Go to limit range then range down as needed until measured value is within thresholds.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeBehavior.UP">
+<span class="sig-name descname"><span class="pre">UP</span></span><a class="headerlink" href="#nidcpower.AutorangeBehavior.UP" title="Link to this definition"></a></dt>
+<dd><p>go up one range when the upper threshold is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeBehavior.UP_AND_DOWN">
+<span class="sig-name descname"><span class="pre">UP_AND_DOWN</span></span><a class="headerlink" href="#nidcpower.AutorangeBehavior.UP_AND_DOWN" title="Link to this definition"></a></dt>
+<dd><p>go up or down one range when the upper/lower threshold is reached.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="autorangethresholdmode">
+<h2>AutorangeThresholdMode<a class="headerlink" href="#autorangethresholdmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.AutorangeThresholdMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">AutorangeThresholdMode</span></span><a class="headerlink" href="#nidcpower.AutorangeThresholdMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeThresholdMode.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#nidcpower.AutorangeThresholdMode.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>Thresholds are selected based on a balance between accuracy and hysteresis.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeThresholdMode.FAST_STEP">
+<span class="sig-name descname"><span class="pre">FAST_STEP</span></span><a class="headerlink" href="#nidcpower.AutorangeThresholdMode.FAST_STEP" title="Link to this definition"></a></dt>
+<dd><p>Optimized for faster changes in the measured signal. Thresholds are configured to be a smaller percentage of the range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeThresholdMode.HIGH_HYSTERESIS">
+<span class="sig-name descname"><span class="pre">HIGH_HYSTERESIS</span></span><a class="headerlink" href="#nidcpower.AutorangeThresholdMode.HIGH_HYSTERESIS" title="Link to this definition"></a></dt>
+<dd><p>Optimized for noisy signals to minimize frequent and unpredictable range changes. Thresholds are configured to be a larger percentage of the range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeThresholdMode.MEDIUM_HYSTERESIS">
+<span class="sig-name descname"><span class="pre">MEDIUM_HYSTERESIS</span></span><a class="headerlink" href="#nidcpower.AutorangeThresholdMode.MEDIUM_HYSTERESIS" title="Link to this definition"></a></dt>
+<dd><p>Optimized for noisy signals to minimize frequent and unpredictable range changes. Thresholds are configured to be a medium percentage of the range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.AutorangeThresholdMode.HOLD">
+<span class="sig-name descname"><span class="pre">HOLD</span></span><a class="headerlink" href="#nidcpower.AutorangeThresholdMode.HOLD" title="Link to this definition"></a></dt>
+<dd><p>Attempt to maintain the active range. Thresholds will favor the active range.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cablelength">
+<h2>CableLength<a class="headerlink" href="#cablelength" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.CableLength">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">CableLength</span></span><a class="headerlink" href="#nidcpower.CableLength" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.ZERO_M">
+<span class="sig-name descname"><span class="pre">ZERO_M</span></span><a class="headerlink" href="#nidcpower.CableLength.ZERO_M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for a 0m cable (direct connection).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_0_5M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_0_5M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_0_5M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 0.5m coaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_1M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_1M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_1M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 1m coaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_2M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_2M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_2M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 2m coaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_4M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_4M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_4M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 4m coaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_TRIAXIAL_1M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_TRIAXIAL_1M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_1M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 1m triaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_TRIAXIAL_2M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_TRIAXIAL_2M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_2M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 2m triaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.NI_STANDARD_TRIAXIAL_4M">
+<span class="sig-name descname"><span class="pre">NI_STANDARD_TRIAXIAL_4M</span></span><a class="headerlink" href="#nidcpower.CableLength.NI_STANDARD_TRIAXIAL_4M" title="Link to this definition"></a></dt>
+<dd><p>Uses predefined cable compensation data for an NI standard 4m triaxial cable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.CUSTOM_ONBOARD_STORAGE">
+<span class="sig-name descname"><span class="pre">CUSTOM_ONBOARD_STORAGE</span></span><a class="headerlink" href="#nidcpower.CableLength.CUSTOM_ONBOARD_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Uses previously generated custom cable compensation data from onboard storage. Only the most recently performed compensation data for each custom cable compensation type (open, short) is stored.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CableLength.CUSTOM_AS_CONFIGURED">
+<span class="sig-name descname"><span class="pre">CUSTOM_AS_CONFIGURED</span></span><a class="headerlink" href="#nidcpower.CableLength.CUSTOM_AS_CONFIGURED" title="Link to this definition"></a></dt>
+<dd><p>Uses the custom cable compensation data supplied to <a class="reference internal" href="class.html#nidcpower.Session.configure_lcr_custom_cable_compensation" title="nidcpower.Session.configure_lcr_custom_cable_compensation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.configure_lcr_custom_cable_compensation()</span></code></a>. Use this option to manage multiple sets of custom cable compensation data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="compliancelimitsymmetry">
+<h2>ComplianceLimitSymmetry<a class="headerlink" href="#compliancelimitsymmetry" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.ComplianceLimitSymmetry">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">ComplianceLimitSymmetry</span></span><a class="headerlink" href="#nidcpower.ComplianceLimitSymmetry" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ComplianceLimitSymmetry.SYMMETRIC">
+<span class="sig-name descname"><span class="pre">SYMMETRIC</span></span><a class="headerlink" href="#nidcpower.ComplianceLimitSymmetry.SYMMETRIC" title="Link to this definition"></a></dt>
+<dd><p>Compliance limits are specified symmetrically about 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ComplianceLimitSymmetry.ASYMMETRIC">
+<span class="sig-name descname"><span class="pre">ASYMMETRIC</span></span><a class="headerlink" href="#nidcpower.ComplianceLimitSymmetry.ASYMMETRIC" title="Link to this definition"></a></dt>
+<dd><p>Compliance limits can be specified asymmetrically with respect to 0.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="conductionvoltagemode">
+<h2>ConductionVoltageMode<a class="headerlink" href="#conductionvoltagemode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.ConductionVoltageMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">ConductionVoltageMode</span></span><a class="headerlink" href="#nidcpower.ConductionVoltageMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ConductionVoltageMode.AUTOMATIC">
+<span class="sig-name descname"><span class="pre">AUTOMATIC</span></span><a class="headerlink" href="#nidcpower.ConductionVoltageMode.AUTOMATIC" title="Link to this definition"></a></dt>
+<dd><p>The conduction voltage feature is only enabled when you set the <a class="reference internal" href="class.html#nidcpower.Session.output_function" title="nidcpower.Session.output_function"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.output_function</span></code></a> property to <a class="reference internal" href="#nidcpower.OutputFunction.DC_CURRENT" title="nidcpower.OutputFunction.DC_CURRENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">DC_CURRENT</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ConductionVoltageMode.ENABLED">
+<span class="sig-name descname"><span class="pre">ENABLED</span></span><a class="headerlink" href="#nidcpower.ConductionVoltageMode.ENABLED" title="Link to this definition"></a></dt>
+<dd><p>The conduction voltage feature is enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.ConductionVoltageMode.DISABLED">
+<span class="sig-name descname"><span class="pre">DISABLED</span></span><a class="headerlink" href="#nidcpower.ConductionVoltageMode.DISABLED" title="Link to this definition"></a></dt>
+<dd><p>The conduction voltage feature is disabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="currentlimitbehavior">
+<h2>CurrentLimitBehavior<a class="headerlink" href="#currentlimitbehavior" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.CurrentLimitBehavior">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">CurrentLimitBehavior</span></span><a class="headerlink" href="#nidcpower.CurrentLimitBehavior" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CurrentLimitBehavior.REGULATE">
+<span class="sig-name descname"><span class="pre">REGULATE</span></span><a class="headerlink" href="#nidcpower.CurrentLimitBehavior.REGULATE" title="Link to this definition"></a></dt>
+<dd><p>The channel acts to restrict the output current to the value of the Current Limit property when the actual output on the channel reaches or exceeds that value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.CurrentLimitBehavior.TRIP">
+<span class="sig-name descname"><span class="pre">TRIP</span></span><a class="headerlink" href="#nidcpower.CurrentLimitBehavior.TRIP" title="Link to this definition"></a></dt>
+<dd><p>The channel disables the output when the actual output current on the channel reaches or exceeds the value of the Current Limit property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="dcnoiserejection">
+<h2>DCNoiseRejection<a class="headerlink" href="#dcnoiserejection" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.DCNoiseRejection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">DCNoiseRejection</span></span><a class="headerlink" href="#nidcpower.DCNoiseRejection" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.DCNoiseRejection.SECOND_ORDER">
+<span class="sig-name descname"><span class="pre">SECOND_ORDER</span></span><a class="headerlink" href="#nidcpower.DCNoiseRejection.SECOND_ORDER" title="Link to this definition"></a></dt>
+<dd><p>Second-order rejection of DC noise.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.DCNoiseRejection.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#nidcpower.DCNoiseRejection.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>Normal rejection of DC noise.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="event">
+<h2>Event<a class="headerlink" href="#event" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.Event">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><a class="headerlink" href="#nidcpower.Event" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Event.SOURCE_COMPLETE">
+<span class="sig-name descname"><span class="pre">SOURCE_COMPLETE</span></span><a class="headerlink" href="#nidcpower.Event.SOURCE_COMPLETE" title="Link to this definition"></a></dt>
+<dd><p>Specifies the Source Complete event.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Event.MEASURE_COMPLETE">
+<span class="sig-name descname"><span class="pre">MEASURE_COMPLETE</span></span><a class="headerlink" href="#nidcpower.Event.MEASURE_COMPLETE" title="Link to this definition"></a></dt>
+<dd><p>Specifies the Measure Complete event.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Event.SEQUENCE_ITERATION_COMPLETE">
+<span class="sig-name descname"><span class="pre">SEQUENCE_ITERATION_COMPLETE</span></span><a class="headerlink" href="#nidcpower.Event.SEQUENCE_ITERATION_COMPLETE" title="Link to this definition"></a></dt>
+<dd><p>Specifies the Sequence Iteration Complete event.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Event.SEQUENCE_ENGINE_DONE">
+<span class="sig-name descname"><span class="pre">SEQUENCE_ENGINE_DONE</span></span><a class="headerlink" href="#nidcpower.Event.SEQUENCE_ENGINE_DONE" title="Link to this definition"></a></dt>
+<dd><p>Specifies the Sequence Engine Done event.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Event.PULSE_COMPLETE">
+<span class="sig-name descname"><span class="pre">PULSE_COMPLETE</span></span><a class="headerlink" href="#nidcpower.Event.PULSE_COMPLETE" title="Link to this definition"></a></dt>
+<dd><p>Specifies the Pulse Complete event.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Event.READY_FOR_PULSE_TRIGGER">
+<span class="sig-name descname"><span class="pre">READY_FOR_PULSE_TRIGGER</span></span><a class="headerlink" href="#nidcpower.Event.READY_FOR_PULSE_TRIGGER" title="Link to this definition"></a></dt>
+<dd><p>Specifies the Ready for Pulse Trigger event.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="eventoutputbehavior">
+<h2>EventOutputBehavior<a class="headerlink" href="#eventoutputbehavior" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.EventOutputBehavior">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">EventOutputBehavior</span></span><a class="headerlink" href="#nidcpower.EventOutputBehavior" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.EventOutputBehavior.PULSE">
+<span class="sig-name descname"><span class="pre">PULSE</span></span><a class="headerlink" href="#nidcpower.EventOutputBehavior.PULSE" title="Link to this definition"></a></dt>
+<dd><p>Output generates a pulse when the event is triggered.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.EventOutputBehavior.TOGGLE">
+<span class="sig-name descname"><span class="pre">TOGGLE</span></span><a class="headerlink" href="#nidcpower.EventOutputBehavior.TOGGLE" title="Link to this definition"></a></dt>
+<dd><p>Output toggles state when the event is triggered.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="eventtoggleinitialstate">
+<h2>EventToggleInitialState<a class="headerlink" href="#eventtoggleinitialstate" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.EventToggleInitialState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">EventToggleInitialState</span></span><a class="headerlink" href="#nidcpower.EventToggleInitialState" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.EventToggleInitialState.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><a class="headerlink" href="#nidcpower.EventToggleInitialState.LOW" title="Link to this definition"></a></dt>
+<dd><p>The initial state is low.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.EventToggleInitialState.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><a class="headerlink" href="#nidcpower.EventToggleInitialState.HIGH" title="Link to this definition"></a></dt>
+<dd><p>The initial state is high.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="instrumentmode">
+<h2>InstrumentMode<a class="headerlink" href="#instrumentmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.InstrumentMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">InstrumentMode</span></span><a class="headerlink" href="#nidcpower.InstrumentMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.InstrumentMode.SMU_PS">
+<span class="sig-name descname"><span class="pre">SMU_PS</span></span><a class="headerlink" href="#nidcpower.InstrumentMode.SMU_PS" title="Link to this definition"></a></dt>
+<dd><p>The channel operates as an SMU/power supply.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.InstrumentMode.LCR">
+<span class="sig-name descname"><span class="pre">LCR</span></span><a class="headerlink" href="#nidcpower.InstrumentMode.LCR" title="Link to this definition"></a></dt>
+<dd><p>The channel operates as an LCR meter.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.InstrumentMode.E_LOAD">
+<span class="sig-name descname"><span class="pre">E_LOAD</span></span><a class="headerlink" href="#nidcpower.InstrumentMode.E_LOAD" title="Link to this definition"></a></dt>
+<dd><p>The channel operates as an electronic load (E-Load).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrcompensationtype">
+<h2>LCRCompensationType<a class="headerlink" href="#lcrcompensationtype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRCompensationType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRCompensationType</span></span><a class="headerlink" href="#nidcpower.LCRCompensationType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRCompensationType.OPEN">
+<span class="sig-name descname"><span class="pre">OPEN</span></span><a class="headerlink" href="#nidcpower.LCRCompensationType.OPEN" title="Link to this definition"></a></dt>
+<dd><p>Open LCR compensation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRCompensationType.SHORT">
+<span class="sig-name descname"><span class="pre">SHORT</span></span><a class="headerlink" href="#nidcpower.LCRCompensationType.SHORT" title="Link to this definition"></a></dt>
+<dd><p>Short LCR compensation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRCompensationType.LOAD">
+<span class="sig-name descname"><span class="pre">LOAD</span></span><a class="headerlink" href="#nidcpower.LCRCompensationType.LOAD" title="Link to this definition"></a></dt>
+<dd><p>Load LCR compensation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRCompensationType.OPEN_CUSTOM_CABLE">
+<span class="sig-name descname"><span class="pre">OPEN_CUSTOM_CABLE</span></span><a class="headerlink" href="#nidcpower.LCRCompensationType.OPEN_CUSTOM_CABLE" title="Link to this definition"></a></dt>
+<dd><p>Open custom cable compensation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRCompensationType.SHORT_CUSTOM_CABLE">
+<span class="sig-name descname"><span class="pre">SHORT_CUSTOM_CABLE</span></span><a class="headerlink" href="#nidcpower.LCRCompensationType.SHORT_CUSTOM_CABLE" title="Link to this definition"></a></dt>
+<dd><p>Short custom cable compensation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrdcbiassource">
+<h2>LCRDCBiasSource<a class="headerlink" href="#lcrdcbiassource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRDCBiasSource</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasSource.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasSource.OFF" title="Link to this definition"></a></dt>
+<dd><p>Disables DC bias in LCR mode.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasSource.VOLTAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasSource.VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>Applies a constant voltage bias, as defined by the <a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_voltage_level" title="nidcpower.Session.lcr_dc_bias_voltage_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_dc_bias_voltage_level</span></code></a> property.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasSource.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasSource.CURRENT" title="Link to this definition"></a></dt>
+<dd><p>Applies a constant current bias, as defined by the <a class="reference internal" href="class.html#nidcpower.Session.lcr_dc_bias_current_level" title="nidcpower.Session.lcr_dc_bias_current_level"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_dc_bias_current_level</span></code></a> property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrdcbiastransientresponse">
+<h2>LCRDCBiasTransientResponse<a class="headerlink" href="#lcrdcbiastransientresponse" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasTransientResponse">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRDCBiasTransientResponse</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasTransientResponse" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasTransientResponse.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasTransientResponse.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>NI-DCPower automatically applies transient response values for DC bias.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRDCBiasTransientResponse.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><a class="headerlink" href="#nidcpower.LCRDCBiasTransientResponse.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>NI-DCPower applies the transient response that you set manually with <a class="reference internal" href="class.html#nidcpower.Session.transient_response" title="nidcpower.Session.transient_response"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.transient_response</span></code></a> for DC bias. Search ni.com for information on configuring transient response.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrimpedancerangesource">
+<h2>LCRImpedanceRangeSource<a class="headerlink" href="#lcrimpedancerangesource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRImpedanceRangeSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRImpedanceRangeSource</span></span><a class="headerlink" href="#nidcpower.LCRImpedanceRangeSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRImpedanceRangeSource.IMPEDANCE_RANGE">
+<span class="sig-name descname"><span class="pre">IMPEDANCE_RANGE</span></span><a class="headerlink" href="#nidcpower.LCRImpedanceRangeSource.IMPEDANCE_RANGE" title="Link to this definition"></a></dt>
+<dd><p>Uses the impedance range you specify with the <a class="reference internal" href="class.html#nidcpower.Session.lcr_impedance_range" title="nidcpower.Session.lcr_impedance_range"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_impedance_range</span></code></a> property.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRImpedanceRangeSource.LOAD_CONFIGURATION">
+<span class="sig-name descname"><span class="pre">LOAD_CONFIGURATION</span></span><a class="headerlink" href="#nidcpower.LCRImpedanceRangeSource.LOAD_CONFIGURATION" title="Link to this definition"></a></dt>
+<dd><p>Computes the impedance range to select based on the values you supply to the <a class="reference internal" href="class.html#nidcpower.Session.lcr_load_resistance" title="nidcpower.Session.lcr_load_resistance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_load_resistance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_load_inductance" title="nidcpower.Session.lcr_load_inductance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_load_inductance</span></code></a>, and <a class="reference internal" href="class.html#nidcpower.Session.lcr_load_capacitance" title="nidcpower.Session.lcr_load_capacitance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_load_capacitance</span></code></a> properties. NI-DCPower uses a series model of load resistance, load inductance, and load capacitance to compute the impedance range.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrmeasurementtime">
+<h2>LCRMeasurementTime<a class="headerlink" href="#lcrmeasurementtime" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRMeasurementTime">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRMeasurementTime</span></span><a class="headerlink" href="#nidcpower.LCRMeasurementTime" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRMeasurementTime.SHORT">
+<span class="sig-name descname"><span class="pre">SHORT</span></span><a class="headerlink" href="#nidcpower.LCRMeasurementTime.SHORT" title="Link to this definition"></a></dt>
+<dd><p>Uses a short aperture time for LCR measurements.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRMeasurementTime.MEDIUM">
+<span class="sig-name descname"><span class="pre">MEDIUM</span></span><a class="headerlink" href="#nidcpower.LCRMeasurementTime.MEDIUM" title="Link to this definition"></a></dt>
+<dd><p>Uses a medium aperture time for LCR measurements.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRMeasurementTime.LONG">
+<span class="sig-name descname"><span class="pre">LONG</span></span><a class="headerlink" href="#nidcpower.LCRMeasurementTime.LONG" title="Link to this definition"></a></dt>
+<dd><p>Uses a long aperture time for LCR measurements.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRMeasurementTime.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><a class="headerlink" href="#nidcpower.LCRMeasurementTime.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>Uses a custom aperture time for LCR measurements as specified by the <a class="reference internal" href="class.html#nidcpower.Session.lcr_custom_measurement_time" title="nidcpower.Session.lcr_custom_measurement_time"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_custom_measurement_time</span></code></a> property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcropenshortloadcompensationdatasource">
+<h2>LCROpenShortLoadCompensationDataSource<a class="headerlink" href="#lcropenshortloadcompensationdatasource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCROpenShortLoadCompensationDataSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCROpenShortLoadCompensationDataSource</span></span><a class="headerlink" href="#nidcpower.LCROpenShortLoadCompensationDataSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCROpenShortLoadCompensationDataSource.ONBOARD_STORAGE">
+<span class="sig-name descname"><span class="pre">ONBOARD_STORAGE</span></span><a class="headerlink" href="#nidcpower.LCROpenShortLoadCompensationDataSource.ONBOARD_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Uses previously generated LCR compensation data. Only the most recently performed compensation data for each LCR compensation type (open, short, and load) is stored.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCROpenShortLoadCompensationDataSource.AS_DEFINED">
+<span class="sig-name descname"><span class="pre">AS_DEFINED</span></span><a class="headerlink" href="#nidcpower.LCROpenShortLoadCompensationDataSource.AS_DEFINED" title="Link to this definition"></a></dt>
+<dd><p>Uses the LCR compensation data represented by the relevant LCR compensation properties as generated by <a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_open_compensation" title="nidcpower.Session.perform_lcr_open_compensation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.perform_lcr_open_compensation()</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_short_compensation" title="nidcpower.Session.perform_lcr_short_compensation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.perform_lcr_short_compensation()</span></code></a>, and <a class="reference internal" href="class.html#nidcpower.Session.perform_lcr_load_compensation" title="nidcpower.Session.perform_lcr_load_compensation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.perform_lcr_load_compensation()</span></code></a>. Use this option to manage multiple sets of LCR compensation data. This option applies compensation data from the following properties: <a class="reference internal" href="class.html#nidcpower.Session.lcr_open_conductance" title="nidcpower.Session.lcr_open_conductance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_open_conductance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_open_susceptance" title="nidcpower.Session.lcr_open_susceptance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_open_susceptance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_short_resistance" title="nidcpower.Session.lcr_short_resistance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_short_resistance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_short_reactance" title="nidcpower.Session.lcr_short_reactance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_short_reactance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_measured_load_resistance" title="nidcpower.Session.lcr_measured_load_resistance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_measured_load_resistance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_measured_load_reactance" title="nidcpower.Session.lcr_measured_load_reactance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_measured_load_reactance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_actual_load_resistance" title="nidcpower.Session.lcr_actual_load_resistance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_actual_load_resistance</span></code></a>, <a class="reference internal" href="class.html#nidcpower.Session.lcr_actual_load_reactance" title="nidcpower.Session.lcr_actual_load_reactance"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.lcr_actual_load_reactance</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCROpenShortLoadCompensationDataSource.AS_CONFIGURED">
+<span class="sig-name descname"><span class="pre">AS_CONFIGURED</span></span><a class="headerlink" href="#nidcpower.LCROpenShortLoadCompensationDataSource.AS_CONFIGURED" title="Link to this definition"></a></dt>
+<dd><p>Uses the LCR compensation data supplied to <a class="reference internal" href="class.html#nidcpower.Session.configure_lcr_compensation" title="nidcpower.Session.configure_lcr_compensation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.configure_lcr_compensation()</span></code></a>. Use this option to manage multiple sets of LCR compensation data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrreferencevaluetype">
+<h2>LCRReferenceValueType<a class="headerlink" href="#lcrreferencevaluetype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRReferenceValueType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRReferenceValueType</span></span><a class="headerlink" href="#nidcpower.LCRReferenceValueType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRReferenceValueType.IMPEDANCE">
+<span class="sig-name descname"><span class="pre">IMPEDANCE</span></span><a class="headerlink" href="#nidcpower.LCRReferenceValueType.IMPEDANCE" title="Link to this definition"></a></dt>
+<dd><p>The actual impedance, comprising real resistance and imaginary reactance, of your DUT. Supply resistance, in ohms, to reference value A; supply reactance, in ohms, to reference value B.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRReferenceValueType.IDEAL_CAPACITANCE">
+<span class="sig-name descname"><span class="pre">IDEAL_CAPACITANCE</span></span><a class="headerlink" href="#nidcpower.LCRReferenceValueType.IDEAL_CAPACITANCE" title="Link to this definition"></a></dt>
+<dd><p>The ideal capacitance of your DUT. Supply capacitance, in farads, to reference value A.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRReferenceValueType.IDEAL_INDUCTANCE">
+<span class="sig-name descname"><span class="pre">IDEAL_INDUCTANCE</span></span><a class="headerlink" href="#nidcpower.LCRReferenceValueType.IDEAL_INDUCTANCE" title="Link to this definition"></a></dt>
+<dd><p>The ideal inductance of your DUT. Supply inductance, in henrys, to reference value A.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRReferenceValueType.IDEAL_RESISTANCE">
+<span class="sig-name descname"><span class="pre">IDEAL_RESISTANCE</span></span><a class="headerlink" href="#nidcpower.LCRReferenceValueType.IDEAL_RESISTANCE" title="Link to this definition"></a></dt>
+<dd><p>The ideal resistance of your DUT. Supply resistance, in ohms, to reference value A.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrsourcedelaymode">
+<h2>LCRSourceDelayMode<a class="headerlink" href="#lcrsourcedelaymode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRSourceDelayMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRSourceDelayMode</span></span><a class="headerlink" href="#nidcpower.LCRSourceDelayMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRSourceDelayMode.AUTOMATIC">
+<span class="sig-name descname"><span class="pre">AUTOMATIC</span></span><a class="headerlink" href="#nidcpower.LCRSourceDelayMode.AUTOMATIC" title="Link to this definition"></a></dt>
+<dd><p>NI-DCPower automatically applies source delay of sufficient duration to account for settling time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRSourceDelayMode.MANUAL">
+<span class="sig-name descname"><span class="pre">MANUAL</span></span><a class="headerlink" href="#nidcpower.LCRSourceDelayMode.MANUAL" title="Link to this definition"></a></dt>
+<dd><p>NI-DCPower applies the source delay that you set manually with <a class="reference internal" href="class.html#nidcpower.Session.source_delay" title="nidcpower.Session.source_delay"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.source_delay</span></code></a>. You can use this option to set a shorter delay to reduce measurement time at the possible expense of measurement accuracy.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lcrstimulusfunction">
+<h2>LCRStimulusFunction<a class="headerlink" href="#lcrstimulusfunction" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.LCRStimulusFunction">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">LCRStimulusFunction</span></span><a class="headerlink" href="#nidcpower.LCRStimulusFunction" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRStimulusFunction.VOLTAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE</span></span><a class="headerlink" href="#nidcpower.LCRStimulusFunction.VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>Applies an AC voltage for LCR stimulus.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.LCRStimulusFunction.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><a class="headerlink" href="#nidcpower.LCRStimulusFunction.CURRENT" title="Link to this definition"></a></dt>
+<dd><p>Applies an AC current for LCR stimulus.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="measurewhen">
+<h2>MeasureWhen<a class="headerlink" href="#measurewhen" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.MeasureWhen">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">MeasureWhen</span></span><a class="headerlink" href="#nidcpower.MeasureWhen" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE">
+<span class="sig-name descname"><span class="pre">AUTOMATICALLY_AFTER_SOURCE_COMPLETE</span></span><a class="headerlink" href="#nidcpower.MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE" title="Link to this definition"></a></dt>
+<dd><p>Acquires a measurement after each Source Complete event completes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.MeasureWhen.ON_DEMAND">
+<span class="sig-name descname"><span class="pre">ON_DEMAND</span></span><a class="headerlink" href="#nidcpower.MeasureWhen.ON_DEMAND" title="Link to this definition"></a></dt>
+<dd><p>Acquires a measurement when the <a class="reference internal" href="class.html#nidcpower.Session.measure" title="nidcpower.Session.measure"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.measure()</span></code></a> method or <a class="reference internal" href="class.html#nidcpower.Session.measure_multiple" title="nidcpower.Session.measure_multiple"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nidcpower.Session.measure_multiple()</span></code></a> method is called.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.MeasureWhen.ON_MEASURE_TRIGGER">
+<span class="sig-name descname"><span class="pre">ON_MEASURE_TRIGGER</span></span><a class="headerlink" href="#nidcpower.MeasureWhen.ON_MEASURE_TRIGGER" title="Link to this definition"></a></dt>
+<dd><p>Acquires a measurement when a Measure trigger is received.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="measurementtypes">
+<h2>MeasurementTypes<a class="headerlink" href="#measurementtypes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.MeasurementTypes">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">MeasurementTypes</span></span><a class="headerlink" href="#nidcpower.MeasurementTypes" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.MeasurementTypes.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><a class="headerlink" href="#nidcpower.MeasurementTypes.CURRENT" title="Link to this definition"></a></dt>
+<dd><p>The device measures current.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.MeasurementTypes.VOLTAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE</span></span><a class="headerlink" href="#nidcpower.MeasurementTypes.VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>The device measures voltage.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="outputcapacitance">
+<h2>OutputCapacitance<a class="headerlink" href="#outputcapacitance" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.OutputCapacitance">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">OutputCapacitance</span></span><a class="headerlink" href="#nidcpower.OutputCapacitance" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCapacitance.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><a class="headerlink" href="#nidcpower.OutputCapacitance.LOW" title="Link to this definition"></a></dt>
+<dd><p>Output Capacitance is low.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCapacitance.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><a class="headerlink" href="#nidcpower.OutputCapacitance.HIGH" title="Link to this definition"></a></dt>
+<dd><p>Output Capacitance is high.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="outputcutoffreason">
+<h2>OutputCutoffReason<a class="headerlink" href="#outputcutoffreason" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">OutputCutoffReason</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.ALL">
+<span class="sig-name descname"><span class="pre">ALL</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.ALL" title="Link to this definition"></a></dt>
+<dd><p>Queries any output cutoff condition; clears all output cutoff conditions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_HIGH">
+<span class="sig-name descname"><span class="pre">VOLTAGE_OUTPUT_HIGH</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_HIGH" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the output exceeded the high cutoff limit for voltage output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_LOW">
+<span class="sig-name descname"><span class="pre">VOLTAGE_OUTPUT_LOW</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.VOLTAGE_OUTPUT_LOW" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the output fell below the low cutoff limit for voltage output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.CURRENT_MEASURE_HIGH">
+<span class="sig-name descname"><span class="pre">CURRENT_MEASURE_HIGH</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.CURRENT_MEASURE_HIGH" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the measured current exceeded the high cutoff limit for current output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.CURRENT_MEASURE_LOW">
+<span class="sig-name descname"><span class="pre">CURRENT_MEASURE_LOW</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.CURRENT_MEASURE_LOW" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the measured current fell below the low cutoff limit for current output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_HIGH">
+<span class="sig-name descname"><span class="pre">VOLTAGE_CHANGE_HIGH</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_HIGH" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the voltage slew rate increased beyond the positive change cutoff for voltage output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_LOW">
+<span class="sig-name descname"><span class="pre">VOLTAGE_CHANGE_LOW</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.VOLTAGE_CHANGE_LOW" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the voltage slew rate decreased beyond the negative change cutoff for voltage output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.CURRENT_CHANGE_HIGH">
+<span class="sig-name descname"><span class="pre">CURRENT_CHANGE_HIGH</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.CURRENT_CHANGE_HIGH" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the current slew rate increased beyond the positive change cutoff for current output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.CURRENT_CHANGE_LOW">
+<span class="sig-name descname"><span class="pre">CURRENT_CHANGE_LOW</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.CURRENT_CHANGE_LOW" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the current slew rate decreased beyond the negative change cutoff for current output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.CURRENT_SATURATED">
+<span class="sig-name descname"><span class="pre">CURRENT_SATURATED</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.CURRENT_SATURATED" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the measured current saturates the current range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_HIGH">
+<span class="sig-name descname"><span class="pre">VOLTAGE_MEASURE_HIGH</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_HIGH" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the measured voltage exceeded the high cutoff limit for voltage output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_LOW">
+<span class="sig-name descname"><span class="pre">VOLTAGE_MEASURE_LOW</span></span><a class="headerlink" href="#nidcpower.OutputCutoffReason.VOLTAGE_MEASURE_LOW" title="Link to this definition"></a></dt>
+<dd><p>Queries or clears cutoff conditions when the measured voltage fell below the low cutoff limit for voltage output.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="outputfunction">
+<h2>OutputFunction<a class="headerlink" href="#outputfunction" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.OutputFunction">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">OutputFunction</span></span><a class="headerlink" href="#nidcpower.OutputFunction" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputFunction.DC_VOLTAGE">
+<span class="sig-name descname"><span class="pre">DC_VOLTAGE</span></span><a class="headerlink" href="#nidcpower.OutputFunction.DC_VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>Sets the output method to DC voltage.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputFunction.DC_CURRENT">
+<span class="sig-name descname"><span class="pre">DC_CURRENT</span></span><a class="headerlink" href="#nidcpower.OutputFunction.DC_CURRENT" title="Link to this definition"></a></dt>
+<dd><p>Sets the output method to DC current.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputFunction.PULSE_VOLTAGE">
+<span class="sig-name descname"><span class="pre">PULSE_VOLTAGE</span></span><a class="headerlink" href="#nidcpower.OutputFunction.PULSE_VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>Sets the output method to pulse voltage.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputFunction.PULSE_CURRENT">
+<span class="sig-name descname"><span class="pre">PULSE_CURRENT</span></span><a class="headerlink" href="#nidcpower.OutputFunction.PULSE_CURRENT" title="Link to this definition"></a></dt>
+<dd><p>Sets the output method to pulse current.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="outputstates">
+<h2>OutputStates<a class="headerlink" href="#outputstates" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.OutputStates">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">OutputStates</span></span><a class="headerlink" href="#nidcpower.OutputStates" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputStates.CONSTANT_VOLTAGE">
+<span class="sig-name descname"><span class="pre">CONSTANT_VOLTAGE</span></span><a class="headerlink" href="#nidcpower.OutputStates.CONSTANT_VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>The channel maintains a constant voltage by adjusting the current.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputStates.CONSTANT_CURRENT">
+<span class="sig-name descname"><span class="pre">CONSTANT_CURRENT</span></span><a class="headerlink" href="#nidcpower.OutputStates.CONSTANT_CURRENT" title="Link to this definition"></a></dt>
+<dd><p>The channel maintains a constant current by adjusting the voltage.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.OutputStates.INHIBITED">
+<span class="sig-name descname"><span class="pre">INHIBITED</span></span><a class="headerlink" href="#nidcpower.OutputStates.INHIBITED" title="Link to this definition"></a></dt>
+<dd><p>The channel is in the inhibited state.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="polarity">
+<h2>Polarity<a class="headerlink" href="#polarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.Polarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">Polarity</span></span><a class="headerlink" href="#nidcpower.Polarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Polarity.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><a class="headerlink" href="#nidcpower.Polarity.HIGH" title="Link to this definition"></a></dt>
+<dd><p>A high pulse occurs when the event is generated.  The exported signal is low level both before and after the event is generated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Polarity.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><a class="headerlink" href="#nidcpower.Polarity.LOW" title="Link to this definition"></a></dt>
+<dd><p>A low pulse occurs when the event is generated.  The exported signal is high level both before and after the event is generated.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="powerallocationmode">
+<h2>PowerAllocationMode<a class="headerlink" href="#powerallocationmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.PowerAllocationMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">PowerAllocationMode</span></span><a class="headerlink" href="#nidcpower.PowerAllocationMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerAllocationMode.DISABLED">
+<span class="sig-name descname"><span class="pre">DISABLED</span></span><a class="headerlink" href="#nidcpower.PowerAllocationMode.DISABLED" title="Link to this definition"></a></dt>
+<dd><p>The device attempts to source, on each active channel, the power that the present source configuration requires; NI-DCPower does not perform a sourcing power check. If the required power is greater than the maximum sourcing power, the device attempts to source the required amount and may shut down to prevent damage.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerAllocationMode.AUTOMATIC">
+<span class="sig-name descname"><span class="pre">AUTOMATIC</span></span><a class="headerlink" href="#nidcpower.PowerAllocationMode.AUTOMATIC" title="Link to this definition"></a></dt>
+<dd><p>The device attempts to source, on each active channel, the power that the present source configuration requires; NI-DCPower performs a sourcing power check. If the required power is greater than the maximum sourcing power, the device does not exceed the maximum power, and NI-DCPower returns an error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerAllocationMode.MANUAL">
+<span class="sig-name descname"><span class="pre">MANUAL</span></span><a class="headerlink" href="#nidcpower.PowerAllocationMode.MANUAL" title="Link to this definition"></a></dt>
+<dd><p>The device attempts to source, on each active channel, the power you request with the <a class="reference internal" href="class.html#nidcpower.Session.requested_power_allocation" title="nidcpower.Session.requested_power_allocation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nidcpower.Session.requested_power_allocation</span></code></a> property; NI-DCPower performs a sourcing power check. If the requested power is either less than the required power for the present source configuration or greater than the maximum sourcing power, the device does not exceed the requested or allowed power, respectively, and NI-DCPower returns an error.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="powersource">
+<h2>PowerSource<a class="headerlink" href="#powersource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.PowerSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">PowerSource</span></span><a class="headerlink" href="#nidcpower.PowerSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerSource.INTERNAL">
+<span class="sig-name descname"><span class="pre">INTERNAL</span></span><a class="headerlink" href="#nidcpower.PowerSource.INTERNAL" title="Link to this definition"></a></dt>
+<dd><p>Uses the PXI chassis power source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerSource.AUXILIARY">
+<span class="sig-name descname"><span class="pre">AUXILIARY</span></span><a class="headerlink" href="#nidcpower.PowerSource.AUXILIARY" title="Link to this definition"></a></dt>
+<dd><p>Uses the auxiliary power source connected to the device.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerSource.AUTOMATIC">
+<span class="sig-name descname"><span class="pre">AUTOMATIC</span></span><a class="headerlink" href="#nidcpower.PowerSource.AUTOMATIC" title="Link to this definition"></a></dt>
+<dd><p>Uses the auxiliary power source if it is available; otherwise uses the PXI chassis power source.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="powersourceinuse">
+<h2>PowerSourceInUse<a class="headerlink" href="#powersourceinuse" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.PowerSourceInUse">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">PowerSourceInUse</span></span><a class="headerlink" href="#nidcpower.PowerSourceInUse" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerSourceInUse.INTERNAL">
+<span class="sig-name descname"><span class="pre">INTERNAL</span></span><a class="headerlink" href="#nidcpower.PowerSourceInUse.INTERNAL" title="Link to this definition"></a></dt>
+<dd><p>Uses the PXI chassis power source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.PowerSourceInUse.AUXILIARY">
+<span class="sig-name descname"><span class="pre">AUXILIARY</span></span><a class="headerlink" href="#nidcpower.PowerSourceInUse.AUXILIARY" title="Link to this definition"></a></dt>
+<dd><p>Uses the auxiliary power source connected to the device. Only the NI PXI-4110, NI PXIe-4112, NI PXIe-4113, and NI PXI-4130 support this value. This is the only supported value for the NI PXIe-4112 and NI PXIe-4113.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="selfcalibrationpersistence">
+<h2>SelfCalibrationPersistence<a class="headerlink" href="#selfcalibrationpersistence" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.SelfCalibrationPersistence">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">SelfCalibrationPersistence</span></span><a class="headerlink" href="#nidcpower.SelfCalibrationPersistence" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SelfCalibrationPersistence.KEEP_IN_MEMORY">
+<span class="sig-name descname"><span class="pre">KEEP_IN_MEMORY</span></span><a class="headerlink" href="#nidcpower.SelfCalibrationPersistence.KEEP_IN_MEMORY" title="Link to this definition"></a></dt>
+<dd><p>Keep new self calibration values in memory only.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SelfCalibrationPersistence.WRITE_TO_EEPROM">
+<span class="sig-name descname"><span class="pre">WRITE_TO_EEPROM</span></span><a class="headerlink" href="#nidcpower.SelfCalibrationPersistence.WRITE_TO_EEPROM" title="Link to this definition"></a></dt>
+<dd><p>Write new self calibration values to hardware.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sendsoftwareedgetriggertype">
+<h2>SendSoftwareEdgeTriggerType<a class="headerlink" href="#sendsoftwareedgetriggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">SendSoftwareEdgeTriggerType</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType.START">
+<span class="sig-name descname"><span class="pre">START</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType.START" title="Link to this definition"></a></dt>
+<dd><p>Asserts the Start trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType.SOURCE">
+<span class="sig-name descname"><span class="pre">SOURCE</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType.SOURCE" title="Link to this definition"></a></dt>
+<dd><p>Asserts the Source trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType.MEASURE">
+<span class="sig-name descname"><span class="pre">MEASURE</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType.MEASURE" title="Link to this definition"></a></dt>
+<dd><p>Asserts the Measure trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType.SEQUENCE_ADVANCE">
+<span class="sig-name descname"><span class="pre">SEQUENCE_ADVANCE</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType.SEQUENCE_ADVANCE" title="Link to this definition"></a></dt>
+<dd><p>Asserts the Sequence Advance trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType.PULSE">
+<span class="sig-name descname"><span class="pre">PULSE</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType.PULSE" title="Link to this definition"></a></dt>
+<dd><p>Asserts the Pulse trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SendSoftwareEdgeTriggerType.SHUTDOWN">
+<span class="sig-name descname"><span class="pre">SHUTDOWN</span></span><a class="headerlink" href="#nidcpower.SendSoftwareEdgeTriggerType.SHUTDOWN" title="Link to this definition"></a></dt>
+<dd><p>Asserts the Shutdown trigger.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sense">
+<h2>Sense<a class="headerlink" href="#sense" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.Sense">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">Sense</span></span><a class="headerlink" href="#nidcpower.Sense" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Sense.LOCAL">
+<span class="sig-name descname"><span class="pre">LOCAL</span></span><a class="headerlink" href="#nidcpower.Sense.LOCAL" title="Link to this definition"></a></dt>
+<dd><p>Local sensing is selected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.Sense.REMOTE">
+<span class="sig-name descname"><span class="pre">REMOTE</span></span><a class="headerlink" href="#nidcpower.Sense.REMOTE" title="Link to this definition"></a></dt>
+<dd><p>Remote sensing is selected.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sourcemode">
+<h2>SourceMode<a class="headerlink" href="#sourcemode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.SourceMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">SourceMode</span></span><a class="headerlink" href="#nidcpower.SourceMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SourceMode.SINGLE_POINT">
+<span class="sig-name descname"><span class="pre">SINGLE_POINT</span></span><a class="headerlink" href="#nidcpower.SourceMode.SINGLE_POINT" title="Link to this definition"></a></dt>
+<dd><p>The source unit applies a single source configuration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.SourceMode.SEQUENCE">
+<span class="sig-name descname"><span class="pre">SEQUENCE</span></span><a class="headerlink" href="#nidcpower.SourceMode.SEQUENCE" title="Link to this definition"></a></dt>
+<dd><p>The source unit applies a list of voltage or current configurations sequentially.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="transientresponse">
+<h2>TransientResponse<a class="headerlink" href="#transientresponse" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.TransientResponse">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">TransientResponse</span></span><a class="headerlink" href="#nidcpower.TransientResponse" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TransientResponse.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#nidcpower.TransientResponse.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>The output responds to changes in load at a normal speed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TransientResponse.FAST">
+<span class="sig-name descname"><span class="pre">FAST</span></span><a class="headerlink" href="#nidcpower.TransientResponse.FAST" title="Link to this definition"></a></dt>
+<dd><p>The output responds to changes in load quickly.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TransientResponse.SLOW">
+<span class="sig-name descname"><span class="pre">SLOW</span></span><a class="headerlink" href="#nidcpower.TransientResponse.SLOW" title="Link to this definition"></a></dt>
+<dd><p>The output responds to changes in load slowly.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TransientResponse.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><a class="headerlink" href="#nidcpower.TransientResponse.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>The output responds to changes in load based on specified values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggertype">
+<h2>TriggerType<a class="headerlink" href="#triggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidcpower.TriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidcpower.</span></span><span class="sig-name descname"><span class="pre">TriggerType</span></span><a class="headerlink" href="#nidcpower.TriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TriggerType.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#nidcpower.TriggerType.NONE" title="Link to this definition"></a></dt>
+<dd><p>No trigger is configured.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TriggerType.DIGITAL_EDGE">
+<span class="sig-name descname"><span class="pre">DIGITAL_EDGE</span></span><a class="headerlink" href="#nidcpower.TriggerType.DIGITAL_EDGE" title="Link to this definition"></a></dt>
+<dd><p>The data operation starts when a digital edge is detected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidcpower.TriggerType.SOFTWARE_EDGE">
+<span class="sig-name descname"><span class="pre">SOFTWARE_EDGE</span></span><a class="headerlink" href="#nidcpower.TriggerType.SOFTWARE_EDGE" title="Link to this definition"></a></dt>
+<dd><p>The data operation starts when a software trigger occurs.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rep_caps.html" class="btn btn-neutral float-left" title="Repeated Capabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
