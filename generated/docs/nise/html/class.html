@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session &mdash; NI Switch Executive Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Enums" href="enums.html" />
+    <link rel="prev" title="nise module" href="nise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI Switch Executive Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nise.html">nise module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nise.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nise.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nise.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nise.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#close">close</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#connect">connect</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.connect"><code class="docutils literal notranslate"><span class="pre">connect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-and-disconnect">connect_and_disconnect</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.connect_and_disconnect"><code class="docutils literal notranslate"><span class="pre">connect_and_disconnect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#disconnect">disconnect</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.disconnect"><code class="docutils literal notranslate"><span class="pre">disconnect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#disconnect-all">disconnect_all</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.disconnect_all"><code class="docutils literal notranslate"><span class="pre">disconnect_all()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#expand-route-spec">expand_route_spec</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.expand_route_spec"><code class="docutils literal notranslate"><span class="pre">expand_route_spec()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#find-route">find_route</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.find_route"><code class="docutils literal notranslate"><span class="pre">find_route()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#get-all-connections">get_all_connections</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.get_all_connections"><code class="docutils literal notranslate"><span class="pre">get_all_connections()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#is-connected">is_connected</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.is_connected"><code class="docutils literal notranslate"><span class="pre">is_connected()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#is-debounced">is_debounced</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.is_debounced"><code class="docutils literal notranslate"><span class="pre">is_debounced()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#wait-for-debounce">wait_for_debounce</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nise.Session.wait_for_debounce"><code class="docutils literal notranslate"><span class="pre">wait_for_debounce()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI Switch Executive Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nise.html">nise module</a></li>
+      <li class="breadcrumb-item active">Session</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/class.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="session">
+<span id="module-nise"></span><h1><a class="toc-backref" href="#id2" role="doc-backlink">Session</a><a class="headerlink" href="#session" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="nise.Session">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nise.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual_device_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session" title="Link to this definition"></a></dt>
+<dd><p>Opens a session to a specified NI Switch Executive virtual device. Opens
+communications with all of the IVI switches associated with the
+specified NI Switch Executive virtual device. Returns a session handle
+that you use to identify the virtual device in all subsequent NI Switch
+Executive method calls. NI Switch Executive uses a reference counting
+scheme to manage open session handles to an NI Switch Executive virtual
+device. Each call to <code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.__init__()</span></code> must be matched with a subsequent
+call to <a class="reference internal" href="#nise.Session.close" title="nise.Session.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.close()</span></code></a>. Successive calls to <code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.__init__()</span></code> with
+the same virtual device name always returns the same session handle. NI
+Switch Executive disconnects its communication with the IVI switches
+after all session handles are closed to a given virtual device. The
+session handles may be used safely in multiple threads of an
+application. Sessions may only be opened to a given NI Switch Executive
+virtual device from a single process at a time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>virtual_device_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The name of the NI Switch Executive virtual device.</p></li>
+<li><p><strong>options</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – <p>Specifies the initial value of certain properties for the session. The
+syntax for <strong>options</strong> is a dictionary of properties with an assigned
+value. For example:</p>
+<p>{ ‘simulate’: False }</p>
+<p>You do not have to specify a value for all the properties. If you do not
+specify a value for a property, the default value is used.</p>
+<p>Advanced Example:
+{ ‘simulate’: True, ‘driver_setup’: { ‘Model’: ‘&lt;model number&gt;’,  ‘BoardType’: ‘&lt;type&gt;’ } }</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>range_check</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>query_instrument_status</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>cache</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>simulate</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>record_value_coersions</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>driver_setup</p></td>
+<td><p>{}</p></td>
+</tr>
+</tbody>
+</table>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="methods">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Methods</a><a class="headerlink" href="#methods" title="Link to this heading"></a></h1>
+<section id="close">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">close</a><a class="headerlink" href="#close" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.close">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.close" title="Link to this definition"></a></dt>
+<dd><p>Reduces the reference count of open sessions by one. If the reference
+count goes to 0, the method deallocates any memory resources the
+driver uses and closes any open IVI switch sessions. After calling the
+<a class="reference internal" href="#nise.Session.close" title="nise.Session.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.close()</span></code></a> method, you should not use the NI Switch Executive
+virtual device again until you call <code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.__init__()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is not needed when using the session context manager</p>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="connect">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">connect</a><a class="headerlink" href="#connect" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.connect">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connect_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiconnect_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">nise.MulticonnectMode.DEFAULT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_debounce</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.connect" title="Link to this definition"></a></dt>
+<dd><p>Connects the routes specified by the connection specification. When
+connecting, it may allow for multiconnection based on the
+multiconnection mode. In the event of an error, the call to
+<a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a> will attempt to undo any connections made so that the
+system will be left in the same state that it was in before the call was
+made. Some errors can be caught before manipulating hardware, although
+it is feasible that a hardware call could fail causing some connections
+to be momentarily closed and then reopened. If the wait for debounce
+parameter is set, the method will not return until the switch system
+has debounced.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connect_spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – String describing the connections to be made. The route specification
+strings are best summarized as a series of routes delimited by
+ampersands. The specified routes may be route names, route group names,
+or fully specified route paths delimited by square brackets. Some
+examples of route specification strings are: MyRoute MyRouteGroup
+MyRoute &amp; MyRouteGroup [A-&gt;Switch1/r0-&gt;B] MyRoute &amp; MyRouteGroup &amp;
+[A-&gt;Switch1/r0-&gt;B] Refer to Route Specification Strings in the NI Switch
+Executive Help for more information.</p></li>
+<li><p><strong>multiconnect_mode</strong> (<a class="reference internal" href="enums.html#nise.MulticonnectMode" title="nise.MulticonnectMode"><code class="xref py py-data docutils literal notranslate"><span class="pre">nise.MulticonnectMode</span></code></a>) – <p>This value sets the connection mode for the method. The mode might be
+one of the following: <code class="xref py py-data docutils literal notranslate"><span class="pre">NISE_VAL_USE_DEFAULT_MODE</span></code> (-1) - uses the mode
+selected as the default for the route in the NI Switch Executive virtual
+device configuration. If a mode has not been selected for the route in
+the NI Switch Executive virtual device, this parameter defaults to
+<code class="xref py py-data docutils literal notranslate"><span class="pre">NISE_VAL_MULTICONNECT_ROUTES</span></code>. <a class="reference internal" href="enums.html#nise.MulticonnectMode.NO_MULTICONNECT" title="nise.MulticonnectMode.NO_MULTICONNECT"><code class="xref py py-data docutils literal notranslate"><span class="pre">NO_MULTICONNECT</span></code></a> (0) -
+routes specified in the connection specification must be disconnected
+before they can be reconnected. Calling Connect on a route that was
+connected using No Multiconnect mode results in an error condition.
+<code class="xref py py-data docutils literal notranslate"><span class="pre">NISE_VAL_MULTICONNECT_ROUTES</span></code> (1)- routes specified in the connection
+specification can be connected multiple times. The first call to Connect
+performs the physical hardware connection. Successive calls to Connect
+increase a connection reference count. Similarly, calls to Disconnect
+decrease the reference count. Once it reaches 0, the hardware is
+physically disconnected. Multiconnecting routes applies to entire routes
+and not to route segments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One or more of the referenced values are not in the Python API for this driver. Enums that only define values, or represent True/False, have been removed.</p>
+</div>
+</p></li>
+<li><p><strong>wait_for_debounce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Waits (if true) for switches to debounce between its connect and
+disconnect operations. If false, it immediately begins the second
+operation after completing the first. The order of connect and
+disconnect operation is set by the Operation Order input.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="connect-and-disconnect">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">connect_and_disconnect</a><a class="headerlink" href="#connect-and-disconnect" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.connect_and_disconnect">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">connect_and_disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connect_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disconnect_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiconnect_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">nise.MulticonnectMode.DEFAULT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">nise.OperationOrder.AFTER</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_debounce</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.connect_and_disconnect" title="Link to this definition"></a></dt>
+<dd><p>Connects routes and disconnects routes in a similar fashion to
+<a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a> and <a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a> except that the operations happen in
+the context of a single method call. This method is useful for
+switching from one state to another state. <a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a>
+manipulates the hardware connections and disconnections only when the
+routes are different between the connection and disconnection
+specifications. If any routes are common between the connection and
+disconnection specifications, NI Switch Executive determines whether or
+not the relays need to be switched. This functionality has the distinct
+advantage of increased throughput for shared connections, because
+hardware does not have to be involved and potentially increases relay
+lifetime by decreasing the number of times that the relay has to be
+switched. In the event of an error, the call to
+<a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a> attempts to undo any connections made, but
+does not attempt to reconnect disconnections. Some errors can be caught
+before manipulating hardware, although it is feasible that a hardware
+call could fail causing some connections to be momentarily closed and
+then reopened.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connect_spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – String describing the connections to be made. The route specification
+strings are best summarized as a series of routes delimited by
+ampersands. The specified routes may be route names, route group names,
+or fully specified route paths delimited by square brackets. Some
+examples of route specification strings are: MyRoute MyRouteGroup
+MyRoute &amp; MyRouteGroup [A-&gt;Switch1/r0-&gt;B] MyRoute &amp; MyRouteGroup &amp;
+[A-&gt;Switch1/r0-&gt;B] Refer to Route Specification Strings in the NI Switch
+Executive Help for more information.</p></li>
+<li><p><strong>disconnect_spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – String describing the disconnections to be made. The route specification
+strings are best summarized as a series of routes delimited by
+ampersands. The specified routes may be route names, route group names,
+or fully specified route paths delimited by square brackets. Some
+examples of route specification strings are: MyRoute MyRouteGroup
+MyRoute &amp; MyRouteGroup [A-&gt;Switch1/r0-&gt;B] MyRoute &amp; MyRouteGroup &amp;
+[A-&gt;Switch1/r0-&gt;B] Refer to Route Specification Strings in the NI Switch
+Executive Help for more information.</p></li>
+<li><p><strong>multiconnect_mode</strong> (<a class="reference internal" href="enums.html#nise.MulticonnectMode" title="nise.MulticonnectMode"><code class="xref py py-data docutils literal notranslate"><span class="pre">nise.MulticonnectMode</span></code></a>) – <p>This value sets the connection mode for the method. The mode might be
+one of the following: <code class="xref py py-data docutils literal notranslate"><span class="pre">NISE_VAL_USE_DEFAULT_MODE</span></code> (-1) - uses the mode
+selected as the default for the route in the NI Switch Executive virtual
+device configuration. If a mode has not been selected for the route in
+the NI Switch Executive virtual device, this parameter defaults to
+<code class="xref py py-data docutils literal notranslate"><span class="pre">NISE_VAL_MULTICONNECT_ROUTES</span></code>. <a class="reference internal" href="enums.html#nise.MulticonnectMode.NO_MULTICONNECT" title="nise.MulticonnectMode.NO_MULTICONNECT"><code class="xref py py-data docutils literal notranslate"><span class="pre">NO_MULTICONNECT</span></code></a> (0) -
+routes specified in the connection specification must be disconnected
+before they can be reconnected. Calling Connect on a route that was
+connected using No Multiconnect mode results in an error condition.
+<code class="xref py py-data docutils literal notranslate"><span class="pre">NISE_VAL_MULTICONNECT_ROUTES</span></code> (1) - routes specified in the connection
+specification can be connected multiple times. The first call to Connect
+performs the physical hardware connection. Successive calls to Connect
+increase a connection reference count. Similarly, calls to Disconnect
+decrease the reference count. Once it reaches 0, the hardware is
+physically disconnected. This behavior is slightly different with SPDT
+relays. For more information, refer to the Exclusions and SPDT Relays
+topic in the NI Switch Executive Help. Multiconnecting routes applies to
+entire routes and not to route segments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One or more of the referenced values are not in the Python API for this driver. Enums that only define values, or represent True/False, have been removed.</p>
+</div>
+</p></li>
+<li><p><strong>operation_order</strong> (<a class="reference internal" href="enums.html#nise.OperationOrder" title="nise.OperationOrder"><code class="xref py py-data docutils literal notranslate"><span class="pre">nise.OperationOrder</span></code></a>) – Sets the order of the operation for the method. Defined values are
+Break Before Make and Break After Make. <a class="reference internal" href="enums.html#nise.OperationOrder.BEFORE" title="nise.OperationOrder.BEFORE"><code class="xref py py-data docutils literal notranslate"><span class="pre">BEFORE</span></code></a>
+(1) - The method disconnects the routes specified in the disconnect
+specification before connecting the routes specified in the connect
+specification. This is the typical mode of operation.
+<a class="reference internal" href="enums.html#nise.OperationOrder.AFTER" title="nise.OperationOrder.AFTER"><code class="xref py py-data docutils literal notranslate"><span class="pre">AFTER</span></code></a> (2) - The method connects the routes
+specified in the connection specification before connecting the routes
+specified in the disconnection specification. This mode of operation is
+normally used when you are switching current and want to ensure that a
+load is always connected to your source. The order of operation is to
+connect first or disconnect first.</p></li>
+<li><p><strong>wait_for_debounce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Waits (if true) for switches to debounce between its connect and
+disconnect operations. If false, it immediately begins the second
+operation after completing the first. The order of connect and
+disconnect operation is set by the Operation Order input.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="disconnect">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">disconnect</a><a class="headerlink" href="#disconnect" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.disconnect">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disconnect_spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Disconnects the routes specified in the Disconnection Specification. If
+any of the specified routes were originally connected in a
+multiconnected mode, the call to <a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a> reduces the reference
+count on the route by 1. If the reference count reaches 0, it is
+disconnected. If a specified route does not exist, it is an error
+condition. In the event of an error, the call to <a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>
+continues to try to disconnect everything specified by the route
+specification string but reports the error on completion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>disconnect_spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – String describing the disconnections to be made. The route specification
+strings are best summarized as a series of routes delimited by
+ampersands. The specified routes may be route names, route group names,
+or fully specified route paths delimited by square brackets. Some
+examples of route specification strings are: MyRoute MyRouteGroup
+MyRoute &amp; MyRouteGroup [A-&gt;Switch1/r0-&gt;B] MyRoute &amp; MyRouteGroup &amp;
+[A-&gt;Switch1/r0-&gt;B] Refer to Route Specification Strings in the NI Switch
+Executive Help for more information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="disconnect-all">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">disconnect_all</a><a class="headerlink" href="#disconnect-all" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.disconnect_all">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">disconnect_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.disconnect_all" title="Link to this definition"></a></dt>
+<dd><p>Disconnects all connections on every IVI switch device managed by the
+NISE session reference passed to this method. <a class="reference internal" href="#nise.Session.disconnect_all" title="nise.Session.disconnect_all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect_all()</span></code></a>
+ignores all multiconnect modes. Calling <a class="reference internal" href="#nise.Session.disconnect_all" title="nise.Session.disconnect_all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect_all()</span></code></a> resets all
+of the switch states for the system.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="expand-route-spec">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">expand_route_spec</a><a class="headerlink" href="#expand-route-spec" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.expand_route_spec">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">expand_route_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">nise.ExpandAction.ROUTES</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expanded_route_spec_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1024]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.expand_route_spec" title="Link to this definition"></a></dt>
+<dd><p>Expands a route spec string to yield more information about the routes
+and route groups within the spec. The route specification string
+returned from <a class="reference internal" href="#nise.Session.expand_route_spec" title="nise.Session.expand_route_spec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.expand_route_spec()</span></code></a> can be passed to other Switch
+Executive API methods (such as <a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a>, <a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>, and
+<a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a>) that use route specification strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>route_spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – String describing the routes and route groups to expand. The route
+specification strings are best summarized as a series of routes
+delimited by ampersands. The specified routes may be route names, route
+group names, or fully specified route paths delimited by square
+brackets. Some examples of route specification strings are: MyRoute
+MyRouteGroup MyRoute &amp; MyRouteGroup [A-&gt;Switch1/r0-&gt;B] MyRoute &amp;
+MyRouteGroup &amp; [A-&gt;Switch1/r0-&gt;B] Refer to Route Specification Strings
+in the NI Switch Executive Help for more information.</p></li>
+<li><p><strong>expand_action</strong> (<a class="reference internal" href="enums.html#nise.ExpandAction" title="nise.ExpandAction"><code class="xref py py-data docutils literal notranslate"><span class="pre">nise.ExpandAction</span></code></a>) – This value sets the expand action for the method. The action might be
+one of the following: <a class="reference internal" href="enums.html#nise.ExpandAction.ROUTES" title="nise.ExpandAction.ROUTES"><code class="xref py py-data docutils literal notranslate"><span class="pre">ROUTES</span></code></a> (0) - expands the
+route spec to routes. Converts route groups to their constituent routes.
+<a class="reference internal" href="enums.html#nise.ExpandAction.PATHS" title="nise.ExpandAction.PATHS"><code class="xref py py-data docutils literal notranslate"><span class="pre">PATHS</span></code></a> (1) - expands the route spec to paths.
+Converts routes and route groups to their constituent square bracket
+route spec strings. Example: [Dev1/c0-&gt;Dev1/r0-&gt;Dev1/c1]</p></li>
+<li><p><strong>expanded_route_spec_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – The routeSpecSize is an ViInt32 that is passed by reference into the
+method. As an input, it is the size of the route spec string buffer
+being passed. If the route spec string is larger than the string buffer
+being passed, only the portion of the route spec string that can fit in
+the string buffer is copied into it. On return from the method,
+routeSpecSize holds the size required to hold the entire route spec
+string. Note that this size may be larger than the buffer size as the
+method always returns the size needed to hold the entire buffer. You
+may pass NULL for this parameter if you are not interested in the return
+value for routeSpecSize and routeSpec.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The expanded route spec. Route specification strings can be directly
+passed to <a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a>, <a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>, or <a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a>
+Refer to Route Specification Strings in the NI Switch Executive Help for
+more information. You may pass NULL for this parameter if you are not
+interested in the return value. To obtain the route specification
+string, you should pass a buffer to this parameter. The size of the
+buffer required may be obtained by calling the method with NULL for
+this parameter and a valid ViInt32 to routeSpecSize. The routeSpecSize
+will contain the size needed to hold the entire route specification
+(including the NULL termination character). Common operation is to call
+the method twice. The first time you call the method you can
+determine the size needed to hold the route specification string.
+Allocate a buffer of the appropriate size and then re-call the method
+to obtain the entire buffer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="find-route">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">find_route</a><a class="headerlink" href="#find-route" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.find_route">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">find_route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">route_spec_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1024]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.find_route" title="Link to this definition"></a></dt>
+<dd><p>Finds an existing or potential route between channel 1 and channel 2.
+The returned route specification contains the route specification and
+the route capability determines whether or not the route existed, is
+possible, or is not possible for various reasons. The route
+specification string returned from <a class="reference internal" href="#nise.Session.find_route" title="nise.Session.find_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.find_route()</span></code></a> can be passed to
+other Switch Executive API methods (such as <a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a>,
+<a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>, and <a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a>) that use route
+specification strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Channel name of one of the endpoints of the route to find. The channel
+name must either be a channel alias name or a name in the
+device/ivichannel syntax. Examples: MyChannel Switch1/R0</p></li>
+<li><p><strong>channel2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Channel name of one of the endpoints of the route to find. The channel
+name must either be a channel alias name or a name in the
+device/ivichannel syntax. Examples: MyChannel Switch1/R0</p></li>
+<li><p><strong>route_spec_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – The routeSpecSize is an ViInt32 that is passed by reference into the
+method. As an input, it is the size of the route string buffer being
+passed. If the route string is larger than the string buffer being
+passed, only the portion of the route string that can fit in the string
+buffer is copied into it. On return from the method, routeSpecSize
+holds the size required to hold the entire route string. Note that this
+size may be larger than the buffer size as the method always returns
+the size needed to hold the entire buffer. You may pass NULL for this
+parameter if you are not interested in the return value for
+routeSpecSize and routeSpec.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>tuple (route_spec, path_capability)</p>
+<p>WHERE</p>
+<p>route_spec (str):</p>
+<blockquote>
+<div><p>The fully specified route path complete with delimiting square
+brackets if the route exists or is possible. An example of a fully
+specified route string is: [A-&gt;Switch1/r0-&gt;B] Route specification
+strings can be directly passed to <a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a>, <a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>, or
+<a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a> Refer to Route Specification Strings in the
+NI Switch Executive Help for more information. You may pass NULL for
+this parameter if you are not interested in the return value. To obtain
+the route specification string, you should pass a buffer to this
+parameter. The size of the buffer required may be obtained by calling
+the method with NULL for this parameter and a valid ViInt32 to
+routeSpecSize. The routeSpecSize will contain the size needed to hold
+the entire route specification (including the NULL termination
+character). Common operation is to call the method twice. The first
+time you call the method you can determine the size needed to hold the
+route specification string. Allocate a buffer of the appropriate size
+and then re-call the method to obtain the entire buffer.</p>
+</div></blockquote>
+<p>path_capability (<a class="reference internal" href="enums.html#nise.PathCapability" title="nise.PathCapability"><code class="xref py py-data docutils literal notranslate"><span class="pre">nise.PathCapability</span></code></a>):</p>
+<blockquote>
+<div><p>The return value which expresses the capability of finding a valid route
+between Channel 1 and Channel 2. Refer to the table below for value
+descriptions. You may pass NULL for this parameter if you are not
+interested in the return value. Route capability might be one of the
+following: Path Available (1) A path between channel 1 and channel 2 is
+available. The route specification parameter returns a string describing
+the available path. Path Exists (2) A path between channel 1 and channel
+2 already exists. The route specification parameter returns a string
+describing the existing path. Path Unsupported (3) There is no potential
+path between channel 1 and channel 2 given the current configuration.
+Resource In Use (4) There is a potential path between channel 1 and
+channel 2, although a resource needed to complete the path is already in
+use. Source Conflict (5) Channel 1 and channel 2 cannot be connected
+because their connection would result in an exclusion violation. Channel
+Not Available (6) One of the channels is not useable as an endpoint
+channel. Make sure that it is not marked as a reserved for routing.
+Channels Hardwired (7) The two channels reside on the same hardwire. An
+implicit path already exists.</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="get-all-connections">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">get_all_connections</a><a class="headerlink" href="#get-all-connections" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.get_all_connections">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">get_all_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route_spec_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1024]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.get_all_connections" title="Link to this definition"></a></dt>
+<dd><p>Returns the top-level connected routes and route groups. The route
+specification string returned from <a class="reference internal" href="#nise.Session.get_all_connections" title="nise.Session.get_all_connections"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.get_all_connections()</span></code></a> can be passed
+to other Switch Executive API methods (such as <a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a>,
+<a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>, <a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a>, and <a class="reference internal" href="#nise.Session.expand_route_spec" title="nise.Session.expand_route_spec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.expand_route_spec()</span></code></a>)
+that use route specification strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>route_spec_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – The routeSpecSize is an ViInt32 that is passed by reference into the
+method. As an input, it is the size of the route spec string buffer
+being passed. If the route spec string is larger than the string buffer
+being passed, only the portion of the route spec string that can fit in
+the string buffer is copied into it. On return from the method,
+routeSpecSize holds the size required to hold the entire route spec
+string. Note that this size may be larger than the buffer size as the
+method always returns the size needed to hold the entire buffer. You
+may pass NULL for this parameter if you are not interested in the return
+value for routeSpecSize and routeSpec.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The route spec of all currently connected routes and route groups. Route
+specification strings can be directly passed to <a class="reference internal" href="#nise.Session.connect" title="nise.Session.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect()</span></code></a>,
+<a class="reference internal" href="#nise.Session.disconnect" title="nise.Session.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.disconnect()</span></code></a>, <a class="reference internal" href="#nise.Session.connect_and_disconnect" title="nise.Session.connect_and_disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.connect_and_disconnect()</span></code></a>, or <a class="reference internal" href="#nise.Session.expand_route_spec" title="nise.Session.expand_route_spec"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.expand_route_spec()</span></code></a>
+Refer to Route Specification Strings in the NI Switch Executive Help for
+more information. You may pass NULL for this parameter if you are not
+interested in the return value. To obtain the route specification
+string, you should pass a buffer to this parameter. The size of the
+buffer required may be obtained by calling the method with NULL for
+this parameter and a valid ViInt32 to routeSpecSize. The routeSpecSize
+will contain the size needed to hold the entire route specification
+(including the NULL termination character). Common operation is to call
+the method twice. The first time you call the method you can
+determine the size needed to hold the route specification string.
+Allocate a buffer of the appropriate size and then re-call the method
+to obtain the entire buffer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="is-connected">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">is_connected</a><a class="headerlink" href="#is-connected" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.is_connected">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route_spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.is_connected" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the specified routes and routes groups are connected. It
+returns true if connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>route_spec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – String describing the connections to check. The route specification
+strings are best summarized as a series of routes delimited by
+ampersands. The specified routes may be route names, route group names,
+or fully specified route paths delimited by square brackets. Some
+examples of route specification strings are: MyRoute MyRouteGroup
+MyRoute &amp; MyRouteGroup [A-&gt;Switch1/r0-&gt;B] MyRoute &amp; MyRouteGroup &amp;
+[A-&gt;Switch1/r0-&gt;B] Refer to Route Specification Strings in the NI Switch
+Executive Help for more information.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns TRUE if the routes and routes groups are connected or FALSE if
+they are not.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="is-debounced">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">is_debounced</a><a class="headerlink" href="#is-debounced" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.is_debounced">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">is_debounced</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.is_debounced" title="Link to this definition"></a></dt>
+<dd><p>Checks to see if the switching system is debounced or not. This method
+does not wait for debouncing to occur. It returns true if the system is
+fully debounced. This method is similar to the IviSwtch specific
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns TRUE if the system is fully debounced or FALSE if it is still
+settling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="wait-for-debounce">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">wait_for_debounce</a><a class="headerlink" href="#wait-for-debounce" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="nise.Session.wait_for_debounce">
+<span class="sig-prename descclassname"><span class="pre">nise.Session.</span></span><span class="sig-name descname"><span class="pre">wait_for_debounce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maximum_time_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">hightime.timedelta(milliseconds=-1)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nise.Session.wait_for_debounce" title="Link to this definition"></a></dt>
+<dd><p>Waits for all of the switches in the NI Switch Executive virtual device
+to debounce. This method does not return until either the switching
+system is completely debounced and settled or the maximum time has
+elapsed and the system is not yet debounced. In the event that the
+maximum time elapses, the method returns an error indicating that a
+timeout has occurred. To ensure that all of the switches have settled,
+NI recommends calling <a class="reference internal" href="#nise.Session.wait_for_debounce" title="nise.Session.wait_for_debounce"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nise.Session.wait_for_debounce()</span></code></a> after a series of connection
+or disconnection operations and before taking any measurements of the
+signals connected to the switching system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>maximum_time_ms</strong> (<em>hightime.timedelta</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><em>datetime.timedelta</em></a><em>, or </em><em>int in milliseconds</em>) – The amount of time to wait (in milliseconds) for the debounce to
+complete. A value of 0 checks for debouncing once and returns an error
+if the system is not debounced at that time. A value of -1 means to
+block for an infinite period of time until the system is debounced.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<nav class="contents" id="id1">
+<p class="topic-title">Session</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#session" id="id2">Session</a></p></li>
+<li><p><a class="reference internal" href="#methods" id="id3">Methods</a></p>
+<ul>
+<li><p><a class="reference internal" href="#close" id="id4">close</a></p></li>
+<li><p><a class="reference internal" href="#connect" id="id5">connect</a></p></li>
+<li><p><a class="reference internal" href="#connect-and-disconnect" id="id6">connect_and_disconnect</a></p></li>
+<li><p><a class="reference internal" href="#disconnect" id="id7">disconnect</a></p></li>
+<li><p><a class="reference internal" href="#disconnect-all" id="id8">disconnect_all</a></p></li>
+<li><p><a class="reference internal" href="#expand-route-spec" id="id9">expand_route_spec</a></p></li>
+<li><p><a class="reference internal" href="#find-route" id="id10">find_route</a></p></li>
+<li><p><a class="reference internal" href="#get-all-connections" id="id11">get_all_connections</a></p></li>
+<li><p><a class="reference internal" href="#is-connected" id="id12">is_connected</a></p></li>
+<li><p><a class="reference internal" href="#is-debounced" id="id13">is_debounced</a></p></li>
+<li><p><a class="reference internal" href="#wait-for-debounce" id="id14">wait_for_debounce</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nise.html" class="btn btn-neutral float-left" title="nise module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="enums.html" class="btn btn-neutral float-right" title="Enums" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

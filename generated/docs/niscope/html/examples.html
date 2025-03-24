@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; NI-SCOPE Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gRPC Support" href="grpc_session_options.html" />
+    <link rel="prev" title="Exceptions and Warnings" href="errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-SCOPE Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="niscope.html">niscope module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="niscope.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="niscope.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="niscope.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niscope-fetch-py">niscope_fetch.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niscope-fetch-forever-py">niscope_fetch_forever.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niscope-fetch-into-py">niscope_fetch_into.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niscope-read-py">niscope_read.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-SCOPE Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="niscope.html">niscope module</a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/releases/download/1.4.11/niscope_examples.zip">You can download all niscope examples here</a></p>
+<section id="niscope-fetch-py">
+<h2>niscope_fetch.py<a class="headerlink" href="#niscope-fetch-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niscope/examples/niscope_fetch.py">(niscope_fetch.py)</a></span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">niscope</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
+<span class="linenos">12</span>    <span class="k">with</span> <span class="n">niscope</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_vertical</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">AC</span><span class="p">)</span>
+<span class="linenos">14</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_horizontal_timing</span><span class="p">(</span><span class="n">min_sample_rate</span><span class="o">=</span><span class="mi">50000000</span><span class="p">,</span> <span class="n">min_num_pts</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">ref_position</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">enforce_realtime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">15</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">16</span>            <span class="n">waveforms</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">num_samples</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+<span class="linenos">17</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">waveforms</span><span class="p">)):</span>
+<span class="linenos">18</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Waveform </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> information:&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">waveforms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">23</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Acquires one record from the given channels.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digitizer.&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--channels&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel(s) to use&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--length&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measure record length&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage range (V)&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">30</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">34</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">38</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;5164&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">39</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">43</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:5164; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">44</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">48</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">49</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="niscope-fetch-forever-py">
+<h2>niscope_fetch_forever.py<a class="headerlink" href="#niscope-fetch-forever-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niscope/examples/niscope_fetch_forever.py">(niscope_fetch_forever.py)</a></span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">hightime</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">niscope</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 7</span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="linenos"> 8</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># We use fetch_into which allows us to allocate a single buffer per channel and &quot;fetch into&quot; it a section at a time without having to</span>
+<span class="linenos">15</span><span class="c1"># reconstruct the waveform once we are done</span>
+<span class="linenos">16</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">total_acquisition_time_in_seconds</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">sample_rate_in_hz</span><span class="p">,</span> <span class="n">samples_per_fetch</span><span class="p">):</span>
+<span class="linenos">17</span>    <span class="n">total_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_acquisition_time_in_seconds</span> <span class="o">*</span> <span class="n">sample_rate_in_hz</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="c1"># 1. Opening session</span>
+<span class="linenos">19</span>    <span class="k">with</span> <span class="n">niscope</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">20</span>        <span class="c1"># We will acquire on all channels of the device</span>
+<span class="linenos">21</span>        <span class="n">channel_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">channel_count</span><span class="p">)]</span>  <span class="c1"># Need an actual list and not a range</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>        <span class="c1"># 2. Creating numpy arrays</span>
+<span class="linenos">24</span>        <span class="n">waveforms</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">total_samples</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">channel_list</span><span class="p">]</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>        <span class="c1"># 3. Configuring</span>
+<span class="linenos">27</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_horizontal_timing</span><span class="p">(</span><span class="n">min_sample_rate</span><span class="o">=</span><span class="n">sample_rate_in_hz</span><span class="p">,</span> <span class="n">min_num_pts</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ref_position</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">enforce_realtime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel_list</span><span class="p">]</span><span class="o">.</span><span class="n">configure_vertical</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">DC</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">29</span>        <span class="c1"># Configure software trigger, but never send the trigger.</span>
+<span class="linenos">30</span>        <span class="c1"># This starts an infinite acquisition, until you call session.abort() or session.close()</span>
+<span class="linenos">31</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_trigger_software</span><span class="p">()</span>
+<span class="linenos">32</span>        <span class="n">current_pos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">33</span>        <span class="c1"># 4. initiating</span>
+<span class="linenos">34</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">35</span>            <span class="k">while</span> <span class="n">current_pos</span> <span class="o">&lt;</span> <span class="n">total_samples</span><span class="p">:</span>
+<span class="linenos">36</span>                <span class="c1"># We fetch each channel at a time so we don&#39;t have to de-interleave afterwards</span>
+<span class="linenos">37</span>                <span class="c1"># We do not keep the wfm_info returned from fetch_into</span>
+<span class="linenos">38</span>                <span class="k">for</span> <span class="n">channel</span><span class="p">,</span> <span class="n">waveform</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">channel_list</span><span class="p">,</span> <span class="n">waveforms</span><span class="p">):</span>
+<span class="linenos">39</span>                    <span class="c1"># 5. fetching - we return the slice of the waveform array that we want to &quot;fetch into&quot;</span>
+<span class="linenos">40</span>                    <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_into</span><span class="p">(</span><span class="n">waveform</span><span class="p">[</span><span class="n">current_pos</span><span class="p">:</span><span class="n">current_pos</span> <span class="o">+</span> <span class="n">samples_per_fetch</span><span class="p">],</span> <span class="n">relative_to</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">FetchRelativeTo</span><span class="o">.</span><span class="n">READ_POINTER</span><span class="p">,</span>
+<span class="linenos">41</span>                                                         <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">record_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">hightime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">5.0</span><span class="p">))</span>
+<span class="linenos">42</span>                <span class="n">current_pos</span> <span class="o">+=</span> <span class="n">samples_per_fetch</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">46</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Fetch more samples than will fit in memory.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digitizer.&#39;</span><span class="p">)</span>
+<span class="linenos">48</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Time to sample (s)&#39;</span><span class="p">)</span>
+<span class="linenos">49</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage range (V)&#39;</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">51</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--sample-rate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Sample Rate (Hz)&#39;</span><span class="p">)</span>
+<span class="linenos">52</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--samples-per-fetch&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Samples per fetch&#39;</span><span class="p">)</span>
+<span class="linenos">53</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">54</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">samples_per_fetch</span><span class="p">)</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">58</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span>
+<span class="linenos">61</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">62</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;5164&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">63</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">67</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:5164; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">68</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">69</span>
+<span class="linenos">70</span>
+<span class="linenos">71</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">72</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">73</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="niscope-fetch-into-py">
+<h2>niscope_fetch_into.py<a class="headerlink" href="#niscope-fetch-into-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niscope/examples/niscope_fetch_into.py">(niscope_fetch_into.py)</a></span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">niscope</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="linenos"> 7</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
+<span class="linenos">13</span>    <span class="c1"># fetch_into() allows you to preallocate and reuse the destination of the fetched waveforms, which can result in better performance at the expense of the usability of fetch().</span>
+<span class="linenos">14</span>    <span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+<span class="linenos">15</span>    <span class="n">num_channels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">num_records</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos">17</span>    <span class="n">total_num_wfms</span> <span class="o">=</span> <span class="n">num_channels</span> <span class="o">*</span> <span class="n">num_records</span>
+<span class="linenos">18</span>    <span class="c1"># preallocate a single array for all samples in all waveforms</span>
+<span class="linenos">19</span>    <span class="c1"># Supported array types are: numpy.float64, numpy.int8, numpy.int16, numpy.int32</span>
+<span class="linenos">20</span>    <span class="c1"># int8, int16, int32 are for fetching unscaled data, which is the fastest way to fetch.</span>
+<span class="linenos">21</span>    <span class="c1"># Gain and Offset are stored in the returned WaveformInfo objects and can be applied to the data by the user later.</span>
+<span class="linenos">22</span>    <span class="n">wfm</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="n">total_num_wfms</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="k">with</span> <span class="n">niscope</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_vertical</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">AC</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_horizontal_timing</span><span class="p">(</span><span class="n">min_sample_rate</span><span class="o">=</span><span class="mi">50000000</span><span class="p">,</span> <span class="n">min_num_pts</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">ref_position</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="n">num_records</span><span class="p">,</span> <span class="n">enforce_realtime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">26</span>        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+<span class="linenos">27</span>            <span class="n">waveforms</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">fetch_into</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">wfm</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="n">num_records</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">waveforms</span><span class="p">)):</span>
+<span class="linenos">29</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Waveform </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> information:&#39;</span><span class="p">)</span>
+<span class="linenos">30</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">waveforms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">31</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Samples: </span><span class="si">{</span><span class="n">waveforms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">35</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Fetches data directly into a preallocated numpy array.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digitizer.&#39;</span><span class="p">)</span>
+<span class="linenos">37</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--channels&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel(s) to use&#39;</span><span class="p">)</span>
+<span class="linenos">38</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--length&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measure record length&#39;</span><span class="p">)</span>
+<span class="linenos">39</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage range (V)&#39;</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">41</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">42</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage</span><span class="p">)</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">46</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">50</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;5164&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">51</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="s1">&#39;0, 1&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">55</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:5164; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">56</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">57</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">60</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">61</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="niscope-read-py">
+<h2>niscope_read.py<a class="headerlink" href="#niscope-read-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/niscope/examples/niscope_read.py">(niscope_read.py)</a></span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">niscope</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
+<span class="linenos">12</span>    <span class="k">with</span> <span class="n">niscope</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_vertical</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="n">niscope</span><span class="o">.</span><span class="n">VerticalCoupling</span><span class="o">.</span><span class="n">AC</span><span class="p">)</span>
+<span class="linenos">14</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_horizontal_timing</span><span class="p">(</span><span class="n">min_sample_rate</span><span class="o">=</span><span class="mi">50000000</span><span class="p">,</span> <span class="n">min_num_pts</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">ref_position</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">num_records</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">enforce_realtime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">15</span>        <span class="n">waveforms</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">num_samples</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+<span class="linenos">16</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">waveforms</span><span class="p">)):</span>
+<span class="linenos">17</span>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Waveform </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> information:&#39;</span><span class="p">)</span>
+<span class="linenos">18</span>            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">waveforms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">22</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Acquires one record from the given channels.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of an NI digitizer.&#39;</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--channels&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel(s) to use&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--length&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measure record length&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage range (V)&#39;</span><span class="p">)</span>
+<span class="linenos">27</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-op&#39;</span><span class="p">,</span> <span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Option string&#39;</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">option_string</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voltage</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">33</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">37</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;5164&#39;</span><span class="p">,</span> <span class="s1">&#39;BoardType&#39;</span><span class="p">:</span> <span class="s1">&#39;PXIe&#39;</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<span class="linenos">38</span>    <span class="n">example</span><span class="p">(</span><span class="s1">&#39;PXI1Slot2&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">42</span>    <span class="n">cmd_line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--option-string&#39;</span><span class="p">,</span> <span class="s1">&#39;Simulate=1, DriverSetup=Model:5164; BoardType:PXIe&#39;</span><span class="p">,</span> <span class="p">]</span>
+<span class="linenos">43</span>    <span class="n">_main</span><span class="p">(</span><span class="n">cmd_line</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">47</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">48</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="errors.html" class="btn btn-neutral float-left" title="Exceptions and Warnings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grpc_session_options.html" class="btn btn-neutral float-right" title="gRPC Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

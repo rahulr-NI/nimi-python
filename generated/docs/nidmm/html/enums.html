@@ -1,0 +1,1138 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enums &mdash; NI-DMM Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="Session" href="class.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-DMM Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidmm.html">nidmm module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidmm.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidmm.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidmm.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adccalibration">ADCCalibration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.ADCCalibration"><code class="docutils literal notranslate"><span class="pre">ADCCalibration</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ADCCalibration.AUTO"><code class="docutils literal notranslate"><span class="pre">ADCCalibration.AUTO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ADCCalibration.OFF"><code class="docutils literal notranslate"><span class="pre">ADCCalibration.OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ADCCalibration.ON"><code class="docutils literal notranslate"><span class="pre">ADCCalibration.ON</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#acquisitionstatus">AcquisitionStatus</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.AcquisitionStatus"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AcquisitionStatus.RUNNING"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.RUNNING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AcquisitionStatus.FINISHED_WITH_BACKLOG"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.FINISHED_WITH_BACKLOG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AcquisitionStatus.FINISHED_WITH_NO_BACKLOG"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.FINISHED_WITH_NO_BACKLOG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AcquisitionStatus.PAUSED"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.PAUSED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AcquisitionStatus.NO_ACQUISITION_IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.NO_ACQUISITION_IN_PROGRESS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#aperturetimeunits">ApertureTimeUnits</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.ApertureTimeUnits"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ApertureTimeUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.SECONDS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ApertureTimeUnits.POWER_LINE_CYCLES"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.POWER_LINE_CYCLES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#autozero">AutoZero</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.AutoZero"><code class="docutils literal notranslate"><span class="pre">AutoZero</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AutoZero.AUTO"><code class="docutils literal notranslate"><span class="pre">AutoZero.AUTO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AutoZero.OFF"><code class="docutils literal notranslate"><span class="pre">AutoZero.OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AutoZero.ON"><code class="docutils literal notranslate"><span class="pre">AutoZero.ON</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.AutoZero.ONCE"><code class="docutils literal notranslate"><span class="pre">AutoZero.ONCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cablecompensationtype">CableCompensationType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.CableCompensationType"><code class="docutils literal notranslate"><span class="pre">CableCompensationType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.CableCompensationType.NONE"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.CableCompensationType.OPEN"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.OPEN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.CableCompensationType.SHORT"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.SHORT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.CableCompensationType.OPEN_AND_SHORT"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.OPEN_AND_SHORT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#dcnoiserejection">DCNoiseRejection</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.DCNoiseRejection"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.DCNoiseRejection.AUTO"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.AUTO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.DCNoiseRejection.NORMAL"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.NORMAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.DCNoiseRejection.SECOND_ORDER"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.SECOND_ORDER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.DCNoiseRejection.HIGH_ORDER"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.HIGH_ORDER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#function">Function</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.Function"><code class="docutils literal notranslate"><span class="pre">Function</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.DC_VOLTS"><code class="docutils literal notranslate"><span class="pre">Function.DC_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.AC_VOLTS"><code class="docutils literal notranslate"><span class="pre">Function.AC_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.DC_CURRENT"><code class="docutils literal notranslate"><span class="pre">Function.DC_CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.AC_CURRENT"><code class="docutils literal notranslate"><span class="pre">Function.AC_CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.TWO_WIRE_RES"><code class="docutils literal notranslate"><span class="pre">Function.TWO_WIRE_RES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.FOUR_WIRE_RES"><code class="docutils literal notranslate"><span class="pre">Function.FOUR_WIRE_RES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.FREQ"><code class="docutils literal notranslate"><span class="pre">Function.FREQ</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.PERIOD"><code class="docutils literal notranslate"><span class="pre">Function.PERIOD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.TEMPERATURE"><code class="docutils literal notranslate"><span class="pre">Function.TEMPERATURE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.AC_VOLTS_DC_COUPLED"><code class="docutils literal notranslate"><span class="pre">Function.AC_VOLTS_DC_COUPLED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.DIODE"><code class="docutils literal notranslate"><span class="pre">Function.DIODE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.WAVEFORM_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">Function.WAVEFORM_VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.WAVEFORM_CURRENT"><code class="docutils literal notranslate"><span class="pre">Function.WAVEFORM_CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.CAPACITANCE"><code class="docutils literal notranslate"><span class="pre">Function.CAPACITANCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.Function.INDUCTANCE"><code class="docutils literal notranslate"><span class="pre">Function.INDUCTANCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#lccalculationmodel">LCCalculationModel</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.LCCalculationModel"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.LCCalculationModel.AUTO"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel.AUTO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.LCCalculationModel.SERIES"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel.SERIES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.LCCalculationModel.PARALLEL"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel.PARALLEL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#measurementcompletedest">MeasurementCompleteDest</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.MeasurementCompleteDest"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.NONE"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.EXTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG0"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG1"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG2"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG3"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG4"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG5"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG6"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.PXI_TRIG7"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.MeasurementCompleteDest.LBR_TRIG0"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.LBR_TRIG0</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#operationmode">OperationMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.OperationMode"><code class="docutils literal notranslate"><span class="pre">OperationMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.OperationMode.IVIDMM"><code class="docutils literal notranslate"><span class="pre">OperationMode.IVIDMM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.OperationMode.WAVEFORM"><code class="docutils literal notranslate"><span class="pre">OperationMode.WAVEFORM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#rtdtype">RTDType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.RTDType"><code class="docutils literal notranslate"><span class="pre">RTDType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.CUSTOM"><code class="docutils literal notranslate"><span class="pre">RTDType.CUSTOM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.PT3750"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3750</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.PT3851"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3851</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.PT3911"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3911</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.PT3916"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3916</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.PT3920"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3920</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.RTDType.PT3928"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3928</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sampletrigger">SampleTrigger</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.SampleTrigger"><code class="docutils literal notranslate"><span class="pre">SampleTrigger</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.IMMEDIATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.EXTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.SOFTWARE_TRIG"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.SOFTWARE_TRIG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.INTERVAL"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.INTERVAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG0"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG1"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG2"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG3"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG4"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG5"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG6"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_TRIG7"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_STAR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.AUX_TRIG1"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.AUX_TRIG1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.SampleTrigger.LBR_TRIG1"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.LBR_TRIG1</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#thermistortype">ThermistorType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.ThermistorType"><code class="docutils literal notranslate"><span class="pre">ThermistorType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermistorType.CUSTOM"><code class="docutils literal notranslate"><span class="pre">ThermistorType.CUSTOM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermistorType.THERMISTOR_44004"><code class="docutils literal notranslate"><span class="pre">ThermistorType.THERMISTOR_44004</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermistorType.THERMISTOR_44006"><code class="docutils literal notranslate"><span class="pre">ThermistorType.THERMISTOR_44006</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermistorType.THERMISTOR_44007"><code class="docutils literal notranslate"><span class="pre">ThermistorType.THERMISTOR_44007</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#thermocouplereferencejunctiontype">ThermocoupleReferenceJunctionType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.ThermocoupleReferenceJunctionType"><code class="docutils literal notranslate"><span class="pre">ThermocoupleReferenceJunctionType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleReferenceJunctionType.FIXED"><code class="docutils literal notranslate"><span class="pre">ThermocoupleReferenceJunctionType.FIXED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#thermocoupletype">ThermocoupleType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.ThermocoupleType"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.B"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.B</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.E"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.E</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.J"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.J</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.K"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.K</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.N"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.N</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.R"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.R</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.S"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.S</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.ThermocoupleType.T"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.T</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transducertype">TransducerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.TransducerType"><code class="docutils literal notranslate"><span class="pre">TransducerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TransducerType.THERMOCOUPLE"><code class="docutils literal notranslate"><span class="pre">TransducerType.THERMOCOUPLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TransducerType.THERMISTOR"><code class="docutils literal notranslate"><span class="pre">TransducerType.THERMISTOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TransducerType.TWO_WIRE_RTD"><code class="docutils literal notranslate"><span class="pre">TransducerType.TWO_WIRE_RTD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TransducerType.FOUR_WIRE_RTD"><code class="docutils literal notranslate"><span class="pre">TransducerType.FOUR_WIRE_RTD</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggersource">TriggerSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.TriggerSource"><code class="docutils literal notranslate"><span class="pre">TriggerSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">TriggerSource.IMMEDIATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">TriggerSource.EXTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.SOFTWARE_TRIG"><code class="docutils literal notranslate"><span class="pre">TriggerSource.SOFTWARE_TRIG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG0"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG1"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG2"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG3"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG4"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG5"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG6"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_TRIG7"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_STAR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.AUX_TRIG1"><code class="docutils literal notranslate"><span class="pre">TriggerSource.AUX_TRIG1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.TriggerSource.LBR_TRIG1"><code class="docutils literal notranslate"><span class="pre">TriggerSource.LBR_TRIG1</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#waveformcoupling">WaveformCoupling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidmm.WaveformCoupling"><code class="docutils literal notranslate"><span class="pre">WaveformCoupling</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.WaveformCoupling.AC"><code class="docutils literal notranslate"><span class="pre">WaveformCoupling.AC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidmm.WaveformCoupling.DC"><code class="docutils literal notranslate"><span class="pre">WaveformCoupling.DC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-DMM Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidmm.html">nidmm module</a></li>
+      <li class="breadcrumb-item active">Enums</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enums.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h1>
+<p>Enums used in NI-DMM</p>
+<section id="adccalibration">
+<h2>ADCCalibration<a class="headerlink" href="#adccalibration" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.ADCCalibration">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">ADCCalibration</span></span><a class="headerlink" href="#nidmm.ADCCalibration" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ADCCalibration.AUTO">
+<span class="sig-name descname"><span class="pre">AUTO</span></span><a class="headerlink" href="#nidmm.ADCCalibration.AUTO" title="Link to this definition"></a></dt>
+<dd><p>The DMM enables or disables ADC calibration for you.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ADCCalibration.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><a class="headerlink" href="#nidmm.ADCCalibration.OFF" title="Link to this definition"></a></dt>
+<dd><p>The DMM does not compensate for changes to the gain.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ADCCalibration.ON">
+<span class="sig-name descname"><span class="pre">ON</span></span><a class="headerlink" href="#nidmm.ADCCalibration.ON" title="Link to this definition"></a></dt>
+<dd><p>The DMM measures an internal reference to calculate the correct gain for the  measurement.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="acquisitionstatus">
+<h2>AcquisitionStatus<a class="headerlink" href="#acquisitionstatus" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.AcquisitionStatus">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">AcquisitionStatus</span></span><a class="headerlink" href="#nidmm.AcquisitionStatus" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AcquisitionStatus.RUNNING">
+<span class="sig-name descname"><span class="pre">RUNNING</span></span><a class="headerlink" href="#nidmm.AcquisitionStatus.RUNNING" title="Link to this definition"></a></dt>
+<dd><p>Running</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AcquisitionStatus.FINISHED_WITH_BACKLOG">
+<span class="sig-name descname"><span class="pre">FINISHED_WITH_BACKLOG</span></span><a class="headerlink" href="#nidmm.AcquisitionStatus.FINISHED_WITH_BACKLOG" title="Link to this definition"></a></dt>
+<dd><p>Finished with <strong>Backlog</strong></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AcquisitionStatus.FINISHED_WITH_NO_BACKLOG">
+<span class="sig-name descname"><span class="pre">FINISHED_WITH_NO_BACKLOG</span></span><a class="headerlink" href="#nidmm.AcquisitionStatus.FINISHED_WITH_NO_BACKLOG" title="Link to this definition"></a></dt>
+<dd><p>Finished with no <strong>Backlog</strong></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AcquisitionStatus.PAUSED">
+<span class="sig-name descname"><span class="pre">PAUSED</span></span><a class="headerlink" href="#nidmm.AcquisitionStatus.PAUSED" title="Link to this definition"></a></dt>
+<dd><p>Paused</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AcquisitionStatus.NO_ACQUISITION_IN_PROGRESS">
+<span class="sig-name descname"><span class="pre">NO_ACQUISITION_IN_PROGRESS</span></span><a class="headerlink" href="#nidmm.AcquisitionStatus.NO_ACQUISITION_IN_PROGRESS" title="Link to this definition"></a></dt>
+<dd><p>No acquisition in progress</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="aperturetimeunits">
+<h2>ApertureTimeUnits<a class="headerlink" href="#aperturetimeunits" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.ApertureTimeUnits">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">ApertureTimeUnits</span></span><a class="headerlink" href="#nidmm.ApertureTimeUnits" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ApertureTimeUnits.SECONDS">
+<span class="sig-name descname"><span class="pre">SECONDS</span></span><a class="headerlink" href="#nidmm.ApertureTimeUnits.SECONDS" title="Link to this definition"></a></dt>
+<dd><p>Seconds</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ApertureTimeUnits.POWER_LINE_CYCLES">
+<span class="sig-name descname"><span class="pre">POWER_LINE_CYCLES</span></span><a class="headerlink" href="#nidmm.ApertureTimeUnits.POWER_LINE_CYCLES" title="Link to this definition"></a></dt>
+<dd><p>Powerline Cycles</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="autozero">
+<h2>AutoZero<a class="headerlink" href="#autozero" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.AutoZero">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">AutoZero</span></span><a class="headerlink" href="#nidmm.AutoZero" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AutoZero.AUTO">
+<span class="sig-name descname"><span class="pre">AUTO</span></span><a class="headerlink" href="#nidmm.AutoZero.AUTO" title="Link to this definition"></a></dt>
+<dd><p>The drivers chooses the AutoZero setting based on the configured method  and resolution.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AutoZero.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><a class="headerlink" href="#nidmm.AutoZero.OFF" title="Link to this definition"></a></dt>
+<dd><p>Disables AutoZero.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AutoZero.ON">
+<span class="sig-name descname"><span class="pre">ON</span></span><a class="headerlink" href="#nidmm.AutoZero.ON" title="Link to this definition"></a></dt>
+<dd><p>The DMM internally disconnects the input signal following each measurement  and takes a zero reading. It then subtracts the zero reading from the  preceding reading.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.AutoZero.ONCE">
+<span class="sig-name descname"><span class="pre">ONCE</span></span><a class="headerlink" href="#nidmm.AutoZero.ONCE" title="Link to this definition"></a></dt>
+<dd><p>The DMM internally disconnects the input signal for the first measurement  and takes a zero reading. It then subtracts the zero reading from the first  reading and the following readings.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cablecompensationtype">
+<h2>CableCompensationType<a class="headerlink" href="#cablecompensationtype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.CableCompensationType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">CableCompensationType</span></span><a class="headerlink" href="#nidmm.CableCompensationType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.CableCompensationType.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#nidmm.CableCompensationType.NONE" title="Link to this definition"></a></dt>
+<dd><p>No Cable Compensation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.CableCompensationType.OPEN">
+<span class="sig-name descname"><span class="pre">OPEN</span></span><a class="headerlink" href="#nidmm.CableCompensationType.OPEN" title="Link to this definition"></a></dt>
+<dd><p>Open Cable Compensation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.CableCompensationType.SHORT">
+<span class="sig-name descname"><span class="pre">SHORT</span></span><a class="headerlink" href="#nidmm.CableCompensationType.SHORT" title="Link to this definition"></a></dt>
+<dd><p>Short Cable Compensation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.CableCompensationType.OPEN_AND_SHORT">
+<span class="sig-name descname"><span class="pre">OPEN_AND_SHORT</span></span><a class="headerlink" href="#nidmm.CableCompensationType.OPEN_AND_SHORT" title="Link to this definition"></a></dt>
+<dd><p>Open and Short Cable Compensation</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="dcnoiserejection">
+<h2>DCNoiseRejection<a class="headerlink" href="#dcnoiserejection" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.DCNoiseRejection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">DCNoiseRejection</span></span><a class="headerlink" href="#nidmm.DCNoiseRejection" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.DCNoiseRejection.AUTO">
+<span class="sig-name descname"><span class="pre">AUTO</span></span><a class="headerlink" href="#nidmm.DCNoiseRejection.AUTO" title="Link to this definition"></a></dt>
+<dd><p>The driver chooses the DC noise rejection setting based on the configured  method and resolution.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.DCNoiseRejection.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#nidmm.DCNoiseRejection.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>NI-DMM weighs all samples equally.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.DCNoiseRejection.SECOND_ORDER">
+<span class="sig-name descname"><span class="pre">SECOND_ORDER</span></span><a class="headerlink" href="#nidmm.DCNoiseRejection.SECOND_ORDER" title="Link to this definition"></a></dt>
+<dd><p>NI-DMM weighs the samples taken in the middle of the aperture time more than  samples taken at the beginning and the end of the measurement using a  triangular weighing method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.DCNoiseRejection.HIGH_ORDER">
+<span class="sig-name descname"><span class="pre">HIGH_ORDER</span></span><a class="headerlink" href="#nidmm.DCNoiseRejection.HIGH_ORDER" title="Link to this definition"></a></dt>
+<dd><p>NI-DMM weighs the samples taken in the middle of the aperture time more than  samples taken at the beginning and the end of the measurement using a  bell-curve weighing method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="function">
+<h2>Function<a class="headerlink" href="#function" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.Function">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">Function</span></span><a class="headerlink" href="#nidmm.Function" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.DC_VOLTS">
+<span class="sig-name descname"><span class="pre">DC_VOLTS</span></span><a class="headerlink" href="#nidmm.Function.DC_VOLTS" title="Link to this definition"></a></dt>
+<dd><p>DC Voltage</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.AC_VOLTS">
+<span class="sig-name descname"><span class="pre">AC_VOLTS</span></span><a class="headerlink" href="#nidmm.Function.AC_VOLTS" title="Link to this definition"></a></dt>
+<dd><p>AC Voltage</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.DC_CURRENT">
+<span class="sig-name descname"><span class="pre">DC_CURRENT</span></span><a class="headerlink" href="#nidmm.Function.DC_CURRENT" title="Link to this definition"></a></dt>
+<dd><p>DC Current</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.AC_CURRENT">
+<span class="sig-name descname"><span class="pre">AC_CURRENT</span></span><a class="headerlink" href="#nidmm.Function.AC_CURRENT" title="Link to this definition"></a></dt>
+<dd><p>AC Current</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.TWO_WIRE_RES">
+<span class="sig-name descname"><span class="pre">TWO_WIRE_RES</span></span><a class="headerlink" href="#nidmm.Function.TWO_WIRE_RES" title="Link to this definition"></a></dt>
+<dd><p>2-Wire Resistance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.FOUR_WIRE_RES">
+<span class="sig-name descname"><span class="pre">FOUR_WIRE_RES</span></span><a class="headerlink" href="#nidmm.Function.FOUR_WIRE_RES" title="Link to this definition"></a></dt>
+<dd><p>4-Wire Resistance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.FREQ">
+<span class="sig-name descname"><span class="pre">FREQ</span></span><a class="headerlink" href="#nidmm.Function.FREQ" title="Link to this definition"></a></dt>
+<dd><p>Frequency</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.PERIOD">
+<span class="sig-name descname"><span class="pre">PERIOD</span></span><a class="headerlink" href="#nidmm.Function.PERIOD" title="Link to this definition"></a></dt>
+<dd><p>Period</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.TEMPERATURE">
+<span class="sig-name descname"><span class="pre">TEMPERATURE</span></span><a class="headerlink" href="#nidmm.Function.TEMPERATURE" title="Link to this definition"></a></dt>
+<dd><p>NI 4065, NI 4070/4071/4072, and NI 4080/4081/4182 supported.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.AC_VOLTS_DC_COUPLED">
+<span class="sig-name descname"><span class="pre">AC_VOLTS_DC_COUPLED</span></span><a class="headerlink" href="#nidmm.Function.AC_VOLTS_DC_COUPLED" title="Link to this definition"></a></dt>
+<dd><p>AC Voltage with DC Coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.DIODE">
+<span class="sig-name descname"><span class="pre">DIODE</span></span><a class="headerlink" href="#nidmm.Function.DIODE" title="Link to this definition"></a></dt>
+<dd><p>Diode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.WAVEFORM_VOLTAGE">
+<span class="sig-name descname"><span class="pre">WAVEFORM_VOLTAGE</span></span><a class="headerlink" href="#nidmm.Function.WAVEFORM_VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>Waveform voltage</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.WAVEFORM_CURRENT">
+<span class="sig-name descname"><span class="pre">WAVEFORM_CURRENT</span></span><a class="headerlink" href="#nidmm.Function.WAVEFORM_CURRENT" title="Link to this definition"></a></dt>
+<dd><p>Waveform current</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.CAPACITANCE">
+<span class="sig-name descname"><span class="pre">CAPACITANCE</span></span><a class="headerlink" href="#nidmm.Function.CAPACITANCE" title="Link to this definition"></a></dt>
+<dd><p>Capacitance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.Function.INDUCTANCE">
+<span class="sig-name descname"><span class="pre">INDUCTANCE</span></span><a class="headerlink" href="#nidmm.Function.INDUCTANCE" title="Link to this definition"></a></dt>
+<dd><p>Inductance</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="lccalculationmodel">
+<h2>LCCalculationModel<a class="headerlink" href="#lccalculationmodel" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.LCCalculationModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">LCCalculationModel</span></span><a class="headerlink" href="#nidmm.LCCalculationModel" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.LCCalculationModel.AUTO">
+<span class="sig-name descname"><span class="pre">AUTO</span></span><a class="headerlink" href="#nidmm.LCCalculationModel.AUTO" title="Link to this definition"></a></dt>
+<dd><p>NI-DMM chooses the algorithm based on method and range</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.LCCalculationModel.SERIES">
+<span class="sig-name descname"><span class="pre">SERIES</span></span><a class="headerlink" href="#nidmm.LCCalculationModel.SERIES" title="Link to this definition"></a></dt>
+<dd><p>NI-DMM uses the series impedance model to calculate capacitance and inductance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.LCCalculationModel.PARALLEL">
+<span class="sig-name descname"><span class="pre">PARALLEL</span></span><a class="headerlink" href="#nidmm.LCCalculationModel.PARALLEL" title="Link to this definition"></a></dt>
+<dd><p>NI-DMM uses the parallel admittance model to calculate capacitance and inductance</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="measurementcompletedest">
+<h2>MeasurementCompleteDest<a class="headerlink" href="#measurementcompletedest" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">MeasurementCompleteDest</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.NONE" title="Link to this definition"></a></dt>
+<dd><p>No Trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.EXTERNAL">
+<span class="sig-name descname"><span class="pre">EXTERNAL</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.EXTERNAL" title="Link to this definition"></a></dt>
+<dd><p>AUX I/O Connector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG0">
+<span class="sig-name descname"><span class="pre">PXI_TRIG0</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG0" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG1">
+<span class="sig-name descname"><span class="pre">PXI_TRIG1</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG2">
+<span class="sig-name descname"><span class="pre">PXI_TRIG2</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG2" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG3">
+<span class="sig-name descname"><span class="pre">PXI_TRIG3</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG3" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG4">
+<span class="sig-name descname"><span class="pre">PXI_TRIG4</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG4" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG5">
+<span class="sig-name descname"><span class="pre">PXI_TRIG5</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG5" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG6">
+<span class="sig-name descname"><span class="pre">PXI_TRIG6</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG6" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 6</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.PXI_TRIG7">
+<span class="sig-name descname"><span class="pre">PXI_TRIG7</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.PXI_TRIG7" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 7</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.MeasurementCompleteDest.LBR_TRIG0">
+<span class="sig-name descname"><span class="pre">LBR_TRIG0</span></span><a class="headerlink" href="#nidmm.MeasurementCompleteDest.LBR_TRIG0" title="Link to this definition"></a></dt>
+<dd><p>Internal Trigger Line of a PXI/SCXI Combination Chassis</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="operationmode">
+<h2>OperationMode<a class="headerlink" href="#operationmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.OperationMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">OperationMode</span></span><a class="headerlink" href="#nidmm.OperationMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.OperationMode.IVIDMM">
+<span class="sig-name descname"><span class="pre">IVIDMM</span></span><a class="headerlink" href="#nidmm.OperationMode.IVIDMM" title="Link to this definition"></a></dt>
+<dd><p>IviDmm Mode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.OperationMode.WAVEFORM">
+<span class="sig-name descname"><span class="pre">WAVEFORM</span></span><a class="headerlink" href="#nidmm.OperationMode.WAVEFORM" title="Link to this definition"></a></dt>
+<dd><p>Waveform acquisition mode</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="rtdtype">
+<h2>RTDType<a class="headerlink" href="#rtdtype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.RTDType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">RTDType</span></span><a class="headerlink" href="#nidmm.RTDType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><a class="headerlink" href="#nidmm.RTDType.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>Performs Callendar-Van Dusen RTD scaling with the user-specified A, B,
+and C coefficients.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.PT3750">
+<span class="sig-name descname"><span class="pre">PT3750</span></span><a class="headerlink" href="#nidmm.RTDType.PT3750" title="Link to this definition"></a></dt>
+<dd><p>Performs scaling for a Pt 3750 RTD.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.PT3851">
+<span class="sig-name descname"><span class="pre">PT3851</span></span><a class="headerlink" href="#nidmm.RTDType.PT3851" title="Link to this definition"></a></dt>
+<dd><p>Performs scaling for a Pt 3851 RTD.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.PT3911">
+<span class="sig-name descname"><span class="pre">PT3911</span></span><a class="headerlink" href="#nidmm.RTDType.PT3911" title="Link to this definition"></a></dt>
+<dd><p>Performs scaling for a Pt 3911 RTD.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.PT3916">
+<span class="sig-name descname"><span class="pre">PT3916</span></span><a class="headerlink" href="#nidmm.RTDType.PT3916" title="Link to this definition"></a></dt>
+<dd><p>Performs scaling for a Pt 3916 RTD.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.PT3920">
+<span class="sig-name descname"><span class="pre">PT3920</span></span><a class="headerlink" href="#nidmm.RTDType.PT3920" title="Link to this definition"></a></dt>
+<dd><p>Performs scaling for a Pt 3920 RTD.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.RTDType.PT3928">
+<span class="sig-name descname"><span class="pre">PT3928</span></span><a class="headerlink" href="#nidmm.RTDType.PT3928" title="Link to this definition"></a></dt>
+<dd><p>Performs scaling for a Pt 3928 RTD.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sampletrigger">
+<h2>SampleTrigger<a class="headerlink" href="#sampletrigger" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">SampleTrigger</span></span><a class="headerlink" href="#nidmm.SampleTrigger" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.IMMEDIATE">
+<span class="sig-name descname"><span class="pre">IMMEDIATE</span></span><a class="headerlink" href="#nidmm.SampleTrigger.IMMEDIATE" title="Link to this definition"></a></dt>
+<dd><p>No Trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.EXTERNAL">
+<span class="sig-name descname"><span class="pre">EXTERNAL</span></span><a class="headerlink" href="#nidmm.SampleTrigger.EXTERNAL" title="Link to this definition"></a></dt>
+<dd><p>AUX I/O Connector Trigger Line 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.SOFTWARE_TRIG">
+<span class="sig-name descname"><span class="pre">SOFTWARE_TRIG</span></span><a class="headerlink" href="#nidmm.SampleTrigger.SOFTWARE_TRIG" title="Link to this definition"></a></dt>
+<dd><p>Software Trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.INTERVAL">
+<span class="sig-name descname"><span class="pre">INTERVAL</span></span><a class="headerlink" href="#nidmm.SampleTrigger.INTERVAL" title="Link to this definition"></a></dt>
+<dd><p>Interval Trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG0">
+<span class="sig-name descname"><span class="pre">PXI_TRIG0</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG0" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG1">
+<span class="sig-name descname"><span class="pre">PXI_TRIG1</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG2">
+<span class="sig-name descname"><span class="pre">PXI_TRIG2</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG2" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG3">
+<span class="sig-name descname"><span class="pre">PXI_TRIG3</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG3" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG4">
+<span class="sig-name descname"><span class="pre">PXI_TRIG4</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG4" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG5">
+<span class="sig-name descname"><span class="pre">PXI_TRIG5</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG5" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG6">
+<span class="sig-name descname"><span class="pre">PXI_TRIG6</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG6" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 6</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_TRIG7">
+<span class="sig-name descname"><span class="pre">PXI_TRIG7</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_TRIG7" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 7</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.PXI_STAR">
+<span class="sig-name descname"><span class="pre">PXI_STAR</span></span><a class="headerlink" href="#nidmm.SampleTrigger.PXI_STAR" title="Link to this definition"></a></dt>
+<dd><p>PXI Star Trigger Line</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.AUX_TRIG1">
+<span class="sig-name descname"><span class="pre">AUX_TRIG1</span></span><a class="headerlink" href="#nidmm.SampleTrigger.AUX_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>AUX I/0 Connector Trigger Line 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.SampleTrigger.LBR_TRIG1">
+<span class="sig-name descname"><span class="pre">LBR_TRIG1</span></span><a class="headerlink" href="#nidmm.SampleTrigger.LBR_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>Internal Trigger Line of a PXI/SCXI Combination Chassis</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="thermistortype">
+<h2>ThermistorType<a class="headerlink" href="#thermistortype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.ThermistorType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">ThermistorType</span></span><a class="headerlink" href="#nidmm.ThermistorType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermistorType.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><a class="headerlink" href="#nidmm.ThermistorType.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>Custom</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermistorType.THERMISTOR_44004">
+<span class="sig-name descname"><span class="pre">THERMISTOR_44004</span></span><a class="headerlink" href="#nidmm.ThermistorType.THERMISTOR_44004" title="Link to this definition"></a></dt>
+<dd><p>44004</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermistorType.THERMISTOR_44006">
+<span class="sig-name descname"><span class="pre">THERMISTOR_44006</span></span><a class="headerlink" href="#nidmm.ThermistorType.THERMISTOR_44006" title="Link to this definition"></a></dt>
+<dd><p>44006</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermistorType.THERMISTOR_44007">
+<span class="sig-name descname"><span class="pre">THERMISTOR_44007</span></span><a class="headerlink" href="#nidmm.ThermistorType.THERMISTOR_44007" title="Link to this definition"></a></dt>
+<dd><p>44007</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="thermocouplereferencejunctiontype">
+<h2>ThermocoupleReferenceJunctionType<a class="headerlink" href="#thermocouplereferencejunctiontype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleReferenceJunctionType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">ThermocoupleReferenceJunctionType</span></span><a class="headerlink" href="#nidmm.ThermocoupleReferenceJunctionType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleReferenceJunctionType.FIXED">
+<span class="sig-name descname"><span class="pre">FIXED</span></span><a class="headerlink" href="#nidmm.ThermocoupleReferenceJunctionType.FIXED" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple reference juction is fixed at the user-specified
+temperature.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="thermocoupletype">
+<h2>ThermocoupleType<a class="headerlink" href="#thermocoupletype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">ThermocoupleType</span></span><a class="headerlink" href="#nidmm.ThermocoupleType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.B">
+<span class="sig-name descname"><span class="pre">B</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.B" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type B</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.E">
+<span class="sig-name descname"><span class="pre">E</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.E" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type E</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.J">
+<span class="sig-name descname"><span class="pre">J</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.J" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type J</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.K">
+<span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.K" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type K</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.N">
+<span class="sig-name descname"><span class="pre">N</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.N" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type N</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.R">
+<span class="sig-name descname"><span class="pre">R</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.R" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type R</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.S">
+<span class="sig-name descname"><span class="pre">S</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.S" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type S</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.ThermocoupleType.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#nidmm.ThermocoupleType.T" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple type T</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="transducertype">
+<h2>TransducerType<a class="headerlink" href="#transducertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.TransducerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">TransducerType</span></span><a class="headerlink" href="#nidmm.TransducerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TransducerType.THERMOCOUPLE">
+<span class="sig-name descname"><span class="pre">THERMOCOUPLE</span></span><a class="headerlink" href="#nidmm.TransducerType.THERMOCOUPLE" title="Link to this definition"></a></dt>
+<dd><p>Thermocouple</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TransducerType.THERMISTOR">
+<span class="sig-name descname"><span class="pre">THERMISTOR</span></span><a class="headerlink" href="#nidmm.TransducerType.THERMISTOR" title="Link to this definition"></a></dt>
+<dd><p>Thermistor</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TransducerType.TWO_WIRE_RTD">
+<span class="sig-name descname"><span class="pre">TWO_WIRE_RTD</span></span><a class="headerlink" href="#nidmm.TransducerType.TWO_WIRE_RTD" title="Link to this definition"></a></dt>
+<dd><p>2-wire RTD</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TransducerType.FOUR_WIRE_RTD">
+<span class="sig-name descname"><span class="pre">FOUR_WIRE_RTD</span></span><a class="headerlink" href="#nidmm.TransducerType.FOUR_WIRE_RTD" title="Link to this definition"></a></dt>
+<dd><p>4-wire RTD</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggersource">
+<h2>TriggerSource<a class="headerlink" href="#triggersource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.TriggerSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">TriggerSource</span></span><a class="headerlink" href="#nidmm.TriggerSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.IMMEDIATE">
+<span class="sig-name descname"><span class="pre">IMMEDIATE</span></span><a class="headerlink" href="#nidmm.TriggerSource.IMMEDIATE" title="Link to this definition"></a></dt>
+<dd><p>No Trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.EXTERNAL">
+<span class="sig-name descname"><span class="pre">EXTERNAL</span></span><a class="headerlink" href="#nidmm.TriggerSource.EXTERNAL" title="Link to this definition"></a></dt>
+<dd><p>AUX I/O Connector Trigger Line 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.SOFTWARE_TRIG">
+<span class="sig-name descname"><span class="pre">SOFTWARE_TRIG</span></span><a class="headerlink" href="#nidmm.TriggerSource.SOFTWARE_TRIG" title="Link to this definition"></a></dt>
+<dd><p>Software Trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG0">
+<span class="sig-name descname"><span class="pre">PXI_TRIG0</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG0" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG1">
+<span class="sig-name descname"><span class="pre">PXI_TRIG1</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG2">
+<span class="sig-name descname"><span class="pre">PXI_TRIG2</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG2" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG3">
+<span class="sig-name descname"><span class="pre">PXI_TRIG3</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG3" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG4">
+<span class="sig-name descname"><span class="pre">PXI_TRIG4</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG4" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG5">
+<span class="sig-name descname"><span class="pre">PXI_TRIG5</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG5" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG6">
+<span class="sig-name descname"><span class="pre">PXI_TRIG6</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG6" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 6</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_TRIG7">
+<span class="sig-name descname"><span class="pre">PXI_TRIG7</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_TRIG7" title="Link to this definition"></a></dt>
+<dd><p>PXI Trigger Line 7</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.PXI_STAR">
+<span class="sig-name descname"><span class="pre">PXI_STAR</span></span><a class="headerlink" href="#nidmm.TriggerSource.PXI_STAR" title="Link to this definition"></a></dt>
+<dd><p>PXI Star Trigger Line</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.AUX_TRIG1">
+<span class="sig-name descname"><span class="pre">AUX_TRIG1</span></span><a class="headerlink" href="#nidmm.TriggerSource.AUX_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>AUX I/O Connector Trigger Line 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.TriggerSource.LBR_TRIG1">
+<span class="sig-name descname"><span class="pre">LBR_TRIG1</span></span><a class="headerlink" href="#nidmm.TriggerSource.LBR_TRIG1" title="Link to this definition"></a></dt>
+<dd><p>Internal Trigger Line of a PXI/SCXI Combination Chassis</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="waveformcoupling">
+<h2>WaveformCoupling<a class="headerlink" href="#waveformcoupling" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidmm.WaveformCoupling">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidmm.</span></span><span class="sig-name descname"><span class="pre">WaveformCoupling</span></span><a class="headerlink" href="#nidmm.WaveformCoupling" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.WaveformCoupling.AC">
+<span class="sig-name descname"><span class="pre">AC</span></span><a class="headerlink" href="#nidmm.WaveformCoupling.AC" title="Link to this definition"></a></dt>
+<dd><p>AC Coupled</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidmm.WaveformCoupling.DC">
+<span class="sig-name descname"><span class="pre">DC</span></span><a class="headerlink" href="#nidmm.WaveformCoupling.DC" title="Link to this definition"></a></dt>
+<dd><p>DC Coupled</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="class.html" class="btn btn-neutral float-left" title="Session" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

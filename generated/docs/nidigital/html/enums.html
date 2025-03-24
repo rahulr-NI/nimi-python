@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enums &mdash; NI-Digital Pattern Driver Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="Repeated Capabilities" href="rep_caps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-Digital Pattern Driver Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidigital.html">nidigital module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidigital.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidigital.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidigital.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bitorder">BitOrder</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.BitOrder"><code class="docutils literal notranslate"><span class="pre">BitOrder</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.BitOrder.MSB"><code class="docutils literal notranslate"><span class="pre">BitOrder.MSB</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.BitOrder.LSB"><code class="docutils literal notranslate"><span class="pre">BitOrder.LSB</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#digitaledge">DigitalEdge</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.DigitalEdge"><code class="docutils literal notranslate"><span class="pre">DigitalEdge</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.DigitalEdge.RISING"><code class="docutils literal notranslate"><span class="pre">DigitalEdge.RISING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.DigitalEdge.FALLING"><code class="docutils literal notranslate"><span class="pre">DigitalEdge.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#driveformat">DriveFormat</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.DriveFormat"><code class="docutils literal notranslate"><span class="pre">DriveFormat</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.DriveFormat.NR"><code class="docutils literal notranslate"><span class="pre">DriveFormat.NR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.DriveFormat.RL"><code class="docutils literal notranslate"><span class="pre">DriveFormat.RL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.DriveFormat.RH"><code class="docutils literal notranslate"><span class="pre">DriveFormat.RH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.DriveFormat.SBC"><code class="docutils literal notranslate"><span class="pre">DriveFormat.SBC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#frequencymeasurementmode">FrequencyMeasurementMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.FrequencyMeasurementMode"><code class="docutils literal notranslate"><span class="pre">FrequencyMeasurementMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.FrequencyMeasurementMode.BANKED"><code class="docutils literal notranslate"><span class="pre">FrequencyMeasurementMode.BANKED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.FrequencyMeasurementMode.PARALLEL"><code class="docutils literal notranslate"><span class="pre">FrequencyMeasurementMode.PARALLEL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#historyramcyclestoacquire">HistoryRAMCyclesToAcquire</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.HistoryRAMCyclesToAcquire"><code class="docutils literal notranslate"><span class="pre">HistoryRAMCyclesToAcquire</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.HistoryRAMCyclesToAcquire.FAILED"><code class="docutils literal notranslate"><span class="pre">HistoryRAMCyclesToAcquire.FAILED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.HistoryRAMCyclesToAcquire.ALL"><code class="docutils literal notranslate"><span class="pre">HistoryRAMCyclesToAcquire.ALL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#historyramtriggertype">HistoryRAMTriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.HistoryRAMTriggerType"><code class="docutils literal notranslate"><span class="pre">HistoryRAMTriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.HistoryRAMTriggerType.FIRST_FAILURE"><code class="docutils literal notranslate"><span class="pre">HistoryRAMTriggerType.FIRST_FAILURE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.HistoryRAMTriggerType.CYCLE_NUMBER"><code class="docutils literal notranslate"><span class="pre">HistoryRAMTriggerType.CYCLE_NUMBER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.HistoryRAMTriggerType.PATTERN_LABEL"><code class="docutils literal notranslate"><span class="pre">HistoryRAMTriggerType.PATTERN_LABEL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ppmuaperturetimeunits">PPMUApertureTimeUnits</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.PPMUApertureTimeUnits"><code class="docutils literal notranslate"><span class="pre">PPMUApertureTimeUnits</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PPMUApertureTimeUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">PPMUApertureTimeUnits.SECONDS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ppmucurrentlimitbehavior">PPMUCurrentLimitBehavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.PPMUCurrentLimitBehavior"><code class="docutils literal notranslate"><span class="pre">PPMUCurrentLimitBehavior</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PPMUCurrentLimitBehavior.REGULATE"><code class="docutils literal notranslate"><span class="pre">PPMUCurrentLimitBehavior.REGULATE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ppmumeasurementtype">PPMUMeasurementType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.PPMUMeasurementType"><code class="docutils literal notranslate"><span class="pre">PPMUMeasurementType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PPMUMeasurementType.CURRENT"><code class="docutils literal notranslate"><span class="pre">PPMUMeasurementType.CURRENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PPMUMeasurementType.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">PPMUMeasurementType.VOLTAGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ppmuoutputfunction">PPMUOutputFunction</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.PPMUOutputFunction"><code class="docutils literal notranslate"><span class="pre">PPMUOutputFunction</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PPMUOutputFunction.VOLTAGE"><code class="docutils literal notranslate"><span class="pre">PPMUOutputFunction.VOLTAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PPMUOutputFunction.CURRENT"><code class="docutils literal notranslate"><span class="pre">PPMUOutputFunction.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pinstate">PinState</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.PinState"><code class="docutils literal notranslate"><span class="pre">PinState</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.ZERO"><code class="docutils literal notranslate"><span class="pre">PinState.ZERO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.ONE"><code class="docutils literal notranslate"><span class="pre">PinState.ONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.L"><code class="docutils literal notranslate"><span class="pre">PinState.L</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.H"><code class="docutils literal notranslate"><span class="pre">PinState.H</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.X"><code class="docutils literal notranslate"><span class="pre">PinState.X</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.M"><code class="docutils literal notranslate"><span class="pre">PinState.M</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.V"><code class="docutils literal notranslate"><span class="pre">PinState.V</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.D"><code class="docutils literal notranslate"><span class="pre">PinState.D</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.E"><code class="docutils literal notranslate"><span class="pre">PinState.E</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.NOT_A_PIN_STATE"><code class="docutils literal notranslate"><span class="pre">PinState.NOT_A_PIN_STATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.PinState.PIN_STATE_NOT_ACQUIRED"><code class="docutils literal notranslate"><span class="pre">PinState.PIN_STATE_NOT_ACQUIRED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#selectedfunction">SelectedFunction</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.SelectedFunction"><code class="docutils literal notranslate"><span class="pre">SelectedFunction</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SelectedFunction.DIGITAL"><code class="docutils literal notranslate"><span class="pre">SelectedFunction.DIGITAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SelectedFunction.PPMU"><code class="docutils literal notranslate"><span class="pre">SelectedFunction.PPMU</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SelectedFunction.OFF"><code class="docutils literal notranslate"><span class="pre">SelectedFunction.OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SelectedFunction.DISCONNECT"><code class="docutils literal notranslate"><span class="pre">SelectedFunction.DISCONNECT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SelectedFunction.RIO"><code class="docutils literal notranslate"><span class="pre">SelectedFunction.RIO</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencerflag">SequencerFlag</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.SequencerFlag"><code class="docutils literal notranslate"><span class="pre">SequencerFlag</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerFlag.FLAG0"><code class="docutils literal notranslate"><span class="pre">SequencerFlag.FLAG0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerFlag.FLAG1"><code class="docutils literal notranslate"><span class="pre">SequencerFlag.FLAG1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerFlag.FLAG2"><code class="docutils literal notranslate"><span class="pre">SequencerFlag.FLAG2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerFlag.FLAG3"><code class="docutils literal notranslate"><span class="pre">SequencerFlag.FLAG3</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencerregister">SequencerRegister</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.SequencerRegister"><code class="docutils literal notranslate"><span class="pre">SequencerRegister</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER0"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER1"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER2"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER3"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER4"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER5"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER6"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER7"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER8"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER8</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER9"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER9</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER10"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER10</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER11"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER11</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER12"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER12</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER13"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER13</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER14"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER14</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SequencerRegister.REGISTER15"><code class="docutils literal notranslate"><span class="pre">SequencerRegister.REGISTER15</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#softwaretrigger">SoftwareTrigger</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.SoftwareTrigger"><code class="docutils literal notranslate"><span class="pre">SoftwareTrigger</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SoftwareTrigger.START"><code class="docutils literal notranslate"><span class="pre">SoftwareTrigger.START</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SoftwareTrigger.CONDITIONAL_JUMP"><code class="docutils literal notranslate"><span class="pre">SoftwareTrigger.CONDITIONAL_JUMP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sourcedatamapping">SourceDataMapping</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.SourceDataMapping"><code class="docutils literal notranslate"><span class="pre">SourceDataMapping</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SourceDataMapping.BROADCAST"><code class="docutils literal notranslate"><span class="pre">SourceDataMapping.BROADCAST</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.SourceDataMapping.SITE_UNIQUE"><code class="docutils literal notranslate"><span class="pre">SourceDataMapping.SITE_UNIQUE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#tdrendpointtermination">TDREndpointTermination</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.TDREndpointTermination"><code class="docutils literal notranslate"><span class="pre">TDREndpointTermination</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TDREndpointTermination.OPEN"><code class="docutils literal notranslate"><span class="pre">TDREndpointTermination.OPEN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TDREndpointTermination.SHORT_TO_GROUND"><code class="docutils literal notranslate"><span class="pre">TDREndpointTermination.SHORT_TO_GROUND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#terminationmode">TerminationMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.TerminationMode"><code class="docutils literal notranslate"><span class="pre">TerminationMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TerminationMode.ACTIVE_LOAD"><code class="docutils literal notranslate"><span class="pre">TerminationMode.ACTIVE_LOAD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TerminationMode.VTERM"><code class="docutils literal notranslate"><span class="pre">TerminationMode.VTERM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TerminationMode.HIGH_Z"><code class="docutils literal notranslate"><span class="pre">TerminationMode.HIGH_Z</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#timesetedgetype">TimeSetEdgeType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.TimeSetEdgeType"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.DRIVE_ON"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.DRIVE_ON</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.DRIVE_DATA"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.DRIVE_DATA</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.DRIVE_RETURN"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.DRIVE_RETURN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.DRIVE_OFF"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.DRIVE_OFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.COMPARE_STROBE"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.COMPARE_STROBE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.DRIVE_DATA2"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.DRIVE_DATA2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.DRIVE_RETURN2"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.DRIVE_RETURN2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TimeSetEdgeType.COMPARE_STROBE2"><code class="docutils literal notranslate"><span class="pre">TimeSetEdgeType.COMPARE_STROBE2</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggertype">TriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.TriggerType"><code class="docutils literal notranslate"><span class="pre">TriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TriggerType.NONE"><code class="docutils literal notranslate"><span class="pre">TriggerType.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.TriggerType.SOFTWARE"><code class="docutils literal notranslate"><span class="pre">TriggerType.SOFTWARE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#writestaticpinstate">WriteStaticPinState</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.WriteStaticPinState"><code class="docutils literal notranslate"><span class="pre">WriteStaticPinState</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.WriteStaticPinState.ZERO"><code class="docutils literal notranslate"><span class="pre">WriteStaticPinState.ZERO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.WriteStaticPinState.ONE"><code class="docutils literal notranslate"><span class="pre">WriteStaticPinState.ONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nidigital.WriteStaticPinState.X"><code class="docutils literal notranslate"><span class="pre">WriteStaticPinState.X</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-Digital Pattern Driver Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidigital.html">nidigital module</a></li>
+      <li class="breadcrumb-item active">Enums</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enums.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h1>
+<p>Enums used in NI-Digital Pattern Driver</p>
+<section id="bitorder">
+<h2>BitOrder<a class="headerlink" href="#bitorder" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.BitOrder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">BitOrder</span></span><a class="headerlink" href="#nidigital.BitOrder" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.BitOrder.MSB">
+<span class="sig-name descname"><span class="pre">MSB</span></span><a class="headerlink" href="#nidigital.BitOrder.MSB" title="Link to this definition"></a></dt>
+<dd><p>The most significant bit is first. The first bit is in the 2^n place, where n is the number of bits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.BitOrder.LSB">
+<span class="sig-name descname"><span class="pre">LSB</span></span><a class="headerlink" href="#nidigital.BitOrder.LSB" title="Link to this definition"></a></dt>
+<dd><p>The least significant bit is first. The first bit is in the 2^0 place.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="digitaledge">
+<h2>DigitalEdge<a class="headerlink" href="#digitaledge" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.DigitalEdge">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">DigitalEdge</span></span><a class="headerlink" href="#nidigital.DigitalEdge" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.DigitalEdge.RISING">
+<span class="sig-name descname"><span class="pre">RISING</span></span><a class="headerlink" href="#nidigital.DigitalEdge.RISING" title="Link to this definition"></a></dt>
+<dd><p>Asserts the trigger when the signal transitions from low level to high level.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.DigitalEdge.FALLING">
+<span class="sig-name descname"><span class="pre">FALLING</span></span><a class="headerlink" href="#nidigital.DigitalEdge.FALLING" title="Link to this definition"></a></dt>
+<dd><p>Asserts the trigger when the signal transitions from high level to low level.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="driveformat">
+<h2>DriveFormat<a class="headerlink" href="#driveformat" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.DriveFormat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">DriveFormat</span></span><a class="headerlink" href="#nidigital.DriveFormat" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.DriveFormat.NR">
+<span class="sig-name descname"><span class="pre">NR</span></span><a class="headerlink" href="#nidigital.DriveFormat.NR" title="Link to this definition"></a></dt>
+<dd><p>Drive format remains at logic level after each bit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.DriveFormat.RL">
+<span class="sig-name descname"><span class="pre">RL</span></span><a class="headerlink" href="#nidigital.DriveFormat.RL" title="Link to this definition"></a></dt>
+<dd><p>Drive format returns to a logic level low after each bit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.DriveFormat.RH">
+<span class="sig-name descname"><span class="pre">RH</span></span><a class="headerlink" href="#nidigital.DriveFormat.RH" title="Link to this definition"></a></dt>
+<dd><p>Drive format returns to a logic level high after each bit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.DriveFormat.SBC">
+<span class="sig-name descname"><span class="pre">SBC</span></span><a class="headerlink" href="#nidigital.DriveFormat.SBC" title="Link to this definition"></a></dt>
+<dd><p>Drive format returns to the complement logic level of the bit after each bit.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="frequencymeasurementmode">
+<h2>FrequencyMeasurementMode<a class="headerlink" href="#frequencymeasurementmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.FrequencyMeasurementMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">FrequencyMeasurementMode</span></span><a class="headerlink" href="#nidigital.FrequencyMeasurementMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.FrequencyMeasurementMode.BANKED">
+<span class="sig-name descname"><span class="pre">BANKED</span></span><a class="headerlink" href="#nidigital.FrequencyMeasurementMode.BANKED" title="Link to this definition"></a></dt>
+<dd><p>Frequency measurements are made serially for groups of channels associated with a single frequency counter for each group.</p>
+<p>Maximum frequency measured: 200 MHz.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.FrequencyMeasurementMode.PARALLEL">
+<span class="sig-name descname"><span class="pre">PARALLEL</span></span><a class="headerlink" href="#nidigital.FrequencyMeasurementMode.PARALLEL" title="Link to this definition"></a></dt>
+<dd><p>Frequency measurements are made by multiple frequency counters in parallel.</p>
+<p>Maximum frequency measured: 100 MHz.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="historyramcyclestoacquire">
+<h2>HistoryRAMCyclesToAcquire<a class="headerlink" href="#historyramcyclestoacquire" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMCyclesToAcquire">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">HistoryRAMCyclesToAcquire</span></span><a class="headerlink" href="#nidigital.HistoryRAMCyclesToAcquire" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMCyclesToAcquire.FAILED">
+<span class="sig-name descname"><span class="pre">FAILED</span></span><a class="headerlink" href="#nidigital.HistoryRAMCyclesToAcquire.FAILED" title="Link to this definition"></a></dt>
+<dd><p>Acquires failed cycles.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMCyclesToAcquire.ALL">
+<span class="sig-name descname"><span class="pre">ALL</span></span><a class="headerlink" href="#nidigital.HistoryRAMCyclesToAcquire.ALL" title="Link to this definition"></a></dt>
+<dd><p>Acquires all cycles.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="historyramtriggertype">
+<h2>HistoryRAMTriggerType<a class="headerlink" href="#historyramtriggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMTriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">HistoryRAMTriggerType</span></span><a class="headerlink" href="#nidigital.HistoryRAMTriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMTriggerType.FIRST_FAILURE">
+<span class="sig-name descname"><span class="pre">FIRST_FAILURE</span></span><a class="headerlink" href="#nidigital.HistoryRAMTriggerType.FIRST_FAILURE" title="Link to this definition"></a></dt>
+<dd><p>First Failure History RAM trigger</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMTriggerType.CYCLE_NUMBER">
+<span class="sig-name descname"><span class="pre">CYCLE_NUMBER</span></span><a class="headerlink" href="#nidigital.HistoryRAMTriggerType.CYCLE_NUMBER" title="Link to this definition"></a></dt>
+<dd><p>Cycle Number History RAM trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.HistoryRAMTriggerType.PATTERN_LABEL">
+<span class="sig-name descname"><span class="pre">PATTERN_LABEL</span></span><a class="headerlink" href="#nidigital.HistoryRAMTriggerType.PATTERN_LABEL" title="Link to this definition"></a></dt>
+<dd><p>Pattern Label History RAM trigger</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="ppmuaperturetimeunits">
+<h2>PPMUApertureTimeUnits<a class="headerlink" href="#ppmuaperturetimeunits" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.PPMUApertureTimeUnits">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">PPMUApertureTimeUnits</span></span><a class="headerlink" href="#nidigital.PPMUApertureTimeUnits" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PPMUApertureTimeUnits.SECONDS">
+<span class="sig-name descname"><span class="pre">SECONDS</span></span><a class="headerlink" href="#nidigital.PPMUApertureTimeUnits.SECONDS" title="Link to this definition"></a></dt>
+<dd><p>Unit in seconds.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="ppmucurrentlimitbehavior">
+<h2>PPMUCurrentLimitBehavior<a class="headerlink" href="#ppmucurrentlimitbehavior" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.PPMUCurrentLimitBehavior">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">PPMUCurrentLimitBehavior</span></span><a class="headerlink" href="#nidigital.PPMUCurrentLimitBehavior" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PPMUCurrentLimitBehavior.REGULATE">
+<span class="sig-name descname"><span class="pre">REGULATE</span></span><a class="headerlink" href="#nidigital.PPMUCurrentLimitBehavior.REGULATE" title="Link to this definition"></a></dt>
+<dd><p>Controls output current so that it does not exceed the current limit. Power continues to generate even if the current limit is reached.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="ppmumeasurementtype">
+<h2>PPMUMeasurementType<a class="headerlink" href="#ppmumeasurementtype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.PPMUMeasurementType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">PPMUMeasurementType</span></span><a class="headerlink" href="#nidigital.PPMUMeasurementType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PPMUMeasurementType.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><a class="headerlink" href="#nidigital.PPMUMeasurementType.CURRENT" title="Link to this definition"></a></dt>
+<dd><p>The PPMU measures current.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PPMUMeasurementType.VOLTAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE</span></span><a class="headerlink" href="#nidigital.PPMUMeasurementType.VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>The PPMU measures voltage.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="ppmuoutputfunction">
+<h2>PPMUOutputFunction<a class="headerlink" href="#ppmuoutputfunction" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.PPMUOutputFunction">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">PPMUOutputFunction</span></span><a class="headerlink" href="#nidigital.PPMUOutputFunction" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PPMUOutputFunction.VOLTAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE</span></span><a class="headerlink" href="#nidigital.PPMUOutputFunction.VOLTAGE" title="Link to this definition"></a></dt>
+<dd><p>The PPMU forces voltage to the DUT.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PPMUOutputFunction.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><a class="headerlink" href="#nidigital.PPMUOutputFunction.CURRENT" title="Link to this definition"></a></dt>
+<dd><p>The PPMU forces current to the DUT.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="pinstate">
+<h2>PinState<a class="headerlink" href="#pinstate" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.PinState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">PinState</span></span><a class="headerlink" href="#nidigital.PinState" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.ZERO">
+<span class="sig-name descname"><span class="pre">ZERO</span></span><a class="headerlink" href="#nidigital.PinState.ZERO" title="Link to this definition"></a></dt>
+<dd><p>A digital state of 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.ONE">
+<span class="sig-name descname"><span class="pre">ONE</span></span><a class="headerlink" href="#nidigital.PinState.ONE" title="Link to this definition"></a></dt>
+<dd><p>A digital state of 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.L">
+<span class="sig-name descname"><span class="pre">L</span></span><a class="headerlink" href="#nidigital.PinState.L" title="Link to this definition"></a></dt>
+<dd><p>A digital state of L (low).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.H">
+<span class="sig-name descname"><span class="pre">H</span></span><a class="headerlink" href="#nidigital.PinState.H" title="Link to this definition"></a></dt>
+<dd><p>A digital state of H (high).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.X">
+<span class="sig-name descname"><span class="pre">X</span></span><a class="headerlink" href="#nidigital.PinState.X" title="Link to this definition"></a></dt>
+<dd><p>A digital state of X (non-drive state).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.M">
+<span class="sig-name descname"><span class="pre">M</span></span><a class="headerlink" href="#nidigital.PinState.M" title="Link to this definition"></a></dt>
+<dd><p>A digital state of M (midband).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.V">
+<span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#nidigital.PinState.V" title="Link to this definition"></a></dt>
+<dd><p>A digital state of V (compare high or low, not midband; store results from capture functionality if configured).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.D">
+<span class="sig-name descname"><span class="pre">D</span></span><a class="headerlink" href="#nidigital.PinState.D" title="Link to this definition"></a></dt>
+<dd><p>A digital state of D (drive data from source functionality if configured).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.E">
+<span class="sig-name descname"><span class="pre">E</span></span><a class="headerlink" href="#nidigital.PinState.E" title="Link to this definition"></a></dt>
+<dd><p>A digital state of E (compare data from source functionality if configured).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.NOT_A_PIN_STATE">
+<span class="sig-name descname"><span class="pre">NOT_A_PIN_STATE</span></span><a class="headerlink" href="#nidigital.PinState.NOT_A_PIN_STATE" title="Link to this definition"></a></dt>
+<dd><p>Not a pin state is used for non-existent DUT cycles.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.PinState.PIN_STATE_NOT_ACQUIRED">
+<span class="sig-name descname"><span class="pre">PIN_STATE_NOT_ACQUIRED</span></span><a class="headerlink" href="#nidigital.PinState.PIN_STATE_NOT_ACQUIRED" title="Link to this definition"></a></dt>
+<dd><p>Pin state could not be acquired because none of the pins mapped to the instrument in a multi-instrument session had any failures.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="selectedfunction">
+<h2>SelectedFunction<a class="headerlink" href="#selectedfunction" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.SelectedFunction">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">SelectedFunction</span></span><a class="headerlink" href="#nidigital.SelectedFunction" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SelectedFunction.DIGITAL">
+<span class="sig-name descname"><span class="pre">DIGITAL</span></span><a class="headerlink" href="#nidigital.SelectedFunction.DIGITAL" title="Link to this definition"></a></dt>
+<dd><p>The pattern sequencer controls the specified pin(s). If a pattern is currently bursting, the pin immediately switches to bursting the pattern. This option disconnects the PPMU.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SelectedFunction.PPMU">
+<span class="sig-name descname"><span class="pre">PPMU</span></span><a class="headerlink" href="#nidigital.SelectedFunction.PPMU" title="Link to this definition"></a></dt>
+<dd><p>The PPMU controls the specified pin(s) and connects the PPMU. The pin driver is in a non-drive state, and the active load is disabled. The PPMU does not start sourcing or measuring until Source or Measure(PpmuMeasurementType) is called.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SelectedFunction.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><a class="headerlink" href="#nidigital.SelectedFunction.OFF" title="Link to this definition"></a></dt>
+<dd><p>Puts the digital driver in a non-drive state, disables the active load, disconnects the PPMU, and closes the I/O switch connecting the instrument channel.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SelectedFunction.DISCONNECT">
+<span class="sig-name descname"><span class="pre">DISCONNECT</span></span><a class="headerlink" href="#nidigital.SelectedFunction.DISCONNECT" title="Link to this definition"></a></dt>
+<dd><p>The I/O switch connecting the instrument channel is open to the I/O connector. If the PPMU is sourcing, it is stopped prior to opening the I/O switch.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SelectedFunction.RIO">
+<span class="sig-name descname"><span class="pre">RIO</span></span><a class="headerlink" href="#nidigital.SelectedFunction.RIO" title="Link to this definition"></a></dt>
+<dd><p>Yields control of the specified pin(s) to LabVIEW FPGA.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sequencerflag">
+<h2>SequencerFlag<a class="headerlink" href="#sequencerflag" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.SequencerFlag">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">SequencerFlag</span></span><a class="headerlink" href="#nidigital.SequencerFlag" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerFlag.FLAG0">
+<span class="sig-name descname"><span class="pre">FLAG0</span></span><a class="headerlink" href="#nidigital.SequencerFlag.FLAG0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerFlag.FLAG1">
+<span class="sig-name descname"><span class="pre">FLAG1</span></span><a class="headerlink" href="#nidigital.SequencerFlag.FLAG1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerFlag.FLAG2">
+<span class="sig-name descname"><span class="pre">FLAG2</span></span><a class="headerlink" href="#nidigital.SequencerFlag.FLAG2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerFlag.FLAG3">
+<span class="sig-name descname"><span class="pre">FLAG3</span></span><a class="headerlink" href="#nidigital.SequencerFlag.FLAG3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sequencerregister">
+<h2>SequencerRegister<a class="headerlink" href="#sequencerregister" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">SequencerRegister</span></span><a class="headerlink" href="#nidigital.SequencerRegister" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER0">
+<span class="sig-name descname"><span class="pre">REGISTER0</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER1">
+<span class="sig-name descname"><span class="pre">REGISTER1</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER2">
+<span class="sig-name descname"><span class="pre">REGISTER2</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER3">
+<span class="sig-name descname"><span class="pre">REGISTER3</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER4">
+<span class="sig-name descname"><span class="pre">REGISTER4</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER5">
+<span class="sig-name descname"><span class="pre">REGISTER5</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER6">
+<span class="sig-name descname"><span class="pre">REGISTER6</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER6" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER7">
+<span class="sig-name descname"><span class="pre">REGISTER7</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER7" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER8">
+<span class="sig-name descname"><span class="pre">REGISTER8</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER8" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER9">
+<span class="sig-name descname"><span class="pre">REGISTER9</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER9" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER10">
+<span class="sig-name descname"><span class="pre">REGISTER10</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER10" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER11">
+<span class="sig-name descname"><span class="pre">REGISTER11</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER11" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER12">
+<span class="sig-name descname"><span class="pre">REGISTER12</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER12" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER13">
+<span class="sig-name descname"><span class="pre">REGISTER13</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER13" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER14">
+<span class="sig-name descname"><span class="pre">REGISTER14</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER14" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SequencerRegister.REGISTER15">
+<span class="sig-name descname"><span class="pre">REGISTER15</span></span><a class="headerlink" href="#nidigital.SequencerRegister.REGISTER15" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="softwaretrigger">
+<h2>SoftwareTrigger<a class="headerlink" href="#softwaretrigger" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.SoftwareTrigger">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">SoftwareTrigger</span></span><a class="headerlink" href="#nidigital.SoftwareTrigger" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SoftwareTrigger.START">
+<span class="sig-name descname"><span class="pre">START</span></span><a class="headerlink" href="#nidigital.SoftwareTrigger.START" title="Link to this definition"></a></dt>
+<dd><p>Overrides the start trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SoftwareTrigger.CONDITIONAL_JUMP">
+<span class="sig-name descname"><span class="pre">CONDITIONAL_JUMP</span></span><a class="headerlink" href="#nidigital.SoftwareTrigger.CONDITIONAL_JUMP" title="Link to this definition"></a></dt>
+<dd><p>Specifies to route a conditional jump trigger.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sourcedatamapping">
+<h2>SourceDataMapping<a class="headerlink" href="#sourcedatamapping" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.SourceDataMapping">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">SourceDataMapping</span></span><a class="headerlink" href="#nidigital.SourceDataMapping" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SourceDataMapping.BROADCAST">
+<span class="sig-name descname"><span class="pre">BROADCAST</span></span><a class="headerlink" href="#nidigital.SourceDataMapping.BROADCAST" title="Link to this definition"></a></dt>
+<dd><p>Broadcasts the waveform you specify to all sites.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.SourceDataMapping.SITE_UNIQUE">
+<span class="sig-name descname"><span class="pre">SITE_UNIQUE</span></span><a class="headerlink" href="#nidigital.SourceDataMapping.SITE_UNIQUE" title="Link to this definition"></a></dt>
+<dd><p>Sources unique waveform data to each site.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="tdrendpointtermination">
+<h2>TDREndpointTermination<a class="headerlink" href="#tdrendpointtermination" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.TDREndpointTermination">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">TDREndpointTermination</span></span><a class="headerlink" href="#nidigital.TDREndpointTermination" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TDREndpointTermination.OPEN">
+<span class="sig-name descname"><span class="pre">OPEN</span></span><a class="headerlink" href="#nidigital.TDREndpointTermination.OPEN" title="Link to this definition"></a></dt>
+<dd><p>TDR channels are connected to an open circuit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TDREndpointTermination.SHORT_TO_GROUND">
+<span class="sig-name descname"><span class="pre">SHORT_TO_GROUND</span></span><a class="headerlink" href="#nidigital.TDREndpointTermination.SHORT_TO_GROUND" title="Link to this definition"></a></dt>
+<dd><p>TDR channels are connected to a short to ground.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="terminationmode">
+<h2>TerminationMode<a class="headerlink" href="#terminationmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.TerminationMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">TerminationMode</span></span><a class="headerlink" href="#nidigital.TerminationMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TerminationMode.ACTIVE_LOAD">
+<span class="sig-name descname"><span class="pre">ACTIVE_LOAD</span></span><a class="headerlink" href="#nidigital.TerminationMode.ACTIVE_LOAD" title="Link to this definition"></a></dt>
+<dd><p>The active load provides a constant current to a commutating voltage (Vcom).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TerminationMode.VTERM">
+<span class="sig-name descname"><span class="pre">VTERM</span></span><a class="headerlink" href="#nidigital.TerminationMode.VTERM" title="Link to this definition"></a></dt>
+<dd><p>The pin driver drives Vterm.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TerminationMode.HIGH_Z">
+<span class="sig-name descname"><span class="pre">HIGH_Z</span></span><a class="headerlink" href="#nidigital.TerminationMode.HIGH_Z" title="Link to this definition"></a></dt>
+<dd><p>The pin driver is in a non-drive state (in a high-impedance state) and the active load is disabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="timesetedgetype">
+<h2>TimeSetEdgeType<a class="headerlink" href="#timesetedgetype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">TimeSetEdgeType</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.DRIVE_ON">
+<span class="sig-name descname"><span class="pre">DRIVE_ON</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.DRIVE_ON" title="Link to this definition"></a></dt>
+<dd><p>Specifies the drive on edge of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.DRIVE_DATA">
+<span class="sig-name descname"><span class="pre">DRIVE_DATA</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.DRIVE_DATA" title="Link to this definition"></a></dt>
+<dd><p>Specifies the drive data edge of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.DRIVE_RETURN">
+<span class="sig-name descname"><span class="pre">DRIVE_RETURN</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.DRIVE_RETURN" title="Link to this definition"></a></dt>
+<dd><p>Specifies the drive return edge of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.DRIVE_OFF">
+<span class="sig-name descname"><span class="pre">DRIVE_OFF</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.DRIVE_OFF" title="Link to this definition"></a></dt>
+<dd><p>Specifies the drive off edge of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.COMPARE_STROBE">
+<span class="sig-name descname"><span class="pre">COMPARE_STROBE</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.COMPARE_STROBE" title="Link to this definition"></a></dt>
+<dd><p>Specifies the compare strobe of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.DRIVE_DATA2">
+<span class="sig-name descname"><span class="pre">DRIVE_DATA2</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.DRIVE_DATA2" title="Link to this definition"></a></dt>
+<dd><p>Specifies the drive data 2 edge of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.DRIVE_RETURN2">
+<span class="sig-name descname"><span class="pre">DRIVE_RETURN2</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.DRIVE_RETURN2" title="Link to this definition"></a></dt>
+<dd><p>Specifies the drive return 2 edge of the time set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TimeSetEdgeType.COMPARE_STROBE2">
+<span class="sig-name descname"><span class="pre">COMPARE_STROBE2</span></span><a class="headerlink" href="#nidigital.TimeSetEdgeType.COMPARE_STROBE2" title="Link to this definition"></a></dt>
+<dd><p>Specifies the compare strobe 2 of the time set.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggertype">
+<h2>TriggerType<a class="headerlink" href="#triggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.TriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">TriggerType</span></span><a class="headerlink" href="#nidigital.TriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TriggerType.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#nidigital.TriggerType.NONE" title="Link to this definition"></a></dt>
+<dd><p>Disables the start trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TriggerType.DIGITAL_EDGE">
+<span class="sig-name descname"><span class="pre">DIGITAL_EDGE</span></span><a class="headerlink" href="#nidigital.TriggerType.DIGITAL_EDGE" title="Link to this definition"></a></dt>
+<dd><p>Digital edge trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.TriggerType.SOFTWARE">
+<span class="sig-name descname"><span class="pre">SOFTWARE</span></span><a class="headerlink" href="#nidigital.TriggerType.SOFTWARE" title="Link to this definition"></a></dt>
+<dd><p>Software start trigger.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="writestaticpinstate">
+<h2>WriteStaticPinState<a class="headerlink" href="#writestaticpinstate" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nidigital.WriteStaticPinState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.</span></span><span class="sig-name descname"><span class="pre">WriteStaticPinState</span></span><a class="headerlink" href="#nidigital.WriteStaticPinState" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.WriteStaticPinState.ZERO">
+<span class="sig-name descname"><span class="pre">ZERO</span></span><a class="headerlink" href="#nidigital.WriteStaticPinState.ZERO" title="Link to this definition"></a></dt>
+<dd><p>Specifies to drive low.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.WriteStaticPinState.ONE">
+<span class="sig-name descname"><span class="pre">ONE</span></span><a class="headerlink" href="#nidigital.WriteStaticPinState.ONE" title="Link to this definition"></a></dt>
+<dd><p>Specifies to drive high.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nidigital.WriteStaticPinState.X">
+<span class="sig-name descname"><span class="pre">X</span></span><a class="headerlink" href="#nidigital.WriteStaticPinState.X" title="Link to this definition"></a></dt>
+<dd><p>Specifies to not drive.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rep_caps.html" class="btn btn-neutral float-left" title="Repeated Capabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

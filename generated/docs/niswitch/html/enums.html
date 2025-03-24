@@ -1,0 +1,978 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enums &mdash; NI-SWITCH Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="Repeated Capabilities" href="rep_caps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-SWITCH Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="niswitch.html">niswitch module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="niswitch.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="niswitch.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="niswitch.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#handshakinginitiation">HandshakingInitiation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.HandshakingInitiation"><code class="docutils literal notranslate"><span class="pre">HandshakingInitiation</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.HandshakingInitiation.MEASUREMENT_DEVICE"><code class="docutils literal notranslate"><span class="pre">HandshakingInitiation.MEASUREMENT_DEVICE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.HandshakingInitiation.SWITCH"><code class="docutils literal notranslate"><span class="pre">HandshakingInitiation.SWITCH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pathcapability">PathCapability</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.PathCapability"><code class="docutils literal notranslate"><span class="pre">PathCapability</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.PathCapability.PATH_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">PathCapability.PATH_AVAILABLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.PathCapability.PATH_EXISTS"><code class="docutils literal notranslate"><span class="pre">PathCapability.PATH_EXISTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.PathCapability.PATH_UNSUPPORTED"><code class="docutils literal notranslate"><span class="pre">PathCapability.PATH_UNSUPPORTED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.PathCapability.RESOURCE_IN_USE"><code class="docutils literal notranslate"><span class="pre">PathCapability.RESOURCE_IN_USE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.PathCapability.SOURCE_CONFLICT"><code class="docutils literal notranslate"><span class="pre">PathCapability.SOURCE_CONFLICT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.PathCapability.CHANNEL_NOT_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">PathCapability.CHANNEL_NOT_AVAILABLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#relayaction">RelayAction</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.RelayAction"><code class="docutils literal notranslate"><span class="pre">RelayAction</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.RelayAction.OPEN"><code class="docutils literal notranslate"><span class="pre">RelayAction.OPEN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.RelayAction.CLOSE"><code class="docutils literal notranslate"><span class="pre">RelayAction.CLOSE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#relayposition">RelayPosition</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.RelayPosition"><code class="docutils literal notranslate"><span class="pre">RelayPosition</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.RelayPosition.OPEN"><code class="docutils literal notranslate"><span class="pre">RelayPosition.OPEN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.RelayPosition.CLOSED"><code class="docutils literal notranslate"><span class="pre">RelayPosition.CLOSED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#scanadvancedoutput">ScanAdvancedOutput</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.ScanAdvancedOutput"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.NONE"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.EXTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL0"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL1"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL2"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL3"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL4"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL5"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL6"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.TTL7"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.PXI_STAR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE12</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE12</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#scanadvancedpolarity">ScanAdvancedPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.ScanAdvancedPolarity"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedPolarity.RISING"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedPolarity.RISING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanAdvancedPolarity.FALLING"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedPolarity.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#scanmode">ScanMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.ScanMode"><code class="docutils literal notranslate"><span class="pre">ScanMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanMode.NONE"><code class="docutils literal notranslate"><span class="pre">ScanMode.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanMode.BREAK_BEFORE_MAKE"><code class="docutils literal notranslate"><span class="pre">ScanMode.BREAK_BEFORE_MAKE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.ScanMode.BREAK_AFTER_MAKE"><code class="docutils literal notranslate"><span class="pre">ScanMode.BREAK_AFTER_MAKE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggerinput">TriggerInput</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.TriggerInput"><code class="docutils literal notranslate"><span class="pre">TriggerInput</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">TriggerInput.IMMEDIATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">TriggerInput.EXTERNAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.SOFTWARE_TRIG"><code class="docutils literal notranslate"><span class="pre">TriggerInput.SOFTWARE_TRIG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL0"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL1"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL2"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL3"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL4"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL5"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL6"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.TTL7"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">TriggerInput.PXI_STAR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE12</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE12</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggerinputpolarity">TriggerInputPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niswitch.TriggerInputPolarity"><code class="docutils literal notranslate"><span class="pre">TriggerInputPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInputPolarity.RISING"><code class="docutils literal notranslate"><span class="pre">TriggerInputPolarity.RISING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niswitch.TriggerInputPolarity.FALLING"><code class="docutils literal notranslate"><span class="pre">TriggerInputPolarity.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-SWITCH Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="niswitch.html">niswitch module</a></li>
+      <li class="breadcrumb-item active">Enums</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enums.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h1>
+<p>Enums used in NI-SWITCH</p>
+<section id="handshakinginitiation">
+<h2>HandshakingInitiation<a class="headerlink" href="#handshakinginitiation" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.HandshakingInitiation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">HandshakingInitiation</span></span><a class="headerlink" href="#niswitch.HandshakingInitiation" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.HandshakingInitiation.MEASUREMENT_DEVICE">
+<span class="sig-name descname"><span class="pre">MEASUREMENT_DEVICE</span></span><a class="headerlink" href="#niswitch.HandshakingInitiation.MEASUREMENT_DEVICE" title="Link to this definition"></a></dt>
+<dd><p>The <cite>niSwitch Initiate
+Scan &lt;switchviref.chm::/:py:meth:`niswitch.Session.Initiate_Scan</cite>.html&gt;`__ VI does not
+return until the switch hardware is waiting for a trigger input. This
+ensures that if you initiate the measurement device after calling the
+<cite>niSwitch Initiate
+Scan &lt;switchviref.chm::/:py:meth:`niswitch.Session.Initiate_Scan</cite>.html&gt;`__ VI , the switch
+is sure to receive the first measurement complete (MC) signal sent by
+the measurement device. The measurement device should be configured to
+first take a measurement, send MC, then wait for scanner advanced output
+signal. Thus, the first MC of the measurement device initiates
+handshaking.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.HandshakingInitiation.SWITCH">
+<span class="sig-name descname"><span class="pre">SWITCH</span></span><a class="headerlink" href="#niswitch.HandshakingInitiation.SWITCH" title="Link to this definition"></a></dt>
+<dd><p>The <cite>niSwitch Initiate
+Scan &lt;switchviref.chm::/:py:meth:`niswitch.Session.Initiate_Scan</cite>.html&gt;`__ VI returns
+immediately after beginning scan list execution. It is assumed that the
+measurement device has already been configured and is waiting for the
+scanner advanced signal. The measurement should be configured to first
+wait for a trigger, then take a measurement. Thus, the first scanner
+advanced output signal of the switch module initiates handshaking.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="pathcapability">
+<h2>PathCapability<a class="headerlink" href="#pathcapability" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.PathCapability">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">PathCapability</span></span><a class="headerlink" href="#niswitch.PathCapability" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.PathCapability.PATH_AVAILABLE">
+<span class="sig-name descname"><span class="pre">PATH_AVAILABLE</span></span><a class="headerlink" href="#niswitch.PathCapability.PATH_AVAILABLE" title="Link to this definition"></a></dt>
+<dd><p>Path Available</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.PathCapability.PATH_EXISTS">
+<span class="sig-name descname"><span class="pre">PATH_EXISTS</span></span><a class="headerlink" href="#niswitch.PathCapability.PATH_EXISTS" title="Link to this definition"></a></dt>
+<dd><p>Path Exists</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.PathCapability.PATH_UNSUPPORTED">
+<span class="sig-name descname"><span class="pre">PATH_UNSUPPORTED</span></span><a class="headerlink" href="#niswitch.PathCapability.PATH_UNSUPPORTED" title="Link to this definition"></a></dt>
+<dd><p>Path Unsupported</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.PathCapability.RESOURCE_IN_USE">
+<span class="sig-name descname"><span class="pre">RESOURCE_IN_USE</span></span><a class="headerlink" href="#niswitch.PathCapability.RESOURCE_IN_USE" title="Link to this definition"></a></dt>
+<dd><p>Resource in use</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.PathCapability.SOURCE_CONFLICT">
+<span class="sig-name descname"><span class="pre">SOURCE_CONFLICT</span></span><a class="headerlink" href="#niswitch.PathCapability.SOURCE_CONFLICT" title="Link to this definition"></a></dt>
+<dd><p>Source conflict</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.PathCapability.CHANNEL_NOT_AVAILABLE">
+<span class="sig-name descname"><span class="pre">CHANNEL_NOT_AVAILABLE</span></span><a class="headerlink" href="#niswitch.PathCapability.CHANNEL_NOT_AVAILABLE" title="Link to this definition"></a></dt>
+<dd><p>Channel not available</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="relayaction">
+<h2>RelayAction<a class="headerlink" href="#relayaction" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.RelayAction">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">RelayAction</span></span><a class="headerlink" href="#niswitch.RelayAction" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.RelayAction.OPEN">
+<span class="sig-name descname"><span class="pre">OPEN</span></span><a class="headerlink" href="#niswitch.RelayAction.OPEN" title="Link to this definition"></a></dt>
+<dd><p>Open Relay</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.RelayAction.CLOSE">
+<span class="sig-name descname"><span class="pre">CLOSE</span></span><a class="headerlink" href="#niswitch.RelayAction.CLOSE" title="Link to this definition"></a></dt>
+<dd><p>Close Relay</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="relayposition">
+<h2>RelayPosition<a class="headerlink" href="#relayposition" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.RelayPosition">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">RelayPosition</span></span><a class="headerlink" href="#niswitch.RelayPosition" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.RelayPosition.OPEN">
+<span class="sig-name descname"><span class="pre">OPEN</span></span><a class="headerlink" href="#niswitch.RelayPosition.OPEN" title="Link to this definition"></a></dt>
+<dd><p>Open</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.RelayPosition.CLOSED">
+<span class="sig-name descname"><span class="pre">CLOSED</span></span><a class="headerlink" href="#niswitch.RelayPosition.CLOSED" title="Link to this definition"></a></dt>
+<dd><p>Closed</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="scanadvancedoutput">
+<h2>ScanAdvancedOutput<a class="headerlink" href="#scanadvancedoutput" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">ScanAdvancedOutput</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.NONE" title="Link to this definition"></a></dt>
+<dd><p>The switch device does not produce a Scan Advanced Output trigger.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.EXTERNAL">
+<span class="sig-name descname"><span class="pre">EXTERNAL</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.EXTERNAL" title="Link to this definition"></a></dt>
+<dd><p>External Trigger. The switch device produces the Scan Advanced Output  trigger on the external trigger output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL0">
+<span class="sig-name descname"><span class="pre">TTL0</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL0" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG0 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL1">
+<span class="sig-name descname"><span class="pre">TTL1</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL1" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG1 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL2">
+<span class="sig-name descname"><span class="pre">TTL2</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL2" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG2 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL3">
+<span class="sig-name descname"><span class="pre">TTL3</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL3" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG3 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL4">
+<span class="sig-name descname"><span class="pre">TTL4</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL4" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG4 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL5">
+<span class="sig-name descname"><span class="pre">TTL5</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL5" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG5 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL6">
+<span class="sig-name descname"><span class="pre">TTL6</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL6" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG6 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.TTL7">
+<span class="sig-name descname"><span class="pre">TTL7</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.TTL7" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output on the PXI TRIG7 line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.PXI_STAR">
+<span class="sig-name descname"><span class="pre">PXI_STAR</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.PXI_STAR" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the PXI
+Star trigger bus before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output  trigger on the rear connector.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR" title="Link to this definition"></a></dt>
+<dd><p>The switch device produces the Scan Advanced Output  trigger on the front connector.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE1">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE1</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE1" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE2">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE2</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE2" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 2.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE3">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE3</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE3" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 3.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE4">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE4</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE4" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 4.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE5">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE5</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE5" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 5.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE6">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE6</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE6" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 6.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE7">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE7</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE7" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 7.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE8">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE8</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE8" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 8.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE9">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE9</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE9" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Ouptut Trigger on the rear
+connector module 9.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE10">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE10</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE10" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 10.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE11">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE11</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE11" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 11.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE12">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE12</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE12" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the rear
+connector module 12.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE1">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE1</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE1" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE2">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE2</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE2" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 2.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE3">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE3</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE3" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 3.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE4">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE4</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE4" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 4.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE5">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE5</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE5" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 5.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE6">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE6</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE6" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 6.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE7">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE7</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE7" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 7.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE8">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE8</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE8" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 8.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE9">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE9</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE9" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 9.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE10">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE10</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE10" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 10.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE11">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE11</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE11" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 11.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE12">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE12</span></span><a class="headerlink" href="#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE12" title="Link to this definition"></a></dt>
+<dd><p>The switch module produces the Scan Advanced Output Trigger on the front
+connector module 12.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="scanadvancedpolarity">
+<h2>ScanAdvancedPolarity<a class="headerlink" href="#scanadvancedpolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">ScanAdvancedPolarity</span></span><a class="headerlink" href="#niswitch.ScanAdvancedPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedPolarity.RISING">
+<span class="sig-name descname"><span class="pre">RISING</span></span><a class="headerlink" href="#niswitch.ScanAdvancedPolarity.RISING" title="Link to this definition"></a></dt>
+<dd><p>The trigger occurs on the rising edge of the signal.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanAdvancedPolarity.FALLING">
+<span class="sig-name descname"><span class="pre">FALLING</span></span><a class="headerlink" href="#niswitch.ScanAdvancedPolarity.FALLING" title="Link to this definition"></a></dt>
+<dd><p>The trigger occurs on the falling edge of the signal.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="scanmode">
+<h2>ScanMode<a class="headerlink" href="#scanmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.ScanMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">ScanMode</span></span><a class="headerlink" href="#niswitch.ScanMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanMode.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#niswitch.ScanMode.NONE" title="Link to this definition"></a></dt>
+<dd><p>No implicit action on connections when scanning.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanMode.BREAK_BEFORE_MAKE">
+<span class="sig-name descname"><span class="pre">BREAK_BEFORE_MAKE</span></span><a class="headerlink" href="#niswitch.ScanMode.BREAK_BEFORE_MAKE" title="Link to this definition"></a></dt>
+<dd><p>When scanning, the switch device breaks existing connections before  making new connections.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.ScanMode.BREAK_AFTER_MAKE">
+<span class="sig-name descname"><span class="pre">BREAK_AFTER_MAKE</span></span><a class="headerlink" href="#niswitch.ScanMode.BREAK_AFTER_MAKE" title="Link to this definition"></a></dt>
+<dd><p>When scanning, the switch device breaks existing connections after making  new connections.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggerinput">
+<h2>TriggerInput<a class="headerlink" href="#triggerinput" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.TriggerInput">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">TriggerInput</span></span><a class="headerlink" href="#niswitch.TriggerInput" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.IMMEDIATE">
+<span class="sig-name descname"><span class="pre">IMMEDIATE</span></span><a class="headerlink" href="#niswitch.TriggerInput.IMMEDIATE" title="Link to this definition"></a></dt>
+<dd><p>Immediate Trigger. The switch device does not wait for a trigger before  processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.EXTERNAL">
+<span class="sig-name descname"><span class="pre">EXTERNAL</span></span><a class="headerlink" href="#niswitch.TriggerInput.EXTERNAL" title="Link to this definition"></a></dt>
+<dd><p>External Trigger. The switch device waits until it receives a trigger  from an external source through the external trigger input before  processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.SOFTWARE_TRIG">
+<span class="sig-name descname"><span class="pre">SOFTWARE_TRIG</span></span><a class="headerlink" href="#niswitch.TriggerInput.SOFTWARE_TRIG" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until you call the <a class="reference internal" href="class.html#niswitch.Session.send_software_trigger" title="niswitch.Session.send_software_trigger"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niswitch.Session.send_software_trigger()</span></code></a>  method before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL0">
+<span class="sig-name descname"><span class="pre">TTL0</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL0" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG0 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL1">
+<span class="sig-name descname"><span class="pre">TTL1</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL1" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG1 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL2">
+<span class="sig-name descname"><span class="pre">TTL2</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL2" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG2 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL3">
+<span class="sig-name descname"><span class="pre">TTL3</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL3" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG3 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL4">
+<span class="sig-name descname"><span class="pre">TTL4</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL4" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG4 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL5">
+<span class="sig-name descname"><span class="pre">TTL5</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL5" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG5 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL6">
+<span class="sig-name descname"><span class="pre">TTL6</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL6" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG6 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.TTL7">
+<span class="sig-name descname"><span class="pre">TTL7</span></span><a class="headerlink" href="#niswitch.TriggerInput.TTL7" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI TRIG7 line before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.PXI_STAR">
+<span class="sig-name descname"><span class="pre">PXI_STAR</span></span><a class="headerlink" href="#niswitch.TriggerInput.PXI_STAR" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the PXI STAR  trigger bus before processing the next entry in the scan list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the  rear connector.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR" title="Link to this definition"></a></dt>
+<dd><p>The switch device waits until it receives a trigger on the  front connector.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE1">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE1</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE1" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE2">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE2</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE2" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 2.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE3">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE3</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE3" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 3.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE4">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE4</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE4" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 4.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE5">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE5</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE5" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 5.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE6">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE6</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE6" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 6.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE7">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE7</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE7" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 7.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE8">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE8</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE8" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 8.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE9">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE9</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE9" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 9.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE10">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE10</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE10" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 10.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE11">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE11</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE11" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 11.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.REARCONNECTOR_MODULE12">
+<span class="sig-name descname"><span class="pre">REARCONNECTOR_MODULE12</span></span><a class="headerlink" href="#niswitch.TriggerInput.REARCONNECTOR_MODULE12" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the rear
+connector module 12.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE1">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE1</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE1" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE2">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE2</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE2" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 2.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE3">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE3</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE3" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 3.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE4">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE4</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE4" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 4.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE5">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE5</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE5" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 5.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE6">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE6</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE6" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 6.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE7">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE7</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE7" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 7.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE8">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE8</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE8" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 8.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE9">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE9</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE9" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 9.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE10">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE10</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE10" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 10.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE11">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE11</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE11" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 11.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInput.FRONTCONNECTOR_MODULE12">
+<span class="sig-name descname"><span class="pre">FRONTCONNECTOR_MODULE12</span></span><a class="headerlink" href="#niswitch.TriggerInput.FRONTCONNECTOR_MODULE12" title="Link to this definition"></a></dt>
+<dd><p>The switch module waits until it receives a trigger on the front
+connector module 12.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggerinputpolarity">
+<h2>TriggerInputPolarity<a class="headerlink" href="#triggerinputpolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niswitch.TriggerInputPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niswitch.</span></span><span class="sig-name descname"><span class="pre">TriggerInputPolarity</span></span><a class="headerlink" href="#niswitch.TriggerInputPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInputPolarity.RISING">
+<span class="sig-name descname"><span class="pre">RISING</span></span><a class="headerlink" href="#niswitch.TriggerInputPolarity.RISING" title="Link to this definition"></a></dt>
+<dd><p>The trigger occurs on the rising edge of the signal.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niswitch.TriggerInputPolarity.FALLING">
+<span class="sig-name descname"><span class="pre">FALLING</span></span><a class="headerlink" href="#niswitch.TriggerInputPolarity.FALLING" title="Link to this definition"></a></dt>
+<dd><p>The trigger occurs on the falling edge of the signal.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rep_caps.html" class="btn btn-neutral float-left" title="Repeated Capabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

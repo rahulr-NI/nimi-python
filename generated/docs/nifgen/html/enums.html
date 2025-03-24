@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enums &mdash; NI-FGEN Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="Repeated Capabilities" href="rep_caps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-FGEN Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nifgen.html">nifgen module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nifgen.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nifgen.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nifgen.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#analogpath">AnalogPath</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.AnalogPath"><code class="docutils literal notranslate"><span class="pre">AnalogPath</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.AnalogPath.MAIN"><code class="docutils literal notranslate"><span class="pre">AnalogPath.MAIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.AnalogPath.DIRECT"><code class="docutils literal notranslate"><span class="pre">AnalogPath.DIRECT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.AnalogPath.FIXED_LOW_GAIN"><code class="docutils literal notranslate"><span class="pre">AnalogPath.FIXED_LOW_GAIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.AnalogPath.FIXED_HIGH_GAIN"><code class="docutils literal notranslate"><span class="pre">AnalogPath.FIXED_HIGH_GAIN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#bustype">BusType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.BusType"><code class="docutils literal notranslate"><span class="pre">BusType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.INVALID"><code class="docutils literal notranslate"><span class="pre">BusType.INVALID</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.AT"><code class="docutils literal notranslate"><span class="pre">BusType.AT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.PCI"><code class="docutils literal notranslate"><span class="pre">BusType.PCI</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.PXI"><code class="docutils literal notranslate"><span class="pre">BusType.PXI</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.VXI"><code class="docutils literal notranslate"><span class="pre">BusType.VXI</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.PCMCIA"><code class="docutils literal notranslate"><span class="pre">BusType.PCMCIA</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.BusType.PXIE"><code class="docutils literal notranslate"><span class="pre">BusType.PXIE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#byteorder">ByteOrder</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.ByteOrder"><code class="docutils literal notranslate"><span class="pre">ByteOrder</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ByteOrder.LITTLE"><code class="docutils literal notranslate"><span class="pre">ByteOrder.LITTLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ByteOrder.BIG"><code class="docutils literal notranslate"><span class="pre">ByteOrder.BIG</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#clockmode">ClockMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.ClockMode"><code class="docutils literal notranslate"><span class="pre">ClockMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ClockMode.HIGH_RESOLUTION"><code class="docutils literal notranslate"><span class="pre">ClockMode.HIGH_RESOLUTION</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ClockMode.DIVIDE_DOWN"><code class="docutils literal notranslate"><span class="pre">ClockMode.DIVIDE_DOWN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ClockMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">ClockMode.AUTOMATIC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#datamarkereventlevelpolarity">DataMarkerEventLevelPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.DataMarkerEventLevelPolarity"><code class="docutils literal notranslate"><span class="pre">DataMarkerEventLevelPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.DataMarkerEventLevelPolarity.HIGH"><code class="docutils literal notranslate"><span class="pre">DataMarkerEventLevelPolarity.HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.DataMarkerEventLevelPolarity.LOW"><code class="docutils literal notranslate"><span class="pre">DataMarkerEventLevelPolarity.LOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#eventpulsewidthunits">EventPulseWidthUnits</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.EventPulseWidthUnits"><code class="docutils literal notranslate"><span class="pre">EventPulseWidthUnits</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.EventPulseWidthUnits.SAMPLE_CLOCK_PERIODS"><code class="docutils literal notranslate"><span class="pre">EventPulseWidthUnits.SAMPLE_CLOCK_PERIODS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.EventPulseWidthUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">EventPulseWidthUnits.SECONDS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#hardwarestate">HardwareState</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.HardwareState"><code class="docutils literal notranslate"><span class="pre">HardwareState</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.HardwareState.IDLE"><code class="docutils literal notranslate"><span class="pre">HardwareState.IDLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.HardwareState.WAITING_FOR_START_TRIGGER"><code class="docutils literal notranslate"><span class="pre">HardwareState.WAITING_FOR_START_TRIGGER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.HardwareState.RUNNING"><code class="docutils literal notranslate"><span class="pre">HardwareState.RUNNING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.HardwareState.DONE"><code class="docutils literal notranslate"><span class="pre">HardwareState.DONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.HardwareState.HARDWARE_ERROR"><code class="docutils literal notranslate"><span class="pre">HardwareState.HARDWARE_ERROR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#idlebehavior">IdleBehavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.IdleBehavior"><code class="docutils literal notranslate"><span class="pre">IdleBehavior</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.IdleBehavior.HOLD_LAST"><code class="docutils literal notranslate"><span class="pre">IdleBehavior.HOLD_LAST</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.IdleBehavior.JUMP_TO"><code class="docutils literal notranslate"><span class="pre">IdleBehavior.JUMP_TO</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#outputmode">OutputMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.OutputMode"><code class="docutils literal notranslate"><span class="pre">OutputMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.OutputMode.FUNC"><code class="docutils literal notranslate"><span class="pre">OutputMode.FUNC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.OutputMode.ARB"><code class="docutils literal notranslate"><span class="pre">OutputMode.ARB</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.OutputMode.SEQ"><code class="docutils literal notranslate"><span class="pre">OutputMode.SEQ</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.OutputMode.FREQ_LIST"><code class="docutils literal notranslate"><span class="pre">OutputMode.FREQ_LIST</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.OutputMode.SCRIPT"><code class="docutils literal notranslate"><span class="pre">OutputMode.SCRIPT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#referenceclocksource">ReferenceClockSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.ReferenceClockSource"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ReferenceClockSource.CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.CLOCK_IN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ReferenceClockSource.NONE"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ReferenceClockSource.ONBOARD_REFERENCE_CLOCK"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.ONBOARD_REFERENCE_CLOCK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ReferenceClockSource.PXI_CLOCK"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.PXI_CLOCK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ReferenceClockSource.RTSI_7"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.RTSI_7</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#relativeto">RelativeTo</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.RelativeTo"><code class="docutils literal notranslate"><span class="pre">RelativeTo</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.RelativeTo.START"><code class="docutils literal notranslate"><span class="pre">RelativeTo.START</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.RelativeTo.CURRENT"><code class="docutils literal notranslate"><span class="pre">RelativeTo.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sampleclocksource">SampleClockSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.SampleClockSource"><code class="docutils literal notranslate"><span class="pre">SampleClockSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.CLOCK_IN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.DDC_CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.DDC_CLOCK_IN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.ONBOARD_CLOCK"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.ONBOARD_CLOCK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_STAR_LINE"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_STAR_LINE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_0_RTSI_0"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_0_RTSI_0</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_1_RTSI_1"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_1_RTSI_1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_2_RTSI_2"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_2_RTSI_2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_3_RTSI_3"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_3_RTSI_3</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_4_RTSI_4"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_4_RTSI_4</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_5_RTSI_5"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_5_RTSI_5</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_6_RTSI_6"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_6_RTSI_6</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_7_RTSI_7"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_7_RTSI_7</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#sampleclocktimebasesource">SampleClockTimebaseSource</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.SampleClockTimebaseSource"><code class="docutils literal notranslate"><span class="pre">SampleClockTimebaseSource</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockTimebaseSource.CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">SampleClockTimebaseSource.CLOCK_IN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.SampleClockTimebaseSource.ONBOARD_CLOCK"><code class="docutils literal notranslate"><span class="pre">SampleClockTimebaseSource.ONBOARD_CLOCK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#scripttriggerdigitaledgeedge">ScriptTriggerDigitalEdgeEdge</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.ScriptTriggerDigitalEdgeEdge"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerDigitalEdgeEdge</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ScriptTriggerDigitalEdgeEdge.RISING"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerDigitalEdgeEdge.RISING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ScriptTriggerDigitalEdgeEdge.FALLING"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerDigitalEdgeEdge.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#scripttriggertype">ScriptTriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.ScriptTriggerType"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ScriptTriggerType.TRIG_NONE"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.TRIG_NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ScriptTriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ScriptTriggerType.DIGITAL_LEVEL"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.DIGITAL_LEVEL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.ScriptTriggerType.SOFTWARE_EDGE"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.SOFTWARE_EDGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#starttriggerdigitaledgeedge">StartTriggerDigitalEdgeEdge</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.StartTriggerDigitalEdgeEdge"><code class="docutils literal notranslate"><span class="pre">StartTriggerDigitalEdgeEdge</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.StartTriggerDigitalEdgeEdge.RISING"><code class="docutils literal notranslate"><span class="pre">StartTriggerDigitalEdgeEdge.RISING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.StartTriggerDigitalEdgeEdge.FALLING"><code class="docutils literal notranslate"><span class="pre">StartTriggerDigitalEdgeEdge.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#starttriggertype">StartTriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.StartTriggerType"><code class="docutils literal notranslate"><span class="pre">StartTriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.StartTriggerType.TRIG_NONE"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.TRIG_NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.StartTriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.StartTriggerType.SOFTWARE_EDGE"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.SOFTWARE_EDGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.StartTriggerType.P2P_ENDPOINT_FULLNESS"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.P2P_ENDPOINT_FULLNESS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#terminalconfiguration">TerminalConfiguration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.TerminalConfiguration"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.TerminalConfiguration.SINGLE_ENDED"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.SINGLE_ENDED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.TerminalConfiguration.DIFFERENTIAL"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.DIFFERENTIAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#trigger">Trigger</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.Trigger"><code class="docutils literal notranslate"><span class="pre">Trigger</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Trigger.START"><code class="docutils literal notranslate"><span class="pre">Trigger.START</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Trigger.SCRIPT"><code class="docutils literal notranslate"><span class="pre">Trigger.SCRIPT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggermode">TriggerMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.TriggerMode"><code class="docutils literal notranslate"><span class="pre">TriggerMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.TriggerMode.SINGLE"><code class="docutils literal notranslate"><span class="pre">TriggerMode.SINGLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.TriggerMode.CONTINUOUS"><code class="docutils literal notranslate"><span class="pre">TriggerMode.CONTINUOUS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.TriggerMode.STEPPED"><code class="docutils literal notranslate"><span class="pre">TriggerMode.STEPPED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.TriggerMode.BURST"><code class="docutils literal notranslate"><span class="pre">TriggerMode.BURST</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#waitbehavior">WaitBehavior</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.WaitBehavior"><code class="docutils literal notranslate"><span class="pre">WaitBehavior</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.WaitBehavior.HOLD_LAST"><code class="docutils literal notranslate"><span class="pre">WaitBehavior.HOLD_LAST</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.WaitBehavior.JUMP_TO"><code class="docutils literal notranslate"><span class="pre">WaitBehavior.JUMP_TO</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#waveform">Waveform</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nifgen.Waveform"><code class="docutils literal notranslate"><span class="pre">Waveform</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.SINE"><code class="docutils literal notranslate"><span class="pre">Waveform.SINE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.SQUARE"><code class="docutils literal notranslate"><span class="pre">Waveform.SQUARE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.TRIANGLE"><code class="docutils literal notranslate"><span class="pre">Waveform.TRIANGLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.RAMP_UP"><code class="docutils literal notranslate"><span class="pre">Waveform.RAMP_UP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.RAMP_DOWN"><code class="docutils literal notranslate"><span class="pre">Waveform.RAMP_DOWN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.DC"><code class="docutils literal notranslate"><span class="pre">Waveform.DC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.NOISE"><code class="docutils literal notranslate"><span class="pre">Waveform.NOISE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#nifgen.Waveform.USER"><code class="docutils literal notranslate"><span class="pre">Waveform.USER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-FGEN Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nifgen.html">nifgen module</a></li>
+      <li class="breadcrumb-item active">Enums</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enums.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h1>
+<p>Enums used in NI-FGEN</p>
+<section id="analogpath">
+<h2>AnalogPath<a class="headerlink" href="#analogpath" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.AnalogPath">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">AnalogPath</span></span><a class="headerlink" href="#nifgen.AnalogPath" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.AnalogPath.MAIN">
+<span class="sig-name descname"><span class="pre">MAIN</span></span><a class="headerlink" href="#nifgen.AnalogPath.MAIN" title="Link to this definition"></a></dt>
+<dd><p>Specifies use of the main path.  NI-FGEN chooses the amplifier based on the user-specified gain.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.AnalogPath.DIRECT">
+<span class="sig-name descname"><span class="pre">DIRECT</span></span><a class="headerlink" href="#nifgen.AnalogPath.DIRECT" title="Link to this definition"></a></dt>
+<dd><p>Specifies use of the direct path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.AnalogPath.FIXED_LOW_GAIN">
+<span class="sig-name descname"><span class="pre">FIXED_LOW_GAIN</span></span><a class="headerlink" href="#nifgen.AnalogPath.FIXED_LOW_GAIN" title="Link to this definition"></a></dt>
+<dd><p>Specifies use of the low-gain amplifier in the main path, no matter  what value the user specifies for gain. This setting limits the output  range.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.AnalogPath.FIXED_HIGH_GAIN">
+<span class="sig-name descname"><span class="pre">FIXED_HIGH_GAIN</span></span><a class="headerlink" href="#nifgen.AnalogPath.FIXED_HIGH_GAIN" title="Link to this definition"></a></dt>
+<dd><p>Specifies use of the high-gain amplifier in the main path.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="bustype">
+<h2>BusType<a class="headerlink" href="#bustype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.BusType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">BusType</span></span><a class="headerlink" href="#nifgen.BusType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.INVALID">
+<span class="sig-name descname"><span class="pre">INVALID</span></span><a class="headerlink" href="#nifgen.BusType.INVALID" title="Link to this definition"></a></dt>
+<dd><p>Indicates an invalid bus type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.AT">
+<span class="sig-name descname"><span class="pre">AT</span></span><a class="headerlink" href="#nifgen.BusType.AT" title="Link to this definition"></a></dt>
+<dd><p>Indicates the signal generator is the AT bus type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.PCI">
+<span class="sig-name descname"><span class="pre">PCI</span></span><a class="headerlink" href="#nifgen.BusType.PCI" title="Link to this definition"></a></dt>
+<dd><p>Indicates the signal generator is the PCI bus type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.PXI">
+<span class="sig-name descname"><span class="pre">PXI</span></span><a class="headerlink" href="#nifgen.BusType.PXI" title="Link to this definition"></a></dt>
+<dd><p>Indicates the signal generator is the PXI bus type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.VXI">
+<span class="sig-name descname"><span class="pre">VXI</span></span><a class="headerlink" href="#nifgen.BusType.VXI" title="Link to this definition"></a></dt>
+<dd><p>Indicates the signal generator is the VXI bus type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.PCMCIA">
+<span class="sig-name descname"><span class="pre">PCMCIA</span></span><a class="headerlink" href="#nifgen.BusType.PCMCIA" title="Link to this definition"></a></dt>
+<dd><p>Indicates the signal generator is the PCI-CMA bus type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.BusType.PXIE">
+<span class="sig-name descname"><span class="pre">PXIE</span></span><a class="headerlink" href="#nifgen.BusType.PXIE" title="Link to this definition"></a></dt>
+<dd><p>Indicates the signal generator is the PXI Express bus type.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="byteorder">
+<h2>ByteOrder<a class="headerlink" href="#byteorder" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.ByteOrder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">ByteOrder</span></span><a class="headerlink" href="#nifgen.ByteOrder" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ByteOrder.LITTLE">
+<span class="sig-name descname"><span class="pre">LITTLE</span></span><a class="headerlink" href="#nifgen.ByteOrder.LITTLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ByteOrder.BIG">
+<span class="sig-name descname"><span class="pre">BIG</span></span><a class="headerlink" href="#nifgen.ByteOrder.BIG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="clockmode">
+<h2>ClockMode<a class="headerlink" href="#clockmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.ClockMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">ClockMode</span></span><a class="headerlink" href="#nifgen.ClockMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ClockMode.HIGH_RESOLUTION">
+<span class="sig-name descname"><span class="pre">HIGH_RESOLUTION</span></span><a class="headerlink" href="#nifgen.ClockMode.HIGH_RESOLUTION" title="Link to this definition"></a></dt>
+<dd><p>High resolution sampling—Sample rate is generated by a high–resolution clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ClockMode.DIVIDE_DOWN">
+<span class="sig-name descname"><span class="pre">DIVIDE_DOWN</span></span><a class="headerlink" href="#nifgen.ClockMode.DIVIDE_DOWN" title="Link to this definition"></a></dt>
+<dd><p>Divide down sampling—Sample rates are generated by dividing the source frequency.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ClockMode.AUTOMATIC">
+<span class="sig-name descname"><span class="pre">AUTOMATIC</span></span><a class="headerlink" href="#nifgen.ClockMode.AUTOMATIC" title="Link to this definition"></a></dt>
+<dd><p>Automatic Selection—NI-FGEN selects between the divide–down and high–resolution clocking modes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="datamarkereventlevelpolarity">
+<h2>DataMarkerEventLevelPolarity<a class="headerlink" href="#datamarkereventlevelpolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.DataMarkerEventLevelPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">DataMarkerEventLevelPolarity</span></span><a class="headerlink" href="#nifgen.DataMarkerEventLevelPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.DataMarkerEventLevelPolarity.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><a class="headerlink" href="#nifgen.DataMarkerEventLevelPolarity.HIGH" title="Link to this definition"></a></dt>
+<dd><p>When the operation is ready to start, the Ready for Start  event level is high.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.DataMarkerEventLevelPolarity.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><a class="headerlink" href="#nifgen.DataMarkerEventLevelPolarity.LOW" title="Link to this definition"></a></dt>
+<dd><p>When the operation is ready to start, the Ready for Start  event level is low.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="eventpulsewidthunits">
+<h2>EventPulseWidthUnits<a class="headerlink" href="#eventpulsewidthunits" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.EventPulseWidthUnits">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">EventPulseWidthUnits</span></span><a class="headerlink" href="#nifgen.EventPulseWidthUnits" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.EventPulseWidthUnits.SAMPLE_CLOCK_PERIODS">
+<span class="sig-name descname"><span class="pre">SAMPLE_CLOCK_PERIODS</span></span><a class="headerlink" href="#nifgen.EventPulseWidthUnits.SAMPLE_CLOCK_PERIODS" title="Link to this definition"></a></dt>
+<dd><p>Specifies the pulse width in Sample clock periods.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.EventPulseWidthUnits.SECONDS">
+<span class="sig-name descname"><span class="pre">SECONDS</span></span><a class="headerlink" href="#nifgen.EventPulseWidthUnits.SECONDS" title="Link to this definition"></a></dt>
+<dd><p>Specifies the pulse width in seconds.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hardwarestate">
+<h2>HardwareState<a class="headerlink" href="#hardwarestate" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.HardwareState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">HardwareState</span></span><a class="headerlink" href="#nifgen.HardwareState" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.HardwareState.IDLE">
+<span class="sig-name descname"><span class="pre">IDLE</span></span><a class="headerlink" href="#nifgen.HardwareState.IDLE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.HardwareState.WAITING_FOR_START_TRIGGER">
+<span class="sig-name descname"><span class="pre">WAITING_FOR_START_TRIGGER</span></span><a class="headerlink" href="#nifgen.HardwareState.WAITING_FOR_START_TRIGGER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.HardwareState.RUNNING">
+<span class="sig-name descname"><span class="pre">RUNNING</span></span><a class="headerlink" href="#nifgen.HardwareState.RUNNING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.HardwareState.DONE">
+<span class="sig-name descname"><span class="pre">DONE</span></span><a class="headerlink" href="#nifgen.HardwareState.DONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.HardwareState.HARDWARE_ERROR">
+<span class="sig-name descname"><span class="pre">HARDWARE_ERROR</span></span><a class="headerlink" href="#nifgen.HardwareState.HARDWARE_ERROR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="idlebehavior">
+<h2>IdleBehavior<a class="headerlink" href="#idlebehavior" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.IdleBehavior">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">IdleBehavior</span></span><a class="headerlink" href="#nifgen.IdleBehavior" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.IdleBehavior.HOLD_LAST">
+<span class="sig-name descname"><span class="pre">HOLD_LAST</span></span><a class="headerlink" href="#nifgen.IdleBehavior.HOLD_LAST" title="Link to this definition"></a></dt>
+<dd><p>While in an Idle or Wait state, the output signal remains  at the last voltage generated prior to entering the state.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.IdleBehavior.JUMP_TO">
+<span class="sig-name descname"><span class="pre">JUMP_TO</span></span><a class="headerlink" href="#nifgen.IdleBehavior.JUMP_TO" title="Link to this definition"></a></dt>
+<dd><p>While in an Idle or Wait state, the output signal remains  at the value configured in the Idle or Wait value property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="outputmode">
+<h2>OutputMode<a class="headerlink" href="#outputmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.OutputMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">OutputMode</span></span><a class="headerlink" href="#nifgen.OutputMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.OutputMode.FUNC">
+<span class="sig-name descname"><span class="pre">FUNC</span></span><a class="headerlink" href="#nifgen.OutputMode.FUNC" title="Link to this definition"></a></dt>
+<dd><p>Standard Method mode—  Generates standard method waveforms  such as sine, square, triangle, and so on.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.OutputMode.ARB">
+<span class="sig-name descname"><span class="pre">ARB</span></span><a class="headerlink" href="#nifgen.OutputMode.ARB" title="Link to this definition"></a></dt>
+<dd><p>Arbitrary waveform mode—Generates  waveforms from user-created/provided  waveform arrays of numeric data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.OutputMode.SEQ">
+<span class="sig-name descname"><span class="pre">SEQ</span></span><a class="headerlink" href="#nifgen.OutputMode.SEQ" title="Link to this definition"></a></dt>
+<dd><p>Arbitrary sequence mode —  Generates downloaded waveforms  in an order your specify.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.OutputMode.FREQ_LIST">
+<span class="sig-name descname"><span class="pre">FREQ_LIST</span></span><a class="headerlink" href="#nifgen.OutputMode.FREQ_LIST" title="Link to this definition"></a></dt>
+<dd><p>Frequency List mode—Generates a  standard method using a list of  frequencies you define.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.OutputMode.SCRIPT">
+<span class="sig-name descname"><span class="pre">SCRIPT</span></span><a class="headerlink" href="#nifgen.OutputMode.SCRIPT" title="Link to this definition"></a></dt>
+<dd><p><strong>Script mode—</strong>Allows you to use scripting to link and loop multiple
+waveforms in complex combinations.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="referenceclocksource">
+<h2>ReferenceClockSource<a class="headerlink" href="#referenceclocksource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.ReferenceClockSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">ReferenceClockSource</span></span><a class="headerlink" href="#nifgen.ReferenceClockSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ReferenceClockSource.CLOCK_IN">
+<span class="sig-name descname"><span class="pre">CLOCK_IN</span></span><a class="headerlink" href="#nifgen.ReferenceClockSource.CLOCK_IN" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the CLK IN input signal from the front panel connector is
+used as the Reference Clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ReferenceClockSource.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#nifgen.ReferenceClockSource.NONE" title="Link to this definition"></a></dt>
+<dd><p>Specifies that a Reference Clock is not used.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ReferenceClockSource.ONBOARD_REFERENCE_CLOCK">
+<span class="sig-name descname"><span class="pre">ONBOARD_REFERENCE_CLOCK</span></span><a class="headerlink" href="#nifgen.ReferenceClockSource.ONBOARD_REFERENCE_CLOCK" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the onboard Reference Clock is used as the Reference
+Clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ReferenceClockSource.PXI_CLOCK">
+<span class="sig-name descname"><span class="pre">PXI_CLOCK</span></span><a class="headerlink" href="#nifgen.ReferenceClockSource.PXI_CLOCK" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI Clock is used as the Reference Clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ReferenceClockSource.RTSI_7">
+<span class="sig-name descname"><span class="pre">RTSI_7</span></span><a class="headerlink" href="#nifgen.ReferenceClockSource.RTSI_7" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the RTSI line 7 is used as the Reference Clock source.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="relativeto">
+<h2>RelativeTo<a class="headerlink" href="#relativeto" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.RelativeTo">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">RelativeTo</span></span><a class="headerlink" href="#nifgen.RelativeTo" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.RelativeTo.START">
+<span class="sig-name descname"><span class="pre">START</span></span><a class="headerlink" href="#nifgen.RelativeTo.START" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.RelativeTo.CURRENT">
+<span class="sig-name descname"><span class="pre">CURRENT</span></span><a class="headerlink" href="#nifgen.RelativeTo.CURRENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sampleclocksource">
+<h2>SampleClockSource<a class="headerlink" href="#sampleclocksource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">SampleClockSource</span></span><a class="headerlink" href="#nifgen.SampleClockSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.CLOCK_IN">
+<span class="sig-name descname"><span class="pre">CLOCK_IN</span></span><a class="headerlink" href="#nifgen.SampleClockSource.CLOCK_IN" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the signal at the CLK IN front panel connector is used as
+the Sample Clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.DDC_CLOCK_IN">
+<span class="sig-name descname"><span class="pre">DDC_CLOCK_IN</span></span><a class="headerlink" href="#nifgen.SampleClockSource.DDC_CLOCK_IN" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the Sample Clock from the DDC connector is used as the Sample
+Clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.ONBOARD_CLOCK">
+<span class="sig-name descname"><span class="pre">ONBOARD_CLOCK</span></span><a class="headerlink" href="#nifgen.SampleClockSource.ONBOARD_CLOCK" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the onboard clock is used as the Sample Clock source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_STAR_LINE">
+<span class="sig-name descname"><span class="pre">PXI_STAR_LINE</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_STAR_LINE" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI_STAR trigger line is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_0_RTSI_0">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_0_RTSI_0</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_0_RTSI_0" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 0 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_1_RTSI_1">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_1_RTSI_1</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_1_RTSI_1" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 1 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_2_RTSI_2">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_2_RTSI_2</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_2_RTSI_2" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 2 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_3_RTSI_3">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_3_RTSI_3</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_3_RTSI_3" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 3 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_4_RTSI_4">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_4_RTSI_4</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_4_RTSI_4" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 4 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_5_RTSI_5">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_5_RTSI_5</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_5_RTSI_5" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 5 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_6_RTSI_6">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_6_RTSI_6</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_6_RTSI_6" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 6 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockSource.PXI_TRIGGER_LINE_7_RTSI_7">
+<span class="sig-name descname"><span class="pre">PXI_TRIGGER_LINE_7_RTSI_7</span></span><a class="headerlink" href="#nifgen.SampleClockSource.PXI_TRIGGER_LINE_7_RTSI_7" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the PXI or RTSI line 7 is used as the Sample Clock
+source.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="sampleclocktimebasesource">
+<h2>SampleClockTimebaseSource<a class="headerlink" href="#sampleclocktimebasesource" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.SampleClockTimebaseSource">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">SampleClockTimebaseSource</span></span><a class="headerlink" href="#nifgen.SampleClockTimebaseSource" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockTimebaseSource.CLOCK_IN">
+<span class="sig-name descname"><span class="pre">CLOCK_IN</span></span><a class="headerlink" href="#nifgen.SampleClockTimebaseSource.CLOCK_IN" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the external signal on the CLK IN front panel connector
+is used as the source.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.SampleClockTimebaseSource.ONBOARD_CLOCK">
+<span class="sig-name descname"><span class="pre">ONBOARD_CLOCK</span></span><a class="headerlink" href="#nifgen.SampleClockTimebaseSource.ONBOARD_CLOCK" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the onboard Sample Clock timebase is used as the source.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="scripttriggerdigitaledgeedge">
+<h2>ScriptTriggerDigitalEdgeEdge<a class="headerlink" href="#scripttriggerdigitaledgeedge" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerDigitalEdgeEdge">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">ScriptTriggerDigitalEdgeEdge</span></span><a class="headerlink" href="#nifgen.ScriptTriggerDigitalEdgeEdge" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerDigitalEdgeEdge.RISING">
+<span class="sig-name descname"><span class="pre">RISING</span></span><a class="headerlink" href="#nifgen.ScriptTriggerDigitalEdgeEdge.RISING" title="Link to this definition"></a></dt>
+<dd><p>Rising Edge</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerDigitalEdgeEdge.FALLING">
+<span class="sig-name descname"><span class="pre">FALLING</span></span><a class="headerlink" href="#nifgen.ScriptTriggerDigitalEdgeEdge.FALLING" title="Link to this definition"></a></dt>
+<dd><p>Falling Edge</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="scripttriggertype">
+<h2>ScriptTriggerType<a class="headerlink" href="#scripttriggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">ScriptTriggerType</span></span><a class="headerlink" href="#nifgen.ScriptTriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerType.TRIG_NONE">
+<span class="sig-name descname"><span class="pre">TRIG_NONE</span></span><a class="headerlink" href="#nifgen.ScriptTriggerType.TRIG_NONE" title="Link to this definition"></a></dt>
+<dd><p>No trigger is configured. Signal generation starts immediately.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerType.DIGITAL_EDGE">
+<span class="sig-name descname"><span class="pre">DIGITAL_EDGE</span></span><a class="headerlink" href="#nifgen.ScriptTriggerType.DIGITAL_EDGE" title="Link to this definition"></a></dt>
+<dd><p>Trigger is asserted when a digital edge is detected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerType.DIGITAL_LEVEL">
+<span class="sig-name descname"><span class="pre">DIGITAL_LEVEL</span></span><a class="headerlink" href="#nifgen.ScriptTriggerType.DIGITAL_LEVEL" title="Link to this definition"></a></dt>
+<dd><p>Trigger is asserted when a digital level is detected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.ScriptTriggerType.SOFTWARE_EDGE">
+<span class="sig-name descname"><span class="pre">SOFTWARE_EDGE</span></span><a class="headerlink" href="#nifgen.ScriptTriggerType.SOFTWARE_EDGE" title="Link to this definition"></a></dt>
+<dd><p>Trigger is asserted when a software edge is detected.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="starttriggerdigitaledgeedge">
+<h2>StartTriggerDigitalEdgeEdge<a class="headerlink" href="#starttriggerdigitaledgeedge" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.StartTriggerDigitalEdgeEdge">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">StartTriggerDigitalEdgeEdge</span></span><a class="headerlink" href="#nifgen.StartTriggerDigitalEdgeEdge" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.StartTriggerDigitalEdgeEdge.RISING">
+<span class="sig-name descname"><span class="pre">RISING</span></span><a class="headerlink" href="#nifgen.StartTriggerDigitalEdgeEdge.RISING" title="Link to this definition"></a></dt>
+<dd><p>Rising Edge</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.StartTriggerDigitalEdgeEdge.FALLING">
+<span class="sig-name descname"><span class="pre">FALLING</span></span><a class="headerlink" href="#nifgen.StartTriggerDigitalEdgeEdge.FALLING" title="Link to this definition"></a></dt>
+<dd><p>Falling Edge</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="starttriggertype">
+<h2>StartTriggerType<a class="headerlink" href="#starttriggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.StartTriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">StartTriggerType</span></span><a class="headerlink" href="#nifgen.StartTriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.StartTriggerType.TRIG_NONE">
+<span class="sig-name descname"><span class="pre">TRIG_NONE</span></span><a class="headerlink" href="#nifgen.StartTriggerType.TRIG_NONE" title="Link to this definition"></a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.StartTriggerType.DIGITAL_EDGE">
+<span class="sig-name descname"><span class="pre">DIGITAL_EDGE</span></span><a class="headerlink" href="#nifgen.StartTriggerType.DIGITAL_EDGE" title="Link to this definition"></a></dt>
+<dd><p>Digital Edge</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.StartTriggerType.SOFTWARE_EDGE">
+<span class="sig-name descname"><span class="pre">SOFTWARE_EDGE</span></span><a class="headerlink" href="#nifgen.StartTriggerType.SOFTWARE_EDGE" title="Link to this definition"></a></dt>
+<dd><p>Software Edge</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.StartTriggerType.P2P_ENDPOINT_FULLNESS">
+<span class="sig-name descname"><span class="pre">P2P_ENDPOINT_FULLNESS</span></span><a class="headerlink" href="#nifgen.StartTriggerType.P2P_ENDPOINT_FULLNESS" title="Link to this definition"></a></dt>
+<dd><p>P2P Endpoint Fullness</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="terminalconfiguration">
+<h2>TerminalConfiguration<a class="headerlink" href="#terminalconfiguration" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.TerminalConfiguration">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">TerminalConfiguration</span></span><a class="headerlink" href="#nifgen.TerminalConfiguration" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.TerminalConfiguration.SINGLE_ENDED">
+<span class="sig-name descname"><span class="pre">SINGLE_ENDED</span></span><a class="headerlink" href="#nifgen.TerminalConfiguration.SINGLE_ENDED" title="Link to this definition"></a></dt>
+<dd><p>Single-ended operation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.TerminalConfiguration.DIFFERENTIAL">
+<span class="sig-name descname"><span class="pre">DIFFERENTIAL</span></span><a class="headerlink" href="#nifgen.TerminalConfiguration.DIFFERENTIAL" title="Link to this definition"></a></dt>
+<dd><p>Differential operation</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="trigger">
+<h2>Trigger<a class="headerlink" href="#trigger" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.Trigger">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">Trigger</span></span><a class="headerlink" href="#nifgen.Trigger" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Trigger.START">
+<span class="sig-name descname"><span class="pre">START</span></span><a class="headerlink" href="#nifgen.Trigger.START" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Trigger.SCRIPT">
+<span class="sig-name descname"><span class="pre">SCRIPT</span></span><a class="headerlink" href="#nifgen.Trigger.SCRIPT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggermode">
+<h2>TriggerMode<a class="headerlink" href="#triggermode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.TriggerMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">TriggerMode</span></span><a class="headerlink" href="#nifgen.TriggerMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.TriggerMode.SINGLE">
+<span class="sig-name descname"><span class="pre">SINGLE</span></span><a class="headerlink" href="#nifgen.TriggerMode.SINGLE" title="Link to this definition"></a></dt>
+<dd><p>Single Trigger Mode - The waveform you describe in the sequence list is  generated only once by going through the entire staging list. Only one  trigger is required to start the waveform generation. You can use Single  trigger mode with the output mode in any mode. After a trigger is  received, the waveform generation starts from the first stage and  continues through to the last stage. Then, the last stage generates  repeatedly until you stop the waveform generation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.TriggerMode.CONTINUOUS">
+<span class="sig-name descname"><span class="pre">CONTINUOUS</span></span><a class="headerlink" href="#nifgen.TriggerMode.CONTINUOUS" title="Link to this definition"></a></dt>
+<dd><p>Continuous Trigger Mode - The waveform you describe in the staging list generates infinitely by repeatedly cycling through the staging list.  After a trigger is received, the waveform generation starts from the  first stage and continues through to the last stage. After the last stage  completes, the waveform generation loops back to the start of the  first stage and continues until it is stopped. Only one trigger is  required to start the waveform generation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.TriggerMode.STEPPED">
+<span class="sig-name descname"><span class="pre">STEPPED</span></span><a class="headerlink" href="#nifgen.TriggerMode.STEPPED" title="Link to this definition"></a></dt>
+<dd><p>Stepped Trigger Mode - After a start trigger is received, the waveform  described by the first stage generates. Then, the device waits for the  next trigger signal. On the next trigger, the waveform described by the  second stage generates, and so on. After the staging list completes,  the waveform generation returns to the first stage and continues in a  cyclic fashion. After any stage has generated completely, the first  eight samples of the next stage are repeated continuously until the next  trigger is received.
+trigger mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Frequency List mode, Stepped trigger mode is the same as Burst</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.TriggerMode.BURST">
+<span class="sig-name descname"><span class="pre">BURST</span></span><a class="headerlink" href="#nifgen.TriggerMode.BURST" title="Link to this definition"></a></dt>
+<dd><p>Burst Trigger Mode - After a start trigger is received, the waveform  described by the first stage generates until another trigger is  received. At the next trigger, the buffer of the previous stage completes, and then the waveform described by the second stage generates. After the staging list completes, the waveform generation  returns to the first stage and continues in a cyclic fashion. In  Frequency List mode, the duration instruction is ignored, and the trigger  switches the frequency to the next frequency in the list.
+trigger mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Frequency List mode, Stepped trigger mode is the same as Burst</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="waitbehavior">
+<h2>WaitBehavior<a class="headerlink" href="#waitbehavior" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.WaitBehavior">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">WaitBehavior</span></span><a class="headerlink" href="#nifgen.WaitBehavior" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.WaitBehavior.HOLD_LAST">
+<span class="sig-name descname"><span class="pre">HOLD_LAST</span></span><a class="headerlink" href="#nifgen.WaitBehavior.HOLD_LAST" title="Link to this definition"></a></dt>
+<dd><p>While in an Idle or Wait state, the output signal remains  at the last voltage generated prior to entering the state.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.WaitBehavior.JUMP_TO">
+<span class="sig-name descname"><span class="pre">JUMP_TO</span></span><a class="headerlink" href="#nifgen.WaitBehavior.JUMP_TO" title="Link to this definition"></a></dt>
+<dd><p>While in an Idle or Wait state, the output signal remains  at the value configured in the Idle or Wait value property.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="waveform">
+<h2>Waveform<a class="headerlink" href="#waveform" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nifgen.Waveform">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nifgen.</span></span><span class="sig-name descname"><span class="pre">Waveform</span></span><a class="headerlink" href="#nifgen.Waveform" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.SINE">
+<span class="sig-name descname"><span class="pre">SINE</span></span><a class="headerlink" href="#nifgen.Waveform.SINE" title="Link to this definition"></a></dt>
+<dd><p>Sinusoid waveform</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.SQUARE">
+<span class="sig-name descname"><span class="pre">SQUARE</span></span><a class="headerlink" href="#nifgen.Waveform.SQUARE" title="Link to this definition"></a></dt>
+<dd><p>Square waveform</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.TRIANGLE">
+<span class="sig-name descname"><span class="pre">TRIANGLE</span></span><a class="headerlink" href="#nifgen.Waveform.TRIANGLE" title="Link to this definition"></a></dt>
+<dd><p>Triange waveform</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.RAMP_UP">
+<span class="sig-name descname"><span class="pre">RAMP_UP</span></span><a class="headerlink" href="#nifgen.Waveform.RAMP_UP" title="Link to this definition"></a></dt>
+<dd><p>Positive ramp waveform</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.RAMP_DOWN">
+<span class="sig-name descname"><span class="pre">RAMP_DOWN</span></span><a class="headerlink" href="#nifgen.Waveform.RAMP_DOWN" title="Link to this definition"></a></dt>
+<dd><p>Negative ramp waveform</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.DC">
+<span class="sig-name descname"><span class="pre">DC</span></span><a class="headerlink" href="#nifgen.Waveform.DC" title="Link to this definition"></a></dt>
+<dd><p>Constant voltage</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.NOISE">
+<span class="sig-name descname"><span class="pre">NOISE</span></span><a class="headerlink" href="#nifgen.Waveform.NOISE" title="Link to this definition"></a></dt>
+<dd><p>White noise</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nifgen.Waveform.USER">
+<span class="sig-name descname"><span class="pre">USER</span></span><a class="headerlink" href="#nifgen.Waveform.USER" title="Link to this definition"></a></dt>
+<dd><p>User-defined waveform as defined by the <a class="reference internal" href="class.html#nifgen.Session.define_user_standard_waveform" title="nifgen.Session.define_user_standard_waveform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">nifgen.Session.define_user_standard_waveform()</span></code></a> method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rep_caps.html" class="btn btn-neutral float-left" title="Repeated Capabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

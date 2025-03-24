@@ -1,0 +1,2200 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enums &mdash; NI-SCOPE Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions and Warnings" href="errors.html" />
+    <link rel="prev" title="Repeated Capabilities" href="rep_caps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-SCOPE Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="niscope.html">niscope module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="niscope.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="niscope.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="niscope.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acquisitionstatus">AcquisitionStatus</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.AcquisitionStatus"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.AcquisitionStatus.COMPLETE"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.COMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.AcquisitionStatus.IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.IN_PROGRESS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.AcquisitionStatus.STATUS_UNKNOWN"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.STATUS_UNKNOWN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#acquisitiontype">AcquisitionType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.AcquisitionType"><code class="docutils literal notranslate"><span class="pre">AcquisitionType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.AcquisitionType.NORMAL"><code class="docutils literal notranslate"><span class="pre">AcquisitionType.NORMAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.AcquisitionType.FLEXRES"><code class="docutils literal notranslate"><span class="pre">AcquisitionType.FLEXRES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.AcquisitionType.DDC"><code class="docutils literal notranslate"><span class="pre">AcquisitionType.DDC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#arraymeasurement">ArrayMeasurement</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.ArrayMeasurement"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.NO_MEASUREMENT"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.NO_MEASUREMENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.LAST_ACQ_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.LAST_ACQ_HISTOGRAM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.FFT_PHASE_SPECTRUM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FFT_PHASE_SPECTRUM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_VOLTS_RMS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FFT_AMP_SPECTRUM_VOLTS_RMS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.MULTI_ACQ_TIME_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTI_ACQ_TIME_HISTOGRAM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.ARRAY_INTEGRAL"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ARRAY_INTEGRAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.DERIVATIVE"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.DERIVATIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.INVERSE"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.INVERSE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.HANNING_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.HANNING_WINDOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.FLAT_TOP_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FLAT_TOP_WINDOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.POLYNOMIAL_INTERPOLATION"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.POLYNOMIAL_INTERPOLATION</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.MULTIPLY_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTIPLY_CHANNELS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.ADD_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ADD_CHANNELS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.SUBTRACT_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.SUBTRACT_CHANNELS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.DIVIDE_CHANNELS"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.DIVIDE_CHANNELS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.MULTI_ACQ_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.MULTI_ACQ_AVERAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.BUTTERWORTH_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.BUTTERWORTH_FILTER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.CHEBYSHEV_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.CHEBYSHEV_FILTER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_DB"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.FFT_AMP_SPECTRUM_DB</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.HAMMING_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.HAMMING_WINDOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.WINDOWED_FIR_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.WINDOWED_FIR_FILTER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.BESSEL_FILTER"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.BESSEL_FILTER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.TRIANGLE_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.TRIANGLE_WINDOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.BLACKMAN_WINDOW"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.BLACKMAN_WINDOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.ARRAY_OFFSET"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ARRAY_OFFSET</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ArrayMeasurement.ARRAY_GAIN"><code class="docutils literal notranslate"><span class="pre">ArrayMeasurement.ARRAY_GAIN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#cablesensemode">CableSenseMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.CableSenseMode"><code class="docutils literal notranslate"><span class="pre">CableSenseMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.CableSenseMode.DISABLED"><code class="docutils literal notranslate"><span class="pre">CableSenseMode.DISABLED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.CableSenseMode.ON_DEMAND"><code class="docutils literal notranslate"><span class="pre">CableSenseMode.ON_DEMAND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#clearablemeasurement">ClearableMeasurement</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.ClearableMeasurement"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.ALL_MEASUREMENTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.ALL_MEASUREMENTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.MULTI_ACQ_TIME_HISTOGRAM"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MULTI_ACQ_TIME_HISTOGRAM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.MULTI_ACQ_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MULTI_ACQ_AVERAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FREQUENCY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.AVERAGE_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AVERAGE_FREQUENCY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.FFT_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FFT_FREQUENCY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.PERIOD"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.PERIOD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.AVERAGE_PERIOD"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AVERAGE_PERIOD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.RISE_TIME"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.RISE_TIME</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.FALL_TIME"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FALL_TIME</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.RISE_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.RISE_SLEW_RATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.FALL_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FALL_SLEW_RATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.OVERSHOOT"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.OVERSHOOT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.PRESHOOT"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.PRESHOOT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_RMS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_RMS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_CYCLE_RMS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_CYCLE_RMS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.AC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AC_ESTIMATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.FFT_AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.FFT_AMPLITUDE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_AVERAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_CYCLE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_CYCLE_AVERAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.DC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.DC_ESTIMATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_MAX"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_MAX</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_MIN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_MIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HIGH"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_LOW"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AMPLITUDE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_TOP"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_TOP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_BASE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_BASE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_BASE_TO_TOP"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_BASE_TO_TOP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.WIDTH_NEG"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.WIDTH_NEG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.WIDTH_POS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.WIDTH_POS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.DUTY_CYCLE_NEG"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.DUTY_CYCLE_NEG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.DUTY_CYCLE_POS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.DUTY_CYCLE_POS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.INTEGRAL"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.INTEGRAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.AREA"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.AREA</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.CYCLE_AREA"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.CYCLE_AREA</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_DELAY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_DELAY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.PHASE_DELAY"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.PHASE_DELAY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.LOW_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.LOW_REF_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.MID_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.MID_REF_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.HIGH_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.HIGH_REF_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEDIAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEDIAN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MODE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MODE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MAX"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MAX</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MIN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_HITS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_NEW_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.VOLTAGE_HISTOGRAM_NEW_HITS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEDIAN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEDIAN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MODE"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MODE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MAX"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MAX</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MIN"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_2_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_2_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_3_STDEV"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_3_STDEV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_HITS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_NEW_HITS"><code class="docutils literal notranslate"><span class="pre">ClearableMeasurement.TIME_HISTOGRAM_NEW_HITS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#firfilterwindow">FIRFilterWindow</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.FIRFilterWindow"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FIRFilterWindow.NONE"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FIRFilterWindow.HANNING"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.HANNING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FIRFilterWindow.FLAT_TOP"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.FLAT_TOP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FIRFilterWindow.HAMMING"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.HAMMING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FIRFilterWindow.TRIANGLE"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.TRIANGLE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FIRFilterWindow.BLACKMAN"><code class="docutils literal notranslate"><span class="pre">FIRFilterWindow.BLACKMAN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#fetchrelativeto">FetchRelativeTo</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.FetchRelativeTo"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FetchRelativeTo.READ_POINTER"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.READ_POINTER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FetchRelativeTo.PRETRIGGER"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.PRETRIGGER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FetchRelativeTo.NOW"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.NOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FetchRelativeTo.START"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.START</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FetchRelativeTo.TRIGGER"><code class="docutils literal notranslate"><span class="pre">FetchRelativeTo.TRIGGER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#filtertype">FilterType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.FilterType"><code class="docutils literal notranslate"><span class="pre">FilterType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FilterType.LOWPASS"><code class="docutils literal notranslate"><span class="pre">FilterType.LOWPASS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FilterType.HIGHPASS"><code class="docutils literal notranslate"><span class="pre">FilterType.HIGHPASS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FilterType.BANDPASS"><code class="docutils literal notranslate"><span class="pre">FilterType.BANDPASS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FilterType.BANDSTOP"><code class="docutils literal notranslate"><span class="pre">FilterType.BANDSTOP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#flexfirantialiasfiltertype">FlexFIRAntialiasFilterType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.FlexFIRAntialiasFilterType"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING"><code class="docutils literal notranslate"><span class="pre">FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#glitchcondition">GlitchCondition</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.GlitchCondition"><code class="docutils literal notranslate"><span class="pre">GlitchCondition</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.GlitchCondition.GREATER"><code class="docutils literal notranslate"><span class="pre">GlitchCondition.GREATER</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.GlitchCondition.LESS"><code class="docutils literal notranslate"><span class="pre">GlitchCondition.LESS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#glitchpolarity">GlitchPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.GlitchPolarity"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.GlitchPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.GlitchPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity.NEGATIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.GlitchPolarity.EITHER"><code class="docutils literal notranslate"><span class="pre">GlitchPolarity.EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#option">Option</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.Option"><code class="docutils literal notranslate"><span class="pre">Option</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.Option.SELF_CALIBRATE_ALL_CHANNELS"><code class="docutils literal notranslate"><span class="pre">Option.SELF_CALIBRATE_ALL_CHANNELS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.Option.RESTORE_EXTERNAL_CALIBRATION"><code class="docutils literal notranslate"><span class="pre">Option.RESTORE_EXTERNAL_CALIBRATION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#percentagemethod">PercentageMethod</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.PercentageMethod"><code class="docutils literal notranslate"><span class="pre">PercentageMethod</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.PercentageMethod.LOWHIGH"><code class="docutils literal notranslate"><span class="pre">PercentageMethod.LOWHIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.PercentageMethod.MINMAX"><code class="docutils literal notranslate"><span class="pre">PercentageMethod.MINMAX</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.PercentageMethod.BASETOP"><code class="docutils literal notranslate"><span class="pre">PercentageMethod.BASETOP</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#rismethod">RISMethod</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.RISMethod"><code class="docutils literal notranslate"><span class="pre">RISMethod</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RISMethod.EXACT_NUM_AVERAGES"><code class="docutils literal notranslate"><span class="pre">RISMethod.EXACT_NUM_AVERAGES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RISMethod.MIN_NUM_AVERAGES"><code class="docutils literal notranslate"><span class="pre">RISMethod.MIN_NUM_AVERAGES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RISMethod.INCOMPLETE"><code class="docutils literal notranslate"><span class="pre">RISMethod.INCOMPLETE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RISMethod.LIMITED_BIN_WIDTH"><code class="docutils literal notranslate"><span class="pre">RISMethod.LIMITED_BIN_WIDTH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#reflevelunits">RefLevelUnits</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.RefLevelUnits"><code class="docutils literal notranslate"><span class="pre">RefLevelUnits</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RefLevelUnits.VOLTS"><code class="docutils literal notranslate"><span class="pre">RefLevelUnits.VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RefLevelUnits.PERCENTAGE"><code class="docutils literal notranslate"><span class="pre">RefLevelUnits.PERCENTAGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#reftriggerdetectorlocation">RefTriggerDetectorLocation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.RefTriggerDetectorLocation"><code class="docutils literal notranslate"><span class="pre">RefTriggerDetectorLocation</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RefTriggerDetectorLocation.ANALOG_DETECTION_CIRCUIT"><code class="docutils literal notranslate"><span class="pre">RefTriggerDetectorLocation.ANALOG_DETECTION_CIRCUIT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RefTriggerDetectorLocation.DDC_OUTPUT"><code class="docutils literal notranslate"><span class="pre">RefTriggerDetectorLocation.DDC_OUTPUT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#runtpolarity">RuntPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.RuntPolarity"><code class="docutils literal notranslate"><span class="pre">RuntPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RuntPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">RuntPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RuntPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">RuntPolarity.NEGATIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RuntPolarity.EITHER"><code class="docutils literal notranslate"><span class="pre">RuntPolarity.EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#runttimecondition">RuntTimeCondition</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.RuntTimeCondition"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RuntTimeCondition.NONE"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition.NONE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RuntTimeCondition.WITHIN"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition.WITHIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.RuntTimeCondition.OUTSIDE"><code class="docutils literal notranslate"><span class="pre">RuntTimeCondition.OUTSIDE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#scalarmeasurement">ScalarMeasurement</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.ScalarMeasurement"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.NO_MEASUREMENT"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.NO_MEASUREMENT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.RISE_TIME"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.RISE_TIME</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.FALL_TIME"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FALL_TIME</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FREQUENCY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.PERIOD"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.PERIOD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_RMS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_RMS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_PEAK_TO_PEAK"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_PEAK_TO_PEAK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_MAX"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_MAX</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_MIN"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_MIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_HIGH"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_HIGH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_LOW"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_LOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_AVERAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.WIDTH_NEG"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.WIDTH_NEG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.WIDTH_POS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.WIDTH_POS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.DUTY_CYCLE_NEG"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.DUTY_CYCLE_NEG</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.DUTY_CYCLE_POS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.DUTY_CYCLE_POS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AMPLITUDE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_CYCLE_RMS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_CYCLE_RMS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_CYCLE_AVERAGE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_CYCLE_AVERAGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.OVERSHOOT"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.OVERSHOOT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.PRESHOOT"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.PRESHOOT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.LOW_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.LOW_REF_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.MID_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.MID_REF_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.HIGH_REF_VOLTS"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.HIGH_REF_VOLTS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.AREA"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AREA</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.CYCLE_AREA"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.CYCLE_AREA</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.INTEGRAL"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.INTEGRAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_BASE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_BASE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_TOP"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_TOP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.FFT_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FFT_FREQUENCY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.FFT_AMPLITUDE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FFT_AMPLITUDE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.RISE_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.RISE_SLEW_RATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.FALL_SLEW_RATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.FALL_SLEW_RATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.AC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AC_ESTIMATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.DC_ESTIMATE"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.DC_ESTIMATE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.TIME_DELAY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.TIME_DELAY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.AVERAGE_PERIOD"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AVERAGE_PERIOD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.AVERAGE_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.AVERAGE_FREQUENCY</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.VOLTAGE_BASE_TO_TOP"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.VOLTAGE_BASE_TO_TOP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.ScalarMeasurement.PHASE_DELAY"><code class="docutils literal notranslate"><span class="pre">ScalarMeasurement.PHASE_DELAY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#terminalconfiguration">TerminalConfiguration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.TerminalConfiguration"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TerminalConfiguration.SINGLE_ENDED"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.SINGLE_ENDED</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TerminalConfiguration.UNBALANCED_DIFFERENTIAL"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.UNBALANCED_DIFFERENTIAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TerminalConfiguration.DIFFERENTIAL"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.DIFFERENTIAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggercoupling">TriggerCoupling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.TriggerCoupling"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerCoupling.AC"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.AC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerCoupling.DC"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.DC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerCoupling.HF_REJECT"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.HF_REJECT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerCoupling.LF_REJECT"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.LF_REJECT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerCoupling.AC_PLUS_HF_REJECT"><code class="docutils literal notranslate"><span class="pre">TriggerCoupling.AC_PLUS_HF_REJECT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggermodifier">TriggerModifier</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.TriggerModifier"><code class="docutils literal notranslate"><span class="pre">TriggerModifier</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerModifier.NO_TRIGGER_MOD"><code class="docutils literal notranslate"><span class="pre">TriggerModifier.NO_TRIGGER_MOD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerModifier.AUTO"><code class="docutils literal notranslate"><span class="pre">TriggerModifier.AUTO</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerModifier.AUTO_LEVEL"><code class="docutils literal notranslate"><span class="pre">TriggerModifier.AUTO_LEVEL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggerslope">TriggerSlope</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.TriggerSlope"><code class="docutils literal notranslate"><span class="pre">TriggerSlope</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerSlope.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">TriggerSlope.NEGATIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerSlope.POSITIVE"><code class="docutils literal notranslate"><span class="pre">TriggerSlope.POSITIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerSlope.SLOPE_EITHER"><code class="docutils literal notranslate"><span class="pre">TriggerSlope.SLOPE_EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggertype">TriggerType</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.TriggerType"><code class="docutils literal notranslate"><span class="pre">TriggerType</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.EDGE"><code class="docutils literal notranslate"><span class="pre">TriggerType.EDGE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.HYSTERESIS"><code class="docutils literal notranslate"><span class="pre">TriggerType.HYSTERESIS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.DIGITAL"><code class="docutils literal notranslate"><span class="pre">TriggerType.DIGITAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.WINDOW"><code class="docutils literal notranslate"><span class="pre">TriggerType.WINDOW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.SOFTWARE"><code class="docutils literal notranslate"><span class="pre">TriggerType.SOFTWARE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.TV"><code class="docutils literal notranslate"><span class="pre">TriggerType.TV</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.GLITCH"><code class="docutils literal notranslate"><span class="pre">TriggerType.GLITCH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.WIDTH"><code class="docutils literal notranslate"><span class="pre">TriggerType.WIDTH</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.RUNT"><code class="docutils literal notranslate"><span class="pre">TriggerType.RUNT</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerType.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">TriggerType.IMMEDIATE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#triggerwindowmode">TriggerWindowMode</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.TriggerWindowMode"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerWindowMode.ENTERING"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode.ENTERING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerWindowMode.LEAVING"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode.LEAVING</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.TriggerWindowMode.ENTERING_OR_LEAVING"><code class="docutils literal notranslate"><span class="pre">TriggerWindowMode.ENTERING_OR_LEAVING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#verticalcoupling">VerticalCoupling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.VerticalCoupling"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VerticalCoupling.AC"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling.AC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VerticalCoupling.DC"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling.DC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VerticalCoupling.GND"><code class="docutils literal notranslate"><span class="pre">VerticalCoupling.GND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#videopolarity">VideoPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.VideoPolarity"><code class="docutils literal notranslate"><span class="pre">VideoPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">VideoPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">VideoPolarity.NEGATIVE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#videosignalformat">VideoSignalFormat</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.VideoSignalFormat"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.NTSC"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.NTSC</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.PAL"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.PAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.SECAM"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.SECAM</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.M_PAL"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.M_PAL</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND"><code class="docutils literal notranslate"><span class="pre">VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#videotriggerevent">VideoTriggerEvent</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.VideoTriggerEvent"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoTriggerEvent.FIELD1"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.FIELD1</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoTriggerEvent.FIELD2"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.FIELD2</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoTriggerEvent.ANY_FIELD"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.ANY_FIELD</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoTriggerEvent.ANY_LINE"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.ANY_LINE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.VideoTriggerEvent.LINE_NUMBER"><code class="docutils literal notranslate"><span class="pre">VideoTriggerEvent.LINE_NUMBER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#whichtrigger">WhichTrigger</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.WhichTrigger"><code class="docutils literal notranslate"><span class="pre">WhichTrigger</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WhichTrigger.START"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.START</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WhichTrigger.ARM_REFERENCE"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.ARM_REFERENCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WhichTrigger.REFERENCE"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.REFERENCE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WhichTrigger.ADVANCE"><code class="docutils literal notranslate"><span class="pre">WhichTrigger.ADVANCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#widthcondition">WidthCondition</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.WidthCondition"><code class="docutils literal notranslate"><span class="pre">WidthCondition</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WidthCondition.WITHIN"><code class="docutils literal notranslate"><span class="pre">WidthCondition.WITHIN</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WidthCondition.OUTSIDE"><code class="docutils literal notranslate"><span class="pre">WidthCondition.OUTSIDE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#widthpolarity">WidthPolarity</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#niscope.WidthPolarity"><code class="docutils literal notranslate"><span class="pre">WidthPolarity</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WidthPolarity.POSITIVE"><code class="docutils literal notranslate"><span class="pre">WidthPolarity.POSITIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WidthPolarity.NEGATIVE"><code class="docutils literal notranslate"><span class="pre">WidthPolarity.NEGATIVE</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="#niscope.WidthPolarity.EITHER"><code class="docutils literal notranslate"><span class="pre">WidthPolarity.EITHER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-SCOPE Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="niscope.html">niscope module</a></li>
+      <li class="breadcrumb-item active">Enums</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enums.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading"></a></h1>
+<p>Enums used in NI-SCOPE</p>
+<section id="acquisitionstatus">
+<h2>AcquisitionStatus<a class="headerlink" href="#acquisitionstatus" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.AcquisitionStatus">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">AcquisitionStatus</span></span><a class="headerlink" href="#niscope.AcquisitionStatus" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.AcquisitionStatus.COMPLETE">
+<span class="sig-name descname"><span class="pre">COMPLETE</span></span><a class="headerlink" href="#niscope.AcquisitionStatus.COMPLETE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.AcquisitionStatus.IN_PROGRESS">
+<span class="sig-name descname"><span class="pre">IN_PROGRESS</span></span><a class="headerlink" href="#niscope.AcquisitionStatus.IN_PROGRESS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.AcquisitionStatus.STATUS_UNKNOWN">
+<span class="sig-name descname"><span class="pre">STATUS_UNKNOWN</span></span><a class="headerlink" href="#niscope.AcquisitionStatus.STATUS_UNKNOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="acquisitiontype">
+<h2>AcquisitionType<a class="headerlink" href="#acquisitiontype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.AcquisitionType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">AcquisitionType</span></span><a class="headerlink" href="#niscope.AcquisitionType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.AcquisitionType.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><a class="headerlink" href="#niscope.AcquisitionType.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>Sets the digitizer to normal resolution mode. The digitizer can use real-time sampling or equivalent-time sampling.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.AcquisitionType.FLEXRES">
+<span class="sig-name descname"><span class="pre">FLEXRES</span></span><a class="headerlink" href="#niscope.AcquisitionType.FLEXRES" title="Link to this definition"></a></dt>
+<dd><p>Sets the digitizer to flexible resolution mode if supported.  The digitizer uses different hardware configurations to change the resolution depending on the sampling rate used.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.AcquisitionType.DDC">
+<span class="sig-name descname"><span class="pre">DDC</span></span><a class="headerlink" href="#niscope.AcquisitionType.DDC" title="Link to this definition"></a></dt>
+<dd><p>Sets the digitizer to DDC mode on the NI 5620/5621.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="arraymeasurement">
+<h2>ArrayMeasurement<a class="headerlink" href="#arraymeasurement" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">ArrayMeasurement</span></span><a class="headerlink" href="#niscope.ArrayMeasurement" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.NO_MEASUREMENT">
+<span class="sig-name descname"><span class="pre">NO_MEASUREMENT</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.NO_MEASUREMENT" title="Link to this definition"></a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.LAST_ACQ_HISTOGRAM">
+<span class="sig-name descname"><span class="pre">LAST_ACQ_HISTOGRAM</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.LAST_ACQ_HISTOGRAM" title="Link to this definition"></a></dt>
+<dd><p>Last Acquisition Histogram</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.FFT_PHASE_SPECTRUM">
+<span class="sig-name descname"><span class="pre">FFT_PHASE_SPECTRUM</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.FFT_PHASE_SPECTRUM" title="Link to this definition"></a></dt>
+<dd><p>FFT Phase Spectrum</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_VOLTS_RMS">
+<span class="sig-name descname"><span class="pre">FFT_AMP_SPECTRUM_VOLTS_RMS</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_VOLTS_RMS" title="Link to this definition"></a></dt>
+<dd><p>FFT Amp. Spectrum (Volts RMS)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM">
+<span class="sig-name descname"><span class="pre">MULTI_ACQ_VOLTAGE_HISTOGRAM</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM" title="Link to this definition"></a></dt>
+<dd><p>Multi Acquisition Voltage Histogram</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.MULTI_ACQ_TIME_HISTOGRAM">
+<span class="sig-name descname"><span class="pre">MULTI_ACQ_TIME_HISTOGRAM</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.MULTI_ACQ_TIME_HISTOGRAM" title="Link to this definition"></a></dt>
+<dd><p>Multi Acquisition Time Histogram</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.ARRAY_INTEGRAL">
+<span class="sig-name descname"><span class="pre">ARRAY_INTEGRAL</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.ARRAY_INTEGRAL" title="Link to this definition"></a></dt>
+<dd><p>Array Integral</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.DERIVATIVE">
+<span class="sig-name descname"><span class="pre">DERIVATIVE</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.DERIVATIVE" title="Link to this definition"></a></dt>
+<dd><p>Derivative</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.INVERSE">
+<span class="sig-name descname"><span class="pre">INVERSE</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.INVERSE" title="Link to this definition"></a></dt>
+<dd><p>Inverse</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.HANNING_WINDOW">
+<span class="sig-name descname"><span class="pre">HANNING_WINDOW</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.HANNING_WINDOW" title="Link to this definition"></a></dt>
+<dd><p>Hanning Window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.FLAT_TOP_WINDOW">
+<span class="sig-name descname"><span class="pre">FLAT_TOP_WINDOW</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.FLAT_TOP_WINDOW" title="Link to this definition"></a></dt>
+<dd><p>Flat Top Window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.POLYNOMIAL_INTERPOLATION">
+<span class="sig-name descname"><span class="pre">POLYNOMIAL_INTERPOLATION</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.POLYNOMIAL_INTERPOLATION" title="Link to this definition"></a></dt>
+<dd><p>Polynomial Interpolation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.MULTIPLY_CHANNELS">
+<span class="sig-name descname"><span class="pre">MULTIPLY_CHANNELS</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.MULTIPLY_CHANNELS" title="Link to this definition"></a></dt>
+<dd><p>Multiply Channels</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.ADD_CHANNELS">
+<span class="sig-name descname"><span class="pre">ADD_CHANNELS</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.ADD_CHANNELS" title="Link to this definition"></a></dt>
+<dd><p>Add Channels</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.SUBTRACT_CHANNELS">
+<span class="sig-name descname"><span class="pre">SUBTRACT_CHANNELS</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.SUBTRACT_CHANNELS" title="Link to this definition"></a></dt>
+<dd><p>Subtract Channels</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.DIVIDE_CHANNELS">
+<span class="sig-name descname"><span class="pre">DIVIDE_CHANNELS</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.DIVIDE_CHANNELS" title="Link to this definition"></a></dt>
+<dd><p>Divide Channels</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.MULTI_ACQ_AVERAGE">
+<span class="sig-name descname"><span class="pre">MULTI_ACQ_AVERAGE</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.MULTI_ACQ_AVERAGE" title="Link to this definition"></a></dt>
+<dd><p>Multi Acquisition Average</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.BUTTERWORTH_FILTER">
+<span class="sig-name descname"><span class="pre">BUTTERWORTH_FILTER</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.BUTTERWORTH_FILTER" title="Link to this definition"></a></dt>
+<dd><p>Butterworth IIR Filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.CHEBYSHEV_FILTER">
+<span class="sig-name descname"><span class="pre">CHEBYSHEV_FILTER</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.CHEBYSHEV_FILTER" title="Link to this definition"></a></dt>
+<dd><p>Chebyshev IIR Filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_DB">
+<span class="sig-name descname"><span class="pre">FFT_AMP_SPECTRUM_DB</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.FFT_AMP_SPECTRUM_DB" title="Link to this definition"></a></dt>
+<dd><p>FFT Amp. Spectrum (dB)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.HAMMING_WINDOW">
+<span class="sig-name descname"><span class="pre">HAMMING_WINDOW</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.HAMMING_WINDOW" title="Link to this definition"></a></dt>
+<dd><p>Hamming Window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.WINDOWED_FIR_FILTER">
+<span class="sig-name descname"><span class="pre">WINDOWED_FIR_FILTER</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.WINDOWED_FIR_FILTER" title="Link to this definition"></a></dt>
+<dd><p>FIR Windowed Filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.BESSEL_FILTER">
+<span class="sig-name descname"><span class="pre">BESSEL_FILTER</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.BESSEL_FILTER" title="Link to this definition"></a></dt>
+<dd><p>Bessel IIR Filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.TRIANGLE_WINDOW">
+<span class="sig-name descname"><span class="pre">TRIANGLE_WINDOW</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.TRIANGLE_WINDOW" title="Link to this definition"></a></dt>
+<dd><p>Triangle Window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.BLACKMAN_WINDOW">
+<span class="sig-name descname"><span class="pre">BLACKMAN_WINDOW</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.BLACKMAN_WINDOW" title="Link to this definition"></a></dt>
+<dd><p>Blackman Window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.ARRAY_OFFSET">
+<span class="sig-name descname"><span class="pre">ARRAY_OFFSET</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.ARRAY_OFFSET" title="Link to this definition"></a></dt>
+<dd><p>Array Offset</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ArrayMeasurement.ARRAY_GAIN">
+<span class="sig-name descname"><span class="pre">ARRAY_GAIN</span></span><a class="headerlink" href="#niscope.ArrayMeasurement.ARRAY_GAIN" title="Link to this definition"></a></dt>
+<dd><p>Array Gain</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cablesensemode">
+<h2>CableSenseMode<a class="headerlink" href="#cablesensemode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.CableSenseMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">CableSenseMode</span></span><a class="headerlink" href="#niscope.CableSenseMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.CableSenseMode.DISABLED">
+<span class="sig-name descname"><span class="pre">DISABLED</span></span><a class="headerlink" href="#niscope.CableSenseMode.DISABLED" title="Link to this definition"></a></dt>
+<dd><p>The oscilloscope is not configured to emit a CableSense signal.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.CableSenseMode.ON_DEMAND">
+<span class="sig-name descname"><span class="pre">ON_DEMAND</span></span><a class="headerlink" href="#niscope.CableSenseMode.ON_DEMAND" title="Link to this definition"></a></dt>
+<dd><p>The oscilloscope is configured to emit a single CableSense pulse.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="clearablemeasurement">
+<h2>ClearableMeasurement<a class="headerlink" href="#clearablemeasurement" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">ClearableMeasurement</span></span><a class="headerlink" href="#niscope.ClearableMeasurement" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.ALL_MEASUREMENTS">
+<span class="sig-name descname"><span class="pre">ALL_MEASUREMENTS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.ALL_MEASUREMENTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM">
+<span class="sig-name descname"><span class="pre">MULTI_ACQ_VOLTAGE_HISTOGRAM</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.MULTI_ACQ_VOLTAGE_HISTOGRAM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.MULTI_ACQ_TIME_HISTOGRAM">
+<span class="sig-name descname"><span class="pre">MULTI_ACQ_TIME_HISTOGRAM</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.MULTI_ACQ_TIME_HISTOGRAM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.MULTI_ACQ_AVERAGE">
+<span class="sig-name descname"><span class="pre">MULTI_ACQ_AVERAGE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.MULTI_ACQ_AVERAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.FREQUENCY">
+<span class="sig-name descname"><span class="pre">FREQUENCY</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.FREQUENCY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.AVERAGE_FREQUENCY">
+<span class="sig-name descname"><span class="pre">AVERAGE_FREQUENCY</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.AVERAGE_FREQUENCY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.FFT_FREQUENCY">
+<span class="sig-name descname"><span class="pre">FFT_FREQUENCY</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.FFT_FREQUENCY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.PERIOD">
+<span class="sig-name descname"><span class="pre">PERIOD</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.PERIOD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.AVERAGE_PERIOD">
+<span class="sig-name descname"><span class="pre">AVERAGE_PERIOD</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.AVERAGE_PERIOD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.RISE_TIME">
+<span class="sig-name descname"><span class="pre">RISE_TIME</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.RISE_TIME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.FALL_TIME">
+<span class="sig-name descname"><span class="pre">FALL_TIME</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.FALL_TIME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.RISE_SLEW_RATE">
+<span class="sig-name descname"><span class="pre">RISE_SLEW_RATE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.RISE_SLEW_RATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.FALL_SLEW_RATE">
+<span class="sig-name descname"><span class="pre">FALL_SLEW_RATE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.FALL_SLEW_RATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.OVERSHOOT">
+<span class="sig-name descname"><span class="pre">OVERSHOOT</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.OVERSHOOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.PRESHOOT">
+<span class="sig-name descname"><span class="pre">PRESHOOT</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.PRESHOOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_RMS">
+<span class="sig-name descname"><span class="pre">VOLTAGE_RMS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_RMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_CYCLE_RMS">
+<span class="sig-name descname"><span class="pre">VOLTAGE_CYCLE_RMS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_CYCLE_RMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.AC_ESTIMATE">
+<span class="sig-name descname"><span class="pre">AC_ESTIMATE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.AC_ESTIMATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.FFT_AMPLITUDE">
+<span class="sig-name descname"><span class="pre">FFT_AMPLITUDE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.FFT_AMPLITUDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_AVERAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_AVERAGE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_AVERAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_CYCLE_AVERAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_CYCLE_AVERAGE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_CYCLE_AVERAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.DC_ESTIMATE">
+<span class="sig-name descname"><span class="pre">DC_ESTIMATE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.DC_ESTIMATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_MAX">
+<span class="sig-name descname"><span class="pre">VOLTAGE_MAX</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_MAX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_MIN">
+<span class="sig-name descname"><span class="pre">VOLTAGE_MIN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_MIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_PEAK_TO_PEAK">
+<span class="sig-name descname"><span class="pre">VOLTAGE_PEAK_TO_PEAK</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_PEAK_TO_PEAK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HIGH">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HIGH</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HIGH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_LOW">
+<span class="sig-name descname"><span class="pre">VOLTAGE_LOW</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_LOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.AMPLITUDE">
+<span class="sig-name descname"><span class="pre">AMPLITUDE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.AMPLITUDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_TOP">
+<span class="sig-name descname"><span class="pre">VOLTAGE_TOP</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_TOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_BASE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_BASE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_BASE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_BASE_TO_TOP">
+<span class="sig-name descname"><span class="pre">VOLTAGE_BASE_TO_TOP</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_BASE_TO_TOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.WIDTH_NEG">
+<span class="sig-name descname"><span class="pre">WIDTH_NEG</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.WIDTH_NEG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.WIDTH_POS">
+<span class="sig-name descname"><span class="pre">WIDTH_POS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.WIDTH_POS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.DUTY_CYCLE_NEG">
+<span class="sig-name descname"><span class="pre">DUTY_CYCLE_NEG</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.DUTY_CYCLE_NEG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.DUTY_CYCLE_POS">
+<span class="sig-name descname"><span class="pre">DUTY_CYCLE_POS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.DUTY_CYCLE_POS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.INTEGRAL">
+<span class="sig-name descname"><span class="pre">INTEGRAL</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.INTEGRAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.AREA">
+<span class="sig-name descname"><span class="pre">AREA</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.AREA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.CYCLE_AREA">
+<span class="sig-name descname"><span class="pre">CYCLE_AREA</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.CYCLE_AREA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_DELAY">
+<span class="sig-name descname"><span class="pre">TIME_DELAY</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_DELAY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.PHASE_DELAY">
+<span class="sig-name descname"><span class="pre">PHASE_DELAY</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.PHASE_DELAY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.LOW_REF_VOLTS">
+<span class="sig-name descname"><span class="pre">LOW_REF_VOLTS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.LOW_REF_VOLTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.MID_REF_VOLTS">
+<span class="sig-name descname"><span class="pre">MID_REF_VOLTS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.MID_REF_VOLTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.HIGH_REF_VOLTS">
+<span class="sig-name descname"><span class="pre">HIGH_REF_VOLTS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.HIGH_REF_VOLTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MEAN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_STDEV">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEDIAN">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MEDIAN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEDIAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MODE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MODE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MAX">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MAX</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MAX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MIN">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MIN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_PEAK_TO_PEAK">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_PEAK_TO_PEAK</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_PEAK_TO_PEAK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_2_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_MEAN_PLUS_3_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_HITS">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_HITS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_HITS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_NEW_HITS">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HISTOGRAM_NEW_HITS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.VOLTAGE_HISTOGRAM_NEW_HITS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MEAN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_STDEV">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MEDIAN">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MEDIAN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEDIAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MODE">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MODE</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MAX">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MAX</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MAX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MIN">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MIN</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_PEAK_TO_PEAK">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_PEAK_TO_PEAK</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_PEAK_TO_PEAK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_STDEV">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MEAN_PLUS_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_2_STDEV">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MEAN_PLUS_2_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_2_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_3_STDEV">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_MEAN_PLUS_3_STDEV</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_MEAN_PLUS_3_STDEV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_HITS">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_HITS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_HITS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ClearableMeasurement.TIME_HISTOGRAM_NEW_HITS">
+<span class="sig-name descname"><span class="pre">TIME_HISTOGRAM_NEW_HITS</span></span><a class="headerlink" href="#niscope.ClearableMeasurement.TIME_HISTOGRAM_NEW_HITS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="firfilterwindow">
+<h2>FIRFilterWindow<a class="headerlink" href="#firfilterwindow" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">FIRFilterWindow</span></span><a class="headerlink" href="#niscope.FIRFilterWindow" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#niscope.FIRFilterWindow.NONE" title="Link to this definition"></a></dt>
+<dd><p>No window.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow.HANNING">
+<span class="sig-name descname"><span class="pre">HANNING</span></span><a class="headerlink" href="#niscope.FIRFilterWindow.HANNING" title="Link to this definition"></a></dt>
+<dd><p>Specifies a Hanning window.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow.FLAT_TOP">
+<span class="sig-name descname"><span class="pre">FLAT_TOP</span></span><a class="headerlink" href="#niscope.FIRFilterWindow.FLAT_TOP" title="Link to this definition"></a></dt>
+<dd><p>Specifies a Flat Top window.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow.HAMMING">
+<span class="sig-name descname"><span class="pre">HAMMING</span></span><a class="headerlink" href="#niscope.FIRFilterWindow.HAMMING" title="Link to this definition"></a></dt>
+<dd><p>Specifies a Hamming window.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow.TRIANGLE">
+<span class="sig-name descname"><span class="pre">TRIANGLE</span></span><a class="headerlink" href="#niscope.FIRFilterWindow.TRIANGLE" title="Link to this definition"></a></dt>
+<dd><p>Specifies a Triangle window.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FIRFilterWindow.BLACKMAN">
+<span class="sig-name descname"><span class="pre">BLACKMAN</span></span><a class="headerlink" href="#niscope.FIRFilterWindow.BLACKMAN" title="Link to this definition"></a></dt>
+<dd><p>Specifies a Blackman window.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="fetchrelativeto">
+<h2>FetchRelativeTo<a class="headerlink" href="#fetchrelativeto" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.FetchRelativeTo">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">FetchRelativeTo</span></span><a class="headerlink" href="#niscope.FetchRelativeTo" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FetchRelativeTo.READ_POINTER">
+<span class="sig-name descname"><span class="pre">READ_POINTER</span></span><a class="headerlink" href="#niscope.FetchRelativeTo.READ_POINTER" title="Link to this definition"></a></dt>
+<dd><p>The read pointer is set to zero when a new acquisition is initiated. After every fetch the read pointer is incremeted to be the sample after the last sample retrieved.  Therefore, you can repeatedly fetch relative to the read pointer for a continuous acquisition program.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FetchRelativeTo.PRETRIGGER">
+<span class="sig-name descname"><span class="pre">PRETRIGGER</span></span><a class="headerlink" href="#niscope.FetchRelativeTo.PRETRIGGER" title="Link to this definition"></a></dt>
+<dd><p>Fetches relative to the first pretrigger point requested with <a class="reference internal" href="class.html#niscope.Session.configure_horizontal_timing" title="niscope.Session.configure_horizontal_timing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.configure_horizontal_timing()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FetchRelativeTo.NOW">
+<span class="sig-name descname"><span class="pre">NOW</span></span><a class="headerlink" href="#niscope.FetchRelativeTo.NOW" title="Link to this definition"></a></dt>
+<dd><p>Fetch data at the last sample acquired.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FetchRelativeTo.START">
+<span class="sig-name descname"><span class="pre">START</span></span><a class="headerlink" href="#niscope.FetchRelativeTo.START" title="Link to this definition"></a></dt>
+<dd><p>Fetch data starting at the first point sampled by the digitizer.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FetchRelativeTo.TRIGGER">
+<span class="sig-name descname"><span class="pre">TRIGGER</span></span><a class="headerlink" href="#niscope.FetchRelativeTo.TRIGGER" title="Link to this definition"></a></dt>
+<dd><p>Fetch at the first posttrigger sample.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="filtertype">
+<h2>FilterType<a class="headerlink" href="#filtertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.FilterType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">FilterType</span></span><a class="headerlink" href="#niscope.FilterType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FilterType.LOWPASS">
+<span class="sig-name descname"><span class="pre">LOWPASS</span></span><a class="headerlink" href="#niscope.FilterType.LOWPASS" title="Link to this definition"></a></dt>
+<dd><p>Specifies lowpass as the filter type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FilterType.HIGHPASS">
+<span class="sig-name descname"><span class="pre">HIGHPASS</span></span><a class="headerlink" href="#niscope.FilterType.HIGHPASS" title="Link to this definition"></a></dt>
+<dd><p>Specifies highpass as the filter type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FilterType.BANDPASS">
+<span class="sig-name descname"><span class="pre">BANDPASS</span></span><a class="headerlink" href="#niscope.FilterType.BANDPASS" title="Link to this definition"></a></dt>
+<dd><p>Specifies bandpass as the filter type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FilterType.BANDSTOP">
+<span class="sig-name descname"><span class="pre">BANDSTOP</span></span><a class="headerlink" href="#niscope.FilterType.BANDSTOP" title="Link to this definition"></a></dt>
+<dd><p>Specifies bandstop as the filter type.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="flexfirantialiasfiltertype">
+<h2>FlexFIRAntialiasFilterType<a class="headerlink" href="#flexfirantialiasfiltertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.FlexFIRAntialiasFilterType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">FlexFIRAntialiasFilterType</span></span><a class="headerlink" href="#niscope.FlexFIRAntialiasFilterType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD">
+<span class="sig-name descname"><span class="pre">FOURTYEIGHT_TAP_STANDARD</span></span><a class="headerlink" href="#niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD" title="Link to this definition"></a></dt>
+<dd><p>This filter is optimized for alias protection and frequency-domain flatness</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING">
+<span class="sig-name descname"><span class="pre">FOURTYEIGHT_TAP_HANNING</span></span><a class="headerlink" href="#niscope.FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING" title="Link to this definition"></a></dt>
+<dd><p>This filter is optimized for the lowest possible bandwidth for a 48 tap filter and maximizes the SNR</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING">
+<span class="sig-name descname"><span class="pre">SIXTEEN_TAP_HANNING</span></span><a class="headerlink" href="#niscope.FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING" title="Link to this definition"></a></dt>
+<dd><p>This filter is optimized for the lowest possible bandwidth for a 16 tap filter and maximizes the SNR</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING">
+<span class="sig-name descname"><span class="pre">EIGHT_TAP_HANNING</span></span><a class="headerlink" href="#niscope.FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING" title="Link to this definition"></a></dt>
+<dd><p>This filter is optimized for the lowest possible bandwidth for a 8 tap filter and maximizes the SNR</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="glitchcondition">
+<h2>GlitchCondition<a class="headerlink" href="#glitchcondition" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.GlitchCondition">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">GlitchCondition</span></span><a class="headerlink" href="#niscope.GlitchCondition" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.GlitchCondition.GREATER">
+<span class="sig-name descname"><span class="pre">GREATER</span></span><a class="headerlink" href="#niscope.GlitchCondition.GREATER" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses with a duration greater than the specified glitch width.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.GlitchCondition.LESS">
+<span class="sig-name descname"><span class="pre">LESS</span></span><a class="headerlink" href="#niscope.GlitchCondition.LESS" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses with a duration shorter than the specified glitch width.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="glitchpolarity">
+<h2>GlitchPolarity<a class="headerlink" href="#glitchpolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.GlitchPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">GlitchPolarity</span></span><a class="headerlink" href="#niscope.GlitchPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.GlitchPolarity.POSITIVE">
+<span class="sig-name descname"><span class="pre">POSITIVE</span></span><a class="headerlink" href="#niscope.GlitchPolarity.POSITIVE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of positive polarity relative to the trigger threshold.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.GlitchPolarity.NEGATIVE">
+<span class="sig-name descname"><span class="pre">NEGATIVE</span></span><a class="headerlink" href="#niscope.GlitchPolarity.NEGATIVE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of negative polarity relative to the trigger threshold.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.GlitchPolarity.EITHER">
+<span class="sig-name descname"><span class="pre">EITHER</span></span><a class="headerlink" href="#niscope.GlitchPolarity.EITHER" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of either positive or negative polarity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="option">
+<h2>Option<a class="headerlink" href="#option" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.Option">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">Option</span></span><a class="headerlink" href="#niscope.Option" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.Option.SELF_CALIBRATE_ALL_CHANNELS">
+<span class="sig-name descname"><span class="pre">SELF_CALIBRATE_ALL_CHANNELS</span></span><a class="headerlink" href="#niscope.Option.SELF_CALIBRATE_ALL_CHANNELS" title="Link to this definition"></a></dt>
+<dd><p>Self Calibrating all Channels</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.Option.RESTORE_EXTERNAL_CALIBRATION">
+<span class="sig-name descname"><span class="pre">RESTORE_EXTERNAL_CALIBRATION</span></span><a class="headerlink" href="#niscope.Option.RESTORE_EXTERNAL_CALIBRATION" title="Link to this definition"></a></dt>
+<dd><p>Restore External Calibration.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="percentagemethod">
+<h2>PercentageMethod<a class="headerlink" href="#percentagemethod" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.PercentageMethod">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">PercentageMethod</span></span><a class="headerlink" href="#niscope.PercentageMethod" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.PercentageMethod.LOWHIGH">
+<span class="sig-name descname"><span class="pre">LOWHIGH</span></span><a class="headerlink" href="#niscope.PercentageMethod.LOWHIGH" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the reference level percentages should be computed using
+the low/high method,</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.PercentageMethod.MINMAX">
+<span class="sig-name descname"><span class="pre">MINMAX</span></span><a class="headerlink" href="#niscope.PercentageMethod.MINMAX" title="Link to this definition"></a></dt>
+<dd><p>Reference level percentages are computed using the min/max method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.PercentageMethod.BASETOP">
+<span class="sig-name descname"><span class="pre">BASETOP</span></span><a class="headerlink" href="#niscope.PercentageMethod.BASETOP" title="Link to this definition"></a></dt>
+<dd><p>Reference level percentages are computed using the base/top method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="rismethod">
+<h2>RISMethod<a class="headerlink" href="#rismethod" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.RISMethod">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">RISMethod</span></span><a class="headerlink" href="#niscope.RISMethod" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RISMethod.EXACT_NUM_AVERAGES">
+<span class="sig-name descname"><span class="pre">EXACT_NUM_AVERAGES</span></span><a class="headerlink" href="#niscope.RISMethod.EXACT_NUM_AVERAGES" title="Link to this definition"></a></dt>
+<dd><p>Acquires exactly the specified number of records for each bin in the RIS acquisition.  An error is returned from the fetch method if the RIS acquisition does not successfully acquire the specified number of waveforms within the timeout period.  You may call the fetch method again to allow more time for the acquisition to finish.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RISMethod.MIN_NUM_AVERAGES">
+<span class="sig-name descname"><span class="pre">MIN_NUM_AVERAGES</span></span><a class="headerlink" href="#niscope.RISMethod.MIN_NUM_AVERAGES" title="Link to this definition"></a></dt>
+<dd><p>Each RIS sample is the average of a least a minimum number of randomly
+distributed points.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RISMethod.INCOMPLETE">
+<span class="sig-name descname"><span class="pre">INCOMPLETE</span></span><a class="headerlink" href="#niscope.RISMethod.INCOMPLETE" title="Link to this definition"></a></dt>
+<dd><p>Returns the RIS waveform after the specified timeout even if it is incomplete.  If no waveforms have been acquired in certain bins, these bins will have a NaN (when fetching scaled data) or a zero (when fetching binary data). A warning (positive error code) is returned from the fetch method if the RIS acquisition did not finish.  The acquisition aborts when data is returned.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RISMethod.LIMITED_BIN_WIDTH">
+<span class="sig-name descname"><span class="pre">LIMITED_BIN_WIDTH</span></span><a class="headerlink" href="#niscope.RISMethod.LIMITED_BIN_WIDTH" title="Link to this definition"></a></dt>
+<dd><p>Limits the waveforms in the various bins to be within 200 ps of the center of the bin.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="reflevelunits">
+<h2>RefLevelUnits<a class="headerlink" href="#reflevelunits" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.RefLevelUnits">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">RefLevelUnits</span></span><a class="headerlink" href="#niscope.RefLevelUnits" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RefLevelUnits.VOLTS">
+<span class="sig-name descname"><span class="pre">VOLTS</span></span><a class="headerlink" href="#niscope.RefLevelUnits.VOLTS" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the reference levels are given in units of volts.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RefLevelUnits.PERCENTAGE">
+<span class="sig-name descname"><span class="pre">PERCENTAGE</span></span><a class="headerlink" href="#niscope.RefLevelUnits.PERCENTAGE" title="Link to this definition"></a></dt>
+<dd><p>(Default) Specifies that the reference levels are given in percentage
+units.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="reftriggerdetectorlocation">
+<h2>RefTriggerDetectorLocation<a class="headerlink" href="#reftriggerdetectorlocation" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.RefTriggerDetectorLocation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">RefTriggerDetectorLocation</span></span><a class="headerlink" href="#niscope.RefTriggerDetectorLocation" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RefTriggerDetectorLocation.ANALOG_DETECTION_CIRCUIT">
+<span class="sig-name descname"><span class="pre">ANALOG_DETECTION_CIRCUIT</span></span><a class="headerlink" href="#niscope.RefTriggerDetectorLocation.ANALOG_DETECTION_CIRCUIT" title="Link to this definition"></a></dt>
+<dd><p>use the hardware analog circuitry to implement the reference trigger.  This option will trigger before any onboard signal processing.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RefTriggerDetectorLocation.DDC_OUTPUT">
+<span class="sig-name descname"><span class="pre">DDC_OUTPUT</span></span><a class="headerlink" href="#niscope.RefTriggerDetectorLocation.DDC_OUTPUT" title="Link to this definition"></a></dt>
+<dd><p>use the onboard signal processing logic to implement the reference trigger.  This option will trigger based on the onboard signal processed data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="runtpolarity">
+<h2>RuntPolarity<a class="headerlink" href="#runtpolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.RuntPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">RuntPolarity</span></span><a class="headerlink" href="#niscope.RuntPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RuntPolarity.POSITIVE">
+<span class="sig-name descname"><span class="pre">POSITIVE</span></span><a class="headerlink" href="#niscope.RuntPolarity.POSITIVE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of positive polarity relative to <a class="reference internal" href="class.html#niscope.Session.runt_low_threshold" title="niscope.Session.runt_low_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_low_threshold</span></code></a> that do not cross <a class="reference internal" href="class.html#niscope.Session.runt_high_threshold" title="niscope.Session.runt_high_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_high_threshold</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RuntPolarity.NEGATIVE">
+<span class="sig-name descname"><span class="pre">NEGATIVE</span></span><a class="headerlink" href="#niscope.RuntPolarity.NEGATIVE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of negative polarity relative to <a class="reference internal" href="class.html#niscope.Session.runt_high_threshold" title="niscope.Session.runt_high_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_high_threshold</span></code></a> that do not cross <a class="reference internal" href="class.html#niscope.Session.runt_low_threshold" title="niscope.Session.runt_low_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_low_threshold</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RuntPolarity.EITHER">
+<span class="sig-name descname"><span class="pre">EITHER</span></span><a class="headerlink" href="#niscope.RuntPolarity.EITHER" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of either positive or negative polarity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="runttimecondition">
+<h2>RuntTimeCondition<a class="headerlink" href="#runttimecondition" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.RuntTimeCondition">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">RuntTimeCondition</span></span><a class="headerlink" href="#niscope.RuntTimeCondition" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RuntTimeCondition.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><a class="headerlink" href="#niscope.RuntTimeCondition.NONE" title="Link to this definition"></a></dt>
+<dd><p>Time qualification is disabled. Trigger on runt pulses based solely on the voltage level of the pulses.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RuntTimeCondition.WITHIN">
+<span class="sig-name descname"><span class="pre">WITHIN</span></span><a class="headerlink" href="#niscope.RuntTimeCondition.WITHIN" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses that, in addition to meeting runt voltage criteria, have a duration within the range bounded by <a class="reference internal" href="class.html#niscope.Session.runt_time_low_limit" title="niscope.Session.runt_time_low_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_time_low_limit</span></code></a> and <a class="reference internal" href="class.html#niscope.Session.runt_time_high_limit" title="niscope.Session.runt_time_high_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_time_high_limit</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.RuntTimeCondition.OUTSIDE">
+<span class="sig-name descname"><span class="pre">OUTSIDE</span></span><a class="headerlink" href="#niscope.RuntTimeCondition.OUTSIDE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses that, in addition to meeting runt voltage criteria, have a duration not within the range bounded by <a class="reference internal" href="class.html#niscope.Session.runt_time_low_limit" title="niscope.Session.runt_time_low_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_time_low_limit</span></code></a> and <a class="reference internal" href="class.html#niscope.Session.runt_time_high_limit" title="niscope.Session.runt_time_high_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.runt_time_high_limit</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="scalarmeasurement">
+<h2>ScalarMeasurement<a class="headerlink" href="#scalarmeasurement" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">ScalarMeasurement</span></span><a class="headerlink" href="#niscope.ScalarMeasurement" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.NO_MEASUREMENT">
+<span class="sig-name descname"><span class="pre">NO_MEASUREMENT</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.NO_MEASUREMENT" title="Link to this definition"></a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.RISE_TIME">
+<span class="sig-name descname"><span class="pre">RISE_TIME</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.RISE_TIME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.FALL_TIME">
+<span class="sig-name descname"><span class="pre">FALL_TIME</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.FALL_TIME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.FREQUENCY">
+<span class="sig-name descname"><span class="pre">FREQUENCY</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.FREQUENCY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.PERIOD">
+<span class="sig-name descname"><span class="pre">PERIOD</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.PERIOD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_RMS">
+<span class="sig-name descname"><span class="pre">VOLTAGE_RMS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_RMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_PEAK_TO_PEAK">
+<span class="sig-name descname"><span class="pre">VOLTAGE_PEAK_TO_PEAK</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_PEAK_TO_PEAK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_MAX">
+<span class="sig-name descname"><span class="pre">VOLTAGE_MAX</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_MAX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_MIN">
+<span class="sig-name descname"><span class="pre">VOLTAGE_MIN</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_MIN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_HIGH">
+<span class="sig-name descname"><span class="pre">VOLTAGE_HIGH</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_HIGH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_LOW">
+<span class="sig-name descname"><span class="pre">VOLTAGE_LOW</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_LOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_AVERAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_AVERAGE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_AVERAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.WIDTH_NEG">
+<span class="sig-name descname"><span class="pre">WIDTH_NEG</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.WIDTH_NEG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.WIDTH_POS">
+<span class="sig-name descname"><span class="pre">WIDTH_POS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.WIDTH_POS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.DUTY_CYCLE_NEG">
+<span class="sig-name descname"><span class="pre">DUTY_CYCLE_NEG</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.DUTY_CYCLE_NEG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.DUTY_CYCLE_POS">
+<span class="sig-name descname"><span class="pre">DUTY_CYCLE_POS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.DUTY_CYCLE_POS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.AMPLITUDE">
+<span class="sig-name descname"><span class="pre">AMPLITUDE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.AMPLITUDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_CYCLE_RMS">
+<span class="sig-name descname"><span class="pre">VOLTAGE_CYCLE_RMS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_CYCLE_RMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_CYCLE_AVERAGE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_CYCLE_AVERAGE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_CYCLE_AVERAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.OVERSHOOT">
+<span class="sig-name descname"><span class="pre">OVERSHOOT</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.OVERSHOOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.PRESHOOT">
+<span class="sig-name descname"><span class="pre">PRESHOOT</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.PRESHOOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.LOW_REF_VOLTS">
+<span class="sig-name descname"><span class="pre">LOW_REF_VOLTS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.LOW_REF_VOLTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.MID_REF_VOLTS">
+<span class="sig-name descname"><span class="pre">MID_REF_VOLTS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.MID_REF_VOLTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.HIGH_REF_VOLTS">
+<span class="sig-name descname"><span class="pre">HIGH_REF_VOLTS</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.HIGH_REF_VOLTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.AREA">
+<span class="sig-name descname"><span class="pre">AREA</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.AREA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.CYCLE_AREA">
+<span class="sig-name descname"><span class="pre">CYCLE_AREA</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.CYCLE_AREA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.INTEGRAL">
+<span class="sig-name descname"><span class="pre">INTEGRAL</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.INTEGRAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_BASE">
+<span class="sig-name descname"><span class="pre">VOLTAGE_BASE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_BASE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_TOP">
+<span class="sig-name descname"><span class="pre">VOLTAGE_TOP</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_TOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.FFT_FREQUENCY">
+<span class="sig-name descname"><span class="pre">FFT_FREQUENCY</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.FFT_FREQUENCY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.FFT_AMPLITUDE">
+<span class="sig-name descname"><span class="pre">FFT_AMPLITUDE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.FFT_AMPLITUDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.RISE_SLEW_RATE">
+<span class="sig-name descname"><span class="pre">RISE_SLEW_RATE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.RISE_SLEW_RATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.FALL_SLEW_RATE">
+<span class="sig-name descname"><span class="pre">FALL_SLEW_RATE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.FALL_SLEW_RATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.AC_ESTIMATE">
+<span class="sig-name descname"><span class="pre">AC_ESTIMATE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.AC_ESTIMATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.DC_ESTIMATE">
+<span class="sig-name descname"><span class="pre">DC_ESTIMATE</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.DC_ESTIMATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.TIME_DELAY">
+<span class="sig-name descname"><span class="pre">TIME_DELAY</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.TIME_DELAY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.AVERAGE_PERIOD">
+<span class="sig-name descname"><span class="pre">AVERAGE_PERIOD</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.AVERAGE_PERIOD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.AVERAGE_FREQUENCY">
+<span class="sig-name descname"><span class="pre">AVERAGE_FREQUENCY</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.AVERAGE_FREQUENCY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.VOLTAGE_BASE_TO_TOP">
+<span class="sig-name descname"><span class="pre">VOLTAGE_BASE_TO_TOP</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.VOLTAGE_BASE_TO_TOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.ScalarMeasurement.PHASE_DELAY">
+<span class="sig-name descname"><span class="pre">PHASE_DELAY</span></span><a class="headerlink" href="#niscope.ScalarMeasurement.PHASE_DELAY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="terminalconfiguration">
+<h2>TerminalConfiguration<a class="headerlink" href="#terminalconfiguration" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.TerminalConfiguration">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">TerminalConfiguration</span></span><a class="headerlink" href="#niscope.TerminalConfiguration" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TerminalConfiguration.SINGLE_ENDED">
+<span class="sig-name descname"><span class="pre">SINGLE_ENDED</span></span><a class="headerlink" href="#niscope.TerminalConfiguration.SINGLE_ENDED" title="Link to this definition"></a></dt>
+<dd><p>Channel is single ended</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TerminalConfiguration.UNBALANCED_DIFFERENTIAL">
+<span class="sig-name descname"><span class="pre">UNBALANCED_DIFFERENTIAL</span></span><a class="headerlink" href="#niscope.TerminalConfiguration.UNBALANCED_DIFFERENTIAL" title="Link to this definition"></a></dt>
+<dd><p>Channel is unbalanced differential</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TerminalConfiguration.DIFFERENTIAL">
+<span class="sig-name descname"><span class="pre">DIFFERENTIAL</span></span><a class="headerlink" href="#niscope.TerminalConfiguration.DIFFERENTIAL" title="Link to this definition"></a></dt>
+<dd><p>Channel is differential</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggercoupling">
+<h2>TriggerCoupling<a class="headerlink" href="#triggercoupling" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.TriggerCoupling">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">TriggerCoupling</span></span><a class="headerlink" href="#niscope.TriggerCoupling" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerCoupling.AC">
+<span class="sig-name descname"><span class="pre">AC</span></span><a class="headerlink" href="#niscope.TriggerCoupling.AC" title="Link to this definition"></a></dt>
+<dd><p>AC coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerCoupling.DC">
+<span class="sig-name descname"><span class="pre">DC</span></span><a class="headerlink" href="#niscope.TriggerCoupling.DC" title="Link to this definition"></a></dt>
+<dd><p>DC coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerCoupling.HF_REJECT">
+<span class="sig-name descname"><span class="pre">HF_REJECT</span></span><a class="headerlink" href="#niscope.TriggerCoupling.HF_REJECT" title="Link to this definition"></a></dt>
+<dd><p>Highpass filter coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerCoupling.LF_REJECT">
+<span class="sig-name descname"><span class="pre">LF_REJECT</span></span><a class="headerlink" href="#niscope.TriggerCoupling.LF_REJECT" title="Link to this definition"></a></dt>
+<dd><p>Lowpass filter coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerCoupling.AC_PLUS_HF_REJECT">
+<span class="sig-name descname"><span class="pre">AC_PLUS_HF_REJECT</span></span><a class="headerlink" href="#niscope.TriggerCoupling.AC_PLUS_HF_REJECT" title="Link to this definition"></a></dt>
+<dd><p>Highpass and lowpass filter coupling</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggermodifier">
+<h2>TriggerModifier<a class="headerlink" href="#triggermodifier" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.TriggerModifier">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">TriggerModifier</span></span><a class="headerlink" href="#niscope.TriggerModifier" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerModifier.NO_TRIGGER_MOD">
+<span class="sig-name descname"><span class="pre">NO_TRIGGER_MOD</span></span><a class="headerlink" href="#niscope.TriggerModifier.NO_TRIGGER_MOD" title="Link to this definition"></a></dt>
+<dd><p>Normal triggering.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerModifier.AUTO">
+<span class="sig-name descname"><span class="pre">AUTO</span></span><a class="headerlink" href="#niscope.TriggerModifier.AUTO" title="Link to this definition"></a></dt>
+<dd><p>Software will trigger an acquisition automatically if no trigger arrives
+after a certain amount of time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerModifier.AUTO_LEVEL">
+<span class="sig-name descname"><span class="pre">AUTO_LEVEL</span></span><a class="headerlink" href="#niscope.TriggerModifier.AUTO_LEVEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggerslope">
+<h2>TriggerSlope<a class="headerlink" href="#triggerslope" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.TriggerSlope">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">TriggerSlope</span></span><a class="headerlink" href="#niscope.TriggerSlope" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerSlope.NEGATIVE">
+<span class="sig-name descname"><span class="pre">NEGATIVE</span></span><a class="headerlink" href="#niscope.TriggerSlope.NEGATIVE" title="Link to this definition"></a></dt>
+<dd><p>Falling edge</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerSlope.POSITIVE">
+<span class="sig-name descname"><span class="pre">POSITIVE</span></span><a class="headerlink" href="#niscope.TriggerSlope.POSITIVE" title="Link to this definition"></a></dt>
+<dd><p>Rising edge</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerSlope.SLOPE_EITHER">
+<span class="sig-name descname"><span class="pre">SLOPE_EITHER</span></span><a class="headerlink" href="#niscope.TriggerSlope.SLOPE_EITHER" title="Link to this definition"></a></dt>
+<dd><p>Either edge</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggertype">
+<h2>TriggerType<a class="headerlink" href="#triggertype" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.TriggerType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">TriggerType</span></span><a class="headerlink" href="#niscope.TriggerType" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.EDGE">
+<span class="sig-name descname"><span class="pre">EDGE</span></span><a class="headerlink" href="#niscope.TriggerType.EDGE" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for edge triggering.  An edge trigger occurs when the trigger signal crosses the trigger level specified with the set trigger slope.  You configure the trigger level and slope with <a class="reference internal" href="class.html#niscope.Session.configure_trigger_edge" title="niscope.Session.configure_trigger_edge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.configure_trigger_edge()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.HYSTERESIS">
+<span class="sig-name descname"><span class="pre">HYSTERESIS</span></span><a class="headerlink" href="#niscope.TriggerType.HYSTERESIS" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for hysteresis triggering.  A hysteresis trigger occurs when the trigger signal crosses the trigger level with the specified slope and passes through the hysteresis window you specify. You configure the trigger level, slope, and hysteresis with <a class="reference internal" href="class.html#niscope.Session.configure_trigger_hysteresis" title="niscope.Session.configure_trigger_hysteresis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.configure_trigger_hysteresis()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.DIGITAL">
+<span class="sig-name descname"><span class="pre">DIGITAL</span></span><a class="headerlink" href="#niscope.TriggerType.DIGITAL" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for digital triggering. A digital trigger occurs when the trigger signal has the specified slope. You configure the trigger slope with <a class="reference internal" href="class.html#niscope.Session.configure_trigger_digital" title="niscope.Session.configure_trigger_digital"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.configure_trigger_digital()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.WINDOW">
+<span class="sig-name descname"><span class="pre">WINDOW</span></span><a class="headerlink" href="#niscope.TriggerType.WINDOW" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for window triggering.  A window trigger occurs when the trigger signal enters or leaves the window defined by the values you specify with the Low Window Level, High Window Level, and Window Mode Parameters.  You configure the low window level high window level, and window mode with <a class="reference internal" href="class.html#niscope.Session.configure_trigger_window" title="niscope.Session.configure_trigger_window"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.configure_trigger_window()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.SOFTWARE">
+<span class="sig-name descname"><span class="pre">SOFTWARE</span></span><a class="headerlink" href="#niscope.TriggerType.SOFTWARE" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for software triggering.  A software trigger occurs when <code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.SendSoftwareTrigger()</span></code> is called.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.TV">
+<span class="sig-name descname"><span class="pre">TV</span></span><a class="headerlink" href="#niscope.TriggerType.TV" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for video/TV triggering.   You configure the video trigger parameters like signal Format, Line to trigger off of, Polarity, and Enable DC Restore with <a class="reference internal" href="class.html#niscope.Session.configure_trigger_video" title="niscope.Session.configure_trigger_video"><code class="xref py py-meth docutils literal notranslate"><span class="pre">niscope.Session.configure_trigger_video()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.GLITCH">
+<span class="sig-name descname"><span class="pre">GLITCH</span></span><a class="headerlink" href="#niscope.TriggerType.GLITCH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.WIDTH">
+<span class="sig-name descname"><span class="pre">WIDTH</span></span><a class="headerlink" href="#niscope.TriggerType.WIDTH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.RUNT">
+<span class="sig-name descname"><span class="pre">RUNT</span></span><a class="headerlink" href="#niscope.TriggerType.RUNT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerType.IMMEDIATE">
+<span class="sig-name descname"><span class="pre">IMMEDIATE</span></span><a class="headerlink" href="#niscope.TriggerType.IMMEDIATE" title="Link to this definition"></a></dt>
+<dd><p>Configures the digitizer for immediate triggering.   An immediate trigger occurs as soon as the pretrigger samples are acquired.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="triggerwindowmode">
+<h2>TriggerWindowMode<a class="headerlink" href="#triggerwindowmode" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.TriggerWindowMode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">TriggerWindowMode</span></span><a class="headerlink" href="#niscope.TriggerWindowMode" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerWindowMode.ENTERING">
+<span class="sig-name descname"><span class="pre">ENTERING</span></span><a class="headerlink" href="#niscope.TriggerWindowMode.ENTERING" title="Link to this definition"></a></dt>
+<dd><p>Trigger upon entering the window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerWindowMode.LEAVING">
+<span class="sig-name descname"><span class="pre">LEAVING</span></span><a class="headerlink" href="#niscope.TriggerWindowMode.LEAVING" title="Link to this definition"></a></dt>
+<dd><p>Trigger upon leaving the window</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.TriggerWindowMode.ENTERING_OR_LEAVING">
+<span class="sig-name descname"><span class="pre">ENTERING_OR_LEAVING</span></span><a class="headerlink" href="#niscope.TriggerWindowMode.ENTERING_OR_LEAVING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="verticalcoupling">
+<h2>VerticalCoupling<a class="headerlink" href="#verticalcoupling" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.VerticalCoupling">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">VerticalCoupling</span></span><a class="headerlink" href="#niscope.VerticalCoupling" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VerticalCoupling.AC">
+<span class="sig-name descname"><span class="pre">AC</span></span><a class="headerlink" href="#niscope.VerticalCoupling.AC" title="Link to this definition"></a></dt>
+<dd><p>AC coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VerticalCoupling.DC">
+<span class="sig-name descname"><span class="pre">DC</span></span><a class="headerlink" href="#niscope.VerticalCoupling.DC" title="Link to this definition"></a></dt>
+<dd><p>DC coupling</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VerticalCoupling.GND">
+<span class="sig-name descname"><span class="pre">GND</span></span><a class="headerlink" href="#niscope.VerticalCoupling.GND" title="Link to this definition"></a></dt>
+<dd><p>GND coupling</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="videopolarity">
+<h2>VideoPolarity<a class="headerlink" href="#videopolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.VideoPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">VideoPolarity</span></span><a class="headerlink" href="#niscope.VideoPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoPolarity.POSITIVE">
+<span class="sig-name descname"><span class="pre">POSITIVE</span></span><a class="headerlink" href="#niscope.VideoPolarity.POSITIVE" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the video signal has positive polarity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoPolarity.NEGATIVE">
+<span class="sig-name descname"><span class="pre">NEGATIVE</span></span><a class="headerlink" href="#niscope.VideoPolarity.NEGATIVE" title="Link to this definition"></a></dt>
+<dd><p>Specifies that the video signal has negative polarity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="videosignalformat">
+<h2>VideoSignalFormat<a class="headerlink" href="#videosignalformat" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">VideoSignalFormat</span></span><a class="headerlink" href="#niscope.VideoSignalFormat" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.NTSC">
+<span class="sig-name descname"><span class="pre">NTSC</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.NTSC" title="Link to this definition"></a></dt>
+<dd><p>NTSC signal format supports line numbers from 1 to 525</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.PAL">
+<span class="sig-name descname"><span class="pre">PAL</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.PAL" title="Link to this definition"></a></dt>
+<dd><p>PAL signal format supports line numbers from 1 to 625</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.SECAM">
+<span class="sig-name descname"><span class="pre">SECAM</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.SECAM" title="Link to this definition"></a></dt>
+<dd><p>SECAM signal format supports line numbers from 1 to 625</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.M_PAL">
+<span class="sig-name descname"><span class="pre">M_PAL</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.M_PAL" title="Link to this definition"></a></dt>
+<dd><p>M-PAL signal format supports line numbers from 1 to 525</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_480I_59_94_FIELDS_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>480 lines, interlaced, 59.94 fields per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_480I_60_FIELDS_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>480 lines, interlaced, 60 fields per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_480P_59_94_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>480 lines, progressive, 59.94 frames per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_480P_60_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>480 lines, progressive,60 frames per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_576I_50_FIELDS_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>576 lines, interlaced, 50 fields per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_576P_50_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>576 lines, progressive, 50 frames per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_720P_50_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>720 lines, progressive, 50 frames per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_720P_59_94_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>720 lines, progressive, 59.94 frames per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_720P_60_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>720 lines, progressive, 60 frames per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_1080I_50_FIELDS_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>1,080 lines, interlaced, 50 fields per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_1080I_59_94_FIELDS_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>1,080 lines, interlaced, 59.94 fields per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_1080I_60_FIELDS_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>1,080 lines, interlaced, 60 fields per second</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND">
+<span class="sig-name descname"><span class="pre">VIDEO_1080P_24_FRAMES_PER_SECOND</span></span><a class="headerlink" href="#niscope.VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND" title="Link to this definition"></a></dt>
+<dd><p>1,080 lines, progressive, 24 frames per second</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="videotriggerevent">
+<h2>VideoTriggerEvent<a class="headerlink" href="#videotriggerevent" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.VideoTriggerEvent">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">VideoTriggerEvent</span></span><a class="headerlink" href="#niscope.VideoTriggerEvent" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoTriggerEvent.FIELD1">
+<span class="sig-name descname"><span class="pre">FIELD1</span></span><a class="headerlink" href="#niscope.VideoTriggerEvent.FIELD1" title="Link to this definition"></a></dt>
+<dd><p>Trigger on field 1 of the signal</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoTriggerEvent.FIELD2">
+<span class="sig-name descname"><span class="pre">FIELD2</span></span><a class="headerlink" href="#niscope.VideoTriggerEvent.FIELD2" title="Link to this definition"></a></dt>
+<dd><p>Trigger on field 2 of the signal</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoTriggerEvent.ANY_FIELD">
+<span class="sig-name descname"><span class="pre">ANY_FIELD</span></span><a class="headerlink" href="#niscope.VideoTriggerEvent.ANY_FIELD" title="Link to this definition"></a></dt>
+<dd><p>Trigger on the first field acquired</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoTriggerEvent.ANY_LINE">
+<span class="sig-name descname"><span class="pre">ANY_LINE</span></span><a class="headerlink" href="#niscope.VideoTriggerEvent.ANY_LINE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on the first line acquired</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.VideoTriggerEvent.LINE_NUMBER">
+<span class="sig-name descname"><span class="pre">LINE_NUMBER</span></span><a class="headerlink" href="#niscope.VideoTriggerEvent.LINE_NUMBER" title="Link to this definition"></a></dt>
+<dd><p>Trigger on a specific line of a video signal.  Valid values vary depending on the signal format configured.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="whichtrigger">
+<h2>WhichTrigger<a class="headerlink" href="#whichtrigger" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.WhichTrigger">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">WhichTrigger</span></span><a class="headerlink" href="#niscope.WhichTrigger" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WhichTrigger.START">
+<span class="sig-name descname"><span class="pre">START</span></span><a class="headerlink" href="#niscope.WhichTrigger.START" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WhichTrigger.ARM_REFERENCE">
+<span class="sig-name descname"><span class="pre">ARM_REFERENCE</span></span><a class="headerlink" href="#niscope.WhichTrigger.ARM_REFERENCE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WhichTrigger.REFERENCE">
+<span class="sig-name descname"><span class="pre">REFERENCE</span></span><a class="headerlink" href="#niscope.WhichTrigger.REFERENCE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WhichTrigger.ADVANCE">
+<span class="sig-name descname"><span class="pre">ADVANCE</span></span><a class="headerlink" href="#niscope.WhichTrigger.ADVANCE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="widthcondition">
+<h2>WidthCondition<a class="headerlink" href="#widthcondition" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.WidthCondition">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">WidthCondition</span></span><a class="headerlink" href="#niscope.WidthCondition" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WidthCondition.WITHIN">
+<span class="sig-name descname"><span class="pre">WITHIN</span></span><a class="headerlink" href="#niscope.WidthCondition.WITHIN" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses with a duration within the range bounded by <a class="reference internal" href="class.html#niscope.Session.width_low_threshold" title="niscope.Session.width_low_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.width_low_threshold</span></code></a> and <a class="reference internal" href="class.html#niscope.Session.width_high_threshold" title="niscope.Session.width_high_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.width_high_threshold</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WidthCondition.OUTSIDE">
+<span class="sig-name descname"><span class="pre">OUTSIDE</span></span><a class="headerlink" href="#niscope.WidthCondition.OUTSIDE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses with a duration not within the range bounded by <a class="reference internal" href="class.html#niscope.Session.width_low_threshold" title="niscope.Session.width_low_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.width_low_threshold</span></code></a> and <a class="reference internal" href="class.html#niscope.Session.width_high_threshold" title="niscope.Session.width_high_threshold"><code class="xref py py-attr docutils literal notranslate"><span class="pre">niscope.Session.width_high_threshold</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="widthpolarity">
+<h2>WidthPolarity<a class="headerlink" href="#widthpolarity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="niscope.WidthPolarity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niscope.</span></span><span class="sig-name descname"><span class="pre">WidthPolarity</span></span><a class="headerlink" href="#niscope.WidthPolarity" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WidthPolarity.POSITIVE">
+<span class="sig-name descname"><span class="pre">POSITIVE</span></span><a class="headerlink" href="#niscope.WidthPolarity.POSITIVE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of positive polarity relative to the trigger threshold.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WidthPolarity.NEGATIVE">
+<span class="sig-name descname"><span class="pre">NEGATIVE</span></span><a class="headerlink" href="#niscope.WidthPolarity.NEGATIVE" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of negative polarity relative to the trigger threshold.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niscope.WidthPolarity.EITHER">
+<span class="sig-name descname"><span class="pre">EITHER</span></span><a class="headerlink" href="#niscope.WidthPolarity.EITHER" title="Link to this definition"></a></dt>
+<dd><p>Trigger on pulses of either positive or negative polarity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rep_caps.html" class="btn btn-neutral float-left" title="Repeated Capabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Exceptions and Warnings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

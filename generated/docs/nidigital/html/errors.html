@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exceptions and Warnings &mdash; NI-Digital Pattern Driver Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Enums" href="enums.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-Digital Pattern Driver Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidigital.html">nidigital module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidigital.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidigital.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidigital.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exceptions and Warnings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#error">Error</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#drivererror">DriverError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.DriverError"><code class="docutils literal notranslate"><span class="pre">DriverError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#unsupportedconfigurationerror">UnsupportedConfigurationError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.UnsupportedConfigurationError"><code class="docutils literal notranslate"><span class="pre">UnsupportedConfigurationError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#drivernotinstallederror">DriverNotInstalledError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.DriverNotInstalledError"><code class="docutils literal notranslate"><span class="pre">DriverNotInstalledError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#drivertooolderror">DriverTooOldError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.DriverTooOldError"><code class="docutils literal notranslate"><span class="pre">DriverTooOldError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#drivertoonewerror">DriverTooNewError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.DriverTooNewError"><code class="docutils literal notranslate"><span class="pre">DriverTooNewError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#invalidrepeatedcapabilityerror">InvalidRepeatedCapabilityError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.InvalidRepeatedCapabilityError"><code class="docutils literal notranslate"><span class="pre">InvalidRepeatedCapabilityError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#selftesterror">SelfTestError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.SelfTestError"><code class="docutils literal notranslate"><span class="pre">SelfTestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#rpcerror">RpcError</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.RpcError"><code class="docutils literal notranslate"><span class="pre">RpcError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#driverwarning">DriverWarning</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#nidigital.errors.DriverWarning"><code class="docutils literal notranslate"><span class="pre">DriverWarning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-Digital Pattern Driver Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidigital.html">nidigital module</a></li>
+      <li class="breadcrumb-item active">Exceptions and Warnings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/errors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="exceptions-and-warnings">
+<h1>Exceptions and Warnings<a class="headerlink" href="#exceptions-and-warnings" title="Link to this heading"></a></h1>
+<section id="error">
+<h2>Error<a class="headerlink" href="#error" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.Error">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><a class="headerlink" href="#nidigital.errors.Error" title="Link to this definition"></a></dt>
+<dd><p>Base exception type that all NI-Digital Pattern Driver exceptions derive from</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="drivererror">
+<h2>DriverError<a class="headerlink" href="#drivererror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.DriverError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">DriverError</span></span><a class="headerlink" href="#nidigital.errors.DriverError" title="Link to this definition"></a></dt>
+<dd><p>An error originating from the NI-Digital Pattern Driver driver</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="unsupportedconfigurationerror">
+<h2>UnsupportedConfigurationError<a class="headerlink" href="#unsupportedconfigurationerror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.UnsupportedConfigurationError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">UnsupportedConfigurationError</span></span><a class="headerlink" href="#nidigital.errors.UnsupportedConfigurationError" title="Link to this definition"></a></dt>
+<dd><p>An error due to using this module in an usupported platform.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="drivernotinstallederror">
+<h2>DriverNotInstalledError<a class="headerlink" href="#drivernotinstallederror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.DriverNotInstalledError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">DriverNotInstalledError</span></span><a class="headerlink" href="#nidigital.errors.DriverNotInstalledError" title="Link to this definition"></a></dt>
+<dd><p>An error due to using this module without the driver runtime installed.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="drivertooolderror">
+<h2>DriverTooOldError<a class="headerlink" href="#drivertooolderror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.DriverTooOldError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">DriverTooOldError</span></span><a class="headerlink" href="#nidigital.errors.DriverTooOldError" title="Link to this definition"></a></dt>
+<dd><p>An error due to using this module with an older version of the NI-Digital Pattern Driver driver runtime.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="drivertoonewerror">
+<h2>DriverTooNewError<a class="headerlink" href="#drivertoonewerror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.DriverTooNewError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">DriverTooNewError</span></span><a class="headerlink" href="#nidigital.errors.DriverTooNewError" title="Link to this definition"></a></dt>
+<dd><p>An error due to the NI-Digital Pattern Driver driver runtime being too new for this module.</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="invalidrepeatedcapabilityerror">
+<h2>InvalidRepeatedCapabilityError<a class="headerlink" href="#invalidrepeatedcapabilityerror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.InvalidRepeatedCapabilityError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">InvalidRepeatedCapabilityError</span></span><a class="headerlink" href="#nidigital.errors.InvalidRepeatedCapabilityError" title="Link to this definition"></a></dt>
+<dd><p>An error due to an invalid character in a repeated capability</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="selftesterror">
+<h2>SelfTestError<a class="headerlink" href="#selftesterror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.SelfTestError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">SelfTestError</span></span><a class="headerlink" href="#nidigital.errors.SelfTestError" title="Link to this definition"></a></dt>
+<dd><p>An error due to a failed self-test</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="rpcerror">
+<h2>RpcError<a class="headerlink" href="#rpcerror" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.RpcError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">RpcError</span></span><a class="headerlink" href="#nidigital.errors.RpcError" title="Link to this definition"></a></dt>
+<dd><p>An error specific to sessions to the NI gRPC Device Server</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+<section id="driverwarning">
+<h2>DriverWarning<a class="headerlink" href="#driverwarning" title="Link to this heading"></a></h2>
+<blockquote>
+<div><dl class="py exception">
+<dt class="sig sig-object py" id="nidigital.errors.DriverWarning">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nidigital.errors.</span></span><span class="sig-name descname"><span class="pre">DriverWarning</span></span><a class="headerlink" href="#nidigital.errors.DriverWarning" title="Link to this definition"></a></dt>
+<dd><p>A warning originating from the NI-Digital Pattern Driver driver</p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="enums.html" class="btn btn-neutral float-left" title="Enums" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

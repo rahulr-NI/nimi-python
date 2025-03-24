@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>niswitch module &mdash; NI-SWITCH Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session" href="class.html" />
+    <link rel="prev" title="NI-SWITCH Python API Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-SWITCH Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">niswitch module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-SWITCH Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">niswitch module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/niswitch.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="niswitch-module">
+<h1>niswitch module<a class="headerlink" href="#niswitch-module" title="Link to this heading"></a></h1>
+<section id="installation">
+<span id="niswitch-installation-section"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>As a prerequisite to using the <strong>niswitch</strong> module, you must install the NI-SWITCH runtime on your system. Visit <a class="reference external" href="http://www.ni.com/downloads/">ni.com/downloads</a> to download the driver runtime for your devices.</p>
+<p>The nimi-python modules (i.e. for <strong>NI-SWITCH</strong>) can be installed with <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install niswitch~=1.4.11
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>The following is a basic example of using the <strong>niswitch</strong> module to open a session to a Switch and connect channels.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">niswitch</span>
+<span class="k">with</span> <span class="n">niswitch</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="s2">&quot;Dev1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">channel1</span><span class="o">=</span><span class="s1">&#39;r0&#39;</span><span class="p">,</span> <span class="n">channel2</span><span class="o">=</span><span class="s1">&#39;c0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/tree/master/src/niswitch/examples">Other usage examples can be found on GitHub.</a></p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#niswitch.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#methods">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#abort">abort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.abort"><code class="docutils literal notranslate"><span class="pre">abort()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#can-connect">can_connect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.can_connect"><code class="docutils literal notranslate"><span class="pre">can_connect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#close">close</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#commit">commit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.commit"><code class="docutils literal notranslate"><span class="pre">commit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#connect">connect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.connect"><code class="docutils literal notranslate"><span class="pre">connect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#connect-multiple">connect_multiple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.connect_multiple"><code class="docutils literal notranslate"><span class="pre">connect_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disable">disable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.disable"><code class="docutils literal notranslate"><span class="pre">disable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disconnect">disconnect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.disconnect"><code class="docutils literal notranslate"><span class="pre">disconnect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disconnect-all">disconnect_all</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.disconnect_all"><code class="docutils literal notranslate"><span class="pre">disconnect_all()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disconnect-multiple">disconnect_multiple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.disconnect_multiple"><code class="docutils literal notranslate"><span class="pre">disconnect_multiple()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-channel-name">get_channel_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.get_channel_name"><code class="docutils literal notranslate"><span class="pre">get_channel_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-path">get_path</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.get_path"><code class="docutils literal notranslate"><span class="pre">get_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-relay-count">get_relay_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.get_relay_count"><code class="docutils literal notranslate"><span class="pre">get_relay_count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-relay-name">get_relay_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.get_relay_name"><code class="docutils literal notranslate"><span class="pre">get_relay_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-relay-position">get_relay_position</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.get_relay_position"><code class="docutils literal notranslate"><span class="pre">get_relay_position()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#initiate">initiate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.initiate"><code class="docutils literal notranslate"><span class="pre">initiate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lock">lock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#relay-control">relay_control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.relay_control"><code class="docutils literal notranslate"><span class="pre">relay_control()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset">reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-with-defaults">reset_with_defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.reset_with_defaults"><code class="docutils literal notranslate"><span class="pre">reset_with_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#route-scan-advanced-output">route_scan_advanced_output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.route_scan_advanced_output"><code class="docutils literal notranslate"><span class="pre">route_scan_advanced_output()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#route-trigger-input">route_trigger_input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.route_trigger_input"><code class="docutils literal notranslate"><span class="pre">route_trigger_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-test">self_test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.self_test"><code class="docutils literal notranslate"><span class="pre">self_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#send-software-trigger">send_software_trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.send_software_trigger"><code class="docutils literal notranslate"><span class="pre">send_software_trigger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#set-path">set_path</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.set_path"><code class="docutils literal notranslate"><span class="pre">set_path()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#unlock">unlock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wait-for-debounce">wait_for_debounce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.wait_for_debounce"><code class="docutils literal notranslate"><span class="pre">wait_for_debounce()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wait-for-scan-complete">wait_for_scan_complete</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.wait_for_scan_complete"><code class="docutils literal notranslate"><span class="pre">wait_for_scan_complete()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#properties">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#analog-bus-sharing-enable">analog_bus_sharing_enable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.analog_bus_sharing_enable"><code class="docutils literal notranslate"><span class="pre">analog_bus_sharing_enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#bandwidth">bandwidth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.bandwidth"><code class="docutils literal notranslate"><span class="pre">bandwidth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-count">channel_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.channel_count"><code class="docutils literal notranslate"><span class="pre">channel_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#characteristic-impedance">characteristic_impedance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.characteristic_impedance"><code class="docutils literal notranslate"><span class="pre">characteristic_impedance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#continuous-scan">continuous_scan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.continuous_scan"><code class="docutils literal notranslate"><span class="pre">continuous_scan</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-filter-enable">digital_filter_enable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.digital_filter_enable"><code class="docutils literal notranslate"><span class="pre">digital_filter_enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#driver-setup">driver_setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.driver_setup"><code class="docutils literal notranslate"><span class="pre">driver_setup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#handshaking-initiation">handshaking_initiation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.handshaking_initiation"><code class="docutils literal notranslate"><span class="pre">handshaking_initiation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-firmware-revision">instrument_firmware_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.instrument_firmware_revision"><code class="docutils literal notranslate"><span class="pre">instrument_firmware_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-manufacturer">instrument_manufacturer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.instrument_manufacturer"><code class="docutils literal notranslate"><span class="pre">instrument_manufacturer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-model">instrument_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.instrument_model"><code class="docutils literal notranslate"><span class="pre">instrument_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#io-resource-descriptor">io_resource_descriptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.io_resource_descriptor"><code class="docutils literal notranslate"><span class="pre">io_resource_descriptor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-configuration-channel">is_configuration_channel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.is_configuration_channel"><code class="docutils literal notranslate"><span class="pre">is_configuration_channel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-debounced">is_debounced</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.is_debounced"><code class="docutils literal notranslate"><span class="pre">is_debounced</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-scanning">is_scanning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.is_scanning"><code class="docutils literal notranslate"><span class="pre">is_scanning</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-source-channel">is_source_channel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.is_source_channel"><code class="docutils literal notranslate"><span class="pre">is_source_channel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-waiting-for-trig">is_waiting_for_trig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.is_waiting_for_trig"><code class="docutils literal notranslate"><span class="pre">is_waiting_for_trig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#logical-name">logical_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.logical_name"><code class="docutils literal notranslate"><span class="pre">logical_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-ac-voltage">max_ac_voltage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_ac_voltage"><code class="docutils literal notranslate"><span class="pre">max_ac_voltage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-carry-ac-current">max_carry_ac_current</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_carry_ac_current"><code class="docutils literal notranslate"><span class="pre">max_carry_ac_current</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-carry-ac-power">max_carry_ac_power</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_carry_ac_power"><code class="docutils literal notranslate"><span class="pre">max_carry_ac_power</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-carry-dc-current">max_carry_dc_current</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_carry_dc_current"><code class="docutils literal notranslate"><span class="pre">max_carry_dc_current</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-carry-dc-power">max_carry_dc_power</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_carry_dc_power"><code class="docutils literal notranslate"><span class="pre">max_carry_dc_power</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-dc-voltage">max_dc_voltage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_dc_voltage"><code class="docutils literal notranslate"><span class="pre">max_dc_voltage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-switching-ac-current">max_switching_ac_current</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_switching_ac_current"><code class="docutils literal notranslate"><span class="pre">max_switching_ac_current</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-switching-ac-power">max_switching_ac_power</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_switching_ac_power"><code class="docutils literal notranslate"><span class="pre">max_switching_ac_power</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-switching-dc-current">max_switching_dc_current</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_switching_dc_current"><code class="docutils literal notranslate"><span class="pre">max_switching_dc_current</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-switching-dc-power">max_switching_dc_power</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.max_switching_dc_power"><code class="docutils literal notranslate"><span class="pre">max_switching_dc_power</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#number-of-relays">number_of_relays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.number_of_relays"><code class="docutils literal notranslate"><span class="pre">number_of_relays</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#num-of-columns">num_of_columns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.num_of_columns"><code class="docutils literal notranslate"><span class="pre">num_of_columns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#num-of-rows">num_of_rows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.num_of_rows"><code class="docutils literal notranslate"><span class="pre">num_of_rows</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#power-down-latching-relays-after-debounce">power_down_latching_relays_after_debounce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.power_down_latching_relays_after_debounce"><code class="docutils literal notranslate"><span class="pre">power_down_latching_relays_after_debounce</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#scan-advanced-output">scan_advanced_output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.scan_advanced_output"><code class="docutils literal notranslate"><span class="pre">scan_advanced_output</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#scan-advanced-polarity">scan_advanced_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.scan_advanced_polarity"><code class="docutils literal notranslate"><span class="pre">scan_advanced_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#scan-delay">scan_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.scan_delay"><code class="docutils literal notranslate"><span class="pre">scan_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#scan-list">scan_list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.scan_list"><code class="docutils literal notranslate"><span class="pre">scan_list</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#scan-mode">scan_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.scan_mode"><code class="docutils literal notranslate"><span class="pre">scan_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#serial-number">serial_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.serial_number"><code class="docutils literal notranslate"><span class="pre">serial_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#settling-time">settling_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.settling_time"><code class="docutils literal notranslate"><span class="pre">settling_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#simulate">simulate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.simulate"><code class="docutils literal notranslate"><span class="pre">simulate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-description">specific_driver_description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.specific_driver_description"><code class="docutils literal notranslate"><span class="pre">specific_driver_description</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-revision">specific_driver_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.specific_driver_revision"><code class="docutils literal notranslate"><span class="pre">specific_driver_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-vendor">specific_driver_vendor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.specific_driver_vendor"><code class="docutils literal notranslate"><span class="pre">specific_driver_vendor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#supported-instrument-models">supported_instrument_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.supported_instrument_models"><code class="docutils literal notranslate"><span class="pre">supported_instrument_models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temperature">temperature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.temperature"><code class="docutils literal notranslate"><span class="pre">temperature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-input">trigger_input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.trigger_input"><code class="docutils literal notranslate"><span class="pre">trigger_input</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-input-polarity">trigger_input_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.trigger_input_polarity"><code class="docutils literal notranslate"><span class="pre">trigger_input_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wire-mode">wire_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#niswitch.Session.wire_mode"><code class="docutils literal notranslate"><span class="pre">wire_mode</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#channels">channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#niswitch.Session.niswitch.Session.channels"><code class="docutils literal notranslate"><span class="pre">niswitch.Session.channels</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#handshakinginitiation">HandshakingInitiation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.HandshakingInitiation"><code class="docutils literal notranslate"><span class="pre">HandshakingInitiation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.HandshakingInitiation.MEASUREMENT_DEVICE"><code class="docutils literal notranslate"><span class="pre">HandshakingInitiation.MEASUREMENT_DEVICE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.HandshakingInitiation.SWITCH"><code class="docutils literal notranslate"><span class="pre">HandshakingInitiation.SWITCH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#pathcapability">PathCapability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.PathCapability"><code class="docutils literal notranslate"><span class="pre">PathCapability</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.PathCapability.PATH_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">PathCapability.PATH_AVAILABLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.PathCapability.PATH_EXISTS"><code class="docutils literal notranslate"><span class="pre">PathCapability.PATH_EXISTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.PathCapability.PATH_UNSUPPORTED"><code class="docutils literal notranslate"><span class="pre">PathCapability.PATH_UNSUPPORTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.PathCapability.RESOURCE_IN_USE"><code class="docutils literal notranslate"><span class="pre">PathCapability.RESOURCE_IN_USE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.PathCapability.SOURCE_CONFLICT"><code class="docutils literal notranslate"><span class="pre">PathCapability.SOURCE_CONFLICT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.PathCapability.CHANNEL_NOT_AVAILABLE"><code class="docutils literal notranslate"><span class="pre">PathCapability.CHANNEL_NOT_AVAILABLE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#relayaction">RelayAction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.RelayAction"><code class="docutils literal notranslate"><span class="pre">RelayAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.RelayAction.OPEN"><code class="docutils literal notranslate"><span class="pre">RelayAction.OPEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.RelayAction.CLOSE"><code class="docutils literal notranslate"><span class="pre">RelayAction.CLOSE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#relayposition">RelayPosition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.RelayPosition"><code class="docutils literal notranslate"><span class="pre">RelayPosition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.RelayPosition.OPEN"><code class="docutils literal notranslate"><span class="pre">RelayPosition.OPEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.RelayPosition.CLOSED"><code class="docutils literal notranslate"><span class="pre">RelayPosition.CLOSED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#scanadvancedoutput">ScanAdvancedOutput</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.NONE"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.EXTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL0"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL1"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL2"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL3"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL4"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL5"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL6"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.TTL7"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.TTL7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.PXI_STAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.REARCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.REARCONNECTOR_MODULE12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedOutput.FRONTCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedOutput.FRONTCONNECTOR_MODULE12</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#scanadvancedpolarity">ScanAdvancedPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedPolarity"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedPolarity.RISING"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedPolarity.RISING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanAdvancedPolarity.FALLING"><code class="docutils literal notranslate"><span class="pre">ScanAdvancedPolarity.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#scanmode">ScanMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.ScanMode"><code class="docutils literal notranslate"><span class="pre">ScanMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanMode.NONE"><code class="docutils literal notranslate"><span class="pre">ScanMode.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanMode.BREAK_BEFORE_MAKE"><code class="docutils literal notranslate"><span class="pre">ScanMode.BREAK_BEFORE_MAKE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.ScanMode.BREAK_AFTER_MAKE"><code class="docutils literal notranslate"><span class="pre">ScanMode.BREAK_AFTER_MAKE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggerinput">TriggerInput</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.TriggerInput"><code class="docutils literal notranslate"><span class="pre">TriggerInput</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">TriggerInput.IMMEDIATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">TriggerInput.EXTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.SOFTWARE_TRIG"><code class="docutils literal notranslate"><span class="pre">TriggerInput.SOFTWARE_TRIG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL0"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL1"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL2"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL3"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL4"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL5"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL6"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.TTL7"><code class="docutils literal notranslate"><span class="pre">TriggerInput.TTL7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">TriggerInput.PXI_STAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.REARCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">TriggerInput.REARCONNECTOR_MODULE12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE1"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE2"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE3"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE4"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE5"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE6"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE7"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE8"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE9"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE9</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE10"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE10</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE11"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE11</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInput.FRONTCONNECTOR_MODULE12"><code class="docutils literal notranslate"><span class="pre">TriggerInput.FRONTCONNECTOR_MODULE12</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggerinputpolarity">TriggerInputPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#niswitch.TriggerInputPolarity"><code class="docutils literal notranslate"><span class="pre">TriggerInputPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInputPolarity.RISING"><code class="docutils literal notranslate"><span class="pre">TriggerInputPolarity.RISING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#niswitch.TriggerInputPolarity.FALLING"><code class="docutils literal notranslate"><span class="pre">TriggerInputPolarity.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Exceptions and Warnings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#error">Error</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivererror">DriverError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.DriverError"><code class="docutils literal notranslate"><span class="pre">DriverError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#unsupportedconfigurationerror">UnsupportedConfigurationError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.UnsupportedConfigurationError"><code class="docutils literal notranslate"><span class="pre">UnsupportedConfigurationError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivernotinstallederror">DriverNotInstalledError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.DriverNotInstalledError"><code class="docutils literal notranslate"><span class="pre">DriverNotInstalledError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertooolderror">DriverTooOldError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.DriverTooOldError"><code class="docutils literal notranslate"><span class="pre">DriverTooOldError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertoonewerror">DriverTooNewError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.DriverTooNewError"><code class="docutils literal notranslate"><span class="pre">DriverTooNewError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#invalidrepeatedcapabilityerror">InvalidRepeatedCapabilityError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.InvalidRepeatedCapabilityError"><code class="docutils literal notranslate"><span class="pre">InvalidRepeatedCapabilityError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#selftesterror">SelfTestError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.SelfTestError"><code class="docutils literal notranslate"><span class="pre">SelfTestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#rpcerror">RpcError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.RpcError"><code class="docutils literal notranslate"><span class="pre">RpcError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#driverwarning">DriverWarning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#niswitch.errors.DriverWarning"><code class="docutils literal notranslate"><span class="pre">DriverWarning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niswitch-connect-channels-py">niswitch_connect_channels.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niswitch-get-device-info-py">niswitch_get_device_info.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#niswitch-relay-control-py">niswitch_relay_control.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#sessioninitializationbehavior">SessionInitializationBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#niswitch.SessionInitializationBehavior"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#niswitch.SessionInitializationBehavior.AUTO"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#niswitch.SessionInitializationBehavior.INITIALIZE_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.INITIALIZE_SERVER_SESSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#niswitch.SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#grpcsessionoptions">GrpcSessionOptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#niswitch.GrpcSessionOptions"><code class="docutils literal notranslate"><span class="pre">GrpcSessionOptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NI-SWITCH Python API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="class.html" class="btn btn-neutral float-right" title="Session" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

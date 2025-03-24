@@ -1,0 +1,1184 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nifgen module &mdash; NI-FGEN Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session" href="class.html" />
+    <link rel="prev" title="NI-FGEN Python API Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-FGEN Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nifgen module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-FGEN Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">nifgen module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nifgen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nifgen-module">
+<h1>nifgen module<a class="headerlink" href="#nifgen-module" title="Link to this heading"></a></h1>
+<section id="installation">
+<span id="nifgen-installation-section"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>As a prerequisite to using the <strong>nifgen</strong> module, you must install the NI-FGEN runtime on your system. Visit <a class="reference external" href="http://www.ni.com/downloads/">ni.com/downloads</a> to download the driver runtime for your devices.</p>
+<p>The nimi-python modules (i.e. for <strong>NI-FGEN</strong>) can be installed with <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install nifgen~=1.4.11
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>The following is a basic example of using the <strong>nifgen</strong> module to open a session to a Function Generator and generate a sine wave for 5 seconds.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nifgen</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="k">with</span> <span class="n">nifgen</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="s2">&quot;Dev1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">output_mode</span> <span class="o">=</span> <span class="n">nifgen</span><span class="o">.</span><span class="n">OutputMode</span><span class="o">.</span><span class="n">FUNC</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">configure_standard_waveform</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">nifgen</span><span class="o">.</span><span class="n">Waveform</span><span class="o">.</span><span class="n">SINE</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span> <span class="n">dc_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">start_phase</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">initiate</span><span class="p">():</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/tree/master/src/nifgen/examples">Other usage examples can be found on GitHub.</a></p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#nifgen.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#methods">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#abort">abort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.abort"><code class="docutils literal notranslate"><span class="pre">abort()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#allocate-named-waveform">allocate_named_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.allocate_named_waveform"><code class="docutils literal notranslate"><span class="pre">allocate_named_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#allocate-waveform">allocate_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.allocate_waveform"><code class="docutils literal notranslate"><span class="pre">allocate_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-arb-memory">clear_arb_memory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.clear_arb_memory"><code class="docutils literal notranslate"><span class="pre">clear_arb_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-arb-sequence">clear_arb_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.clear_arb_sequence"><code class="docutils literal notranslate"><span class="pre">clear_arb_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-freq-list">clear_freq_list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.clear_freq_list"><code class="docutils literal notranslate"><span class="pre">clear_freq_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clear-user-standard-waveform">clear_user_standard_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.clear_user_standard_waveform"><code class="docutils literal notranslate"><span class="pre">clear_user_standard_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#close">close</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#commit">commit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.commit"><code class="docutils literal notranslate"><span class="pre">commit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-arb-sequence">configure_arb_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.configure_arb_sequence"><code class="docutils literal notranslate"><span class="pre">configure_arb_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-arb-waveform">configure_arb_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.configure_arb_waveform"><code class="docutils literal notranslate"><span class="pre">configure_arb_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-freq-list">configure_freq_list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.configure_freq_list"><code class="docutils literal notranslate"><span class="pre">configure_freq_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-standard-waveform">configure_standard_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.configure_standard_waveform"><code class="docutils literal notranslate"><span class="pre">configure_standard_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-advanced-arb-sequence">create_advanced_arb_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.create_advanced_arb_sequence"><code class="docutils literal notranslate"><span class="pre">create_advanced_arb_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-arb-sequence">create_arb_sequence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.create_arb_sequence"><code class="docutils literal notranslate"><span class="pre">create_arb_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-freq-list">create_freq_list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.create_freq_list"><code class="docutils literal notranslate"><span class="pre">create_freq_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-waveform-from-file-f64">create_waveform_from_file_f64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.create_waveform_from_file_f64"><code class="docutils literal notranslate"><span class="pre">create_waveform_from_file_f64()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-waveform-from-file-i16">create_waveform_from_file_i16</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.create_waveform_from_file_i16"><code class="docutils literal notranslate"><span class="pre">create_waveform_from_file_i16()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#create-waveform-numpy">create_waveform_numpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.create_waveform_numpy"><code class="docutils literal notranslate"><span class="pre">create_waveform_numpy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#define-user-standard-waveform">define_user_standard_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.define_user_standard_waveform"><code class="docutils literal notranslate"><span class="pre">define_user_standard_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#delete-script">delete_script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.delete_script"><code class="docutils literal notranslate"><span class="pre">delete_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#delete-waveform">delete_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.delete_waveform"><code class="docutils literal notranslate"><span class="pre">delete_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disable">disable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.disable"><code class="docutils literal notranslate"><span class="pre">disable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-buffer">export_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.export_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-file">export_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.export_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-channel-name">get_channel_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_channel_name"><code class="docutils literal notranslate"><span class="pre">get_channel_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-last-date-and-time">get_ext_cal_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_ext_cal_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-last-temp">get_ext_cal_last_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_ext_cal_last_temp"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_last_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-recommended-interval">get_ext_cal_recommended_interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_ext_cal_recommended_interval"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_recommended_interval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-hardware-state">get_hardware_state</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_hardware_state"><code class="docutils literal notranslate"><span class="pre">get_hardware_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-last-date-and-time">get_self_cal_last_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_self_cal_last_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_self_cal_last_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-last-temp">get_self_cal_last_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_self_cal_last_temp"><code class="docutils literal notranslate"><span class="pre">get_self_cal_last_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-supported">get_self_cal_supported</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.get_self_cal_supported"><code class="docutils literal notranslate"><span class="pre">get_self_cal_supported()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-buffer">import_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.import_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-file">import_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.import_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#initiate">initiate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.initiate"><code class="docutils literal notranslate"><span class="pre">initiate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#is-done">is_done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.is_done"><code class="docutils literal notranslate"><span class="pre">is_done()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lock">lock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-arb-seq-capabilities">query_arb_seq_capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.query_arb_seq_capabilities"><code class="docutils literal notranslate"><span class="pre">query_arb_seq_capabilities()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-arb-wfm-capabilities">query_arb_wfm_capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.query_arb_wfm_capabilities"><code class="docutils literal notranslate"><span class="pre">query_arb_wfm_capabilities()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#query-freq-list-capabilities">query_freq_list_capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.query_freq_list_capabilities"><code class="docutils literal notranslate"><span class="pre">query_freq_list_capabilities()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read-current-temperature">read_current_temperature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.read_current_temperature"><code class="docutils literal notranslate"><span class="pre">read_current_temperature()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset">reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-device">reset_device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.reset_device"><code class="docutils literal notranslate"><span class="pre">reset_device()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-with-defaults">reset_with_defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.reset_with_defaults"><code class="docutils literal notranslate"><span class="pre">reset_with_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-cal">self_cal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.self_cal"><code class="docutils literal notranslate"><span class="pre">self_cal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-test">self_test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.self_test"><code class="docutils literal notranslate"><span class="pre">self_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#send-software-edge-trigger">send_software_edge_trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.send_software_edge_trigger"><code class="docutils literal notranslate"><span class="pre">send_software_edge_trigger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#set-next-write-position">set_next_write_position</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.set_next_write_position"><code class="docutils literal notranslate"><span class="pre">set_next_write_position()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#unlock">unlock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wait-until-done">wait_until_done</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.wait_until_done"><code class="docutils literal notranslate"><span class="pre">wait_until_done()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#write-script">write_script</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.write_script"><code class="docutils literal notranslate"><span class="pre">write_script()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#write-waveform">write_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.write_waveform"><code class="docutils literal notranslate"><span class="pre">write_waveform()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#properties">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#absolute-delay">absolute_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.absolute_delay"><code class="docutils literal notranslate"><span class="pre">absolute_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#all-marker-events-latched-status">all_marker_events_latched_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.all_marker_events_latched_status"><code class="docutils literal notranslate"><span class="pre">all_marker_events_latched_status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#all-marker-events-live-status">all_marker_events_live_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.all_marker_events_live_status"><code class="docutils literal notranslate"><span class="pre">all_marker_events_live_status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#analog-data-mask">analog_data_mask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.analog_data_mask"><code class="docutils literal notranslate"><span class="pre">analog_data_mask</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#analog-filter-enabled">analog_filter_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.analog_filter_enabled"><code class="docutils literal notranslate"><span class="pre">analog_filter_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#analog-path">analog_path</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.analog_path"><code class="docutils literal notranslate"><span class="pre">analog_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#analog-static-value">analog_static_value</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.analog_static_value"><code class="docutils literal notranslate"><span class="pre">analog_static_value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-gain">arb_gain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_gain"><code class="docutils literal notranslate"><span class="pre">arb_gain</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-marker-position">arb_marker_position</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_marker_position"><code class="docutils literal notranslate"><span class="pre">arb_marker_position</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-offset">arb_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_offset"><code class="docutils literal notranslate"><span class="pre">arb_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-repeat-count">arb_repeat_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_repeat_count"><code class="docutils literal notranslate"><span class="pre">arb_repeat_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-sample-rate">arb_sample_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_sample_rate"><code class="docutils literal notranslate"><span class="pre">arb_sample_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-sequence-handle">arb_sequence_handle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_sequence_handle"><code class="docutils literal notranslate"><span class="pre">arb_sequence_handle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#arb-waveform-handle">arb_waveform_handle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.arb_waveform_handle"><code class="docutils literal notranslate"><span class="pre">arb_waveform_handle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#aux-power-enabled">aux_power_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.aux_power_enabled"><code class="docutils literal notranslate"><span class="pre">aux_power_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#bus-type">bus_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.bus_type"><code class="docutils literal notranslate"><span class="pre">bus_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-delay">channel_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.channel_delay"><code class="docutils literal notranslate"><span class="pre">channel_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#clock-mode">clock_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.clock_mode"><code class="docutils literal notranslate"><span class="pre">clock_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#common-mode-offset">common_mode_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.common_mode_offset"><code class="docutils literal notranslate"><span class="pre">common_mode_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-marker-events-count">data_marker_events_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_marker_events_count"><code class="docutils literal notranslate"><span class="pre">data_marker_events_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-marker-event-data-bit-number">data_marker_event_data_bit_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_marker_event_data_bit_number"><code class="docutils literal notranslate"><span class="pre">data_marker_event_data_bit_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-marker-event-level-polarity">data_marker_event_level_polarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_marker_event_level_polarity"><code class="docutils literal notranslate"><span class="pre">data_marker_event_level_polarity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-marker-event-output-terminal">data_marker_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_marker_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">data_marker_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-block-size">data_transfer_block_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_transfer_block_size"><code class="docutils literal notranslate"><span class="pre">data_transfer_block_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-maximum-bandwidth">data_transfer_maximum_bandwidth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_transfer_maximum_bandwidth"><code class="docutils literal notranslate"><span class="pre">data_transfer_maximum_bandwidth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-maximum-in-flight-reads">data_transfer_maximum_in_flight_reads</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_transfer_maximum_in_flight_reads"><code class="docutils literal notranslate"><span class="pre">data_transfer_maximum_in_flight_reads</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#data-transfer-preferred-packet-size">data_transfer_preferred_packet_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.data_transfer_preferred_packet_size"><code class="docutils literal notranslate"><span class="pre">data_transfer_preferred_packet_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-data-mask">digital_data_mask</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_data_mask"><code class="docutils literal notranslate"><span class="pre">digital_data_mask</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-script-trigger-edge">digital_edge_script_trigger_edge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_edge_script_trigger_edge"><code class="docutils literal notranslate"><span class="pre">digital_edge_script_trigger_edge</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-script-trigger-source">digital_edge_script_trigger_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_edge_script_trigger_source"><code class="docutils literal notranslate"><span class="pre">digital_edge_script_trigger_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-start-trigger-edge">digital_edge_start_trigger_edge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_edge_start_trigger_edge"><code class="docutils literal notranslate"><span class="pre">digital_edge_start_trigger_edge</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-edge-start-trigger-source">digital_edge_start_trigger_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_edge_start_trigger_source"><code class="docutils literal notranslate"><span class="pre">digital_edge_start_trigger_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-filter-enabled">digital_filter_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_filter_enabled"><code class="docutils literal notranslate"><span class="pre">digital_filter_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-filter-interpolation-factor">digital_filter_interpolation_factor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_filter_interpolation_factor"><code class="docutils literal notranslate"><span class="pre">digital_filter_interpolation_factor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-gain">digital_gain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_gain"><code class="docutils literal notranslate"><span class="pre">digital_gain</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-pattern-enabled">digital_pattern_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_pattern_enabled"><code class="docutils literal notranslate"><span class="pre">digital_pattern_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#digital-static-value">digital_static_value</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.digital_static_value"><code class="docutils literal notranslate"><span class="pre">digital_static_value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#done-event-output-terminal">done_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.done_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">done_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#done-event-pulse-width">done_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.done_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">done_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#done-event-pulse-width-units">done_event_pulse_width_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.done_event_pulse_width_units"><code class="docutils literal notranslate"><span class="pre">done_event_pulse_width_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#driver-setup">driver_setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.driver_setup"><code class="docutils literal notranslate"><span class="pre">driver_setup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-onboard-reference-clock-output-terminal">exported_onboard_reference_clock_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_onboard_reference_clock_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_onboard_reference_clock_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-reference-clock-output-terminal">exported_reference_clock_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_reference_clock_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_reference_clock_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-sample-clock-divisor">exported_sample_clock_divisor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_sample_clock_divisor"><code class="docutils literal notranslate"><span class="pre">exported_sample_clock_divisor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-sample-clock-output-terminal">exported_sample_clock_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_sample_clock_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_sample_clock_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-sample-clock-timebase-divisor">exported_sample_clock_timebase_divisor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_sample_clock_timebase_divisor"><code class="docutils literal notranslate"><span class="pre">exported_sample_clock_timebase_divisor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-sample-clock-timebase-output-terminal">exported_sample_clock_timebase_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_sample_clock_timebase_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_sample_clock_timebase_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-script-trigger-output-terminal">exported_script_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_script_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_script_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#exported-start-trigger-output-terminal">exported_start_trigger_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.exported_start_trigger_output_terminal"><code class="docutils literal notranslate"><span class="pre">exported_start_trigger_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#external-clock-delay-binary-value">external_clock_delay_binary_value</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.external_clock_delay_binary_value"><code class="docutils literal notranslate"><span class="pre">external_clock_delay_binary_value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#external-sample-clock-multiplier">external_sample_clock_multiplier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.external_sample_clock_multiplier"><code class="docutils literal notranslate"><span class="pre">external_sample_clock_multiplier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#file-transfer-block-size">file_transfer_block_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.file_transfer_block_size"><code class="docutils literal notranslate"><span class="pre">file_transfer_block_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#filter-correction-frequency">filter_correction_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.filter_correction_frequency"><code class="docutils literal notranslate"><span class="pre">filter_correction_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#flatness-correction-enabled">flatness_correction_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.flatness_correction_enabled"><code class="docutils literal notranslate"><span class="pre">flatness_correction_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fpga-bitfile-path">fpga_bitfile_path</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.fpga_bitfile_path"><code class="docutils literal notranslate"><span class="pre">fpga_bitfile_path</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#freq-list-duration-quantum">freq_list_duration_quantum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.freq_list_duration_quantum"><code class="docutils literal notranslate"><span class="pre">freq_list_duration_quantum</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#freq-list-handle">freq_list_handle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.freq_list_handle"><code class="docutils literal notranslate"><span class="pre">freq_list_handle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-amplitude">func_amplitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_amplitude"><code class="docutils literal notranslate"><span class="pre">func_amplitude</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-buffer-size">func_buffer_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_buffer_size"><code class="docutils literal notranslate"><span class="pre">func_buffer_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-dc-offset">func_dc_offset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_dc_offset"><code class="docutils literal notranslate"><span class="pre">func_dc_offset</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-duty-cycle-high">func_duty_cycle_high</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_duty_cycle_high"><code class="docutils literal notranslate"><span class="pre">func_duty_cycle_high</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-frequency">func_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_frequency"><code class="docutils literal notranslate"><span class="pre">func_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-max-buffer-size">func_max_buffer_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_max_buffer_size"><code class="docutils literal notranslate"><span class="pre">func_max_buffer_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-start-phase">func_start_phase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_start_phase"><code class="docutils literal notranslate"><span class="pre">func_start_phase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#func-waveform">func_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.func_waveform"><code class="docutils literal notranslate"><span class="pre">func_waveform</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#idle-behavior">idle_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.idle_behavior"><code class="docutils literal notranslate"><span class="pre">idle_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#idle-value">idle_value</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.idle_value"><code class="docutils literal notranslate"><span class="pre">idle_value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-firmware-revision">instrument_firmware_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.instrument_firmware_revision"><code class="docutils literal notranslate"><span class="pre">instrument_firmware_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-manufacturer">instrument_manufacturer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.instrument_manufacturer"><code class="docutils literal notranslate"><span class="pre">instrument_manufacturer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-model">instrument_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.instrument_model"><code class="docutils literal notranslate"><span class="pre">instrument_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#io-resource-descriptor">io_resource_descriptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.io_resource_descriptor"><code class="docutils literal notranslate"><span class="pre">io_resource_descriptor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#load-impedance">load_impedance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.load_impedance"><code class="docutils literal notranslate"><span class="pre">load_impedance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#logical-name">logical_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.logical_name"><code class="docutils literal notranslate"><span class="pre">logical_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#marker-events-count">marker_events_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.marker_events_count"><code class="docutils literal notranslate"><span class="pre">marker_events_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#marker-event-output-terminal">marker_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.marker_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">marker_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#marker-event-pulse-width">marker_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.marker_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">marker_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#marker-event-pulse-width-units">marker_event_pulse_width_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.marker_event_pulse_width_units"><code class="docutils literal notranslate"><span class="pre">marker_event_pulse_width_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-freq-list-duration">max_freq_list_duration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_freq_list_duration"><code class="docutils literal notranslate"><span class="pre">max_freq_list_duration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-freq-list-length">max_freq_list_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_freq_list_length"><code class="docutils literal notranslate"><span class="pre">max_freq_list_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-loop-count">max_loop_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_loop_count"><code class="docutils literal notranslate"><span class="pre">max_loop_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-num-freq-lists">max_num_freq_lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_num_freq_lists"><code class="docutils literal notranslate"><span class="pre">max_num_freq_lists</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-num-sequences">max_num_sequences</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_num_sequences"><code class="docutils literal notranslate"><span class="pre">max_num_sequences</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-num-waveforms">max_num_waveforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_num_waveforms"><code class="docutils literal notranslate"><span class="pre">max_num_waveforms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-sequence-length">max_sequence_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_sequence_length"><code class="docutils literal notranslate"><span class="pre">max_sequence_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#max-waveform-size">max_waveform_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.max_waveform_size"><code class="docutils literal notranslate"><span class="pre">max_waveform_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#memory-size">memory_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.memory_size"><code class="docutils literal notranslate"><span class="pre">memory_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#min-freq-list-duration">min_freq_list_duration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.min_freq_list_duration"><code class="docutils literal notranslate"><span class="pre">min_freq_list_duration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#min-freq-list-length">min_freq_list_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.min_freq_list_length"><code class="docutils literal notranslate"><span class="pre">min_freq_list_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#min-sequence-length">min_sequence_length</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.min_sequence_length"><code class="docutils literal notranslate"><span class="pre">min_sequence_length</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#min-waveform-size">min_waveform_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.min_waveform_size"><code class="docutils literal notranslate"><span class="pre">min_waveform_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#module-revision">module_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.module_revision"><code class="docutils literal notranslate"><span class="pre">module_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-count">channel_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.channel_count"><code class="docutils literal notranslate"><span class="pre">channel_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-enabled">output_enabled</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.output_enabled"><code class="docutils literal notranslate"><span class="pre">output_enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-impedance">output_impedance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.output_impedance"><code class="docutils literal notranslate"><span class="pre">output_impedance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#output-mode">output_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.output_mode"><code class="docutils literal notranslate"><span class="pre">output_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ready-for-start-event-output-terminal">ready_for_start_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.ready_for_start_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">ready_for_start_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reference-clock-source">reference_clock_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.reference_clock_source"><code class="docutils literal notranslate"><span class="pre">reference_clock_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ref-clock-frequency">ref_clock_frequency</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.ref_clock_frequency"><code class="docutils literal notranslate"><span class="pre">ref_clock_frequency</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-clock-source">sample_clock_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.sample_clock_source"><code class="docutils literal notranslate"><span class="pre">sample_clock_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-clock-timebase-rate">sample_clock_timebase_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.sample_clock_timebase_rate"><code class="docutils literal notranslate"><span class="pre">sample_clock_timebase_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-clock-timebase-source">sample_clock_timebase_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.sample_clock_timebase_source"><code class="docutils literal notranslate"><span class="pre">sample_clock_timebase_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#script-to-generate">script_to_generate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.script_to_generate"><code class="docutils literal notranslate"><span class="pre">script_to_generate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#script-triggers-count">script_triggers_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.script_triggers_count"><code class="docutils literal notranslate"><span class="pre">script_triggers_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#script-trigger-type">script_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.script_trigger_type"><code class="docutils literal notranslate"><span class="pre">script_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#serial-number">serial_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.serial_number"><code class="docutils literal notranslate"><span class="pre">serial_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#simulate">simulate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.simulate"><code class="docutils literal notranslate"><span class="pre">simulate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-description">specific_driver_description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.specific_driver_description"><code class="docutils literal notranslate"><span class="pre">specific_driver_description</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#major-version">major_version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.major_version"><code class="docutils literal notranslate"><span class="pre">major_version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#minor-version">minor_version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.minor_version"><code class="docutils literal notranslate"><span class="pre">minor_version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-revision">specific_driver_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.specific_driver_revision"><code class="docutils literal notranslate"><span class="pre">specific_driver_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-vendor">specific_driver_vendor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.specific_driver_vendor"><code class="docutils literal notranslate"><span class="pre">specific_driver_vendor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#started-event-output-terminal">started_event_output_terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.started_event_output_terminal"><code class="docutils literal notranslate"><span class="pre">started_event_output_terminal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#started-event-pulse-width">started_event_pulse_width</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.started_event_pulse_width"><code class="docutils literal notranslate"><span class="pre">started_event_pulse_width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#started-event-pulse-width-units">started_event_pulse_width_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.started_event_pulse_width_units"><code class="docutils literal notranslate"><span class="pre">started_event_pulse_width_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#start-trigger-type">start_trigger_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.start_trigger_type"><code class="docutils literal notranslate"><span class="pre">start_trigger_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#streaming-space-available-in-waveform">streaming_space_available_in_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.streaming_space_available_in_waveform"><code class="docutils literal notranslate"><span class="pre">streaming_space_available_in_waveform</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#streaming-waveform-handle">streaming_waveform_handle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.streaming_waveform_handle"><code class="docutils literal notranslate"><span class="pre">streaming_waveform_handle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#streaming-waveform-name">streaming_waveform_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.streaming_waveform_name"><code class="docutils literal notranslate"><span class="pre">streaming_waveform_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#streaming-write-timeout">streaming_write_timeout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.streaming_write_timeout"><code class="docutils literal notranslate"><span class="pre">streaming_write_timeout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#supported-instrument-models">supported_instrument_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.supported_instrument_models"><code class="docutils literal notranslate"><span class="pre">supported_instrument_models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#terminal-configuration">terminal_configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.terminal_configuration"><code class="docutils literal notranslate"><span class="pre">terminal_configuration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-mode">trigger_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.trigger_mode"><code class="docutils literal notranslate"><span class="pre">trigger_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wait-behavior">wait_behavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.wait_behavior"><code class="docutils literal notranslate"><span class="pre">wait_behavior</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#wait-value">wait_value</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.wait_value"><code class="docutils literal notranslate"><span class="pre">wait_value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#waveform-quantum">waveform_quantum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nifgen.Session.waveform_quantum"><code class="docutils literal notranslate"><span class="pre">waveform_quantum</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#nifgen.Session.tclk"><code class="docutils literal notranslate"><span class="pre">tclk</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#channels">channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#nifgen.Session.nifgen.Session.channels"><code class="docutils literal notranslate"><span class="pre">nifgen.Session.channels</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#script-triggers">script_triggers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#nifgen.Session.nifgen.Session.script_triggers"><code class="docutils literal notranslate"><span class="pre">nifgen.Session.script_triggers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#markers">markers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#nifgen.Session.nifgen.Session.markers"><code class="docutils literal notranslate"><span class="pre">nifgen.Session.markers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rep_caps.html#data-markers">data_markers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html#nifgen.Session.nifgen.Session.data_markers"><code class="docutils literal notranslate"><span class="pre">nifgen.Session.data_markers</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#analogpath">AnalogPath</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.AnalogPath"><code class="docutils literal notranslate"><span class="pre">AnalogPath</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.AnalogPath.MAIN"><code class="docutils literal notranslate"><span class="pre">AnalogPath.MAIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.AnalogPath.DIRECT"><code class="docutils literal notranslate"><span class="pre">AnalogPath.DIRECT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.AnalogPath.FIXED_LOW_GAIN"><code class="docutils literal notranslate"><span class="pre">AnalogPath.FIXED_LOW_GAIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.AnalogPath.FIXED_HIGH_GAIN"><code class="docutils literal notranslate"><span class="pre">AnalogPath.FIXED_HIGH_GAIN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#bustype">BusType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.BusType"><code class="docutils literal notranslate"><span class="pre">BusType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.INVALID"><code class="docutils literal notranslate"><span class="pre">BusType.INVALID</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.AT"><code class="docutils literal notranslate"><span class="pre">BusType.AT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.PCI"><code class="docutils literal notranslate"><span class="pre">BusType.PCI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.PXI"><code class="docutils literal notranslate"><span class="pre">BusType.PXI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.VXI"><code class="docutils literal notranslate"><span class="pre">BusType.VXI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.PCMCIA"><code class="docutils literal notranslate"><span class="pre">BusType.PCMCIA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.BusType.PXIE"><code class="docutils literal notranslate"><span class="pre">BusType.PXIE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#byteorder">ByteOrder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.ByteOrder"><code class="docutils literal notranslate"><span class="pre">ByteOrder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ByteOrder.LITTLE"><code class="docutils literal notranslate"><span class="pre">ByteOrder.LITTLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ByteOrder.BIG"><code class="docutils literal notranslate"><span class="pre">ByteOrder.BIG</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#clockmode">ClockMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.ClockMode"><code class="docutils literal notranslate"><span class="pre">ClockMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ClockMode.HIGH_RESOLUTION"><code class="docutils literal notranslate"><span class="pre">ClockMode.HIGH_RESOLUTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ClockMode.DIVIDE_DOWN"><code class="docutils literal notranslate"><span class="pre">ClockMode.DIVIDE_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ClockMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">ClockMode.AUTOMATIC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#datamarkereventlevelpolarity">DataMarkerEventLevelPolarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.DataMarkerEventLevelPolarity"><code class="docutils literal notranslate"><span class="pre">DataMarkerEventLevelPolarity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.DataMarkerEventLevelPolarity.HIGH"><code class="docutils literal notranslate"><span class="pre">DataMarkerEventLevelPolarity.HIGH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.DataMarkerEventLevelPolarity.LOW"><code class="docutils literal notranslate"><span class="pre">DataMarkerEventLevelPolarity.LOW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#eventpulsewidthunits">EventPulseWidthUnits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.EventPulseWidthUnits"><code class="docutils literal notranslate"><span class="pre">EventPulseWidthUnits</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.EventPulseWidthUnits.SAMPLE_CLOCK_PERIODS"><code class="docutils literal notranslate"><span class="pre">EventPulseWidthUnits.SAMPLE_CLOCK_PERIODS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.EventPulseWidthUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">EventPulseWidthUnits.SECONDS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#hardwarestate">HardwareState</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.HardwareState"><code class="docutils literal notranslate"><span class="pre">HardwareState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.HardwareState.IDLE"><code class="docutils literal notranslate"><span class="pre">HardwareState.IDLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.HardwareState.WAITING_FOR_START_TRIGGER"><code class="docutils literal notranslate"><span class="pre">HardwareState.WAITING_FOR_START_TRIGGER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.HardwareState.RUNNING"><code class="docutils literal notranslate"><span class="pre">HardwareState.RUNNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.HardwareState.DONE"><code class="docutils literal notranslate"><span class="pre">HardwareState.DONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.HardwareState.HARDWARE_ERROR"><code class="docutils literal notranslate"><span class="pre">HardwareState.HARDWARE_ERROR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#idlebehavior">IdleBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.IdleBehavior"><code class="docutils literal notranslate"><span class="pre">IdleBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.IdleBehavior.HOLD_LAST"><code class="docutils literal notranslate"><span class="pre">IdleBehavior.HOLD_LAST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.IdleBehavior.JUMP_TO"><code class="docutils literal notranslate"><span class="pre">IdleBehavior.JUMP_TO</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#outputmode">OutputMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.OutputMode"><code class="docutils literal notranslate"><span class="pre">OutputMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.OutputMode.FUNC"><code class="docutils literal notranslate"><span class="pre">OutputMode.FUNC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.OutputMode.ARB"><code class="docutils literal notranslate"><span class="pre">OutputMode.ARB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.OutputMode.SEQ"><code class="docutils literal notranslate"><span class="pre">OutputMode.SEQ</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.OutputMode.FREQ_LIST"><code class="docutils literal notranslate"><span class="pre">OutputMode.FREQ_LIST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.OutputMode.SCRIPT"><code class="docutils literal notranslate"><span class="pre">OutputMode.SCRIPT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#referenceclocksource">ReferenceClockSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.ReferenceClockSource"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ReferenceClockSource.CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.CLOCK_IN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ReferenceClockSource.NONE"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ReferenceClockSource.ONBOARD_REFERENCE_CLOCK"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.ONBOARD_REFERENCE_CLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ReferenceClockSource.PXI_CLOCK"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.PXI_CLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ReferenceClockSource.RTSI_7"><code class="docutils literal notranslate"><span class="pre">ReferenceClockSource.RTSI_7</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#relativeto">RelativeTo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.RelativeTo"><code class="docutils literal notranslate"><span class="pre">RelativeTo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.RelativeTo.START"><code class="docutils literal notranslate"><span class="pre">RelativeTo.START</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.RelativeTo.CURRENT"><code class="docutils literal notranslate"><span class="pre">RelativeTo.CURRENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#sampleclocksource">SampleClockSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.SampleClockSource"><code class="docutils literal notranslate"><span class="pre">SampleClockSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.CLOCK_IN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.DDC_CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.DDC_CLOCK_IN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.ONBOARD_CLOCK"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.ONBOARD_CLOCK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_STAR_LINE"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_STAR_LINE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_0_RTSI_0"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_0_RTSI_0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_1_RTSI_1"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_1_RTSI_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_2_RTSI_2"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_2_RTSI_2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_3_RTSI_3"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_3_RTSI_3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_4_RTSI_4"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_4_RTSI_4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_5_RTSI_5"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_5_RTSI_5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_6_RTSI_6"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_6_RTSI_6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockSource.PXI_TRIGGER_LINE_7_RTSI_7"><code class="docutils literal notranslate"><span class="pre">SampleClockSource.PXI_TRIGGER_LINE_7_RTSI_7</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#sampleclocktimebasesource">SampleClockTimebaseSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.SampleClockTimebaseSource"><code class="docutils literal notranslate"><span class="pre">SampleClockTimebaseSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockTimebaseSource.CLOCK_IN"><code class="docutils literal notranslate"><span class="pre">SampleClockTimebaseSource.CLOCK_IN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.SampleClockTimebaseSource.ONBOARD_CLOCK"><code class="docutils literal notranslate"><span class="pre">SampleClockTimebaseSource.ONBOARD_CLOCK</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#scripttriggerdigitaledgeedge">ScriptTriggerDigitalEdgeEdge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerDigitalEdgeEdge"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerDigitalEdgeEdge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerDigitalEdgeEdge.RISING"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerDigitalEdgeEdge.RISING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerDigitalEdgeEdge.FALLING"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerDigitalEdgeEdge.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#scripttriggertype">ScriptTriggerType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerType"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerType.TRIG_NONE"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.TRIG_NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerType.DIGITAL_LEVEL"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.DIGITAL_LEVEL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.ScriptTriggerType.SOFTWARE_EDGE"><code class="docutils literal notranslate"><span class="pre">ScriptTriggerType.SOFTWARE_EDGE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#starttriggerdigitaledgeedge">StartTriggerDigitalEdgeEdge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.StartTriggerDigitalEdgeEdge"><code class="docutils literal notranslate"><span class="pre">StartTriggerDigitalEdgeEdge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.StartTriggerDigitalEdgeEdge.RISING"><code class="docutils literal notranslate"><span class="pre">StartTriggerDigitalEdgeEdge.RISING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.StartTriggerDigitalEdgeEdge.FALLING"><code class="docutils literal notranslate"><span class="pre">StartTriggerDigitalEdgeEdge.FALLING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#starttriggertype">StartTriggerType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.StartTriggerType"><code class="docutils literal notranslate"><span class="pre">StartTriggerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.StartTriggerType.TRIG_NONE"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.TRIG_NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.StartTriggerType.DIGITAL_EDGE"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.DIGITAL_EDGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.StartTriggerType.SOFTWARE_EDGE"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.SOFTWARE_EDGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.StartTriggerType.P2P_ENDPOINT_FULLNESS"><code class="docutils literal notranslate"><span class="pre">StartTriggerType.P2P_ENDPOINT_FULLNESS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#terminalconfiguration">TerminalConfiguration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.TerminalConfiguration"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.TerminalConfiguration.SINGLE_ENDED"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.SINGLE_ENDED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.TerminalConfiguration.DIFFERENTIAL"><code class="docutils literal notranslate"><span class="pre">TerminalConfiguration.DIFFERENTIAL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#trigger">Trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.Trigger"><code class="docutils literal notranslate"><span class="pre">Trigger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Trigger.START"><code class="docutils literal notranslate"><span class="pre">Trigger.START</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Trigger.SCRIPT"><code class="docutils literal notranslate"><span class="pre">Trigger.SCRIPT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggermode">TriggerMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.TriggerMode"><code class="docutils literal notranslate"><span class="pre">TriggerMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.TriggerMode.SINGLE"><code class="docutils literal notranslate"><span class="pre">TriggerMode.SINGLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.TriggerMode.CONTINUOUS"><code class="docutils literal notranslate"><span class="pre">TriggerMode.CONTINUOUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.TriggerMode.STEPPED"><code class="docutils literal notranslate"><span class="pre">TriggerMode.STEPPED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.TriggerMode.BURST"><code class="docutils literal notranslate"><span class="pre">TriggerMode.BURST</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#waitbehavior">WaitBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.WaitBehavior"><code class="docutils literal notranslate"><span class="pre">WaitBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.WaitBehavior.HOLD_LAST"><code class="docutils literal notranslate"><span class="pre">WaitBehavior.HOLD_LAST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.WaitBehavior.JUMP_TO"><code class="docutils literal notranslate"><span class="pre">WaitBehavior.JUMP_TO</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#waveform">Waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nifgen.Waveform"><code class="docutils literal notranslate"><span class="pre">Waveform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.SINE"><code class="docutils literal notranslate"><span class="pre">Waveform.SINE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.SQUARE"><code class="docutils literal notranslate"><span class="pre">Waveform.SQUARE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.TRIANGLE"><code class="docutils literal notranslate"><span class="pre">Waveform.TRIANGLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.RAMP_UP"><code class="docutils literal notranslate"><span class="pre">Waveform.RAMP_UP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.RAMP_DOWN"><code class="docutils literal notranslate"><span class="pre">Waveform.RAMP_DOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.DC"><code class="docutils literal notranslate"><span class="pre">Waveform.DC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.NOISE"><code class="docutils literal notranslate"><span class="pre">Waveform.NOISE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nifgen.Waveform.USER"><code class="docutils literal notranslate"><span class="pre">Waveform.USER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Exceptions and Warnings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#error">Error</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivererror">DriverError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.DriverError"><code class="docutils literal notranslate"><span class="pre">DriverError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#unsupportedconfigurationerror">UnsupportedConfigurationError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.UnsupportedConfigurationError"><code class="docutils literal notranslate"><span class="pre">UnsupportedConfigurationError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivernotinstallederror">DriverNotInstalledError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.DriverNotInstalledError"><code class="docutils literal notranslate"><span class="pre">DriverNotInstalledError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertooolderror">DriverTooOldError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.DriverTooOldError"><code class="docutils literal notranslate"><span class="pre">DriverTooOldError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertoonewerror">DriverTooNewError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.DriverTooNewError"><code class="docutils literal notranslate"><span class="pre">DriverTooNewError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#invalidrepeatedcapabilityerror">InvalidRepeatedCapabilityError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.InvalidRepeatedCapabilityError"><code class="docutils literal notranslate"><span class="pre">InvalidRepeatedCapabilityError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#selftesterror">SelfTestError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.SelfTestError"><code class="docutils literal notranslate"><span class="pre">SelfTestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#rpcerror">RpcError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.RpcError"><code class="docutils literal notranslate"><span class="pre">RpcError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#driverwarning">DriverWarning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nifgen.errors.DriverWarning"><code class="docutils literal notranslate"><span class="pre">DriverWarning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nifgen-arb-waveform-py">nifgen_arb_waveform.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nifgen-script-py">nifgen_script.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nifgen-standard-function-py">nifgen_standard_function.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nifgen-trigger-py">nifgen_trigger.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#sessioninitializationbehavior">SessionInitializationBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#nifgen.SessionInitializationBehavior"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nifgen.SessionInitializationBehavior.AUTO"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nifgen.SessionInitializationBehavior.INITIALIZE_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.INITIALIZE_SERVER_SESSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nifgen.SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#grpcsessionoptions">GrpcSessionOptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#nifgen.GrpcSessionOptions"><code class="docutils literal notranslate"><span class="pre">GrpcSessionOptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NI-FGEN Python API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="class.html" class="btn btn-neutral float-right" title="Session" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,876 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nidmm module &mdash; NI-DMM Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session" href="class.html" />
+    <link rel="prev" title="NI-DMM Python API Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-DMM Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nidmm module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-DMM Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">nidmm module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nidmm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nidmm-module">
+<h1>nidmm module<a class="headerlink" href="#nidmm-module" title="Link to this heading"></a></h1>
+<section id="installation">
+<span id="nidmm-installation-section"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>As a prerequisite to using the <strong>nidmm</strong> module, you must install the NI-DMM runtime on your system. Visit <a class="reference external" href="http://www.ni.com/downloads/">ni.com/downloads</a> to download the driver runtime for your devices.</p>
+<p>The nimi-python modules (i.e. for <strong>NI-DMM</strong>) can be installed with <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pip install nidmm~=1.4.11
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>The following is a basic example of using the <strong>nidmm</strong> module to open a session to a DMM and perform a 5.5 digits of resolution voltage measurement in the 10 V range.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nidmm</span>
+<span class="k">with</span> <span class="n">nidmm</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="s2">&quot;Dev1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">configure_measurement_digits</span><span class="p">(</span><span class="n">nidmm</span><span class="o">.</span><span class="n">Function</span><span class="o">.</span><span class="n">DC_VOLTS</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measurement: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">read</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/tree/master/src/nidmm/examples">Other usage examples can be found on GitHub.</a></p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Session</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#nidmm.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#methods">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#abort">abort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.abort"><code class="docutils literal notranslate"><span class="pre">abort()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#close">close</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.close"><code class="docutils literal notranslate"><span class="pre">close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-measurement-absolute">configure_measurement_absolute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_measurement_absolute"><code class="docutils literal notranslate"><span class="pre">configure_measurement_absolute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-measurement-digits">configure_measurement_digits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_measurement_digits"><code class="docutils literal notranslate"><span class="pre">configure_measurement_digits()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-multi-point">configure_multi_point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_multi_point"><code class="docutils literal notranslate"><span class="pre">configure_multi_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-rtd-custom">configure_rtd_custom</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_rtd_custom"><code class="docutils literal notranslate"><span class="pre">configure_rtd_custom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-rtd-type">configure_rtd_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_rtd_type"><code class="docutils literal notranslate"><span class="pre">configure_rtd_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-thermistor-custom">configure_thermistor_custom</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_thermistor_custom"><code class="docutils literal notranslate"><span class="pre">configure_thermistor_custom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-thermocouple">configure_thermocouple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_thermocouple"><code class="docutils literal notranslate"><span class="pre">configure_thermocouple()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-trigger">configure_trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_trigger"><code class="docutils literal notranslate"><span class="pre">configure_trigger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#configure-waveform-acquisition">configure_waveform_acquisition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.configure_waveform_acquisition"><code class="docutils literal notranslate"><span class="pre">configure_waveform_acquisition()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#disable">disable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.disable"><code class="docutils literal notranslate"><span class="pre">disable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-buffer">export_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.export_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#export-attribute-configuration-file">export_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.export_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">export_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch">fetch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.fetch"><code class="docutils literal notranslate"><span class="pre">fetch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-multi-point">fetch_multi_point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.fetch_multi_point"><code class="docutils literal notranslate"><span class="pre">fetch_multi_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-waveform">fetch_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.fetch_waveform"><code class="docutils literal notranslate"><span class="pre">fetch_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#fetch-waveform-into">fetch_waveform_into</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.fetch_waveform_into"><code class="docutils literal notranslate"><span class="pre">fetch_waveform_into()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-cal-date-and-time">get_cal_date_and_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.get_cal_date_and_time"><code class="docutils literal notranslate"><span class="pre">get_cal_date_and_time()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-dev-temp">get_dev_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.get_dev_temp"><code class="docutils literal notranslate"><span class="pre">get_dev_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-ext-cal-recommended-interval">get_ext_cal_recommended_interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.get_ext_cal_recommended_interval"><code class="docutils literal notranslate"><span class="pre">get_ext_cal_recommended_interval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-last-cal-temp">get_last_cal_temp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.get_last_cal_temp"><code class="docutils literal notranslate"><span class="pre">get_last_cal_temp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#get-self-cal-supported">get_self_cal_supported</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.get_self_cal_supported"><code class="docutils literal notranslate"><span class="pre">get_self_cal_supported()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-buffer">import_attribute_configuration_buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.import_attribute_configuration_buffer"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_buffer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#import-attribute-configuration-file">import_attribute_configuration_file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.import_attribute_configuration_file"><code class="docutils literal notranslate"><span class="pre">import_attribute_configuration_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#initiate">initiate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.initiate"><code class="docutils literal notranslate"><span class="pre">initiate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lock">lock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-open-cable-comp">perform_open_cable_comp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.perform_open_cable_comp"><code class="docutils literal notranslate"><span class="pre">perform_open_cable_comp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#perform-short-cable-comp">perform_short_cable_comp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.perform_short_cable_comp"><code class="docutils literal notranslate"><span class="pre">perform_short_cable_comp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read">read</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read-multi-point">read_multi_point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.read_multi_point"><code class="docutils literal notranslate"><span class="pre">read_multi_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read-status">read_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.read_status"><code class="docutils literal notranslate"><span class="pre">read_status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#read-waveform">read_waveform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.read_waveform"><code class="docutils literal notranslate"><span class="pre">read_waveform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset">reset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#reset-with-defaults">reset_with_defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.reset_with_defaults"><code class="docutils literal notranslate"><span class="pre">reset_with_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-cal">self_cal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.self_cal"><code class="docutils literal notranslate"><span class="pre">self_cal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#self-test">self_test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.self_test"><code class="docutils literal notranslate"><span class="pre">self_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#send-software-trigger">send_software_trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.send_software_trigger"><code class="docutils literal notranslate"><span class="pre">send_software_trigger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#unlock">unlock</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class.html#properties">Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ac-max-freq">ac_max_freq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.ac_max_freq"><code class="docutils literal notranslate"><span class="pre">ac_max_freq</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#ac-min-freq">ac_min_freq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.ac_min_freq"><code class="docutils literal notranslate"><span class="pre">ac_min_freq</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#adc-calibration">adc_calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.adc_calibration"><code class="docutils literal notranslate"><span class="pre">adc_calibration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#aperture-time">aperture_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.aperture_time"><code class="docutils literal notranslate"><span class="pre">aperture_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#aperture-time-units">aperture_time_units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.aperture_time_units"><code class="docutils literal notranslate"><span class="pre">aperture_time_units</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#auto-range-value">auto_range_value</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.auto_range_value"><code class="docutils literal notranslate"><span class="pre">auto_range_value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#auto-zero">auto_zero</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.auto_zero"><code class="docutils literal notranslate"><span class="pre">auto_zero</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#buffer-size">buffer_size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.buffer_size"><code class="docutils literal notranslate"><span class="pre">buffer_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#cable-comp-type">cable_comp_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.cable_comp_type"><code class="docutils literal notranslate"><span class="pre">cable_comp_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#channel-count">channel_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.channel_count"><code class="docutils literal notranslate"><span class="pre">channel_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#current-source">current_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.current_source"><code class="docutils literal notranslate"><span class="pre">current_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#dc-bias">dc_bias</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.dc_bias"><code class="docutils literal notranslate"><span class="pre">dc_bias</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#dc-noise-rejection">dc_noise_rejection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.dc_noise_rejection"><code class="docutils literal notranslate"><span class="pre">dc_noise_rejection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#driver-setup">driver_setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.driver_setup"><code class="docutils literal notranslate"><span class="pre">driver_setup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#freq-voltage-auto-range">freq_voltage_auto_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.freq_voltage_auto_range"><code class="docutils literal notranslate"><span class="pre">freq_voltage_auto_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#freq-voltage-range">freq_voltage_range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.freq_voltage_range"><code class="docutils literal notranslate"><span class="pre">freq_voltage_range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#function">function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.function"><code class="docutils literal notranslate"><span class="pre">function</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#input-resistance">input_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.input_resistance"><code class="docutils literal notranslate"><span class="pre">input_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-firmware-revision">instrument_firmware_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.instrument_firmware_revision"><code class="docutils literal notranslate"><span class="pre">instrument_firmware_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-manufacturer">instrument_manufacturer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.instrument_manufacturer"><code class="docutils literal notranslate"><span class="pre">instrument_manufacturer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-model">instrument_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.instrument_model"><code class="docutils literal notranslate"><span class="pre">instrument_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#instrument-product-id">instrument_product_id</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.instrument_product_id"><code class="docutils literal notranslate"><span class="pre">instrument_product_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#io-resource-descriptor">io_resource_descriptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.io_resource_descriptor"><code class="docutils literal notranslate"><span class="pre">io_resource_descriptor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lc-calculation-model">lc_calculation_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.lc_calculation_model"><code class="docutils literal notranslate"><span class="pre">lc_calculation_model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#lc-number-meas-to-average">lc_number_meas_to_average</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.lc_number_meas_to_average"><code class="docutils literal notranslate"><span class="pre">lc_number_meas_to_average</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#logical-name">logical_name</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.logical_name"><code class="docutils literal notranslate"><span class="pre">logical_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#meas-complete-dest">meas_complete_dest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.meas_complete_dest"><code class="docutils literal notranslate"><span class="pre">meas_complete_dest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#number-of-averages">number_of_averages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.number_of_averages"><code class="docutils literal notranslate"><span class="pre">number_of_averages</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#offset-comp-ohms">offset_comp_ohms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.offset_comp_ohms"><code class="docutils literal notranslate"><span class="pre">offset_comp_ohms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#open-cable-comp-conductance">open_cable_comp_conductance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.open_cable_comp_conductance"><code class="docutils literal notranslate"><span class="pre">open_cable_comp_conductance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#open-cable-comp-susceptance">open_cable_comp_susceptance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.open_cable_comp_susceptance"><code class="docutils literal notranslate"><span class="pre">open_cable_comp_susceptance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#operation-mode">operation_mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.operation_mode"><code class="docutils literal notranslate"><span class="pre">operation_mode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#powerline-freq">powerline_freq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.powerline_freq"><code class="docutils literal notranslate"><span class="pre">powerline_freq</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#range">range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#resolution-absolute">resolution_absolute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.resolution_absolute"><code class="docutils literal notranslate"><span class="pre">resolution_absolute</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#resolution-digits">resolution_digits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.resolution_digits"><code class="docutils literal notranslate"><span class="pre">resolution_digits</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-count">sample_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.sample_count"><code class="docutils literal notranslate"><span class="pre">sample_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-interval">sample_interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.sample_interval"><code class="docutils literal notranslate"><span class="pre">sample_interval</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#sample-trigger">sample_trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.sample_trigger"><code class="docutils literal notranslate"><span class="pre">sample_trigger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#serial-number">serial_number</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.serial_number"><code class="docutils literal notranslate"><span class="pre">serial_number</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#settle-time">settle_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.settle_time"><code class="docutils literal notranslate"><span class="pre">settle_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#short-cable-comp-reactance">short_cable_comp_reactance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.short_cable_comp_reactance"><code class="docutils literal notranslate"><span class="pre">short_cable_comp_reactance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#short-cable-comp-resistance">short_cable_comp_resistance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.short_cable_comp_resistance"><code class="docutils literal notranslate"><span class="pre">short_cable_comp_resistance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#simulate">simulate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.simulate"><code class="docutils literal notranslate"><span class="pre">simulate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-description">specific_driver_description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.specific_driver_description"><code class="docutils literal notranslate"><span class="pre">specific_driver_description</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-major-version">specific_driver_major_version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.specific_driver_major_version"><code class="docutils literal notranslate"><span class="pre">specific_driver_major_version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-minor-version">specific_driver_minor_version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.specific_driver_minor_version"><code class="docutils literal notranslate"><span class="pre">specific_driver_minor_version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-revision">specific_driver_revision</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.specific_driver_revision"><code class="docutils literal notranslate"><span class="pre">specific_driver_revision</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#specific-driver-vendor">specific_driver_vendor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.specific_driver_vendor"><code class="docutils literal notranslate"><span class="pre">specific_driver_vendor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#supported-instrument-models">supported_instrument_models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.supported_instrument_models"><code class="docutils literal notranslate"><span class="pre">supported_instrument_models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-rtd-a">temp_rtd_a</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_rtd_a"><code class="docutils literal notranslate"><span class="pre">temp_rtd_a</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-rtd-b">temp_rtd_b</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_rtd_b"><code class="docutils literal notranslate"><span class="pre">temp_rtd_b</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-rtd-c">temp_rtd_c</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_rtd_c"><code class="docutils literal notranslate"><span class="pre">temp_rtd_c</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-rtd-res">temp_rtd_res</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_rtd_res"><code class="docutils literal notranslate"><span class="pre">temp_rtd_res</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-rtd-type">temp_rtd_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_rtd_type"><code class="docutils literal notranslate"><span class="pre">temp_rtd_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-tc-fixed-ref-junc">temp_tc_fixed_ref_junc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_tc_fixed_ref_junc"><code class="docutils literal notranslate"><span class="pre">temp_tc_fixed_ref_junc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-tc-ref-junc-type">temp_tc_ref_junc_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_tc_ref_junc_type"><code class="docutils literal notranslate"><span class="pre">temp_tc_ref_junc_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-tc-type">temp_tc_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_tc_type"><code class="docutils literal notranslate"><span class="pre">temp_tc_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-thermistor-a">temp_thermistor_a</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_thermistor_a"><code class="docutils literal notranslate"><span class="pre">temp_thermistor_a</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-thermistor-b">temp_thermistor_b</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_thermistor_b"><code class="docutils literal notranslate"><span class="pre">temp_thermistor_b</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-thermistor-c">temp_thermistor_c</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_thermistor_c"><code class="docutils literal notranslate"><span class="pre">temp_thermistor_c</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-thermistor-type">temp_thermistor_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_thermistor_type"><code class="docutils literal notranslate"><span class="pre">temp_thermistor_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#temp-transducer-type">temp_transducer_type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.temp_transducer_type"><code class="docutils literal notranslate"><span class="pre">temp_transducer_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-count">trigger_count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.trigger_count"><code class="docutils literal notranslate"><span class="pre">trigger_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-delay">trigger_delay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.trigger_delay"><code class="docutils literal notranslate"><span class="pre">trigger_delay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#trigger-source">trigger_source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.trigger_source"><code class="docutils literal notranslate"><span class="pre">trigger_source</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#waveform-coupling">waveform_coupling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.waveform_coupling"><code class="docutils literal notranslate"><span class="pre">waveform_coupling</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#waveform-points">waveform_points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.waveform_points"><code class="docutils literal notranslate"><span class="pre">waveform_points</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class.html#waveform-rate">waveform_rate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html#nidmm.Session.waveform_rate"><code class="docutils literal notranslate"><span class="pre">waveform_rate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#adccalibration">ADCCalibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.ADCCalibration"><code class="docutils literal notranslate"><span class="pre">ADCCalibration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ADCCalibration.AUTO"><code class="docutils literal notranslate"><span class="pre">ADCCalibration.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ADCCalibration.OFF"><code class="docutils literal notranslate"><span class="pre">ADCCalibration.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ADCCalibration.ON"><code class="docutils literal notranslate"><span class="pre">ADCCalibration.ON</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#acquisitionstatus">AcquisitionStatus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.AcquisitionStatus"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AcquisitionStatus.RUNNING"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.RUNNING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AcquisitionStatus.FINISHED_WITH_BACKLOG"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.FINISHED_WITH_BACKLOG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AcquisitionStatus.FINISHED_WITH_NO_BACKLOG"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.FINISHED_WITH_NO_BACKLOG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AcquisitionStatus.PAUSED"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.PAUSED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AcquisitionStatus.NO_ACQUISITION_IN_PROGRESS"><code class="docutils literal notranslate"><span class="pre">AcquisitionStatus.NO_ACQUISITION_IN_PROGRESS</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#aperturetimeunits">ApertureTimeUnits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.ApertureTimeUnits"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ApertureTimeUnits.SECONDS"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.SECONDS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ApertureTimeUnits.POWER_LINE_CYCLES"><code class="docutils literal notranslate"><span class="pre">ApertureTimeUnits.POWER_LINE_CYCLES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#autozero">AutoZero</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.AutoZero"><code class="docutils literal notranslate"><span class="pre">AutoZero</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AutoZero.AUTO"><code class="docutils literal notranslate"><span class="pre">AutoZero.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AutoZero.OFF"><code class="docutils literal notranslate"><span class="pre">AutoZero.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AutoZero.ON"><code class="docutils literal notranslate"><span class="pre">AutoZero.ON</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.AutoZero.ONCE"><code class="docutils literal notranslate"><span class="pre">AutoZero.ONCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#cablecompensationtype">CableCompensationType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.CableCompensationType"><code class="docutils literal notranslate"><span class="pre">CableCompensationType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.CableCompensationType.NONE"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.CableCompensationType.OPEN"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.OPEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.CableCompensationType.SHORT"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.SHORT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.CableCompensationType.OPEN_AND_SHORT"><code class="docutils literal notranslate"><span class="pre">CableCompensationType.OPEN_AND_SHORT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#dcnoiserejection">DCNoiseRejection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.DCNoiseRejection"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.DCNoiseRejection.AUTO"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.DCNoiseRejection.NORMAL"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.DCNoiseRejection.SECOND_ORDER"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.SECOND_ORDER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.DCNoiseRejection.HIGH_ORDER"><code class="docutils literal notranslate"><span class="pre">DCNoiseRejection.HIGH_ORDER</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#function">Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.Function"><code class="docutils literal notranslate"><span class="pre">Function</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.DC_VOLTS"><code class="docutils literal notranslate"><span class="pre">Function.DC_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.AC_VOLTS"><code class="docutils literal notranslate"><span class="pre">Function.AC_VOLTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.DC_CURRENT"><code class="docutils literal notranslate"><span class="pre">Function.DC_CURRENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.AC_CURRENT"><code class="docutils literal notranslate"><span class="pre">Function.AC_CURRENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.TWO_WIRE_RES"><code class="docutils literal notranslate"><span class="pre">Function.TWO_WIRE_RES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.FOUR_WIRE_RES"><code class="docutils literal notranslate"><span class="pre">Function.FOUR_WIRE_RES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.FREQ"><code class="docutils literal notranslate"><span class="pre">Function.FREQ</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.PERIOD"><code class="docutils literal notranslate"><span class="pre">Function.PERIOD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.TEMPERATURE"><code class="docutils literal notranslate"><span class="pre">Function.TEMPERATURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.AC_VOLTS_DC_COUPLED"><code class="docutils literal notranslate"><span class="pre">Function.AC_VOLTS_DC_COUPLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.DIODE"><code class="docutils literal notranslate"><span class="pre">Function.DIODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.WAVEFORM_VOLTAGE"><code class="docutils literal notranslate"><span class="pre">Function.WAVEFORM_VOLTAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.WAVEFORM_CURRENT"><code class="docutils literal notranslate"><span class="pre">Function.WAVEFORM_CURRENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.CAPACITANCE"><code class="docutils literal notranslate"><span class="pre">Function.CAPACITANCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.Function.INDUCTANCE"><code class="docutils literal notranslate"><span class="pre">Function.INDUCTANCE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#lccalculationmodel">LCCalculationModel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.LCCalculationModel"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.LCCalculationModel.AUTO"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.LCCalculationModel.SERIES"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel.SERIES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.LCCalculationModel.PARALLEL"><code class="docutils literal notranslate"><span class="pre">LCCalculationModel.PARALLEL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#measurementcompletedest">MeasurementCompleteDest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.NONE"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.EXTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG0"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG1"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG2"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG3"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG4"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG5"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG6"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.PXI_TRIG7"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.PXI_TRIG7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.MeasurementCompleteDest.LBR_TRIG0"><code class="docutils literal notranslate"><span class="pre">MeasurementCompleteDest.LBR_TRIG0</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#operationmode">OperationMode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.OperationMode"><code class="docutils literal notranslate"><span class="pre">OperationMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.OperationMode.IVIDMM"><code class="docutils literal notranslate"><span class="pre">OperationMode.IVIDMM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.OperationMode.WAVEFORM"><code class="docutils literal notranslate"><span class="pre">OperationMode.WAVEFORM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#rtdtype">RTDType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.RTDType"><code class="docutils literal notranslate"><span class="pre">RTDType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.CUSTOM"><code class="docutils literal notranslate"><span class="pre">RTDType.CUSTOM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.PT3750"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3750</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.PT3851"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3851</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.PT3911"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3911</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.PT3916"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3916</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.PT3920"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3920</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.RTDType.PT3928"><code class="docutils literal notranslate"><span class="pre">RTDType.PT3928</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#sampletrigger">SampleTrigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.SampleTrigger"><code class="docutils literal notranslate"><span class="pre">SampleTrigger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.IMMEDIATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.EXTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.SOFTWARE_TRIG"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.SOFTWARE_TRIG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.INTERVAL"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.INTERVAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG0"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG1"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG2"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG3"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG4"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG5"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG6"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_TRIG7"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_TRIG7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.PXI_STAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.AUX_TRIG1"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.AUX_TRIG1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.SampleTrigger.LBR_TRIG1"><code class="docutils literal notranslate"><span class="pre">SampleTrigger.LBR_TRIG1</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#thermistortype">ThermistorType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.ThermistorType"><code class="docutils literal notranslate"><span class="pre">ThermistorType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermistorType.CUSTOM"><code class="docutils literal notranslate"><span class="pre">ThermistorType.CUSTOM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermistorType.THERMISTOR_44004"><code class="docutils literal notranslate"><span class="pre">ThermistorType.THERMISTOR_44004</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermistorType.THERMISTOR_44006"><code class="docutils literal notranslate"><span class="pre">ThermistorType.THERMISTOR_44006</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermistorType.THERMISTOR_44007"><code class="docutils literal notranslate"><span class="pre">ThermistorType.THERMISTOR_44007</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#thermocouplereferencejunctiontype">ThermocoupleReferenceJunctionType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.ThermocoupleReferenceJunctionType"><code class="docutils literal notranslate"><span class="pre">ThermocoupleReferenceJunctionType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleReferenceJunctionType.FIXED"><code class="docutils literal notranslate"><span class="pre">ThermocoupleReferenceJunctionType.FIXED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#thermocoupletype">ThermocoupleType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.B"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.B</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.E"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.E</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.J"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.J</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.K"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.N"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.N</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.R"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.R</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.S"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.ThermocoupleType.T"><code class="docutils literal notranslate"><span class="pre">ThermocoupleType.T</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#transducertype">TransducerType</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.TransducerType"><code class="docutils literal notranslate"><span class="pre">TransducerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TransducerType.THERMOCOUPLE"><code class="docutils literal notranslate"><span class="pre">TransducerType.THERMOCOUPLE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TransducerType.THERMISTOR"><code class="docutils literal notranslate"><span class="pre">TransducerType.THERMISTOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TransducerType.TWO_WIRE_RTD"><code class="docutils literal notranslate"><span class="pre">TransducerType.TWO_WIRE_RTD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TransducerType.FOUR_WIRE_RTD"><code class="docutils literal notranslate"><span class="pre">TransducerType.FOUR_WIRE_RTD</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#triggersource">TriggerSource</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.TriggerSource"><code class="docutils literal notranslate"><span class="pre">TriggerSource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.IMMEDIATE"><code class="docutils literal notranslate"><span class="pre">TriggerSource.IMMEDIATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.EXTERNAL"><code class="docutils literal notranslate"><span class="pre">TriggerSource.EXTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.SOFTWARE_TRIG"><code class="docutils literal notranslate"><span class="pre">TriggerSource.SOFTWARE_TRIG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG0"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG1"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG2"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG3"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG4"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG5"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG6"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_TRIG7"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_TRIG7</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.PXI_STAR"><code class="docutils literal notranslate"><span class="pre">TriggerSource.PXI_STAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.AUX_TRIG1"><code class="docutils literal notranslate"><span class="pre">TriggerSource.AUX_TRIG1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.TriggerSource.LBR_TRIG1"><code class="docutils literal notranslate"><span class="pre">TriggerSource.LBR_TRIG1</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#waveformcoupling">WaveformCoupling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enums.html#nidmm.WaveformCoupling"><code class="docutils literal notranslate"><span class="pre">WaveformCoupling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.WaveformCoupling.AC"><code class="docutils literal notranslate"><span class="pre">WaveformCoupling.AC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enums.html#nidmm.WaveformCoupling.DC"><code class="docutils literal notranslate"><span class="pre">WaveformCoupling.DC</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Exceptions and Warnings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#error">Error</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivererror">DriverError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.DriverError"><code class="docutils literal notranslate"><span class="pre">DriverError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#unsupportedconfigurationerror">UnsupportedConfigurationError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.UnsupportedConfigurationError"><code class="docutils literal notranslate"><span class="pre">UnsupportedConfigurationError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivernotinstallederror">DriverNotInstalledError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.DriverNotInstalledError"><code class="docutils literal notranslate"><span class="pre">DriverNotInstalledError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertooolderror">DriverTooOldError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.DriverTooOldError"><code class="docutils literal notranslate"><span class="pre">DriverTooOldError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#drivertoonewerror">DriverTooNewError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.DriverTooNewError"><code class="docutils literal notranslate"><span class="pre">DriverTooNewError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#invalidrepeatedcapabilityerror">InvalidRepeatedCapabilityError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.InvalidRepeatedCapabilityError"><code class="docutils literal notranslate"><span class="pre">InvalidRepeatedCapabilityError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#selftesterror">SelfTestError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.SelfTestError"><code class="docutils literal notranslate"><span class="pre">SelfTestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#rpcerror">RpcError</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.RpcError"><code class="docutils literal notranslate"><span class="pre">RpcError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#driverwarning">DriverWarning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="errors.html#nidmm.errors.DriverWarning"><code class="docutils literal notranslate"><span class="pre">DriverWarning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidmm-fetch-waveform-py">nidmm_fetch_waveform.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidmm-measurement-py">nidmm_measurement.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#nidmm-multi-point-measurement-py">nidmm_multi_point_measurement.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#sessioninitializationbehavior">SessionInitializationBehavior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#nidmm.SessionInitializationBehavior"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nidmm.SessionInitializationBehavior.AUTO"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.AUTO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nidmm.SessionInitializationBehavior.INITIALIZE_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.INITIALIZE_SERVER_SESSION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_session_options.html#nidmm.SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION"><code class="docutils literal notranslate"><span class="pre">SessionInitializationBehavior.ATTACH_TO_SERVER_SESSION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="grpc_session_options.html#grpcsessionoptions">GrpcSessionOptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html#nidmm.GrpcSessionOptions"><code class="docutils literal notranslate"><span class="pre">GrpcSessionOptions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NI-DMM Python API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="class.html" class="btn btn-neutral float-right" title="Session" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

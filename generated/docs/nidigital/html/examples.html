@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; NI-Digital Pattern Driver Python API 1.4.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=222085a6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d81e02c1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gRPC Support" href="grpc_session_options.html" />
+    <link rel="prev" title="Exceptions and Warnings" href="errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NI-Digital Pattern Driver Python API
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="nidigital.html">nidigital module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nidigital.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nidigital.html#usage">Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="nidigital.html#api-reference">API Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="class.html">Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class.html#ni-tclk-support">NI-TClk Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rep_caps.html">Repeated Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Exceptions and Warnings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nidigital-burst-with-start-trigger-py">nidigital_burst_with_start_trigger.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidigital-configure-time-set-and-voltage-levels-py">nidigital_configure_time_set_and_voltage_levels.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nidigital-ppmu-source-and-measure-py">nidigital_ppmu_source_and_measure.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="grpc_session_options.html">gRPC Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NI-Digital Pattern Driver Python API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nidigital.html">nidigital module</a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/ni/nimi-python/releases/download/1.4.11/nidigital_examples.zip">You can download all nidigital examples here</a></p>
+<section id="nidigital-burst-with-start-trigger-py">
+<h2>nidigital_burst_with_start_trigger.py<a class="headerlink" href="#nidigital-burst-with-start-trigger-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidigital/examples/burst_with_start_trigger/nidigital_burst_with_start_trigger.py">(nidigital_burst_with_start_trigger.py)</a></span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos"> 4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidigital</span>
+<span class="linenos"> 5</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos"> 6</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">trigger_source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trigger_edge</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">with</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>        <span class="c1"># Load the pin map (.pinmap) created using the Digital Pattern Editor</span>
+<span class="linenos">16</span>        <span class="n">pin_map_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;PinMap.pinmap&#39;</span><span class="p">)</span>
+<span class="linenos">17</span>        <span class="n">session</span><span class="o">.</span><span class="n">load_pin_map</span><span class="p">(</span><span class="n">pin_map_filename</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>        <span class="c1"># Load the specifications (.specs), levels (.digilevels), and timing (.digitiming) sheets created using the Digital Pattern Editor</span>
+<span class="linenos">20</span>        <span class="n">spec_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;Specifications.specs&#39;</span><span class="p">)</span>
+<span class="linenos">21</span>        <span class="n">levels_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;PinLevels.digilevels&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="n">timing_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;Timing.digitiming&#39;</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="n">session</span><span class="o">.</span><span class="n">load_specifications_levels_and_timing</span><span class="p">(</span><span class="n">spec_filename</span><span class="p">,</span> <span class="n">levels_filename</span><span class="p">,</span> <span class="n">timing_filename</span><span class="p">)</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>        <span class="c1"># Apply the settings from the levels and timing sheets we just loaded to the session</span>
+<span class="linenos">26</span>        <span class="n">session</span><span class="o">.</span><span class="n">apply_levels_and_timing</span><span class="p">(</span><span class="n">levels_filename</span><span class="p">,</span> <span class="n">timing_filename</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>        <span class="c1"># Loading the pattern file (.digipat) created using the Digital Pattern Editor</span>
+<span class="linenos">29</span>        <span class="n">pattern_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;Pattern.digipat&#39;</span><span class="p">)</span>
+<span class="linenos">30</span>        <span class="n">session</span><span class="o">.</span><span class="n">load_pattern</span><span class="p">(</span><span class="n">pattern_filename</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span>        <span class="k">if</span> <span class="n">trigger_source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">33</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start bursting pattern&#39;</span><span class="p">)</span>
+<span class="linenos">34</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">35</span>            <span class="c1"># Specify a source and edge for the external start trigger</span>
+<span class="linenos">36</span>            <span class="n">session</span><span class="o">.</span><span class="n">start_trigger_type</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">TriggerType</span><span class="o">.</span><span class="n">DIGITAL_EDGE</span>
+<span class="linenos">37</span>            <span class="n">session</span><span class="o">.</span><span class="n">digital_edge_start_trigger_source</span> <span class="o">=</span> <span class="n">trigger_source</span>
+<span class="linenos">38</span>            <span class="n">session</span><span class="o">.</span><span class="n">digital_edge_start_trigger_edge</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">DigitalEdge</span><span class="o">.</span><span class="n">RISING</span> <span class="k">if</span> <span class="n">trigger_edge</span> <span class="o">==</span> <span class="s1">&#39;Rising&#39;</span> <span class="k">else</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">DigitalEdge</span><span class="o">.</span><span class="n">FALLING</span>
+<span class="linenos">39</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wait for start trigger and then start bursting pattern&#39;</span><span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>        <span class="c1"># If start trigger is configured, waiting for the trigger to start bursting and then blocks until the pattern is done bursting</span>
+<span class="linenos">42</span>        <span class="c1"># Else just start bursting and block until the pattern is done bursting</span>
+<span class="linenos">43</span>        <span class="n">session</span><span class="o">.</span><span class="n">burst_pattern</span><span class="p">(</span><span class="n">start_label</span><span class="o">=</span><span class="s1">&#39;new_pattern&#39;</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span>        <span class="c1"># Disconnect all channels using programmable onboard switching</span>
+<span class="linenos">46</span>        <span class="n">session</span><span class="o">.</span><span class="n">selected_function</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">SelectedFunction</span><span class="o">.</span><span class="n">DISCONNECT</span>
+<span class="linenos">47</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done bursting pattern&#39;</span><span class="p">)</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos">51</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Demonstrates how to create and configure a session that bursts a pattern on the digital pattern instrument using a start trigger&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos">52</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2,PXI1Slot3&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of a NI digital pattern instrument. Ensure the resource name matches the instrument name in the pinmap file.&#39;</span><span class="p">)</span>
+<span class="linenos">53</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whether to run on simulated hardware or real hardware&#39;</span><span class="p">)</span>
+<span class="linenos">54</span>    <span class="n">subparser</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Sub-command help&#39;</span><span class="p">)</span>
+<span class="linenos">55</span>    <span class="n">start_trigger</span> <span class="o">=</span> <span class="n">subparser</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;start-trigger&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Configure start trigger&#39;</span><span class="p">)</span>
+<span class="linenos">56</span>    <span class="n">start_trigger</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-ts&#39;</span><span class="p">,</span> <span class="s1">&#39;--trigger-source&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;/PXI1Slot2/PXI_Trig0&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source terminal for the start trigger&#39;</span><span class="p">)</span>
+<span class="linenos">57</span>    <span class="n">start_trigger</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-te&#39;</span><span class="p">,</span> <span class="s1">&#39;--trigger-edge&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Rising&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Rising&#39;</span><span class="p">,</span> <span class="s1">&#39;Falling&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Trigger on rising edge or falling edge of start trigger&#39;</span><span class="p">)</span>
+<span class="linenos">58</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos">61</span>            <span class="s1">&#39;Simulate=1, DriverSetup=Model:6571&#39;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos">62</span>            <span class="n">args</span><span class="o">.</span><span class="n">trigger_source</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;start-trigger&#39;</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+<span class="linenos">63</span>            <span class="n">args</span><span class="o">.</span><span class="n">trigger_edge</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;start-trigger&#39;</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">67</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">68</span>
+<span class="linenos">69</span>
+<span class="linenos">70</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">71</span>    <span class="n">_main</span><span class="p">([])</span>
+<span class="linenos">72</span>    <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;start-trigger&#39;</span><span class="p">])</span>
+<span class="linenos">73</span>
+<span class="linenos">74</span>
+<span class="linenos">75</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">76</span>    <span class="n">resource_name</span> <span class="o">=</span> <span class="s1">&#39;PXI1Slot2,PXI1Slot3&#39;</span>
+<span class="linenos">77</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;6571&#39;</span><span class="p">},</span> <span class="p">}</span>
+<span class="linenos">78</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="linenos">79</span>
+<span class="linenos">80</span>    <span class="n">trigger_source</span> <span class="o">=</span> <span class="s1">&#39;/PXI1Slot2/PXI_Trig0&#39;</span>
+<span class="linenos">81</span>    <span class="n">trigger_edge</span> <span class="o">=</span> <span class="s1">&#39;Rising&#39;</span>
+<span class="linenos">82</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">trigger_source</span><span class="p">,</span> <span class="n">trigger_edge</span><span class="p">)</span>
+<span class="linenos">83</span>
+<span class="linenos">84</span>
+<span class="linenos">85</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">86</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidigital-configure-time-set-and-voltage-levels-py">
+<h2>nidigital_configure_time_set_and_voltage_levels.py<a class="headerlink" href="#nidigital-configure-time-set-and-voltage-levels-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidigital/examples/configure_time_set_and_voltage_levels/nidigital_configure_time_set_and_voltage_levels.py">(nidigital_configure_time_set_and_voltage_levels.py)</a></span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos">  4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidigital</span>
+<span class="linenos">  5</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos">  6</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="k">class</span><span class="w"> </span><span class="nc">VoltageLevelsAndTerminationConfig</span><span class="p">():</span>
+<span class="linenos"> 10</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vil</span><span class="p">,</span> <span class="n">vih</span><span class="p">,</span> <span class="n">vol</span><span class="p">,</span> <span class="n">voh</span><span class="p">,</span> <span class="n">vterm</span><span class="p">,</span> <span class="n">termination_mode</span><span class="p">,</span> <span class="n">iol</span><span class="p">,</span> <span class="n">ioh</span><span class="p">,</span> <span class="n">vcom</span><span class="p">):</span>
+<span class="linenos"> 11</span>        <span class="bp">self</span><span class="o">.</span><span class="n">vil</span> <span class="o">=</span> <span class="n">vil</span>
+<span class="linenos"> 12</span>        <span class="bp">self</span><span class="o">.</span><span class="n">vih</span> <span class="o">=</span> <span class="n">vih</span>
+<span class="linenos"> 13</span>        <span class="bp">self</span><span class="o">.</span><span class="n">vol</span> <span class="o">=</span> <span class="n">vol</span>
+<span class="linenos"> 14</span>        <span class="bp">self</span><span class="o">.</span><span class="n">voh</span> <span class="o">=</span> <span class="n">voh</span>
+<span class="linenos"> 15</span>        <span class="bp">self</span><span class="o">.</span><span class="n">vterm</span> <span class="o">=</span> <span class="n">vterm</span>
+<span class="linenos"> 16</span>        <span class="bp">self</span><span class="o">.</span><span class="n">termination_mode</span> <span class="o">=</span> <span class="n">termination_mode</span>
+<span class="linenos"> 17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">iol</span> <span class="o">=</span> <span class="n">iol</span>
+<span class="linenos"> 18</span>        <span class="bp">self</span><span class="o">.</span><span class="n">ioh</span> <span class="o">=</span> <span class="n">ioh</span>
+<span class="linenos"> 19</span>        <span class="bp">self</span><span class="o">.</span><span class="n">vcom</span> <span class="o">=</span> <span class="n">vcom</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span><span class="k">class</span><span class="w"> </span><span class="nc">TimeSetConfig</span><span class="p">():</span>
+<span class="linenos"> 23</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_set_name</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">drive_format</span><span class="p">,</span> <span class="n">drive_on</span><span class="p">,</span> <span class="n">drive_data</span><span class="p">,</span> <span class="n">drive_return</span><span class="p">,</span> <span class="n">drive_off</span><span class="p">,</span> <span class="n">strobe_edge</span><span class="p">):</span>
+<span class="linenos"> 24</span>        <span class="bp">self</span><span class="o">.</span><span class="n">time_set_name</span> <span class="o">=</span> <span class="n">time_set_name</span>
+<span class="linenos"> 25</span>        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="n">period</span>
+<span class="linenos"> 26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_format</span> <span class="o">=</span> <span class="n">drive_format</span>
+<span class="linenos"> 27</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_on</span> <span class="o">=</span> <span class="n">drive_on</span>
+<span class="linenos"> 28</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_data</span> <span class="o">=</span> <span class="n">drive_data</span>
+<span class="linenos"> 29</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_return</span> <span class="o">=</span> <span class="n">drive_return</span>
+<span class="linenos"> 30</span>        <span class="bp">self</span><span class="o">.</span><span class="n">drive_off</span> <span class="o">=</span> <span class="n">drive_off</span>
+<span class="linenos"> 31</span>        <span class="bp">self</span><span class="o">.</span><span class="n">strobe_edge</span> <span class="o">=</span> <span class="n">strobe_edge</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span><span class="k">def</span><span class="w"> </span><span class="nf">convert_drive_format</span><span class="p">(</span><span class="n">drive_format</span><span class="p">):</span>
+<span class="linenos"> 35</span>    <span class="n">converter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NR&#39;</span><span class="p">:</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">DriveFormat</span><span class="o">.</span><span class="n">NR</span><span class="p">,</span>
+<span class="linenos"> 36</span>                 <span class="s1">&#39;RL&#39;</span><span class="p">:</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">DriveFormat</span><span class="o">.</span><span class="n">RL</span><span class="p">,</span>
+<span class="linenos"> 37</span>                 <span class="s1">&#39;RH&#39;</span><span class="p">:</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">DriveFormat</span><span class="o">.</span><span class="n">RH</span><span class="p">,</span>
+<span class="linenos"> 38</span>                 <span class="s1">&#39;SBC&#39;</span><span class="p">:</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">DriveFormat</span><span class="o">.</span><span class="n">SBC</span><span class="p">}</span>
+<span class="linenos"> 39</span>    <span class="k">return</span> <span class="n">converter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">drive_format</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos"> 43</span>            <span class="n">options</span><span class="p">,</span>
+<span class="linenos"> 44</span>            <span class="n">channels</span><span class="p">,</span>
+<span class="linenos"> 45</span>            <span class="n">voltage_config</span><span class="p">,</span>
+<span class="linenos"> 46</span>            <span class="n">time_set_config</span><span class="p">):</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span>    <span class="k">with</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span>        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span>        <span class="c1"># Load pin map (.pinmap) created using Digital Pattern Editor</span>
+<span class="linenos"> 53</span>        <span class="n">pin_map_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;PinMap.pinmap&#39;</span><span class="p">)</span>
+<span class="linenos"> 54</span>        <span class="n">session</span><span class="o">.</span><span class="n">load_pin_map</span><span class="p">(</span><span class="n">pin_map_filename</span><span class="p">)</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span>        <span class="c1"># Configure voltage levels and terminal voltage through driver API</span>
+<span class="linenos"> 57</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">configure_voltage_levels</span><span class="p">(</span><span class="n">voltage_config</span><span class="o">.</span><span class="n">vil</span><span class="p">,</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">vih</span><span class="p">,</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">vol</span><span class="p">,</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">voh</span><span class="p">,</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">vterm</span><span class="p">)</span>
+<span class="linenos"> 58</span>        <span class="k">if</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">termination_mode</span> <span class="o">==</span> <span class="s1">&#39;High_Z&#39;</span><span class="p">:</span>
+<span class="linenos"> 59</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">termination_mode</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">TerminationMode</span><span class="o">.</span><span class="n">HIGH_Z</span>
+<span class="linenos"> 60</span>        <span class="k">elif</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">termination_mode</span> <span class="o">==</span> <span class="s1">&#39;Active_Load&#39;</span><span class="p">:</span>
+<span class="linenos"> 61</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">termination_mode</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">TerminationMode</span><span class="o">.</span><span class="n">ACTIVE_LOAD</span>
+<span class="linenos"> 62</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">configure_active_load_levels</span><span class="p">(</span><span class="n">voltage_config</span><span class="o">.</span><span class="n">iol</span><span class="p">,</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">ioh</span><span class="p">,</span> <span class="n">voltage_config</span><span class="o">.</span><span class="n">vcom</span><span class="p">)</span>
+<span class="linenos"> 63</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 64</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">termination_mode</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">TerminationMode</span><span class="o">.</span><span class="n">VTERM</span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span>        <span class="c1"># Configure time set through driver API</span>
+<span class="linenos"> 67</span>        <span class="n">session</span><span class="o">.</span><span class="n">create_time_set</span><span class="p">(</span><span class="n">time_set_config</span><span class="o">.</span><span class="n">time_set_name</span><span class="p">)</span>  <span class="c1"># Must match time set name in pattern file</span>
+<span class="linenos"> 68</span>        <span class="n">session</span><span class="o">.</span><span class="n">configure_time_set_period</span><span class="p">(</span><span class="n">time_set_config</span><span class="o">.</span><span class="n">time_set_name</span><span class="p">,</span> <span class="n">time_set_config</span><span class="o">.</span><span class="n">period</span><span class="p">)</span>
+<span class="linenos"> 69</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">configure_time_set_drive_edges</span><span class="p">(</span><span class="n">time_set_config</span><span class="o">.</span><span class="n">time_set_name</span><span class="p">,</span> <span class="n">convert_drive_format</span><span class="p">(</span><span class="n">time_set_config</span><span class="o">.</span><span class="n">drive_format</span><span class="p">),</span>
+<span class="linenos"> 70</span>                                                                  <span class="n">time_set_config</span><span class="o">.</span><span class="n">drive_on</span><span class="p">,</span> <span class="n">time_set_config</span><span class="o">.</span><span class="n">drive_data</span><span class="p">,</span>
+<span class="linenos"> 71</span>                                                                  <span class="n">time_set_config</span><span class="o">.</span><span class="n">drive_return</span><span class="p">,</span> <span class="n">time_set_config</span><span class="o">.</span><span class="n">drive_off</span><span class="p">)</span>
+<span class="linenos"> 72</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">configure_time_set_compare_edges_strobe</span><span class="p">(</span><span class="n">time_set_config</span><span class="o">.</span><span class="n">time_set_name</span><span class="p">,</span> <span class="n">time_set_config</span><span class="o">.</span><span class="n">strobe_edge</span><span class="p">)</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>        <span class="c1"># Load the pattern file (.digipat) created using Digital Pattern Editor</span>
+<span class="linenos"> 75</span>        <span class="n">pattern_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;Pattern.digipat&#39;</span><span class="p">)</span>
+<span class="linenos"> 76</span>        <span class="n">session</span><span class="o">.</span><span class="n">load_pattern</span><span class="p">(</span><span class="n">pattern_filename</span><span class="p">)</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span>        <span class="c1"># Burst pattern, blocks until the pattern is done bursting</span>
+<span class="linenos"> 79</span>        <span class="n">session</span><span class="o">.</span><span class="n">burst_pattern</span><span class="p">(</span><span class="n">start_label</span><span class="o">=</span><span class="s1">&#39;new_pattern&#39;</span><span class="p">)</span>
+<span class="linenos"> 80</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start bursting pattern&#39;</span><span class="p">)</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span>        <span class="c1"># Disconnect all channels using programmable onboard switching</span>
+<span class="linenos"> 83</span>        <span class="n">session</span><span class="o">.</span><span class="n">selected_function</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">SelectedFunction</span><span class="o">.</span><span class="n">DISCONNECT</span>
+<span class="linenos"> 84</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done bursting pattern&#39;</span><span class="p">)</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos"> 88</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Demonstrates how to create an instrument session, configure time set and voltage levels, and burst a pattern on the digital pattern instrument.&#39;</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos"> 89</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2,PXI1Slot3&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of a NI digital pattern instrument, ensure the resource name matches the instrument name in the pinmap file.&#39;</span><span class="p">)</span>
+<span class="linenos"> 90</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whether to run on simulated hardware or on real hardware&#39;</span><span class="p">)</span>
+<span class="linenos"> 91</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--channels&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PinGroup1&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel(s)/Pin(s) to configure&#39;</span><span class="p">)</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>    <span class="c1"># Parameters to configure voltage</span>
+<span class="linenos"> 94</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--vil&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The voltage that the instrument will apply to the input of the DUT when the pin driver drives a logic low (0)&#39;</span><span class="p">)</span>
+<span class="linenos"> 95</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--vih&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">3.3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The voltage that the instrument will apply to the input of the DUT when the test instrument drives a logic high (1)&#39;</span><span class="p">)</span>
+<span class="linenos"> 96</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--vol&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The output voltage below which the comparator on the pin driver interprets a logic low (L)&#39;</span><span class="p">)</span>
+<span class="linenos"> 97</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--voh&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.7</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The output voltage above which the comparator on the pin driver interprets a logic high (H)&#39;</span><span class="p">)</span>
+<span class="linenos"> 98</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--vterm&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The termination voltage the instrument applies during non-drive cycles when the termination mode is set to Vterm&#39;</span><span class="p">)</span>
+<span class="linenos"> 99</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-term-mode&#39;</span><span class="p">,</span> <span class="s1">&#39;--termination-mode&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;High_Z&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;High_Z&#39;</span><span class="p">,</span> <span class="s1">&#39;Active_Load&#39;</span><span class="p">,</span> <span class="s1">&#39;Three_Level_Drive&#39;</span><span class="p">])</span>
+<span class="linenos">100</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--iol&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The maximum current that the DUT sinks while outputting a voltage below VCOM&#39;</span><span class="p">)</span>
+<span class="linenos">101</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--ioh&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=-</span><span class="mf">0.002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The maximum current that the DUT sources while outputting a voltage above VCOM&#39;</span><span class="p">)</span>
+<span class="linenos">102</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--vcom&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The commutating voltage level at which the active load circuit switches between sourcing current and sinking current&#39;</span><span class="p">)</span>
+<span class="linenos">103</span>
+<span class="linenos">104</span>    <span class="c1"># Parameters to configure timeset</span>
+<span class="linenos">105</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--period&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.00000002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Period in second&#39;</span><span class="p">)</span>
+<span class="linenos">106</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-format&#39;</span><span class="p">,</span> <span class="s1">&#39;--drive-format&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;NR&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NR&#39;</span><span class="p">,</span> <span class="s1">&#39;RL&#39;</span><span class="p">,</span> <span class="s1">&#39;RH&#39;</span><span class="p">,</span> <span class="s1">&#39;SBC&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Non-return | Return to low | Return to high | Surround by complement&#39;</span><span class="p">)</span>
+<span class="linenos">107</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--drive-on&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The delay in seconds from the beginning of the vector period for turning on the pin driver&#39;</span><span class="p">)</span>
+<span class="linenos">108</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--drive-data&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The delay in seconds from the beginning of the vector period until the pattern data is driven to the pattern value&#39;</span><span class="p">)</span>
+<span class="linenos">109</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--drive-return&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.000000015</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The delay in seconds from the beginning of the vector period until the pin changes from the pattern data to the return value, as specified in the format.&#39;</span><span class="p">)</span>
+<span class="linenos">110</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--drive-off&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.00000002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The delay in seconds from the beginning of the vector period to turn off the pin driver when the next vector period uses a non-drive symbol (L, H, X, V, M, E).&#39;</span><span class="p">)</span>
+<span class="linenos">111</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--strobe-edge&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.00000001</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The time in second when the comparison happens within a vector period&#39;</span><span class="p">)</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos">114</span>    <span class="n">voltage_config</span> <span class="o">=</span> <span class="n">VoltageLevelsAndTerminationConfig</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">vil</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">vih</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">vol</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">voh</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">vterm</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">termination_mode</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">iol</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">ioh</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">vcom</span><span class="p">)</span>
+<span class="linenos">115</span>    <span class="n">time_set_config</span> <span class="o">=</span> <span class="n">TimeSetConfig</span><span class="p">(</span><span class="s2">&quot;tset0&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">period</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">drive_format</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">drive_on</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">drive_data</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">drive_return</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">drive_off</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">strobe_edge</span><span class="p">)</span>
+<span class="linenos">116</span>    <span class="n">example</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos">117</span>            <span class="s1">&#39;Simulate=1, DriverSetup=Model:6571&#39;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos">118</span>            <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span>
+<span class="linenos">119</span>            <span class="n">voltage_config</span><span class="p">,</span>
+<span class="linenos">120</span>            <span class="n">time_set_config</span><span class="p">)</span>
+<span class="linenos">121</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">124</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">125</span>
+<span class="linenos">126</span>
+<span class="linenos">127</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">128</span>    <span class="n">_main</span><span class="p">([])</span>
+<span class="linenos">129</span>
+<span class="linenos">130</span>
+<span class="linenos">131</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">132</span>    <span class="n">resource_name</span> <span class="o">=</span> <span class="s1">&#39;PXI1Slot2,PXI1Slot3&#39;</span>
+<span class="linenos">133</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;6571&#39;</span><span class="p">},</span> <span class="p">}</span>
+<span class="linenos">134</span>    <span class="n">channels</span> <span class="o">=</span> <span class="s1">&#39;PinGroup1&#39;</span>
+<span class="linenos">135</span>    <span class="n">voltage_config</span> <span class="o">=</span> <span class="n">VoltageLevelsAndTerminationConfig</span><span class="p">(</span><span class="n">vil</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vih</span><span class="o">=</span><span class="mf">3.3</span><span class="p">,</span> <span class="n">vol</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">voh</span><span class="o">=</span><span class="mf">1.7</span><span class="p">,</span> <span class="n">vterm</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">136</span>                                                       <span class="n">termination_mode</span><span class="o">=</span><span class="s1">&#39;Active_Load&#39;</span><span class="p">,</span> <span class="n">iol</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">ioh</span><span class="o">=-</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">vcom</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">137</span>    <span class="n">time_set_config</span> <span class="o">=</span> <span class="n">TimeSetConfig</span><span class="p">(</span><span class="n">time_set_name</span><span class="o">=</span><span class="s2">&quot;tset0&quot;</span><span class="p">,</span>
+<span class="linenos">138</span>                                    <span class="n">period</span><span class="o">=</span><span class="mf">0.00000002</span><span class="p">,</span>
+<span class="linenos">139</span>                                    <span class="n">drive_format</span><span class="o">=</span><span class="s1">&#39;NR&#39;</span><span class="p">,</span>
+<span class="linenos">140</span>                                    <span class="n">drive_on</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">drive_data</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">drive_return</span><span class="o">=</span><span class="mf">0.000000015</span><span class="p">,</span> <span class="n">drive_off</span><span class="o">=</span><span class="mf">0.00000002</span><span class="p">,</span> <span class="n">strobe_edge</span><span class="o">=</span><span class="mf">0.00000001</span><span class="p">)</span>
+<span class="linenos">141</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">voltage_config</span><span class="p">,</span> <span class="n">time_set_config</span><span class="p">)</span>
+<span class="linenos">142</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">145</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nidigital-ppmu-source-and-measure-py">
+<h2>nidigital_ppmu_source_and_measure.py<a class="headerlink" href="#nidigital-ppmu-source-and-measure-py" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text"><a class="reference external" href="https://github.com/ni/nimi-python/blob/1.4.11/src/nidigital/examples/ppmu_source_and_measure/nidigital_ppmu_source_and_measure.py">(nidigital_ppmu_source_and_measure.py)</a></span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="ch">#!/usr/bin/python</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="linenos">  4</span><span class="kn">import</span><span class="w"> </span><span class="nn">nidigital</span>
+<span class="linenos">  5</span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="linenos">  6</span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="linenos">  7</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">  8</span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">measure</span><span class="p">,</span> <span class="n">aperture_time</span><span class="p">,</span>
+<span class="linenos"> 12</span>            <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">settling_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">current_level_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">current_level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="linenos"> 13</span>            <span class="n">voltage_limit_high</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">voltage_limit_low</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">current_limit_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">voltage_level</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span>    <span class="k">with</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span>        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>        <span class="c1"># Load pin map (.pinmap) created using Digital Pattern Editor</span>
+<span class="linenos"> 20</span>        <span class="n">pin_map_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="s1">&#39;PinMap.pinmap&#39;</span><span class="p">)</span>
+<span class="linenos"> 21</span>        <span class="n">session</span><span class="o">.</span><span class="n">load_pin_map</span><span class="p">(</span><span class="n">pin_map_filename</span><span class="p">)</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span>        <span class="c1"># Configure the PPMU measurement aperture time</span>
+<span class="linenos"> 24</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_aperture_time</span> <span class="o">=</span> <span class="n">aperture_time</span>
+<span class="linenos"> 25</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_aperture_time_units</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">PPMUApertureTimeUnits</span><span class="o">.</span><span class="n">SECONDS</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span>        <span class="c1"># Configure and source</span>
+<span class="linenos"> 28</span>        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;source-current&#39;</span><span class="p">:</span>
+<span class="linenos"> 29</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_output_function</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">PPMUOutputFunction</span><span class="o">.</span><span class="n">CURRENT</span>
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_current_level_range</span> <span class="o">=</span> <span class="n">current_level_range</span>
+<span class="linenos"> 32</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_current_level</span> <span class="o">=</span> <span class="n">current_level</span>
+<span class="linenos"> 33</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_voltage_limit_high</span> <span class="o">=</span> <span class="n">voltage_limit_high</span>
+<span class="linenos"> 34</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_voltage_limit_low</span> <span class="o">=</span> <span class="n">voltage_limit_low</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_source</span><span class="p">()</span>
+<span class="linenos"> 37</span>
+<span class="linenos"> 38</span>            <span class="c1"># Settling time between sourcing and measuring</span>
+<span class="linenos"> 39</span>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">settling_time</span><span class="p">)</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span>        <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;source-voltage&#39;</span><span class="p">:</span>
+<span class="linenos"> 42</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_output_function</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">PPMUOutputFunction</span><span class="o">.</span><span class="n">VOLTAGE</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_current_limit_range</span> <span class="o">=</span> <span class="n">current_limit_range</span>
+<span class="linenos"> 45</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_voltage_level</span> <span class="o">=</span> <span class="n">voltage_level</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span>            <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_source</span><span class="p">()</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>            <span class="c1"># Settling time between sourcing and measuring</span>
+<span class="linenos"> 50</span>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">settling_time</span><span class="p">)</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span>        <span class="n">pin_info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">get_pin_results_pin_information</span><span class="p">()</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>        <span class="c1"># Measure</span>
+<span class="linenos"> 55</span>        <span class="k">if</span> <span class="n">measure</span> <span class="o">==</span> <span class="s1">&#39;current&#39;</span><span class="p">:</span>
+<span class="linenos"> 56</span>            <span class="n">current_measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_measure</span><span class="p">(</span><span class="n">nidigital</span><span class="o">.</span><span class="n">PPMUMeasurementType</span><span class="o">.</span><span class="n">CURRENT</span><span class="p">)</span>
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&lt;6}</span><span class="s1"> </span><span class="si">{:&lt;20}</span><span class="s1"> </span><span class="si">{:&lt;10}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Site&#39;</span><span class="p">,</span> <span class="s1">&#39;Pin Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Current&#39;</span><span class="p">))</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span>            <span class="k">for</span> <span class="n">pin</span><span class="p">,</span> <span class="n">current</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pin_info</span><span class="p">,</span> <span class="n">current_measurements</span><span class="p">):</span>
+<span class="linenos"> 61</span>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pin</span><span class="o">.</span><span class="n">site_number</span><span class="si">:</span><span class="s1">&lt;6d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">pin</span><span class="o">.</span><span class="n">pin_name</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">current</span><span class="si">:</span><span class="s1">&lt;10f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 62</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 63</span>            <span class="n">voltage_measurements</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">ppmu_measure</span><span class="p">(</span><span class="n">nidigital</span><span class="o">.</span><span class="n">PPMUMeasurementType</span><span class="o">.</span><span class="n">VOLTAGE</span><span class="p">)</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&lt;6}</span><span class="s1"> </span><span class="si">{:&lt;20}</span><span class="s1"> </span><span class="si">{:&lt;10}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Site&#39;</span><span class="p">,</span> <span class="s1">&#39;Pin Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Voltage&#39;</span><span class="p">))</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>            <span class="k">for</span> <span class="n">pin</span><span class="p">,</span> <span class="n">voltage</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pin_info</span><span class="p">,</span> <span class="n">voltage_measurements</span><span class="p">):</span>
+<span class="linenos"> 68</span>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pin</span><span class="o">.</span><span class="n">site_number</span><span class="si">:</span><span class="s1">&lt;6d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">pin</span><span class="o">.</span><span class="n">pin_name</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">voltage</span><span class="si">:</span><span class="s1">&lt;10f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span>        <span class="c1"># Disconnect all channels using programmable onboard switching</span>
+<span class="linenos"> 71</span>        <span class="n">session</span><span class="o">.</span><span class="n">channels</span><span class="p">[</span><span class="n">channels</span><span class="p">]</span><span class="o">.</span><span class="n">selected_function</span> <span class="o">=</span> <span class="n">nidigital</span><span class="o">.</span><span class="n">SelectedFunction</span><span class="o">.</span><span class="n">DISCONNECT</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span><span class="k">def</span><span class="w"> </span><span class="nf">_main</span><span class="p">(</span><span class="n">argsv</span><span class="p">):</span>
+<span class="linenos"> 75</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Demonstrates how to source/measure voltage/current using the PPMU on selected channels/pins of the digital pattern instrument&#39;</span><span class="p">,</span>
+<span class="linenos"> 76</span>                                     <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="linenos"> 77</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--resource-name&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;PXI1Slot2,PXI1Slot3&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Resource name of a NI digital pattern instrument, ensure the resource name matches the instrument name in the pinmap file.&#39;</span><span class="p">)</span>
+<span class="linenos"> 78</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--simulate&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whether to run on simulated hardware or on real hardware&#39;</span><span class="p">)</span>
+<span class="linenos"> 79</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--channels&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;DUTPin1, SystemPin1&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Channel(s)/Pin(s) to use&#39;</span><span class="p">)</span>
+<span class="linenos"> 80</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;--measure&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;voltage&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;voltage&#39;</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Measure voltage or measure current&#39;</span><span class="p">)</span>
+<span class="linenos"> 81</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-at&#39;</span><span class="p">,</span> <span class="s1">&#39;--aperture-time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.000004</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Aperture time in seconds&#39;</span><span class="p">)</span>
+<span class="linenos"> 82</span>    <span class="n">subparser</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Sub-command help, by default it measures voltage and does not source&#39;</span><span class="p">)</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span>    <span class="n">source_current</span> <span class="o">=</span> <span class="n">subparser</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;source-current&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source current&#39;</span><span class="p">)</span>
+<span class="linenos"> 85</span>    <span class="n">source_current</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-clr&#39;</span><span class="p">,</span> <span class="s1">&#39;--current-level-range&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.000002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Current level range in amps&#39;</span><span class="p">)</span>
+<span class="linenos"> 86</span>    <span class="n">source_current</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-cl&#39;</span><span class="p">,</span> <span class="s1">&#39;--current-level&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.000002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Current level in amps&#39;</span><span class="p">)</span>
+<span class="linenos"> 87</span>    <span class="n">source_current</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-vlh&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage-limit-high&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">3.3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage limit high in volts&#39;</span><span class="p">)</span>
+<span class="linenos"> 88</span>    <span class="n">source_current</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-vll&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage-limit-low&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage limit low in volts&#39;</span><span class="p">)</span>
+<span class="linenos"> 89</span>    <span class="n">source_current</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-st&#39;</span><span class="p">,</span> <span class="s1">&#39;--settling-time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Settling time in seconds&#39;</span><span class="p">)</span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span>    <span class="n">source_voltage</span> <span class="o">=</span> <span class="n">subparser</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s1">&#39;source-voltage&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source voltage&#39;</span><span class="p">)</span>
+<span class="linenos"> 92</span>    <span class="n">source_voltage</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-clr&#39;</span><span class="p">,</span> <span class="s1">&#39;--current-limit-range&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.000002</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Current limit range in amps&#39;</span><span class="p">)</span>
+<span class="linenos"> 93</span>    <span class="n">source_voltage</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-vl&#39;</span><span class="p">,</span> <span class="s1">&#39;--voltage-level&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">3.3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Voltage level in volts&#39;</span><span class="p">)</span>
+<span class="linenos"> 94</span>    <span class="n">source_voltage</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-st&#39;</span><span class="p">,</span> <span class="s1">&#39;--settling-time&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Settling time in seconds&#39;</span><span class="p">)</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argsv</span><span class="p">)</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;source-current&#39;</span><span class="p">:</span>
+<span class="linenos"> 99</span>        <span class="n">example</span><span class="p">(</span>
+<span class="linenos">100</span>            <span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos">101</span>            <span class="s1">&#39;Simulate=1, DriverSetup=Model:6571&#39;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos">102</span>            <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span>
+<span class="linenos">103</span>            <span class="n">args</span><span class="o">.</span><span class="n">measure</span><span class="p">,</span>
+<span class="linenos">104</span>            <span class="n">args</span><span class="o">.</span><span class="n">aperture_time</span><span class="p">,</span>
+<span class="linenos">105</span>            <span class="n">args</span><span class="o">.</span><span class="n">source</span><span class="p">,</span>
+<span class="linenos">106</span>            <span class="n">args</span><span class="o">.</span><span class="n">settling_time</span><span class="p">,</span>
+<span class="linenos">107</span>            <span class="n">args</span><span class="o">.</span><span class="n">current_level_range</span><span class="p">,</span>
+<span class="linenos">108</span>            <span class="n">args</span><span class="o">.</span><span class="n">current_level</span><span class="p">,</span>
+<span class="linenos">109</span>            <span class="n">args</span><span class="o">.</span><span class="n">voltage_limit_high</span><span class="p">,</span>
+<span class="linenos">110</span>            <span class="n">args</span><span class="o">.</span><span class="n">voltage_limit_low</span><span class="p">)</span>
+<span class="linenos">111</span>    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;source-voltage&#39;</span><span class="p">:</span>
+<span class="linenos">112</span>        <span class="n">example</span><span class="p">(</span>
+<span class="linenos">113</span>            <span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos">114</span>            <span class="s1">&#39;Simulate=1, DriverSetup=Model:6571&#39;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos">115</span>            <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span>
+<span class="linenos">116</span>            <span class="n">args</span><span class="o">.</span><span class="n">measure</span><span class="p">,</span>
+<span class="linenos">117</span>            <span class="n">args</span><span class="o">.</span><span class="n">aperture_time</span><span class="p">,</span>
+<span class="linenos">118</span>            <span class="n">args</span><span class="o">.</span><span class="n">source</span><span class="p">,</span>
+<span class="linenos">119</span>            <span class="n">args</span><span class="o">.</span><span class="n">settling_time</span><span class="p">,</span>
+<span class="linenos">120</span>            <span class="n">current_limit_range</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">current_limit_range</span><span class="p">,</span>
+<span class="linenos">121</span>            <span class="n">voltage_level</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">voltage_level</span><span class="p">)</span>
+<span class="linenos">122</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">123</span>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">measure</span> <span class="o">==</span> <span class="s1">&#39;current&#39;</span><span class="p">:</span>
+<span class="linenos">124</span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot measure current on a channel that is not sourcing voltage or current&#39;</span><span class="p">)</span>
+<span class="linenos">125</span>        <span class="n">example</span><span class="p">(</span>
+<span class="linenos">126</span>            <span class="n">args</span><span class="o">.</span><span class="n">resource_name</span><span class="p">,</span>
+<span class="linenos">127</span>            <span class="s1">&#39;Simulate=1, DriverSetup=Model:6571&#39;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">simulate</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos">128</span>            <span class="n">args</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span>
+<span class="linenos">129</span>            <span class="n">args</span><span class="o">.</span><span class="n">measure</span><span class="p">,</span>
+<span class="linenos">130</span>            <span class="n">args</span><span class="o">.</span><span class="n">aperture_time</span><span class="p">)</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="linenos">134</span>    <span class="n">_main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos">135</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span><span class="k">def</span><span class="w"> </span><span class="nf">test_main</span><span class="p">():</span>
+<span class="linenos">138</span>    <span class="n">_main</span><span class="p">([])</span>
+<span class="linenos">139</span>    <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;voltage&#39;</span><span class="p">])</span>
+<span class="linenos">140</span>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="linenos">141</span>        <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">])</span>
+<span class="linenos">142</span>    <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;voltage&#39;</span><span class="p">,</span> <span class="s1">&#39;source-current&#39;</span><span class="p">])</span>
+<span class="linenos">143</span>    <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span> <span class="s1">&#39;source-current&#39;</span><span class="p">])</span>
+<span class="linenos">144</span>    <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;voltage&#39;</span><span class="p">,</span> <span class="s1">&#39;source-voltage&#39;</span><span class="p">])</span>
+<span class="linenos">145</span>    <span class="n">_main</span><span class="p">([</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span> <span class="s1">&#39;source-voltage&#39;</span><span class="p">])</span>
+<span class="linenos">146</span>
+<span class="linenos">147</span>
+<span class="linenos">148</span><span class="k">def</span><span class="w"> </span><span class="nf">test_example</span><span class="p">():</span>
+<span class="linenos">149</span>    <span class="n">resource_name</span> <span class="o">=</span> <span class="s1">&#39;PXI1Slot2,PXI1Slot3&#39;</span>
+<span class="linenos">150</span>    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simulate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;driver_setup&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="s1">&#39;6571&#39;</span><span class="p">},</span> <span class="p">}</span>
+<span class="linenos">151</span>    <span class="n">channels</span> <span class="o">=</span> <span class="s1">&#39;DUTPin1, SystemPin1&#39;</span>
+<span class="linenos">152</span>    <span class="n">aperture_time</span> <span class="o">=</span> <span class="mf">0.000004</span>
+<span class="linenos">153</span>
+<span class="linenos">154</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="s1">&#39;voltage&#39;</span><span class="p">,</span>
+<span class="linenos">155</span>            <span class="n">aperture_time</span><span class="p">)</span>
+<span class="linenos">156</span>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="linenos">157</span>        <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span>
+<span class="linenos">158</span>                <span class="n">aperture_time</span><span class="p">)</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span>    <span class="n">settling_time</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="linenos">161</span>    <span class="n">current_level_range</span> <span class="o">=</span> <span class="mf">0.000002</span>
+<span class="linenos">162</span>    <span class="n">current_level</span> <span class="o">=</span> <span class="mf">0.000002</span>
+<span class="linenos">163</span>    <span class="n">voltage_limit_high</span> <span class="o">=</span> <span class="mf">3.3</span>
+<span class="linenos">164</span>    <span class="n">voltage_limit_low</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">165</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="s1">&#39;voltage&#39;</span><span class="p">,</span>
+<span class="linenos">166</span>            <span class="n">aperture_time</span><span class="p">,</span> <span class="s1">&#39;source-current&#39;</span><span class="p">,</span> <span class="n">settling_time</span><span class="p">,</span>
+<span class="linenos">167</span>            <span class="n">current_level_range</span><span class="p">,</span> <span class="n">current_level</span><span class="p">,</span>
+<span class="linenos">168</span>            <span class="n">voltage_limit_high</span><span class="p">,</span> <span class="n">voltage_limit_low</span><span class="p">)</span>
+<span class="linenos">169</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span>
+<span class="linenos">170</span>            <span class="n">aperture_time</span><span class="p">,</span> <span class="s1">&#39;source-current&#39;</span><span class="p">,</span> <span class="n">settling_time</span><span class="p">,</span>
+<span class="linenos">171</span>            <span class="n">current_level_range</span><span class="p">,</span> <span class="n">current_level</span><span class="p">,</span>
+<span class="linenos">172</span>            <span class="n">voltage_limit_high</span><span class="p">,</span> <span class="n">voltage_limit_low</span><span class="p">)</span>
+<span class="linenos">173</span>
+<span class="linenos">174</span>    <span class="n">current_limit_range</span> <span class="o">=</span> <span class="mf">0.000002</span>
+<span class="linenos">175</span>    <span class="n">voltage_level</span> <span class="o">=</span> <span class="mf">3.3</span>
+<span class="linenos">176</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="s1">&#39;voltage&#39;</span><span class="p">,</span>
+<span class="linenos">177</span>            <span class="n">aperture_time</span><span class="p">,</span> <span class="s1">&#39;source-voltage&#39;</span><span class="p">,</span> <span class="n">settling_time</span><span class="p">,</span>
+<span class="linenos">178</span>            <span class="n">current_limit_range</span><span class="o">=</span><span class="n">current_limit_range</span><span class="p">,</span>
+<span class="linenos">179</span>            <span class="n">voltage_level</span><span class="o">=</span><span class="n">voltage_level</span><span class="p">)</span>
+<span class="linenos">180</span>    <span class="n">example</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="s1">&#39;current&#39;</span><span class="p">,</span>
+<span class="linenos">181</span>            <span class="n">aperture_time</span><span class="p">,</span> <span class="s1">&#39;source-voltage&#39;</span><span class="p">,</span> <span class="n">settling_time</span><span class="p">,</span>
+<span class="linenos">182</span>            <span class="n">current_limit_range</span><span class="o">=</span><span class="n">current_limit_range</span><span class="p">,</span>
+<span class="linenos">183</span>            <span class="n">voltage_level</span><span class="o">=</span><span class="n">voltage_level</span><span class="p">)</span>
+<span class="linenos">184</span>
+<span class="linenos">185</span>
+<span class="linenos">186</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">187</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="errors.html" class="btn btn-neutral float-left" title="Exceptions and Warnings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grpc_session_options.html" class="btn btn-neutral float-right" title="gRPC Support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2025, National Instruments Corporation.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
