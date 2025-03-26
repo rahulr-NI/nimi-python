@@ -21,17 +21,17 @@
 
 ---
 
-## `nidcpower` (NI-DCPower)
+## nidcpower (NI-DCPower)
 
 ---
 
-### [Unreleased]
+### Unreleased
 - **Added**:
 - **Changed**:
 - **Removed**:
 ---
 
-### [1.4.9] - 2025-02-26
+### 1.4.9 - 2025-02-26
 - **Added**:
   - Support for Python 3.13.
   - API parity with NI-DCPower 2025 Q1.
@@ -45,7 +45,7 @@
 
 ---
 
-### [1.4.8] - 2024-04-26
+### 1.4.8 - 2024-04-26
 - **Added**:
   - Support for Python 3.12.
 - **Changed**:
@@ -53,7 +53,7 @@
 
 ---
 
-### [1.4.7] - 2023-12-15
+### 1.4.7 - 2023-12-15
 - **Added**:
   - API parity with NI-DCPower 2023 Q4.
     - Properties added:
@@ -72,7 +72,7 @@
 
 ---
 
-### [1.4.6] - 2023-09-11
+### 1.4.6 - 2023-09-11
 - **Changed**:
   - Fixed [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
   - Fixed [#1998](https://github.com/ni/nimi-python/issues/1998): `nimi-python` APIs inefficiently allocate Python arrays.
@@ -81,7 +81,7 @@
 
 ---
 
-### [1.4.5] - 2023-06-12
+### 1.4.5 - 2023-06-12
 - **Added**:
   - Pass Python interpreter information if the driver runtime version supports it. This is used by NI to better understand client usage.
 - **Removed**:
@@ -89,7 +89,7 @@
 
 ---
 
-### [1.4.4] - 2023-04-14
+### 1.4.4 - 2023-04-14
 - **Added**:
   - Pass Python interpreter information if the driver runtime version supports it. This is used by NI to better understand client usage.
   - API parity with NI-DCPower 2023 Q2.
@@ -124,7 +124,7 @@
 
 ---
 
-### [1.4.3] - 2022-12-16
+### 1.4.3 - 2022-12-16
 - **Added**:
   - MeasurementLink support.
 - **Changed**:
@@ -132,7 +132,7 @@
 
 ---
 
-### [1.4.2] - 2022-08-03
+### 1.4.2 - 2022-08-03
 - **Added**:
   - API parity with NI-DCPower 2022 Q3.
     - Properties added:
@@ -208,7 +208,7 @@
 
 ---
 
-### [1.4.1] - 2021-08-23
+### 1.4.1 - 2021-08-23
 - **Added**:
   - API parity with NI-DCPower 21.0.0.
     - Properties added:
@@ -216,7 +216,7 @@
 
 ---
 
-### [1.4.0] - 2021-07-09
+### 1.4.0 - 2021-07-09
 - **Added**:
   - `get_channel_names` - [#1588](https://github.com/ni/nimi-python/issues/1588).
   - `create_advanced_sequence_commit_step` - [#1636](https://github.com/ni/nimi-python/issues/1636).
@@ -239,7 +239,7 @@
 
 ---
 
-### [1.3.3] - 2021-02-26
+### 1.3.3 - 2021-02-26
 - **Added**:
   - API parity with NI-DCPower 20.6.0 by adding Merged Channels and Shutdown Triggers support.
     - Properties added:
@@ -249,7 +249,7 @@
 
 ---
 
-### [1.3.2] - 2020-09-18
+### 1.3.2 - 2020-09-18
 - **Added**:
   - API parity with NI-DCPower 20.5.0 by adding measurement autoranging threshold range support.
     - Properties added:
@@ -264,7 +264,7 @@
 
 ---
 
-### [1.3.0] - 2020-05-21
+### 1.3.0 - 2020-05-21
 - **Added**:
   - API parity with NI-DCPower 20.0 by adding the following properties:
     - `Session.serial_number`
@@ -274,7 +274,7 @@
 
 ---
 
-### [1.2.0] - 2020-03-06
+### 1.2.0 - 2020-03-06
 - **Added**:
   - `create_advanced_sequence()` - [#504](https://github.com/ni/nimi-python/issues/504).
     - Includes example to see how to use it.
@@ -286,7 +286,7 @@
 
 ---
 
-### [1.1.0] - 2018-10-25
+### 1.1.0 - 2018-10-25
 - **Added**:
   - `import_attribute_configuration_file`.
   - `export_attribute_configuration_file`.
@@ -294,7 +294,7 @@
 
 ---
 
-### [1.0.0] - 2018-06-08
+### 1.0.0 - 2018-06-08
 - **Removed**:
   - Trigger configuration methods, use attributes instead:
     - `configure_digital_edge_measure_trigger()`
