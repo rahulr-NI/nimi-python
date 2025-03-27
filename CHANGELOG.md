@@ -41,6 +41,7 @@
 - **Added**:
 - **Changed**:
 - **Removed**:
+
 ---
 
 ### 1.4.9 - 2025-02-26
@@ -314,8 +315,6 @@
     - `configure_digital_edge_sequence_advance_trigger()`
     - `configure_digital_edge_source_trigger()`
     - `configure_digital_edge_start_trigger()`.
-	
-	
 ## nidigital (NI-Digital Pattern Driver)
 
 ---
