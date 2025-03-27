@@ -101,8 +101,6 @@
 ---
 
 ### 1.4.5 - 2023-06-12
-- **Added**:
-  - Pass Python interpreter information if the driver runtime version supports it. This is used by NI to better understand client usage.
 - **Removed**:
   - `easy_install` support.
 
@@ -110,6 +108,7 @@
 
 ### 1.4.4 - 2023-04-14
 - **Added**:
+  - Support for Python 3.11
   - Pass Python interpreter information if the driver runtime version supports it. This is used by NI to better understand client usage.
   - API parity with NI-DCPower 2023 Q2.
     - Properties added:
@@ -137,7 +136,8 @@
       - `configure_lcr_compensation`
       - `get_lcr_compensation_data`.
 - **Changed**:
-  - Enums reordered:
+  -Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False. 
+  -Enums reordered:
     - `AutoZero`
     - `CableLength`.
 
@@ -145,9 +145,13 @@
 
 ### 1.4.3 - 2022-12-16
 - **Added**:
+  - Support for Python 3.10.
   - MeasurementLink support.
 - **Changed**:
   - Binary compatibility change for type `LCRLoadCompensationSpot` on Linux. Client code using method `nidcpower.Session.perform_lcr_load_compensation` on Linux now requires NI-DCPower 2023 Q1 driver runtime or newer.
+- **Removed**:
+  - Support for Python 3.6.
+
 
 ---
 
@@ -229,10 +233,12 @@
 
 ### 1.4.1 - 2021-08-23
 - **Added**:
+  - Support for Python 3.9
   - API parity with NI-DCPower 21.0.0.
     - Properties added:
       - `output_cutoff_delay`.
-
+- **Removed**:
+  - Support for Python 3.5.
 ---
 
 ### 1.4.0 - 2021-07-09
@@ -254,7 +260,7 @@
     - Methods added:
       - `clear_latched_output_cutoff_state`
       - `query_latched_output_cutoff_state`.
-  - Support for independent operation of instrument channels. Creating an `nidcpower.Session` with independent channels allows you to use multiple instruments in the same session. Requires NI-DCPower driver runtime 20.6.0 or later.
+  - Support for independent operation of instrument channels. Creating an `nidcpower.Session` with independent channels allows you to use multiple instruments in the same session. With independent channels, you can configure multiple channels of the same instrument, or of multiple instruments, independently of one another within the same session. Requires NI-DCPower driver runtime 20.6.0 or later. In order to use with older runtime or to maintain old behavior, pass `independent_channels=False` to `nidcpower.Session` constructor.
 
 ---
 
@@ -280,8 +286,16 @@
       - `autorange_minimum_current_range`
       - `autorange_minimum_voltage_range`
       - `autorange_threshold_mode`.
-
+- **Changed**:
+  - Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
+  - Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
+  
 ---
+
+### 1.3.1 - 2020-06-08
+- **Changed**:
+  - Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
+  - Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
 
 ### 1.3.0 - 2020-05-21
 - **Added**:
@@ -290,6 +304,19 @@
     - `Session.actual_power_allocation`
     - `Session.requested_power_allocation`
     - `Session.power_allocation_mode`.
+- **Changed**:
+  - Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
+  - Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
+---
+
+### 1.2.1 - 2020-04-21
+- **Added**:
+  - Support for chained repeated capabilities. This allows things like
+            ``` python
+            session.sites[0, 1].pins['PinA', 'PinB'].ppmu_voltage_level = 4
+            ```
+
+            The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
 
 ---
 
@@ -302,26 +329,237 @@
       - `delete_advanced_sequence()`
       - `active_advanced_sequence`
       - `active_advanced_sequence_step`.
+  - Zip file per driver for all examples and any helper files
+  - Link to zip file on examples documentation
+  - Support for Python 3.8
+- **Changed**:
+  - `import_attribute_configuration_buffer()` now accepts `list` of numbers that are integers less than 255, `array.array('b')`, `bytes`, `bytearray` for configuration buffer - [#1013](https://github.com/ni/nimi-python/issues/1013)
+  - `export_attribute_configuration_buffer()` now returns `bytes` as the buffer type - [#1013](https://github.com/ni/nimi-python/issues/1013)
+- **Removed**:
+  - Python 2.7 support - [Python Software Foundation version status](https://devguide.python.org/#status-of-python-branches)
+  - Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
+  - PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
+
+---
+
+### 1.1.5 - 2019-11-22
+- **Changed**:
+  - Fix #1140: Linux support was accidentally broken.
+  - Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
+  
+---
+
+### 1.1.4 - 2019-11-19
+- **Added**:
+  - Support for Python 3.8
+  - `ViUInt8` is now a valid type in APIs
+
+---
+
+### 1.1.3 - 2019-10-21
+- **Changed**:
+  - The development status in `setup.py` will be based on the module version:
+            * version >= 1.0
+                * .devN or .aN - Alpha
+                * .bN, .cN or .rcN - Beta
+                * \<nothing\> or .postN - Stable
+            * version < 1.0 and version >= 0.5 - Beta
+            * version < 0.5 - Alpha
+  - Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
+  - Fix type of `sequence_step_delta_time_enabled ` property - [#1015](https://github.com/ni/nimi-python/issues/1015)
+
+---
+
+### 1.1.2 - 2019-06-06
+- **Changed**:
+  - Switched to slightly different metadata format - Actual `True`/`False` instead of strings
+  - New internal process for generating metadata
 
 ---
 
 ### 1.1.0 - 2018-10-25
 - **Added**:
-  - `import_attribute_configuration_file`.
-  - `export_attribute_configuration_file`.
-  - `import_attribute_configuration_buffer`.
+  - import_attribute_configuration_file function
+  - export_attribute_configuration_file function
+  - import_attribute_configuration_buffer function
+  - import_attribute_configuration_buffer function
+- **Changed**:
+  - Updated generated metadata
+  - Updated "Driver Version Tested Against"
+  - Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
+  
+---
 
+### 1.0.1 - 2018-10-17
+- **Added**:
+  - Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
+  - \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
+- **Changed**:
+  - No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
+  - Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
+  
 ---
 
 ### 1.0.0 - 2018-06-08
 - **Removed**:
-  - Trigger configuration methods, use attributes instead:
-    - `configure_digital_edge_measure_trigger()`
-    - `configure_digital_edge_pulse_trigger()`
-    - `configure_digital_edge_sequence_advance_trigger()`
-    - `configure_digital_edge_source_trigger()`
-    - `configure_digital_edge_start_trigger()`.
+  - Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
+  - Remove trigger configuration methods, use attributes instead [#860](https://github.com/ni/nimi-python/issues/860)
+            * `configure_digital_edge_measure_trigger()` - use `session.digital_edge_measure_trigger_edge` & `session.digital_edge_measure_trigger_input_terminal`
+            * `configure_digital_edge_pulse_trigger()` - use `session.digital_edge_pulse_trigger_edge` & `session.digital_edge_pulse_trigger_input_terminal`
+            * `configure_digital_edge_sequence_advance_trigger()` - use `session.digital_edge_sequence_advance_trigger_edge` & `session.digital_edge_sequence_advance_trigger_input_terminal`
+            * `configure_digital_edge_source_trigger()` - use `session.digital_edge_source_trigger_edge` & `session.digital_edge_source_trigger_input_terminal`
+            * `configure_digital_edge_start_trigger()` - use `session.digital_edge_start_trigger_edge` & `session.digital_edge_start_trigger_input_terminal`
+  - Remove polarity attributes for triggers that are PXI backplane only (only support rising edge) [#860](https://github.com/ni/nimi-python/issues/860)
+            * `digital_edge_measure_trigger_edge`
+            * `digital_edge_pulse_trigger_edge`
+            * `digital_edge_sequence_advance_trigger_edge`
+            * `digital_edge_source_trigger_edge`
+            * `digital_edge_start_trigger_edge`
+			
+---
+
+### 0.9.0 - 2018-05-22
+- **Added**:
+  - Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
+  - `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
+  - Fix thread-safety issues by using IVI session lock where aplicable
+- **Changed**:
+  - SelfTestError` now inherits from `<driver>.Error` rather than `Exception` - [#830](https://github.com/ni/nimi-python/issues/830)
+  - Warning class name changed to `<driver>.DriverWarning` for all drivers - [#658](https://github.com/ni/nimi-python/issues/658)
+- **Removed**:
+  - IVI properties as applicable - some were already removed from some drivers [#824](https://github.com/ni/nimi-python/issues/824)
+			* `engine_major_version`
+            * `engine_minor_version`
+            * `engine_revision`
+            * `primary_error`
+            * `secondary_error`
+            * `error_elaboration`
+            * `io_session_type`
+            * `io_session` / `visa_rm_session`
+            * `group_capabilities`
+            * `interchange_check`
+            * `range_check`
+            * `record_coercions`
+            * `specific_driver_class_spec_major_version`
+            * `specific_driver_class_spec_minor_version`
+            * `query_instrument_status`
+            * `cache`
+            * `specific_driver_prefix`
+ - export_signal()` - [#828](https://github.com/ni/nimi-python/issues/828)
+ - `active_advanced_sequence` [#832](https://github.com/ni/nimi-python/issues/832)
+ - `active_advanced_sequence_step` [#832](https://github.com/ni/nimi-python/issues/832)
+ - Default value for trigger parameter on `send_software_edge_trigger()` [#832](https://github.com/ni/nimi-python/issues/832)
 	
+	
+---
+
+### 0.8.0 - 2018-04-27
+- **Changed**:
+  - All exceptions raised by the Python bindings inherit from `<driver>.Error`
+  - Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
+            * This encapsulates any error that is returned by the underlying driver
+  - All timeout parameters can now also take a simple number in seconds. `timeout=datetime.timedelta(milliseconds=100)` and `timeout=0.1` are identical. [#796](https://github.com/ni/nimi-python/issues/796)
+  - `Session.fetch_multiple()` and `Session.measure_multiple()` now return list of named tuples instead of multiple arrays. See [fetch_multiple](http://nimi-python.readthedocs.io/en/master/nidcpower/functions.html#nidcpower.Session.fetch_multiple) and [measure_multiple](http://nimi-python.readthedocs.io/en/master/nidcpower/functions.html#nidcpower.Session.measure_multiple)
+  - `Session.cal_self_calibration()` renamed to `Session.self_cal()` to match other drivers - issue [#615](https://github.com/ni/nimi-python/issues/615)
+  - `Session.set_sequence()` values parameter no longer has a default value and must be passed in. Parameter order has changed as a result of this - issue [#797](https://github.com/ni/nimi-python/issues/797)
+  - Session constructor channel parameter can now use any channel format that repeated capabilities can use [#807](https://github.com/ni/nimi-python/issues/807)
+  - `Session.get_ext_cal_recommended_interval()` now returns a `datetime.timedelta` for the interval [#794](https://github.com/ni/nimi-python/issues/794)
+- **Removed**:
+  - Advanced Sequence functions - until [#504](https://github.com/ni/nimi-python/issues/504) can be fixed in a proper way
+            * `create_advanced_sequence()`
+            * `create_advanced_sequence_step()`
+            * `delete_advanced_sequence()`
+			
+			
+
+---
+
+### 0.7.0 - 2018-02-20
+- **Added**:
+  - `channel` repeated capability - See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
+- **Changed**:
+  - Option string can now be a python dictionary instead of a string. (Fix [#661](https://github.com/ni/nimi-python/issues/661))
+            * Key/Value pairs approporiate for desired behavior
+                ``` python
+                session = nidmm.Session('Dev1', False, {'simulate': True, 'driver_setup': {'Model': '4071', 'BoardType': 'PXI'}})
+                ```
+  - Repeated capabilities are handled differently. See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
+  - All function parameters or attributes that represent time now use `datetime.timedelta()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+  - All functions that return calibration dates now return `datetime.datetime()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+  - Metadata updated to NI-DCPower 17.6.1
+  - The following functions timeout parameter now is required to be a `datetime.timedelta()` object:
+            * `fetch_multiple()`
+            * `wait_for_event()`
+  - The following functions return a `datetime.datetime()` object representing the date and time
+            * `get_ext_cal_last_date_and_time()`
+            * `get_self_cal_last_date_and_time()`
+- **Removed**:
+  - Removed these enums and disconnected them from the associated attribute (Fix [#666](https://github.com/ni/nimi-python/issues/666))
+            * `CurrentLimitAutorange` - `CURRENT_LIMIT_AUTORANGE`
+            * `CurrentLevelAutorange` - `CURRENT_LEVEL_AUTORANGE`
+            * `VoltageLevelAutorange` - `VOLTAGE_LEVEL_AUTORANGE`
+            * `VoltageLimitAutorange` - `VOLTAGE_LIMIT_AUTORANGE`
+			
+---
+
+### 0.6.0 - 2017-12-20
+- **Added**:
+  -  `abort`. See [#660](https://github.com/ni/nimi-python/issues/655).
+- **Changed**:
+  - Property power_line_frequency no longer uses enum PowerLineFrequency.
+  - Removed `actual_count` from `fetch_multiple()` returned tuple
+  
+---
+
+### 0.5.0 - 2017-11-27
+- **Added**:
+  -  `get_ext_cal_last_date_and_time`
+  -  `get_ext_cal_last_temp`
+  -  `get_ext_cal_recommended_interval`
+  -  `measure_multiple`
+- **Removed**:
+  -  enum definitions that are not referenced by a function and/or an attributes
+
+
+---
+
+### 0.4.0 - 2017-11-07
+- **Added**:
+  -  New example `nidcpower_advanced_sequence.py`
+- **Changed**:
+ - Fixed method signature for:
+      * `wait_for_event`
+      * `create_sequence`
+      * `create_advanced_sequence`
+- **Removed**:
+  - Support for `measure_multiple` until issue #444 is addressed.
+
+---
+
+### 0.3.0 - 2017-10-13
+- **Added**:
+  - Support for ViInt64 (64-bit integers)
+  - Initial release
+- **Changed**:
+ - Modified how methods with repeated capabilities are invoked. There's no longer (for example) a `channel_name` input. Instead:
+      ```python
+      # Sets sequence on channels 0 through 3
+      session['0-3'].set_sequence(values, source_delays)
+      ```
+ - Enum value documentation lists the fully qualified name - this is to allow easy copy/paste
+- **Removed**:
+  - Support for `measure_multiple` until issue #444 is addressed.
+  
+---
+
+### 0.2.0 - 2017-09-20
+- **Added**:
+  - Suport for channel-based properties
+- **Changed**:
+ - Warnings no longer raise an exception
+      * Warnings are now added to warnings.warn()
+
+
 ## nidigital (NI-Digital Pattern Driver)
 
 ---
@@ -399,6 +637,7 @@
 
 ### 1.4.4 - 2023-04-14
 - **Added**:
+  - Support for Python 3.11
   - API parity with NI-Digital Pattern Driver 2023 Q2.
     - Methods added:
       - `configure_voltage_levels`.
@@ -406,15 +645,19 @@
     - Properties added:
       - `voltage_level_high`.
       - `voltage_level_low`.
-
+- **Changed**:
+    -Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False. 
+	
 ---
 
 ### 1.4.3 - 2022-12-16
 - **Added**:
+  - Support for Python 3.10.
   - MeasurementLink support.
 - **Changed**:
   - Updated documentation for pattern burst configuration.
-
+- **Removed**:
+  - Support for Python 3.6.
 ---
 
 ### 1.4.2 - 2022-08-03
@@ -471,7 +714,17 @@
     - Properties added:
       - `trigger_name`.
       - `trigger_settings`.
+- **Changed**:
+  - Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
+  - Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
+  
+---
 
+### 1.3.1 - 2020-06-08
+- **Changed**:
+  - Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
+  - Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
+  
 ---
 
 ### 1.3.0 - 2020-05-21
@@ -483,29 +736,186 @@
     - Properties added:
       - `clock_name`.
       - `clock_settings`.
-
+- **Changed**:
+  - Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
+  - Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
+  
 ---
 
+### 1.2.1 - 2020-04-21
+- **Added**:
+  - Support for chained repeated capabilities. This allows things like
+            ``` python
+            session.sites[0, 1].pins['PinA', 'PinB'].ppmu_voltage_level = 4
+            ```
+
+            The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
+  - `get_pattern_pin_names` - [#1292](https://github.com/ni/nimi-python/issues/1292)
+  - Support for `instruments` repeated capability in the following properties - `instrument_firmware_revision`, `serial_number`, and `timing_absolute_delay` -  [#1228](https://github.com/ni/nimi-python/issues/1228)
+  - `load_specifications_levels_and_timing` that allows loading of multiple specs, levels, and/or timing files in a single call - [#1392](https://github.com/ni/nimi-python/issues/1392)
+  - `get_channel_names` - [#1386](https://github.com/ni/nimi-python/issues/1386)
+---
 ### 1.2.0 - 2020-03-06
 - **Added**:
-  - `create_pattern_sequence()` - [#504](https://github.com/ni/nimi-python/issues/504).
-    - Includes example to see how to use it.
-    - Additional methods and properties made public:
-      - `create_pattern_step()`
-      - `delete_pattern_sequence()`
-      - `active_pattern_sequence`
-      - `active_pattern_step`.
+  - `conditional_jump_triggers` and `pattern_opcode_events` repeated capabilities - [#1191](https://github.com/ni/nimi-python/issues/1191), [#1192]
+  - Zip file per driver for all examples and any helper files
+  - Link to zip file on examples documentation
+  - Support for Python 3.8
+- **Changed**:
+  - `import_attribute_configuration_buffer()` now accepts `list` of numbers that are integers less than 255, `array.array('b')`, `bytes`, `bytearray` for configuration buffer - [#1013](https://github.com/ni/nimi-python/issues/1013)
+  - `export_attribute_configuration_buffer()` now returns `bytes` as the buffer type - [#1013](https://github.com/ni/nimi-python/issues/1013)
+  - `write_source_waveform_site_unique()` now supports `numpy.array` and `list` as site waveform types
+  - sites are now a repeated capability instead of a parameter: `session.sites[1,2].fetch_capture_waveform(...)` - [#1111](https://github.com/ni/nimi-python/issues/1111)
+  - `fetch_history_ram_cycle_information` method now supports fetching multiple History RAM samples in a single API call - [#1071](https://github.com/ni/nimi-python/issues/1071)
+  - Update methods that require `pin_list` to be passed in, such that `pin_list` can be passed in via `pins` repeated capability - [#1294](https://github.com/ni/nimi-python/issues/1294)
+- **Removed**:
+  - Python 2.7 support - [Python Software Foundation version status](https://devguide.python.org/#status-of-python-branches)
+  - Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
+  - PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
+  - Removed redundant (redundant because corresponding properties can be used instead) API methods - [#1065](https://github.com/ni/nimi-python/issues/1065)
+  - Removed programmatic pin map creation API - [#1124](https://github.com/ni/nimi-python/issues/1124)
+  - Removed `fetch_history_ram_cycle_pin_data` and `fetch_history_ram_scan_cycle_number`. They are not needed since `fetch_history_ram_cycle_information` was updated to return class instances that contains cycle pin data and scan cycle number - [#1071] (https://github.com/ni/nimi-python/issues/1071)
 
 ---
 
-### 1.1.0 - 2018-10-25
-- **Added**:
-  - `import_pattern_configuration_file`.
-  - `export_pattern_configuration_file`.
-  - `import_pattern_configuration_buffer`.
+### 1.1.5 - 2019-11-22
+- **Changed**:
+  - Fix #1140: Linux support was accidentally broken.
+  - Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
 
+---
+
+### 1.1.4 - 2019-11-19
+- **Added**:
+  - Support for Python 3.8
+  - `ViUInt8` is now a valid type in APIs
+  - `fetch_capture_waveform()` - returns dictionary { site: data, site: data, ... } 
+  - `write_source_waveform_site_unique()` - takes waveform_name and dictionary { site: data, site: data, ... }
+  - `pins` is now a valid repeated capability
+- **Changed**:
+  - Fix get/set properties - [#1062](https://github.com/ni/nimi-python/issues/1062)
+  - Removed array-size parameter from apply_tdr_offsets() and write_source_waveform_broadcast_u32() methods - [#1070](https://github.com/ni/nimi-python/issues/1070)
+  - Renamed `write_source_waveform_broadcast_u32()` to `write_source_waveform_broadcast()`
+  - `get_pin_results_pin_information()` - returns namedtuple `PinInfo(pin_indexes, site_numbers, channel_indexes)`
+
+---
+
+
+### 1.1.3 - 2019-10-21
+- **Added**:
+  - `Initial support
+  - Very basic at this point and subject to change
+  - Looking for any testing and/or feedback
+  - `get_channel_name_from_string()`
+- **Changed**:
+  - The development status in `setup.py` will be based on the module version:
+            * version >= 1.0
+                * .devN or .aN - Alpha
+                * .bN, .cN or .rcN - Beta
+                * \<nothing\> or .postN - Stable
+            * version < 1.0 and version >= 0.5 - Beta
+            * version < 0.5 - Alpha
+  - Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
+  - New enums:
+
+           | Enum name                  | Where used                                                                       |
+           |----------------------------|----------------------------------------------------------------------------------|
+           | `DigitalEdge`              | `digital_edge_conditional_jump_trigger_edge`, `digital_edge_start_trigger_edge`  |
+           | `ApertureTimeUnits`        | `ppmu_aperture_time_units`, `ppmu_configure_aperture_time(units)`                |
+           | `PPMUOutputFunction`       | `ppmu_output_function`                                                           |
+           | `SelectedFunction`         | `selected_function`                                                              |
+           | `TDREndpointTermination`   | `tdr_endpoint_termination`                                                       |
+           | `Signal`                   | `export_signal(signal)`                                                          |
+  - **[Source Breaker]** No longer return the "actual size" from functions that use 'ivi-dance-with-a-twist'. This only affects `nidigital`.
+- **Removed**:
+  - Should be private - `get_session_state()`, `get_desired_attribute_*()`, `ppmu_measure_cached()`, `read_static_cached()`, `configure_ref_clock()`, `disable()`,
+            `get_number_of_vectors()`, `get_pattern_file_path()`, `get_pin_type()`, `get_time_set_compare_edges()`, `get_time_set_drive_edges()`,
+            `is_pattern_file_modified_since_load()`, `load_levels_internal()`, `load_pattern_internal()`, `load_timing_internal()`, `uncommit()`
+  - Need to determine how to generate this function - `fetch_capture_waveform_u32()`
+  
+---
+
+### 1.1.2 - 2019-06-06
+- **Changed**:
+  - Switched to slightly different metadata format - Actual `True`/`False` instead of strings
+  - New internal process for generating metadata
+
+--_
+
+### 1.1.0 - 2018-10-25
+- **Changed**:
+  - Updated generated metadata
+  - Updated "Driver Version Tested Against"
+  - Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
+  
+---
+
+### 1.0.1 - 2018-10-17
+- **Added**:
+  - Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
+  - \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
+- **Changed**:
+  - No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
+  - Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
+  
 ---
 
 ### 1.0.0 - 2018-06-08
 - **Removed**:
-  - Deprecated methods for pattern configuration.
+  - Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
+  
+---
+
+### 0.9.0 - 2018-05-22
+- **Added**:
+  - Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
+  - `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
+  - Fix thread-safety issues by using IVI session lock where aplicable
+- **Changed**:
+  - SelfTestError` now inherits from `<driver>.Error` rather than `Exception` - [#830](https://github.com/ni/nimi-python/issues/830)
+  - Warning class name changed to `<driver>.DriverWarning` for all drivers - [#658](https://github.com/ni/nimi-python/issues/658)
+- **Removed**:
+  - IVI properties as applicable - some were already removed from some drivers [#824](https://github.com/ni/nimi-python/issues/824)
+			* `engine_major_version`
+            * `engine_minor_version`
+            * `engine_revision`
+            * `primary_error`
+            * `secondary_error`
+            * `error_elaboration`
+            * `io_session_type`
+            * `io_session` / `visa_rm_session`
+            * `group_capabilities`
+            * `interchange_check`
+            * `range_check`
+            * `record_coercions`
+            * `specific_driver_class_spec_major_version`
+            * `specific_driver_class_spec_minor_version`
+            * `query_instrument_status`
+            * `cache`
+            * `specific_driver_prefix`
+ 
+---
+
+### 0.8.0 - 2018-04-27
+- **Changed**:
+  - All exceptions raised by the Python bindings inherit from `<driver>.Error`
+  - Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
+            * This encapsulates any error that is returned by the underlying driver
+  - All timeout parameters can now also take a simple number in seconds. `timeout=datetime.timedelta(milliseconds=100)` and `timeout=0.1` are identical. [#796](https://github.com/ni/nimi-python/issues/796)
+
+
+---
+
+### 0.7.0 - 2018-02-20
+- **Added**:
+  - `channel` repeated capability - See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
+- **Changed**:
+  - Option string can now be a python dictionary instead of a string. (Fix [#661](https://github.com/ni/nimi-python/issues/661))
+            * Key/Value pairs approporiate for desired behavior
+                ``` python
+                session = nidmm.Session('Dev1', False, {'simulate': True, 'driver_setup': {'Model': '4071', 'BoardType': 'PXI'}})
+                ```
+  - Repeated capabilities are handled differently. See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
+  - All function parameters or attributes that represent time now use `datetime.timedelta()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+  - All functions that return calibration dates now return `datetime.datetime()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+  
