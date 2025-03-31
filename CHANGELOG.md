@@ -451,8 +451,6 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-* ### 0.1.0 - 2017-09-01
-
 ## `nifgen` (NI-FGEN)
 * ### 1.4.9 - 2025-02-26
     * #### Added
@@ -813,8 +811,6 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-* ### 0.1.0 - 2017-09-01
-
 ## `nidigital` (NI-DIGITAL)
 * ### 1.4.9 - 2025-02-26
     * #### Added
@@ -1107,8 +1103,6 @@
     * #### Changed
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
-
-* ### 0.1.0 - 2017-09-01
 
 ## `nidmm` (NI-DMM)
 * ### 1.4.9 - 2025-02-26
@@ -1821,8 +1815,6 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-* ### 0.1.0 - 2017-09-01
-
 ## `niswitch` (NI-SWITCH)
 * ### 1.4.9 - 2025-02-26
     * #### Added
@@ -2050,8 +2042,6 @@
     * #### Changed
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
-
-* ### 0.1.0 - 2017-09-01
 
 ## `nitclk` (NI-TCLK)
 * ### 1.4.9 - 2025-02-26
@@ -2471,8 +2461,6 @@
     * #### Changed
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
-
-* ### 0.1.0 - 2017-09-01
 
 ## `nimodinst` (NI-MODINST)
 * ### 1.4.9 - 2025-02-26
