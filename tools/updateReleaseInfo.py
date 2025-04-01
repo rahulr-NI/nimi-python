@@ -7,11 +7,12 @@ import re
 
 pp = pprint.PrettyPrinter(indent=4, width=100)
 
-#Increment version based on bump type ('major', 'minor', 'patch').
+# Increment version based on bump type ('major', 'minor', 'patch').
 def bump_version(version, bump_type):
     major, minor, patch = map(int, version.split('.'))
+    logging.info(f"Parsed version: major={major}, minor={minor}, patch={patch}")
 
-    if bump_type == 'patch':
+    if bump_type == 'patch' or bump_type is None:
         patch += 1
     elif bump_type == 'minor':
         minor += 1
@@ -40,7 +41,7 @@ Update version in files. Example: X.Y.Z.devN to X.Y.Z
     args = parser.parse_args()
 
     if args.verbose > 1:
-        configure_logging(logging.log_file)
+        configure_logging(logging.DEBUG, args.log_file)
     elif args.verbose == 1:
         configure_logging(logging.INFO, args.log_file)
     else:
@@ -59,9 +60,15 @@ Update version in files. Example: X.Y.Z.devN to X.Y.Z
         base_version = m.group(1)
         dev_number = int(m.group(2))
         if args.release:
-            logging.info(f"Dev version found, updating {base_version}.dev{dev_number} to {base_version}")
-            contents = module_dev_version_re.sub(f"'module_version': '{base_version}'", contents)
-            new_version = base_version
+            if args.update_type:
+                bumped_version = bump_version(base_version, args.update_type)
+                logging.info(f"Dev version found, updating {base_version}.dev{dev_number} to {bumped_version}")
+                contents = module_dev_version_re.sub(f"'module_version': '{bumped_version}'", contents)
+                new_version = bumped_version
+            else:
+                logging.info(f"Dev version found, updating {base_version}.dev{dev_number} to {base_version}")
+                contents = module_dev_version_re.sub(f"'module_version': '{base_version}'", contents)
+                new_version = base_version
         else:
             if args.update_type:
                 bumped_version = bump_version(base_version, args.update_type)
@@ -78,13 +85,12 @@ Update version in files. Example: X.Y.Z.devN to X.Y.Z
         logging.debug(f"Release version regex match: {m}")
         if m:
             if args.release:
-                logging.error("Error: Attempting to release an already released version for " +os.path.basename(args.src_folder)+".")
+                logging.error("Error: Attempting to release an already released version for " + os.path.basename(args.src_folder) + ".")
                 return
             new_version = bump_version(f"{m.group(1)}{m.group(2)}", args.update_type)
-            if not args.release:
-                logging.info(f"Release version found, updating {m.group(1)}{m.group(2)} to {new_version}.dev0")
-                contents = module_version_re.sub(f"'module_version': '{new_version}.dev0'", contents)
-                new_version = f"{new_version}.dev0"
+            logging.info(f"Release version found, updating {m.group(1)}{m.group(2)} to {new_version}.dev0")
+            contents = module_version_re.sub(f"'module_version': '{new_version}.dev0'", contents)
+            new_version = f"{new_version}.dev0"
             
     if not args.preview:
         with open(metadata_file, 'w') as content_file:
