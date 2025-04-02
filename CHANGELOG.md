@@ -538,8 +538,8 @@
 
 * ### 1.4.6 - 2023-09-11 {#nidigital-146---2023-09-11}
     * #### Changed
-        * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
-        * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
+            * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
+            * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
     * #### Removed
         * Support for Python 3.7
 
