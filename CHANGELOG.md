@@ -79,55 +79,55 @@
         * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
         * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
     * #### Removed
-            * Support for Python 3.7
+        * Support for Python 3.7
 
 * ### <a id="nidcpower-145---2023-06-12"></a>1.4.5 - 2023-06-12
     * #### Removed
-            * `easy_install` support
+        * `easy_install` support
 
 * ### <a id="nidcpower-144---2023-04-14"></a>1.4.4 - 2023-04-14
     * #### Added
-            * Support for Python 3.11
-            * Pass Python interpreter information if the driver runtime version supports it. This is used by NI in order to better understand client usage.
-            * API parity with NI-DCPower 2023 Q2.
-                * Properties added:
-                    * `lcr_ac_dither_enabled`
-                    * `lcr_ac_electrical_cable_length_delay`
-                    * `lcr_dc_bias_transient_response`
-                    * `lcr_source_aperture_time`
-                    * `measure_complete_event_output_behavior`
-                    * `measure_complete_event_toggle_initial_state`
-                    * `sequence_engine_done_event_output_behavior`
-                    * `sequence_engine_done_event_toggle_initial_state`
-                    * `sequence_iteration_complete_event_output_behavior`
-                    * `sequence_iteration_complete_event_toggle_initial_state`
-                    * `source_complete_event_output_behavior`
-                    * `source_complete_event_toggle_initial_state`
-                * Enums added:
-                    * `CurrentLimitBehavior`
-                    * `EventOutputBehavior`
-                    * `EventToggleInitialState`
-                    * `LCRDCBiasTransientResponse`
-                * Enum values added:
-                    * `AS_CONFIGURED` added to enum `LCROpenShortLoadCompensationDataSource`
-                    * `NI_STANDARD_0_5M` added to enum `CableLength`
-                * Methods added:
-                    * `configure_lcr_compensation`
-                    * `get_lcr_compensation_data`
+        * Support for Python 3.11
+        * Pass Python interpreter information if the driver runtime version supports it. This is used by NI in order to better understand client usage.
+        * API parity with NI-DCPower 2023 Q2.
+            * Properties added:
+                * `lcr_ac_dither_enabled`
+                * `lcr_ac_electrical_cable_length_delay`
+                * `lcr_dc_bias_transient_response`
+                * `lcr_source_aperture_time`
+                * `measure_complete_event_output_behavior`
+                * `measure_complete_event_toggle_initial_state`
+                * `sequence_engine_done_event_output_behavior`
+                * `sequence_engine_done_event_toggle_initial_state`
+                * `sequence_iteration_complete_event_output_behavior`
+                * `sequence_iteration_complete_event_toggle_initial_state`
+                * `source_complete_event_output_behavior`
+                * `source_complete_event_toggle_initial_state`
+            * Enums added:
+                * `CurrentLimitBehavior`
+                * `EventOutputBehavior`
+                * `EventToggleInitialState`
+                * `LCRDCBiasTransientResponse`
+            * Enum values added:
+                * `AS_CONFIGURED` added to enum `LCROpenShortLoadCompensationDataSource`
+                * `NI_STANDARD_0_5M` added to enum `CableLength`
+            * Methods added:
+                * `configure_lcr_compensation`
+                * `get_lcr_compensation_data`
     * #### Changed
-            * Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False.
-            * Enums reordered:
-                * `AutoZero`
-                * `CableLength`
+        * Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False.
+        * Enums reordered:
+            * `AutoZero`
+            * `CableLength`
 
 * ### <a id="nidcpower-143---2022-12-16"></a>1.4.3 - 2022-12-16
     * #### Added
-            * Support for Python 3.10
-            * MeasurementLink support
+        * Support for Python 3.10
+        * MeasurementLink support
     * #### Changed
-            * Binary compatibility change for type `LCRLoadCompensationSpot` on Linux. Client code using method `nidcpower.Session.perform_lcr_load_compensation` on Linux now requires NI-DCPower 2023 Q1 driver runtime or newer.
+        * Binary compatibility change for type `LCRLoadCompensationSpot` on Linux. Client code using method `nidcpower.Session.perform_lcr_load_compensation` on Linux now requires NI-DCPower 2023 Q1 driver runtime or newer.
     * #### Removed
-            * Support for Python 3.6
+        * Support for Python 3.6
 
 * ### <a id="nidcpower-142---2022-08-03"></a>1.4.2 - 2022-08-03
     * #### Added
