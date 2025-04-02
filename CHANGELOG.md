@@ -45,7 +45,7 @@
 - [0.3.0 - 2017-10-13](#nidcpower-030---2017-10-13)
 - [0.2.0 - 2017-09-20](#nidcpower-020---2017-09-20)
 
-* ### 1.4.9 - 2025-02-26 {#nidcpower-149---2025-02-26}
+* ### <a id="nidcpower-149---2025-02-26"></a>1.4.9 - 2025-02-26
     * #### Added
         * Support for Python 3.13
     * #### Changed
@@ -53,11 +53,11 @@
     * #### Removed
         * Support for Python 3.8
 
-* ### 1.4.8 - 2024-04-26 {#nidcpower-148---2024-04-26}
+* ### <a id="nidcpower-148---2024-04-26"></a>1.4.8 - 2024-04-26
     * #### Added
         * Support for Python 3.12
 
-* ### 1.4.7 - 2023-12-15 {#nidcpower-147---2023-12-15}
+* ### <a id="nidcpower-147---2023-12-15"></a>1.4.7 - 2023-12-15
     * #### Added
         * API parity with NI-DCPower 2023 Q4.
                 * Properties added:
@@ -74,18 +74,18 @@
                     * `E_LOAD` added to enum `InstrumentMode`
                     * `CURRENT_SATURATED`, `VOLTAGE_MEASURE_HIGH` and `VOLTAGE_MEASURE_LOW` added to enum `OutputCutoffReason`
 
-* ### 1.4.6 - 2023-09-11
+* ### <a id="nidcpower-146---2023-09-11"></a>1.4.6 - 2023-09-11
     * #### Changed
             * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
             * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
     * #### Removed
             * Support for Python 3.7
 
-* ### 1.4.5 - 2023-06-12
+* ### <a id="nidcpower-145---2023-06-12"></a>1.4.5 - 2023-06-12
     * #### Removed
             * `easy_install` support
 
-* ### 1.4.4 - 2023-04-14
+* ### <a id="nidcpower-144---2023-04-14"></a>1.4.4 - 2023-04-14
     * #### Added
             * Support for Python 3.11
             * Pass Python interpreter information if the driver runtime version supports it. This is used by NI in order to better understand client usage.
@@ -120,7 +120,7 @@
                 * `AutoZero`
                 * `CableLength`
 
-* ### 1.4.3 - 2022-12-16
+* ### <a id="nidcpower-143---2022-12-16"></a>1.4.3 - 2022-12-16
     * #### Added
             * Support for Python 3.10
             * MeasurementLink support
@@ -129,7 +129,7 @@
     * #### Removed
             * Support for Python 3.6
 
-* ### 1.4.2 - 2022-08-03
+* ### <a id="nidcpower-142---2022-08-03"></a>1.4.2 - 2022-08-03
     * #### Added
             * API parity with NI-DCPower 2022 Q3.
                 * Properties added:
@@ -204,7 +204,7 @@
             * Updated supported devices information in documentation for methods and properties
             * Added `channel` field to the `Measurement` namedtuple instances returned by `fetch_multiple` and `measure_multiple`
 
-* ### 1.4.1 - 2021-08-23
+* ### <a id="nidcpower-141---2021-08-23"></a>1.4.1 - 2021-08-23
     * #### Added
             * Support for Python 3.9
             * API parity with NI-DCPower 21.0.0.
@@ -213,7 +213,7 @@
     * #### Removed
             * Support for Python 3.5
 
-* ### 1.4.0 - 2021-07-09
+* ### <a id="nidcpower-140---2021-07-09"></a>1.4.0 - 2021-07-09
     * #### Added
             * `get_channel_names` - [#1588](https://github.com/ni/nimi-python/issues/1588)
             * `create_advanced_sequence_commit_step` - [#1636](https://github.com/ni/nimi-python/issues/1636)
@@ -239,14 +239,14 @@
               driver runtime 20.6.0 or later. In order to use with older runtime or to maintain old behavior,
               pass `independent_channels=False` to `nidcpower.Session` constructor.
 
-* ### 1.3.3 - 2021-02-26
+* ### <a id="nidcpower-133---2021-02-26"></a>1.3.3 - 2021-02-26
     * #### Added
             * API parity with NI-DCPower 20.6.0 by adding Merged Channels and Shutdown Triggers support. The following properties are added:
                 * `merged_channels`
                 * `digital_edge_shutdown_trigger_input_terminal`
                 * `shutdown_trigger_type`
 
-* ### 1.3.2 - 2020-09-18
+* ### <a id="nidcpower-132---2020-09-18"></a>1.3.2 - 2020-09-18
     * #### Added
             * API parity with NI-DCPower 20.5.0 by adding measurement autoranging threshold range support, for which the following properties are added:
                 * `autorange`
@@ -261,12 +261,12 @@
             * Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
             * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
 
-* ### 1.3.1 - 2020-06-08
+* ### <a id="nidcpower-131---2020-06-08"></a>1.3.1 - 2020-06-08
     * #### Changed
             * Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
             * Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
 
-* ### 1.3.0 - 2020-05-21
+* ### <a id="nidcpower-130---2020-05-21"></a>1.3.0 - 2020-05-21
     * #### Added
             * API parity with NI-DCPower 20.0 by adding the following properties:
                 * `Session.serial_number`
@@ -277,7 +277,7 @@
             * Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
             * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
 
-* ### 1.2.1 - 2020-04-21
+* ### <a id="nidcpower-121---2020-04-21"></a>1.2.1 - 2020-04-21
     * #### Added
             * Support for chained repeated capabilities. This allows things like
                 ``` python
@@ -285,7 +285,7 @@
                 ```
                 The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
 
-* ### 1.2.0 - 2020-03-06
+* ### <a id="nidcpower-120---2020-03-06"></a>1.2.0 - 2020-03-06
     * #### Added
             * Zip file per driver for all examples and any helper files
             * Link to zip file on examples documentation
@@ -306,17 +306,17 @@
             * Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
             * PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
 
-* ### 1.1.5 - 2019-11-22
+* ### <a id="nidcpower-115---2019-11-22"></a>1.1.5 - 2019-11-22
     * #### Changed
             * Fix #1140: Linux support was accidentally broken.
             * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
 
-* ### 1.1.4 - 2019-11-19
+* ### <a id="nidcpower-114---2019-11-19"></a>1.1.4 - 2019-11-19
     * #### Added
             * Support for Python 3.8
             * `ViUInt8` is now a valid type in APIs
 
-* ### 1.1.3 - 2019-10-21
+* ### <a id="nidcpower-113---2019-10-21"></a>1.1.3 - 2019-10-21
     * #### Changed
             * The development status in `setup.py` will be based on the module version:
                 * version >= 1.0
@@ -328,12 +328,12 @@
             * Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
             * Fix type of `sequence_step_delta_time_enabled ` property - [#1015](https://github.com/ni/nimi-python/issues/1015)
 
-* ### 1.1.2 - 2019-06-06
+* ### <a id="nidcpower-112---2019-06-06"></a>1.1.2 - 2019-06-06
     * #### Changed
             * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
             * New internal process for generating metadata
 
-* ### 1.1.0 - 2018-10-25
+* ### <a id="nidcpower-110---2018-10-25"></a>1.1.0 - 2018-10-25
     * #### Added
             * import_attribute_configuration_file function
             * export_attribute_configuration_file function
@@ -344,7 +344,7 @@
             * Updated "Driver Version Tested Against"
             * Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
 
-* ### 1.0.1 - 2018-10-17
+* ### <a id="nidcpower-101---2018-10-17"></a>1.0.1 - 2018-10-17
     * #### Added
             * Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
             * \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
@@ -352,7 +352,7 @@
             * No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
             * Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
 
-* ### 1.0.0 - 2018-06-08
+* ### <a id="nidcpower-100---2018-06-08"></a>1.0.0 - 2018-06-08
     * #### Removed
             * Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
             * Remove trigger configuration methods, use attributes instead [#860](https://github.com/ni/nimi-python/issues/860)
@@ -368,7 +368,7 @@
                 * `digital_edge_source_trigger_edge`
                 * `digital_edge_start_trigger_edge`
 
-* ### 0.9.0 - 2018-05-22
+* ### <a id="nidcpower-090---2018-05-22"></a>0.9.0 - 2018-05-22
     * #### Added
             * Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
             * `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
@@ -400,7 +400,7 @@
             * `active_advanced_sequence_step` [#832](https://github.com/ni/nimi-python/issues/832)
             * Default value for trigger parameter on `send_software_edge_trigger()` [#832](https://github.com/ni/nimi-python/issues/832)
 
-* ### 0.8.0 - 2018-04-27
+* ### <a id="nidcpower-080---2018-04-27"></a>0.8.0 - 2018-04-27
     * #### Changed
             * All exceptions raised by the Python bindings inherit from `<driver>.Error`
             * Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
@@ -417,7 +417,7 @@
                 * `create_advanced_sequence_step()`
                 * `delete_advanced_sequence()`
 
-* ### 0.7.0 - 2018-02-20
+* ### <a id="nidcpower-070---2018-02-20"></a>0.7.0 - 2018-02-20
     * #### Added
             * `channel` repeated capability - See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
     * #### Changed
@@ -443,14 +443,14 @@
                 * `VoltageLevelAutorange` - `VOLTAGE_LEVEL_AUTORANGE`
                 * `VoltageLimitAutorange` - `VOLTAGE_LIMIT_AUTORANGE`
 
-* ### 0.6.0 - 2017-12-20
+* ### <a id="nidcpower-060---2017-12-20"></a>0.6.0 - 2017-12-20
     * #### Added
         * `abort`. See [#660](https://github.com/ni/nimi-python/issues/655).
     * #### Changed
         * Property power_line_frequency no longer uses enum PowerLineFrequency.
         * Removed `actual_count` from `fetch_multiple()` returned tuple
 
-* ### 0.5.0 - 2017-11-27
+* ### <a id="nidcpower-050---2017-11-27"></a>0.5.0 - 2017-11-27
     * #### Added
         * `get_ext_cal_last_date_and_time`
         * `get_ext_cal_last_temp`
@@ -459,7 +459,7 @@
     * #### Removed
         * enum definitions that are not referenced by a function and/or an attributes
 
-* ### 0.4.0 - 2017-11-07
+* ### <a id="nidcpower-040---2017-11-07"></a>0.4.0 - 2017-11-07
     * #### Added
         * New example `nidcpower_advanced_sequence.py`
     * #### Changed
@@ -472,7 +472,7 @@
     * #### Removed
         * Support for `measure_multiple` until issue #444 is addressed.
 
-* ### 0.3.0 - 2017-10-13
+* ### <a id="nidcpower-030---2017-10-13"></a>0.3.0 - 2017-10-13
     * #### Added
         * Support for ViInt64 (64-bit integers)
         * Initial release
@@ -484,7 +484,7 @@
           ```
         * Enum value documentation lists the fully qualified name - this is to allow easy copy/paste
 
-* ### 0.2.0 - 2017-09-20
+* ### <a id="nidcpower-020---2017-09-20"></a>0.2.0 - 2017-09-20
     * #### Added
         * Suport for channel-based properties
     * #### Changed
