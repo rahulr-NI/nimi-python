@@ -1127,7 +1127,7 @@
     * #### Added
         * Initial release
 
-## `nifgen` (NI-FGEN)
+### nifgen (NI-FGEN)
 
 - [1.4.9 - 2025-02-26](#nifgen-149---2025-02-26)
 - [1.4.8 - 2024-04-26](#nifgen-148---2024-04-26)
