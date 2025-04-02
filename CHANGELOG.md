@@ -4,7 +4,7 @@
 - [nidcpower (NI-DCPower)](#nidcpower-ni-dcpower)
 - [nidigital (NI-Digital Pattern Driver)](#nidigital-ni-digital-pattern-driver)
 - [nidmm (NI-DMM)](#nidmm-ni-dmm)
-- [niswitch (NI-Switch)](#niswitch-ni-switch)
+- [niswitch (NI-SWITCH)](#niswitch-ni-switch)
 - [nimodinst (NI-ModInst)](#nimodinst-ni-modinst)
 - [nifgen (NI-FGEN)](#nifgen-ni-fgen)
 - [niscope (NI-SCOPE)](#niscope-ni-scope)
@@ -498,7 +498,7 @@
           * Warnings are now added to warnings.warn()
 
 ## `nidigital` (NI-Digital Pattern Driver)
-### nidigital (NI-Digital Pattern Driver)
+
 - [1.4.9 - 2025-02-26](#nidigital-149---2025-02-26)
 - [1.4.8 - 2024-04-26](#nidigital-148---2024-04-26)
 - [1.4.6 - 2023-09-11](#nidigital-146---2023-09-11)
@@ -1144,7 +1144,7 @@
 - [1.2.1 - 2020-04-21](#nifgen-ni-fgen-121---2020-04-21)
 - [1.2.0 - 2020-03-06](#nifgen-ni-fgen-120---2020-03-06)
 - [1.1.5 - 2019-11-22](#nifgen-ni-fgen-115---2019-11-22)
-- [1.1.4 - 2019-11-19](#nifgen-114---2019-11-19)
+- [1.1.4 - 2019-11-19](#nifgen-ni-fgen-114---2019-11-19)
 - [1.1.3 - 2019-10-21](#nifgen-ni-fgen-113---2019-10-21)
 - [1.1.2 - 2019-06-06](#nifgen-ni-fgen-112---2019-06-06)
 - [1.1.0 - 2018-10-25](#nifgen-ni-fgen-110---2018-10-25)
