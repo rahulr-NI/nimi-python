@@ -43,7 +43,6 @@
 - [0.5.0 - 2017-11-27](#nidcpower-050---2017-11-27)
 - [0.4.0 - 2017-11-07](#nidcpower-040---2017-11-07)
 - [0.3.0 - 2017-10-13](#nidcpower-030---2017-10-13)
-- [0.2.0 - 2017-09-20](#nidcpower-020---2017-09-20)
 
 * ### <a id="nidcpower-149---2025-02-26"></a>1.4.9 - 2025-02-26
     * #### Added
@@ -53,6 +52,7 @@
                     * `INHIBITED` added to enum `OutputStates`.
     * #### Changed
         * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
+	* Fixed #2067: `nidcpower.OutputStates` values are incorrect.
     * #### Removed
         * Support for Python 3.8
 
@@ -492,12 +492,6 @@
           ```
         * Enum value documentation lists the fully qualified name - this is to allow easy copy/paste
 
-* ### <a id="nidcpower-020---2017-09-20"></a>0.2.0 - 2017-09-20
-    * #### Added
-        * Suport for channel-based properties
-    * #### Changed
-        * Warnings no longer raise an exception
-          * Warnings are now added to warnings.warn()
 
 ### nidigital (NI-Digital Pattern Driver)
 
