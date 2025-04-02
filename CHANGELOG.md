@@ -11,7 +11,7 @@
 - [nise (NI-Switch Executive)](#nise-ni-switch-executive)
 - [nitclk (NI-TCLK)](#nitclk-ni-tclk)
 
-## `nidcpower` (NI-DCPower)
+### nidcpower (NI-DCPower)
 
 - [1.4.9 - 2025-02-26](#nidcpower-149---2025-02-26)
 - [1.4.8 - 2024-04-26](#nidcpower-148---2024-04-26)
@@ -45,27 +45,21 @@
 - [0.3.0 - 2017-10-13](#nidcpower-030---2017-10-13)
 - [0.2.0 - 2017-09-20](#nidcpower-020---2017-09-20)
 
-* ### 1.4.9 - 2025-02-26
+* ### 1.4.9 - 2025-02-26 {#nidcpower-149---2025-02-26}
     * #### Added
-            * Support for Python 3.13
-            * API parity with NI-DCPower 2025 Q1.
-                * Enum value added:
-                    * `INHIBITED` added to enum `OutputStates`.
+        * Support for Python 3.13
     * #### Changed
-            * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
-            * Fixed #2067: `nidcpower.OutputStates` values are incorrect.
+        * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
     * #### Removed
-            * Support for Python 3.8
+        * Support for Python 3.8
 
-* ### 1.4.8 - 2024-04-26
+* ### 1.4.8 - 2024-04-26 {#nidcpower-148---2024-04-26}
     * #### Added
-            * Support for Python 3.12
-    * #### Changed
-            * Fix [#1664](https://github.com/ni/nimi-python/issues/1970): nidcpower_advanced_sequence.py has several issues preventing it from working out of the box on real hardware.
+        * Support for Python 3.12
 
-* ### 1.4.7 - 2023-12-15
+* ### 1.4.7 - 2023-12-15 {#nidcpower-147---2023-12-15}
     * #### Added
-            * API parity with NI-DCPower 2023 Q4.
+        * API parity with NI-DCPower 2023 Q4.
                 * Properties added:
                     * `current_level_rising_slew_rate`
                     * `current_level_falling_slew_rate`
@@ -497,7 +491,7 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-## `nidigital` (NI-Digital Pattern Driver)
+### nidigital (NI-Digital Pattern Driver)
 
 - [1.4.9 - 2025-02-26](#nidigital-149---2025-02-26)
 - [1.4.8 - 2024-04-26](#nidigital-148---2024-04-26)
@@ -528,7 +522,7 @@
 - [0.3.0 - 2017-10-13](#nidigital-030---2017-10-13)
 - [0.2.0 - 2017-09-20](#nidigital-020---2017-09-20)
 
-* ### 1.4.9 - 2025-02-26
+* ### 1.4.9 - 2025-02-26 {#nidigital-149---2025-02-26}
     * #### Added
             * Support for Python 3.13
             * Methods Added:
@@ -538,16 +532,16 @@
     * #### Removed
             * Support for Python 3.8
 
-* ### 1.4.8 - 2024-04-26
+* ### 1.4.8 - 2024-04-26 {#nidigital-148---2024-04-26}
     * #### Added
-            * Support for Python 3.12
+        * Support for Python 3.12
 
-* ### 1.4.6 - 2023-09-11
+* ### 1.4.6 - 2023-09-11 {#nidigital-146---2023-09-11}
     * #### Changed
-            * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
-            * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
+        * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
+        * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
     * #### Removed
-            * Support for Python 3.7
+        * Support for Python 3.7
 
 * ### 1.4.5 - 2023-06-12
     * #### Added
