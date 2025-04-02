@@ -1,17 +1,17 @@
 # Changelog
 
 ## Drivers
-- [nidcpower (NI-DCPOWER)](#nidcpower-ni-dcpower)
-- [nidigital (NI-DIGITAL)](#nidigital-ni-digital)
+- [nidcpower (NI-DCPower)](#nidcpower-ni-dcpower)
+- [nidigital (NI-Digital Pattern Driver)](#nidigital-ni-digital-pattern-driver)
 - [nidmm (NI-DMM)](#nidmm-ni-dmm)
-- [niswitch (NI-SWITCH)](#niswitch-ni-switch)
-- [nimodinst (NI-MODINST)](#nimodinst-ni-modinst)
+- [niswitch (NI-Switch)](#niswitch-ni-switch)
+- [nimodinst (NI-ModInst)](#nimodinst-ni-modinst)
 - [nifgen (NI-FGEN)](#nifgen-ni-fgen)
 - [niscope (NI-SCOPE)](#niscope-ni-scope)
-- [nise (NI-SWITCH EXECUTIVE)](#nise-ni-switch-executive)
+- [nise (NI-Switch Executive)](#nise-ni-switch-executive)
 - [nitclk (NI-TCLK)](#nitclk-ni-tclk)
 
-## `nidcpower` (NI-DCPOWER)
+## `nidcpower` (NI-DCPower)
 * ### 1.4.9 - 2025-02-26
     * #### Added
             * Support for Python 3.13
@@ -464,7 +464,7 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-## `nidigital` (NI-DIGITAL)
+## `nidigital` (NI-Digital Pattern Driver)
 * ### 1.4.9 - 2025-02-26
     * #### Added
             * Support for Python 3.13
@@ -1394,7 +1394,7 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-## `nimodinst` (NI-MODINST)
+## `nimodinst` (NI-ModInst)
 * ### 1.4.9 - 2025-02-26
     * #### Added
             * Support for Python 3.13
@@ -2037,209 +2037,6 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-## `nise` (NI-SWITCH EXECUTIVE)
-* ### 1.4.9 - 2025-02-26
-    * #### Added
-            * Support for Python 3.13
-    * #### Changed
-            * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
-    * #### Removed
-            * Support for Python 3.8
-
-* ### 1.4.8 - 2024-04-26
-    * #### Added
-            * Support for Python 3.12
-
-* ### 1.4.6 - 2023-09-11
-    * #### Changed
-            * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
-            * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
-    * #### Removed
-            * Support for Python 3.7
-
-* ### 1.4.5 - 2023-06-12
-    * #### Removed
-            * `easy_install` support
-
-* ### 1.4.4 - 2023-04-14
-    * #### Added
-            * Support for Python 3.11
-    * #### Changed
-            * Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False.
-
-* ### 1.4.3 - 2022-12-16
-    * #### Added
-            * Support for Python 3.10
-    * #### Removed
-            * Support for Python 3.6
-
-* ### 1.4.1 - 2021-08-23
-    * #### Added
-            * Support for Python 3.9
-    * #### Removed
-            * Support for Python 3.5
-
-* ### 1.3.2 - 2020-09-18
-    * #### Changed
-            * Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
-            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
-
-* ### 1.3.1 - 2020-06-08
-    * #### Changed
-            * Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
-            * Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
-
-* ### 1.3.0 - 2020-05-21
-    * #### Changed
-            * Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
-            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
-
-* ### 1.2.1 - 2020-04-21
-    * #### Added
-            * Support for chained repeated capabilities. This allows things like
-                ``` python
-                session.sites[0, 1].pins['PinA', 'PinB'].ppmu_voltage_level = 4
-                ```
-                The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
-
-* ### 1.2.0 - 2020-03-06
-    * #### Added
-            * Zip file per driver for all examples and any helper files
-            * Link to zip file on examples documentation
-            * Support for Python 3.8
-    * #### Changed
-            * `import_attribute_configuration_buffer()` now accepts `list` of numbers that are integers less than 255, `array.array('b')`, `bytes`, `bytearray` for configuration buffer - [#1013](https://github.com/ni/nimi-python/issues/1013)
-            * `export_attribute_configuration_buffer()` now returns `bytes` as the buffer type - [#1013](https://github.com/ni/nimi-python/issues/1013)
-    * #### Removed
-            * Python 2.7 support - [Python Software Foundation version status](https://devguide.python.org/#status-of-python-branches)
-            * Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
-            * PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
-
-* ### 1.1.5 - 2019-11-22
-    * #### Changed
-            * Fix #1140: Linux support was accidentally broken.
-            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
-
-* ### 1.1.4 - 2019-11-19
-    * #### Added
-            * Support for Python 3.8
-            * `ViUInt8` is now a valid type in APIs
-    * #### Changed
-            * Version updated to 1.1.4 to match other released nimi-python modules
-
-* ### 1.1.3 - 2019-10-21
-    * #### Changed
-            * The development status in `setup.py` will be based on the module version:
-                * version >= 1.0
-                    * .devN or .aN - Alpha
-                    * .bN, .cN or .rcN - Beta
-                    * \<nothing\> or .postN - Stable
-                * version < 1.0 and version >= 0.5 - Beta
-                * version < 0.5 - Alpha
-            * Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
-            * Update to 1.0 - now ready for production use
-
-* ### 1.1.2 - 2019-06-06
-    * #### Changed
-            * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
-            * New internal process for generating metadata
-
-* ### 1.1.0 - 2018-10-25
-    * #### Changed
-            * Updated generated metadata
-            * Updated "Driver Version Tested Against"
-            * Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
-
-* ### 1.0.1 - 2018-10-17
-    * #### Added
-            * Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
-            * \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
-            * Initial Release
-    * #### Changed
-            * No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
-            * Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
-
-* ### 1.0.0 - 2018-06-08
-    * #### Removed
-            * Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
-
-* ### 0.9.0 - 2018-05-22
-    * #### Added
-            * Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
-            * `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
-            * Fix thread-safety issues by using IVI session lock where aplicable
-    * #### Changed
-            * `SelfTestError` now inherits from `<driver>.Error` rather than `Exception` - [#830](https://github.com/ni/nimi-python/issues/830)
-            * Warning class name changed to `<driver>.DriverWarning` for all drivers - [#658](https://github.com/ni/nimi-python/issues/658)
-    * #### Removed
-            * IVI properties as applicable - some were already removed from some drivers [#824](https://github.com/ni/nimi-python/issues/824)
-                * `engine_major_version`
-                * `engine_minor_version`
-                * `engine_revision`
-                * `primary_error`
-                * `secondary_error`
-                * `error_elaboration`
-                * `io_session_type`
-                * `io_session` / `visa_rm_session`
-                * `group_capabilities`
-                * `interchange_check`
-                * `range_check`
-                * `record_coercions`
-                * `specific_driver_class_spec_major_version`
-                * `specific_driver_class_spec_minor_version`
-                * `query_instrument_status`
-                * `cache`
-                * `specific_driver_prefix`
-
-* ### 0.8.0 - 2018-04-27
-    * #### Changed
-            * All exceptions raised by the Python bindings inherit from `<driver>.Error`
-            * Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
-                * This encapsulates any error that is returned by the underlying driver
-            * All timeout parameters can now also take a simple number in seconds. `timeout=datetime.timedelta(milliseconds=100)` and `timeout=0.1` are identical. [#796](https://github.com/ni/nimi-python/issues/796)
-
-* ### 0.7.0 - 2018-02-20
-    * #### Changed
-            * Option string can now be a python dictionary instead of a string. (Fix [#661](https://github.com/ni/nimi-python/issues/661))
-                * Key/Value pairs approporiate for desired behavior
-                    ``` python
-                    session = nidmm.Session('Dev1', False, {'simulate': True, 'driver_setup': {'Model': '4071', 'BoardType': 'PXI'}})
-                    ```
-            * Repeated capabilities are handled differently. See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
-            * All function parameters or attributes that represent time now use `datetime.timedelta()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
-            * All functions that return calibration dates now return `datetime.datetime()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
-
-* ### 0.6.0 - 2017-12-20
-    * #### Added
-        * `abort`. See [#660](https://github.com/ni/nimi-python/issues/655).
-
-* ### 0.5.0 - 2017-11-27
-    * #### Removed
-        * enum definitions that are not referenced by a function and/or an attributes
-
-* ### 0.4.0 - 2017-11-07
-    * #### Changed
-        * Simplified examples by removing try/except
-        * **SOURCE BREAKER:** Changed names of enum value names to correspond to C #defines
-
-* ### 0.3.0 - 2017-10-13
-    * #### Added
-        * Support for ViInt64 (64-bit integers)
-    * #### Changed
-        * Modified how methods with repeated capabilities are invoked. There's no longer (for example) a `channel_name` input. Instead:
-          ```python
-          # Sets sequence on channels 0 through 3
-          session['0-3'].set_sequence(values, source_delays)
-          ```
-        * Enum value documentation lists the fully qualified name - this is to allow easy copy/paste
-
-* ### 0.2.0 - 2017-09-20
-    * #### Added
-        * Suport for channel-based properties
-    * #### Changed
-        * Warnings no longer raise an exception
-          * Warnings are now added to warnings.warn()
-
 ## `niswitch` (NI-SWITCH)
 * ### 1.4.9 - 2025-02-26
     * #### Added
@@ -2468,7 +2265,210 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-## `nitclk` (NI-TCLK)
+## `nise` (NI Switch Executive)
+* ### 1.4.9 - 2025-02-26
+    * #### Added
+            * Support for Python 3.13
+    * #### Changed
+            * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
+    * #### Removed
+            * Support for Python 3.8
+
+* ### 1.4.8 - 2024-04-26
+    * #### Added
+            * Support for Python 3.12
+
+* ### 1.4.6 - 2023-09-11
+    * #### Changed
+            * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
+            * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
+    * #### Removed
+            * Support for Python 3.7
+
+* ### 1.4.5 - 2023-06-12
+    * #### Removed
+            * `easy_install` support
+
+* ### 1.4.4 - 2023-04-14
+    * #### Added
+            * Support for Python 3.11
+    * #### Changed
+            * Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False.
+
+* ### 1.4.3 - 2022-12-16
+    * #### Added
+            * Support for Python 3.10
+    * #### Removed
+            * Support for Python 3.6
+
+* ### 1.4.1 - 2021-08-23
+    * #### Added
+            * Support for Python 3.9
+    * #### Removed
+            * Support for Python 3.5
+
+* ### 1.3.2 - 2020-09-18
+    * #### Changed
+            * Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
+            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
+
+* ### 1.3.1 - 2020-06-08
+    * #### Changed
+            * Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
+            * Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
+
+* ### 1.3.0 - 2020-05-21
+    * #### Changed
+            * Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
+            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
+
+* ### 1.2.1 - 2020-04-21
+    * #### Added
+            * Support for chained repeated capabilities. This allows things like
+                ``` python
+                session.sites[0, 1].pins['PinA', 'PinB'].ppmu_voltage_level = 4
+                ```
+                The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
+
+* ### 1.2.0 - 2020-03-06
+    * #### Added
+            * Zip file per driver for all examples and any helper files
+            * Link to zip file on examples documentation
+            * Support for Python 3.8
+    * #### Changed
+            * `import_attribute_configuration_buffer()` now accepts `list` of numbers that are integers less than 255, `array.array('b')`, `bytes`, `bytearray` for configuration buffer - [#1013](https://github.com/ni/nimi-python/issues/1013)
+            * `export_attribute_configuration_buffer()` now returns `bytes` as the buffer type - [#1013](https://github.com/ni/nimi-python/issues/1013)
+    * #### Removed
+            * Python 2.7 support - [Python Software Foundation version status](https://devguide.python.org/#status-of-python-branches)
+            * Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
+            * PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
+
+* ### 1.1.5 - 2019-11-22
+    * #### Changed
+            * Fix #1140: Linux support was accidentally broken.
+            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
+
+* ### 1.1.4 - 2019-11-19
+    * #### Added
+            * Support for Python 3.8
+            * `ViUInt8` is now a valid type in APIs
+    * #### Changed
+            * Version updated to 1.1.4 to match other released nimi-python modules
+
+* ### 1.1.3 - 2019-10-21
+    * #### Changed
+            * The development status in `setup.py` will be based on the module version:
+                * version >= 1.0
+                    * .devN or .aN - Alpha
+                    * .bN, .cN or .rcN - Beta
+                    * \<nothing\> or .postN - Stable
+                * version < 1.0 and version >= 0.5 - Beta
+                * version < 0.5 - Alpha
+            * Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
+            * Update to 1.0 - now ready for production use
+
+* ### 1.1.2 - 2019-06-06
+    * #### Changed
+            * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
+            * New internal process for generating metadata
+
+* ### 1.1.0 - 2018-10-25
+    * #### Changed
+            * Updated generated metadata
+            * Updated "Driver Version Tested Against"
+            * Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
+
+* ### 1.0.1 - 2018-10-17
+    * #### Added
+            * Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
+            * \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
+            * Initial Release
+    * #### Changed
+            * No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
+            * Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
+
+* ### 1.0.0 - 2018-06-08
+    * #### Removed
+            * Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
+
+* ### 0.9.0 - 2018-05-22
+    * #### Added
+            * Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
+            * `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
+            * Fix thread-safety issues by using IVI session lock where aplicable
+    * #### Changed
+            * `SelfTestError` now inherits from `<driver>.Error` rather than `Exception` - [#830](https://github.com/ni/nimi-python/issues/830)
+            * Warning class name changed to `<driver>.DriverWarning` for all drivers - [#658](https://github.com/ni/nimi-python/issues/658)
+    * #### Removed
+            * IVI properties as applicable - some were already removed from some drivers [#824](https://github.com/ni/nimi-python/issues/824)
+                * `engine_major_version`
+                * `engine_minor_version`
+                * `engine_revision`
+                * `primary_error`
+                * `secondary_error`
+                * `error_elaboration`
+                * `io_session_type`
+                * `io_session` / `visa_rm_session`
+                * `group_capabilities`
+                * `interchange_check`
+                * `range_check`
+                * `record_coercions`
+                * `specific_driver_class_spec_major_version`
+                * `specific_driver_class_spec_minor_version`
+                * `query_instrument_status`
+                * `cache`
+                * `specific_driver_prefix`
+
+* ### 0.8.0 - 2018-04-27
+    * #### Changed
+            * All exceptions raised by the Python bindings inherit from `<driver>.Error`
+            * Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
+                * This encapsulates any error that is returned by the underlying driver
+            * All timeout parameters can now also take a simple number in seconds. `timeout=datetime.timedelta(milliseconds=100)` and `timeout=0.1` are identical. [#796](https://github.com/ni/nimi-python/issues/796)
+
+* ### 0.7.0 - 2018-02-20
+    * #### Changed
+            * Option string can now be a python dictionary instead of a string. (Fix [#661](https://github.com/ni/nimi-python/issues/661))
+                * Key/Value pairs approporiate for desired behavior
+                    ``` python
+                    session = nidmm.Session('Dev1', False, {'simulate': True, 'driver_setup': {'Model': '4071', 'BoardType': 'PXI'}})
+                    ```
+            * Repeated capabilities are handled differently. See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
+            * All function parameters or attributes that represent time now use `datetime.timedelta()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+            * All functions that return calibration dates now return `datetime.datetime()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+
+* ### 0.6.0 - 2017-12-20
+    * #### Added
+        * `abort`. See [#660](https://github.com/ni/nimi-python/issues/655).
+
+* ### 0.5.0 - 2017-11-27
+    * #### Removed
+        * enum definitions that are not referenced by a function and/or an attributes
+
+* ### 0.4.0 - 2017-11-07
+    * #### Changed
+        * Simplified examples by removing try/except
+        * **SOURCE BREAKER:** Changed names of enum value names to correspond to C #defines
+
+* ### 0.3.0 - 2017-10-13
+    * #### Added
+        * Support for ViInt64 (64-bit integers)
+    * #### Changed
+        * Modified how methods with repeated capabilities are invoked. There's no longer (for example) a `channel_name` input. Instead:
+          ```python
+          # Sets sequence on channels 0 through 3
+          session['0-3'].set_sequence(values, source_delays)
+          ```
+        * Enum value documentation lists the fully qualified name - this is to allow easy copy/paste
+
+* ### 0.2.0 - 2017-09-20
+    * #### Added
+        * Suport for channel-based properties
+    * #### Changed
+        * Warnings no longer raise an exception
+          * Warnings are now added to warnings.warn()
+
+## `nitclk` (NI-TClk)
 * ### 1.4.9 - 2025-02-26
     * #### Added
             * Support for Python 3.13
