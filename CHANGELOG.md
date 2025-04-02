@@ -1144,7 +1144,7 @@
 - [1.2.1 - 2020-04-21](#nifgen-ni-fgen-121---2020-04-21)
 - [1.2.0 - 2020-03-06](#nifgen-ni-fgen-120---2020-03-06)
 - [1.1.5 - 2019-11-22](#nifgen-ni-fgen-115---2019-11-22)
-- [1.1.4 - 2019-11-19](#nifgen-ni-fgen-114---2019-11-19)
+- [1.1.4 - 2019-11-19](#nifgen-114---2019-11-19)
 - [1.1.3 - 2019-10-21](#nifgen-ni-fgen-113---2019-10-21)
 - [1.1.2 - 2019-06-06](#nifgen-ni-fgen-112---2019-06-06)
 - [1.1.0 - 2018-10-25](#nifgen-ni-fgen-110---2018-10-25)
@@ -1278,7 +1278,7 @@
             * Fix #1140: Linux support was accidentally broken.
             * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
 
-* ### 1.1.4 - 2019-11-19
+* ### 1.1.4 - 2019-11-19 {#nifgen-114---2019-11-19}
     * #### Added
             * Support for Python 3.8
             * `ViUInt8` is now a valid type in APIs
