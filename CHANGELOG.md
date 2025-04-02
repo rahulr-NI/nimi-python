@@ -60,24 +60,24 @@
 * ### <a id="nidcpower-147---2023-12-15"></a>1.4.7 - 2023-12-15
     * #### Added
         * API parity with NI-DCPower 2023 Q4.
-                * Properties added:
-                    * `current_level_rising_slew_rate`
-                    * `current_level_falling_slew_rate`
-                    * `conduction_voltage_mode`
-                    * `conduction_voltage_on_threshold`
-                    * `conduction_voltage_off_threshold`
-                    * `output_cutoff_voltage_measure_limit_high`
-                    * `output_cutoff_voltage_measure_limit_low`
-                * Enum added:
-                    * `ConductionVoltageMode`
-                * Enum values added:
-                    * `E_LOAD` added to enum `InstrumentMode`
-                    * `CURRENT_SATURATED`, `VOLTAGE_MEASURE_HIGH` and `VOLTAGE_MEASURE_LOW` added to enum `OutputCutoffReason`
+            * Properties added:
+                * `current_level_rising_slew_rate`
+                * `current_level_falling_slew_rate`
+                * `conduction_voltage_mode`
+                * `conduction_voltage_on_threshold`
+                * `conduction_voltage_off_threshold`
+                * `output_cutoff_voltage_measure_limit_high`
+                * `output_cutoff_voltage_measure_limit_low`
+            * Enum added:
+                * `ConductionVoltageMode`
+            * Enum values added:
+                * `E_LOAD` added to enum `InstrumentMode`
+                * `CURRENT_SATURATED`, `VOLTAGE_MEASURE_HIGH` and `VOLTAGE_MEASURE_LOW` added to enum `OutputCutoffReason`
 
 * ### <a id="nidcpower-146---2023-09-11"></a>1.4.6 - 2023-09-11
     * #### Changed
-            * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
-            * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
+        * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
+        * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
     * #### Removed
             * Support for Python 3.7
 
