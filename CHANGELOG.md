@@ -4,7 +4,6 @@
 - [nidcpower (NI-DCPOWER)](#nidcpower-ni-dcpower)
 - [nidigital (NI-DIGITAL)](#nidigital-ni-digital)
 - [nidmm (NI-DMM)](#nidmm-ni-dmm)
-- [nifake (NI-FAKE)](#nifake-ni-fake)
 - [niswitch (NI-SWITCH)](#niswitch-ni-switch)
 - [nimodinst (NI-MODINST)](#nimodinst-ni-modinst)
 - [nifgen (NI-FGEN)](#nifgen-ni-fgen)
@@ -2038,7 +2037,7 @@
         * Warnings no longer raise an exception
           * Warnings are now added to warnings.warn()
 
-## `nise` (NI-SE)
+## `nise` (NI-SWITCH EXECUTIVE)
 * ### 1.4.9 - 2025-02-26
     * #### Added
             * Support for Python 3.13
