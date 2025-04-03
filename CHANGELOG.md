@@ -1740,424 +1740,420 @@
           ```
 ---
 
-## `niscope` (NI-SCOPE)
+### niscope (NI-SCOPE)
 
-- [1.4.9 - 2025-02-26](#149---2025-02-26)
-- [1.4.8 - 2024-04-26](#148---2024-04-26)
-- [1.4.6 - 2023-09-11](#146---2023-09-11)
-- [1.4.5 - 2023-06-12](#145---2023-06-12)
-- [1.4.4 - 2023-04-14](#144---2023-04-14)
-- [1.4.3 - 2022-12-16](#143---2022-12-16)
-- [1.4.1 - 2021-08-23](#141---2021-08-23)
-- [1.3.2 - 2020-09-18](#132---2020-09-18)
-- [1.3.1 - 2020-06-08](#131---2020-06-08)
-- [1.3.0 - 2020-05-21](#130---2020-05-21)
-- [1.2.1 - 2020-04-21](#121---2020-04-21)
-- [1.2.0 - 2020-03-06](#120---2020-03-06)
-- [1.1.5 - 2019-11-22](#115---2019-11-22)
-- [1.1.4 - 2019-11-19](#114---2019-11-19)
-- [1.1.3 - 2019-10-21](#113---2019-10-21)
-- [1.1.2 - 2019-06-06](#112---2019-06-06)
-- [1.1.0 - 2018-10-25](#110---2018-10-25)
-- [1.0.1 - 2018-10-17](#101---2018-10-17)
-- [1.0.0 - 2018-06-08](#100---2018-06-08)
-- [0.9.0 - 2018-05-22](#090---2018-05-22)
-- [0.8.0 - 2018-04-27](#080---2018-04-27)
-- [0.7.0 - 2018-02-20](#070---2018-02-20)
-- [0.6.0 - 2017-12-20](#060---2017-12-20)
-- [0.5.0 - 2017-11-27](#050---2017-11-27)
-- [0.4.0 - 2017-11-07](#040---2017-11-07)
-- [0.3.0 - 2017-10-13](#030---2017-10-13)
-- [0.2.0 - 2017-09-20](#020---2017-09-20)
+- [1.4.9 - 2025-02-26](#niscope-149---2025-02-26)
+- [1.4.8 - 2024-04-26](#niscope-148---2024-04-26)
+- [1.4.6 - 2023-09-11](#niscope-146---2023-09-11)
+- [1.4.5 - 2023-06-12](#niscope-145---2023-06-12)
+- [1.4.4 - 2023-04-14](#niscope-144---2023-04-14)
+- [1.4.3 - 2022-12-16](#niscope-143---2022-12-16)
+- [1.4.1 - 2021-08-23](#niscope-141---2021-08-23)
+- [1.3.2 - 2020-09-18](#niscope-132---2020-09-18)
+- [1.3.1 - 2020-06-08](#niscope-131---2020-06-08)
+- [1.3.0 - 2020-05-21](#niscope-130---2020-05-21)
+- [1.2.1 - 2020-04-21](#niscope-121---2020-04-21)
+- [1.2.0 - 2020-03-06](#niscope-120---2020-03-06)
+- [1.1.5 - 2019-11-22](#niscope-115---2019-11-22)
+- [1.1.4 - 2019-11-19](#niscope-114---2019-11-19)
+- [1.1.3 - 2019-10-21](#niscope-113---2019-10-21)
+- [1.1.2 - 2019-06-06](#niscope-112---2019-06-06)
+- [1.1.0 - 2018-10-25](#niscope-110---2018-10-25)
+- [1.0.1 - 2018-10-17](#niscope-101---2018-10-17)
+- [1.0.0 - 2018-06-08](#niscope-100---2018-06-08)
+- [0.9.0 - 2018-05-22](#niscope-090---2018-05-22)
+- [0.8.0 - 2018-04-27](#niscope-080---2018-04-27)
+- [0.7.0 - 2018-02-20](#niscope-070---2018-02-20)
+- [0.6.0 - 2017-12-20](#niscope-060---2017-12-20)
+- [0.5.0 - 2017-11-27](#niscope-050---2017-11-27)
 
-* ### 1.4.9 - 2025-02-26
+* ### <a id="niscope-149---2025-02-26"></a>1.4.9 - 2025-02-26
     * #### Added
-            * Support for Python 3.13
+        * Support for Python 3.13
     * #### Changed
-            * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
+        * Fix [#2069](https://github.com/ni/nimi-python/issues/2069)
     * #### Removed
-            * Support for Python 3.8
+        * Support for Python 3.8
 
-* ### 1.4.8 - 2024-04-26
+* ### <a id="niscope-148---2024-04-26"></a>1.4.8 - 2024-04-26
     * #### Added
-            * Support for Python 3.12
+        * Support for Python 3.12
 
-* ### 1.4.6 - 2023-09-11
+* ### <a id="niscope-146---2023-09-11"></a>1.4.6 - 2023-09-11
     * #### Changed
-            * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
-            * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
+        * Fix [#1970](https://github.com/ni/nimi-python/issues/1970): Incorrect error when driver runtime not installed.
+        * Fix [#1998](https://github.com/ni/nimi-python/issues/1998): nimi-python APIs inefficiently allocate Python arrays.
     * #### Removed
-            * Support for Python 3.7
+        * Support for Python 3.7
 
-* ### 1.4.5 - 2023-06-12
+* ### <a id="niscope-145---2023-06-12"></a>1.4.5 - 2023-06-12
     * #### Added
-            * `get_channel_names()`
-            * Pass Python interpreter information if the driver runtime version supports it. This is used by NI in order to better understand client usage.
+        * `get_channel_names()`
+        * Pass Python interpreter information if the driver runtime version supports it. This is used by NI in order to better understand client usage.
     * #### Changed
-            * Fix [#1770](https://github.com/ni/nimi-python/issues/1770): fetch(), read(), and friends return wrong data when called with channel ranges on multi-instrument session.
+        * Fix [#1770](https://github.com/ni/nimi-python/issues/1770): fetch(), read(), and friends return wrong data when called with channel ranges on multi-instrument session.
     * #### Removed
-            * `easy_install` support
+        * `easy_install` support
 
-* ### 1.4.4 - 2023-04-14
+* ### <a id="niscope-144---2023-04-14"></a>1.4.4 - 2023-04-14
     * #### Added
-            * Support for Python 3.11
+        * Support for Python 3.11
     * #### Changed
-            * Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False.
-            * Fix [#1941](https://github.com/ni/nimi-python/issues/1941): When calling niscope.Session.fetch_array_measurement in a MeasurementLink measurement plugin, meas_wfm_size cannot be set.
-                * Requires NI gRPC Device Server 2023 Q2 or later. Older versions do not support this parameter and return all available samples.
+        * Fix [#1888](https://github.com/ni/nimi-python/issues/1888): Deadlock on multithreaded usage due to UnlockSession always being called with callerHasLock=False.
+        * Fix [#1941](https://github.com/ni/nimi-python/issues/1941): When calling niscope.Session.fetch_array_measurement in a MeasurementLink measurement plugin, meas_wfm_size cannot be set.
+            * Requires NI gRPC Device Server 2023 Q2 or later. Older versions do not support this parameter and return all available samples.
 
-* ### 1.4.3 - 2022-12-16
     * #### Added
-            * Support for Python 3.10
-            * MeasurementLink support
+        * Support for Python 3.10
+        * MeasurementLink support
     * #### Removed
-            * Support for Python 3.6
+        * Support for Python 3.6
 
-* ### 1.4.1 - 2021-08-23
+* ### <a id="niscope-141---2021-08-23"></a>1.4.1 - 2021-08-23
     * #### Added
-            * Support for Python 3.9
+        * Support for Python 3.9
     * #### Removed
-            * Support for Python 3.5
+        * Support for Python 3.5
 
-* ### 1.3.2 - 2020-09-18
+* ### <a id="niscope-132---2020-09-18"></a>1.3.2 - 2020-09-18
     * #### Added
-            * New methods for getting calibration information. - [#1463](https://github.com/ni/nimi-python/issues/1463)
-                * `get_ext_cal_last_date_and_time`
-                * `get_ext_cal_last_temp`
-                * `get_self_cal_last_date_and_time`
-                * `get_self_cal_last_temp`
-            * Measurement library methods. - [#806](https://github.com/ni/nimi-python/issues/806)
-                * `add_waveform_processing`
-                * `clear_waveform_measurement_stats`
-                * `clear_waveform_processing`
-                * `fetch_array_measurement`
-                * `fetch_measurement_stats`
-            * Measurement library properties.
-                * `meas_array_gain`
-                * `meas_array_offset`
-                * `meas_chan_high_ref_level`
-                * `meas_chan_low_ref_level`
-                * `meas_chan_mid_ref_level`
-                * `meas_filter_center_freq`
-                * `meas_filter_cutoff_freq`
-                * `meas_filter_order`
-                * `meas_filter_ripple`
-                * `meas_filter_taps`
-                * `meas_filter_transient_waveform_percent`
-                * `meas_filter_type`
-                * `meas_filter_width`
-                * `meas_fir_filter_window`
-                * `meas_high_ref`
-                * `meas_low_ref`
-                * `meas_mid_ref`
-                * `meas_hysteresis_percent`
-                * `meas_interpolation_sampling_factor`
-                * `meas_last_acq_histogram_size`
-                * `meas_other_channel`
-                * `meas_percentage_method`
-                * `meas_polynomial_interpolation_order`
-                * `meas_ref_level_units`
-                * `meas_time_histogram_high_time`
-                * `meas_time_histogram_high_volts`
-                * `meas_time_histogram_low_time`
-                * `meas_time_hisogram_low_volts`
-                * `meas_time_histogram_size`
-                * `meas_voltage_histogram_high_volts`
-                * `meas_voltage_histogram_low_volts`
-                * `meas_voltage_histogram_size`
+        * New methods for getting calibration information. - [#1463](https://github.com/ni/nimi-python/issues/1463)
+            * `get_ext_cal_last_date_and_time`
+            * `get_ext_cal_last_temp`
+            * `get_self_cal_last_date_and_time`
+            * `get_self_cal_last_temp`
+        * Measurement library methods. - [#806](https://github.com/ni/nimi-python/issues/806)
+            * `add_waveform_processing`
+            * `clear_waveform_measurement_stats`
+            * `clear_waveform_processing`
+            * `fetch_array_measurement`
+            * `fetch_measurement_stats`
+        * Measurement library properties.
+            * `meas_array_gain`
+            * `meas_array_offset`
+            * `meas_chan_high_ref_level`
+            * `meas_chan_low_ref_level`
+            * `meas_chan_mid_ref_level`
+            * `meas_filter_center_freq`
+            * `meas_filter_cutoff_freq`
+            * `meas_filter_order`
+            * `meas_filter_ripple`
+            * `meas_filter_taps`
+            * `meas_filter_transient_waveform_percent`
+            * `meas_filter_type`
+            * `meas_filter_width`
+            * `meas_fir_filter_window`
+            * `meas_high_ref`
+            * `meas_low_ref`
+            * `meas_mid_ref`
+            * `meas_hysteresis_percent`
+            * `meas_interpolation_sampling_factor`
+            * `meas_last_acq_histogram_size`
+            * `meas_other_channel`
+            * `meas_percentage_method`
+            * `meas_polynomial_interpolation_order`
+            * `meas_ref_level_units`
+            * `meas_time_histogram_high_time`
+            * `meas_time_histogram_high_volts`
+            * `meas_time_histogram_low_time`
+            * `meas_time_hisogram_low_volts`
+            * `meas_time_histogram_size`
+            * `meas_voltage_histogram_high_volts`
+            * `meas_voltage_histogram_low_volts`
+            * `meas_voltage_histogram_size`
     * #### Changed
-            * Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
-            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
-            * Fix [#1509](https://github.com/ni/nimi-python/issues/1509): `channel` and `record` fields are swapped in `waveform_info` struct returned from niscope fetch methods
-            * Fix [#1510](https://github.com/ni/nimi-python/issues/1510): `record` value in `waveform_info` struct returned from niscope fetch methods is wrong if `record_number` is non-zero
+        * Fix [#1491](https://github.com/ni/nimi-python/issues/1491): import_attribute_configuration_buffer() fails intermittently when `list` or `array.array` is passed in.
+        * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.5.0 for NI-DCPower, NI-SWITCH, and NI-DMM. no changes on other drivers.
+        * Fix [#1509](https://github.com/ni/nimi-python/issues/1509): `channel` and `record` fields are swapped in `waveform_info` struct returned from niscope fetch methods
+        * Fix [#1510](https://github.com/ni/nimi-python/issues/1510): `record` value in `waveform_info` struct returned from niscope fetch methods is wrong if `record_number` is non-zero
 
-* ### 1.3.1 - 2020-06-08
+* ### <a id="niscope-131---2020-06-08"></a>1.3.1 - 2020-06-08
     * #### Changed
-            * Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
-            * Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
+        * Fix [#1473](https://github.com/ni/nimi-python/issues/1473): Unintentional dependency on pytest
+        * Fix [#1474](https://github.com/ni/nimi-python/issues/1474): Requires hightime>=0.2.0
 
-* ### 1.3.0 - 2020-05-21
+* ### <a id="niscope-130---2020-05-21"></a>1.3.0 - 2020-05-21
     * #### Added
-            * API parity with NI-SCOPE 20.0 by adding the following properties:
-                * `Session.end_of_acquisition_event_terminal_name`
-                * `Session.end_of_record_event_terminal_name`
-                * `Session.advance_trigger_terminal_name`
-                * `Session.ref_trigger_terminal_name`
-                * `Session.start_trigger_terminal_name`
-                * `Session.ready_for_advance_event_terminal_name`
-                * `Session.ready_for_ref_event_terminal_name`
-                * `Session.ready_for_start_event_terminal_name`
+        * API parity with NI-SCOPE 20.0 by adding the following properties:
+            * `Session.end_of_acquisition_event_terminal_name`
+            * `Session.end_of_record_event_terminal_name`
+            * `Session.advance_trigger_terminal_name`
+            * `Session.ref_trigger_terminal_name`
+            * `Session.start_trigger_terminal_name`
+            * `Session.ready_for_advance_event_terminal_name`
+            * `Session.ready_for_ref_event_terminal_name`
+            * `Session.ready_for_start_event_terminal_name`
     * #### Changed
-            * Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
-            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
+        * Change the type of applicable properties and method parameters from `datetime.timedelta` to `hightime.timedelta` and from `datetime.datetime` to `hightime.datetime`. - [#744](https://github.com/ni/nimi-python/issues/744), [#1368](https://github.com/ni/nimi-python/issues/1368), [#1382](https://github.com/ni/nimi-python/issues/1382), [#1397](https://github.com/ni/nimi-python/issues/1397)
+        * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot. The version is 20.0.0 for all modules except `nidigital`, for which it is 19.0.1.
 
-* ### 1.2.1 - 2020-04-21
+* ### <a id="niscope-121---2020-04-21"></a>1.2.1 - 2020-04-21
     * #### Added
-            * Support for chained repeated capabilities. This allows things like
+        * Support for chained repeated capabilities. This allows things like
                 ``` python
                 session.sites[0, 1].pins['PinA', 'PinB'].ppmu_voltage_level = 4
                 ```
-                The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
+        The repeated capabilities will be expanded to `'site0/PinA,site0/PinB,site1/PinA,site1/PinB'`
 
-* ### 1.2.0 - 2020-03-06
+* ### <a id="niscope-120---2020-03-06"></a>1.2.0 - 2020-03-06
     * #### Added
-            * Zip file per driver for all examples and any helper files
-            * Link to zip file on examples documentation
-            * Support for Python 3.8
+        * Zip file per driver for all examples and any helper files
+        * Link to zip file on examples documentation
+        * Support for Python 3.8
     * #### Changed
-            * `import_attribute_configuration_buffer()` now accepts `list` of numbers that are integers less than 255, `array.array('b')`, `bytes`, `bytearray` for configuration buffer - [#1013](https://github.com/ni/nimi-python/issues/1013)
-            * `export_attribute_configuration_buffer()` now returns `bytes` as the buffer type - [#1013](https://github.com/ni/nimi-python/issues/1013)
+        * `import_attribute_configuration_buffer()` now accepts `list` of numbers that are integers less than 255, `array.array('b')`, `bytes`, `bytearray` for configuration buffer - [#1013](https://github.com/ni/nimi-python/issues/1013)
+        * `export_attribute_configuration_buffer()` now returns `bytes` as the buffer type - [#1013](https://github.com/ni/nimi-python/issues/1013)
     * #### Removed
-            * Python 2.7 support - [Python Software Foundation version status](https://devguide.python.org/#status-of-python-branches)
-            * Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
-            * PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
+        * Python 2.7 support - [Python Software Foundation version status](https://devguide.python.org/#status-of-python-branches)
+        * Python 3.4 support - [Python Software Foundation PEP 429](https://www.python.org/dev/peps/pep-0429/)
+        * PyPy and PyPy3 support [#1271](https://github.com/ni/nimi-python/issues/1271)
 
-* ### 1.1.5 - 2019-11-22
+* ### <a id="niscope-115---2019-11-22"></a>1.1.5 - 2019-11-22
     * #### Changed
-            * Fix #1140: Linux support was accidentally broken.
-            * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
+        * Fix #1140: Linux support was accidentally broken.
+        * Update "Driver Version Tested Against", in documentation, with latest versions installed on nimi-bot.
 
-* ### 1.1.4 - 2019-11-19
+* ### <a id="niscope-114---2019-11-19"></a>1.1.4 - 2019-11-19
     * #### Added
-            * Support for Python 3.8
-            * `ViUInt8` is now a valid type in APIs
+        * Support for Python 3.8
+        * `ViUInt8` is now a valid type in APIs
 
-* ### 1.1.3 - 2019-10-21
+* ### <a id="niscope-113---2019-10-21"></a>1.1.3 - 2019-10-21
     * #### Added
-            * `cable_sense_signal_enable`, `cable_sense_voltage`, `cable_sense_mode` properties and associated enum
-            * `enabled_channels`, `product_code` properties
-            * `glitch_condition`, `glitch_polarity`, `glitch_width` properties and associated enums
-            * `runt_high_threshold`, `runt_low_threshold`, `runt_polarity`, `runt_condition`, `runt_time_high_limit`, `runt_time_low_limit` properties and associated enums
-            * `width_condition`, `width_high_threshold`, `width_low_threshold`, `width_polarity` properties and associated enums
+        * `cable_sense_signal_enable`, `cable_sense_voltage`, `cable_sense_mode` properties and associated enum
+        * `enabled_channels`, `product_code` properties
+        * `glitch_condition`, `glitch_polarity`, `glitch_width` properties and associated enums
+        * `runt_high_threshold`, `runt_low_threshold`, `runt_polarity`, `runt_condition`, `runt_time_high_limit`, `runt_time_low_limit` properties and associated enums
+        * `width_condition`, `width_high_threshold`, `width_low_threshold`, `width_polarity` properties and associated enums
     * #### Changed
-            * The development status in `setup.py` will be based on the module version:
-                * version >= 1.0
-                    * .devN or .aN - Alpha
-                    * .bN, .cN or .rcN - Beta
-                    * \<nothing\> or .postN - Stable
-                * version < 1.0 and version >= 0.5 - Beta
-                * version < 0.5 - Alpha
-            * Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
+        * The development status in `setup.py` will be based on the module version:
+            * version >= 1.0
+                * .devN or .aN - Alpha
+                * .bN, .cN or .rcN - Beta
+                * \<nothing\> or .postN - Stable
+            * version < 1.0 and version >= 0.5 - Beta
+            * version < 0.5 - Alpha
+        * Improved installation instructions by not putting a version to pin to. This is confusing in master (what read the docs shows by default) since that version doesn't exist yet.
 
-* ### 1.1.2 - 2019-06-06
+* ### <a id="niscope-112---2019-06-06"></a>1.1.2 - 2019-06-06
     * #### Changed
-            * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
-            * New internal process for generating metadata
-            * Fixed enum values for `TIME_HISTOGRAM_MEAN_PLUS_STDEV`, `TIME_HISTOGRAM_MEAN_PLUS_2_STDEV`, `HF_REJECT` and `LF_REJECT`
+        * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
+        * New internal process for generating metadata
+        * Fixed enum values for `TIME_HISTOGRAM_MEAN_PLUS_STDEV`, `TIME_HISTOGRAM_MEAN_PLUS_2_STDEV`, `HF_REJECT` and `LF_REJECT`
 
-* ### 1.1.0 - 2018-10-25
+* ### <a id="niscope-110---2018-10-25"></a>1.1.0 - 2018-10-25
     * #### Added
-            * import_attribute_configuration_file function
-            * export_attribute_configuration_file function
-            * import_attribute_configuration_buffer function
-            * import_attribute_configuration_buffer function
+        * import_attribute_configuration_file function
+        * export_attribute_configuration_file function
+        * import_attribute_configuration_buffer function
+        * import_attribute_configuration_buffer function
     * #### Changed
-            * Updated generated metadata
-            * Updated "Driver Version Tested Against"
-            * Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
+        * Updated generated metadata
+        * Updated "Driver Version Tested Against"
+        * Update visatype definitions to work on Linux as well as Windows - [#911](https://github.com/ni/nimi-python/issues/911)
 
-* ### 1.0.1 - 2018-10-17
+* ### <a id="niscope-101---2018-10-17"></a>1.0.1 - 2018-10-17
     * #### Added
-            * Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
-            * \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
+        * Support for Python 3.7 - [#895](https://github.com/ni/nimi-python/issues/895)
+        * \_\_version\_\_ for all drivers - [#928](https://github.com/ni/nimi-python/issues/928)
     * #### Changed
-            * No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
-            * Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
+        * No longer globally set warnings filter for `DriverWarning` - if you want all warnings from the driver, you will need to set `warnings.filterwarnings("always", category=<driver>.DriverWarning)` in your code
+        * Fix \_\_repr\_\_ for niscope.WaveformInfo - [#920](https://github.com/ni/nimi-python/issues/920)
             * Format of output of wavefrom_info.__str__()
 
-* ### 1.0.0 - 2018-06-08
+* ### <a id="niscope-100---2018-06-08"></a>1.0.0 - 2018-06-08
     * #### Added
-            * `niscope_fetch_forever.py` example
+        * `niscope_fetch_forever.py` example
     * #### Removed
-            * Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
-            * Removed default value for `level` parameter on `configure_trigger_edge()`
-                * parameter list is now
+        * Explicitly disallow using a repeated capability on Session. `session[0].vertical_range = 1.0` will no longer work. Instead use `session.channels[0].vertical_range = 1.0` - [#853](https://github.com/ni/nimi-python/issues/853)
+        * Removed default value for `level` parameter on `configure_trigger_edge()`
+            * parameter list is now
                     ``` python
                     configure_trigger_edge(self, trigger_source, level, trigger_coupling, slope=enums.TriggerSlope.POSITIVE, holdoff=datetime.timedelta(seconds=0.0), delay=datetime.timedelta(seconds=0.0))
                     ```
-            * Removed default values for `level` and `hysteresis` parameters on `configure_trigger_hysteresis()`
-                * parameter list is now
+        * Removed default values for `level` and `hysteresis` parameters on `configure_trigger_hysteresis()`
+            * parameter list is now
                     ``` python
                     configure_trigger_hysteresis(self, trigger_source, level, hysteresis, trigger_coupling, slope=enums.TriggerSlope.POSITIVE, holdoff=datetime.timedelta(seconds=0.0), delay=datetime.timedelta(seconds=0.0))
                     ```
 
-* ### 0.9.0 - 2018-05-22
+* ### <a id="niscope-090---2018-05-22"></a>0.9.0 - 2018-05-22
     * #### Added
-            * Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
-            * `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
-            * Fix thread-safety issues by using IVI session lock where aplicable
+        * Add `session.lock()` and `session.unlock()` to all drivers except `nimodinst` - [#846](https://github.com/ni/nimi-python/issues/846)
+        * `session.lock()` returns a context manager for managing locks - [#846](https://github.com/ni/nimi-python/issues/846)
+        * Fix thread-safety issues by using IVI session lock where aplicable
     * #### Changed
-            * `SelfTestError` now inherits from `<driver>.Error` rather than `Exception` - [#830](https://github.com/ni/nimi-python/issues/830)
-            * Warning class name changed to `<driver>.DriverWarning` for all drivers - [#658](https://github.com/ni/nimi-python/issues/658)
+        * `SelfTestError` now inherits from `<driver>.Error` rather than `Exception` - [#830](https://github.com/ni/nimi-python/issues/830)
+        * Warning class name changed to `<driver>.DriverWarning` for all drivers - [#658](https://github.com/ni/nimi-python/issues/658)
     * #### Removed
-            * IVI properties as applicable - some were already removed from some drivers [#824](https://github.com/ni/nimi-python/issues/824)
-                * `engine_major_version`
-                * `engine_minor_version`
-                * `engine_revision`
-                * `primary_error`
-                * `secondary_error`
-                * `error_elaboration`
-                * `io_session_type`
-                * `io_session` / `visa_rm_session`
-                * `group_capabilities`
-                * `interchange_check`
-                * `range_check`
-                * `record_coercions`
-                * `specific_driver_class_spec_major_version`
-                * `specific_driver_class_spec_minor_version`
-                * `query_instrument_status`
-                * `cache`
-                * `specific_driver_prefix`
-            * Properties removed
-                * `stream_relative_to` [#825](https://github.com/ni/nimi-python/issues/825)
-                * `oscillator_phase_dac_value` [#825](https://github.com/ni/nimi-python/issues/825)
-                * `mux_mode_register` [#825](https://github.com/ni/nimi-python/issues/825)
-                * `ddc_center_frequency` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `ddc_data_processing_mode` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `ddc_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `ddc_frequency_translation_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `ddc_frequency_translation_phase_i` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `ddc_frequency_translation_phase_q` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `ddc_q_source` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `digital_gain` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `digital_offset` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `dither_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `fetch_interleaved_iq_data` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `fractional_resample_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `overflow_error_reporting` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `adjust_pretrigger_samples_5102` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `five_v_out_output_terminal` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `clock_sync_pulse_source` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `device_number` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `fetch_interleaved_data` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `trigger_from_pfi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `trigger_from_rtsi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `trigger_from_star_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `trigger_to_pfi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `trigger_to_rtsi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `trigger_to_star_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-                * `slave_trigger_delay` [#822](https://github.com/ni/nimi-python/issues/822)
-            * Methods removed
-                * `get_frequency_response()` [#823](https://github.com/ni/nimi-python/issues/823)
-                * `export_signal()` - [#828](https://github.com/ni/nimi-python/issues/828)
+        * IVI properties as applicable - some were already removed from some drivers [#824](https://github.com/ni/nimi-python/issues/824)
+            * `engine_major_version`
+            * `engine_minor_version`
+            * `engine_revision`
+            * `primary_error`
+            * `secondary_error`
+            * `error_elaboration`
+            * `io_session_type`
+            * `io_session` / `visa_rm_session`
+            * `group_capabilities`
+            * `interchange_check`
+            * `range_check`
+            * `record_coercions`
+            * `specific_driver_class_spec_major_version`
+            * `specific_driver_class_spec_minor_version`
+            * `query_instrument_status`
+            * `cache`
+            * `specific_driver_prefix`
+        * Properties removed
+            * `stream_relative_to` [#825](https://github.com/ni/nimi-python/issues/825)
+            * `oscillator_phase_dac_value` [#825](https://github.com/ni/nimi-python/issues/825)
+            * `mux_mode_register` [#825](https://github.com/ni/nimi-python/issues/825)
+            * `ddc_center_frequency` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `ddc_data_processing_mode` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `ddc_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `ddc_frequency_translation_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `ddc_frequency_translation_phase_i` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `ddc_frequency_translation_phase_q` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `ddc_q_source` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `digital_gain` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `digital_offset` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `dither_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `fetch_interleaved_iq_data` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `fractional_resample_enabled` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `overflow_error_reporting` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `adjust_pretrigger_samples_5102` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `five_v_out_output_terminal` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `clock_sync_pulse_source` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `device_number` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `fetch_interleaved_data` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `trigger_from_pfi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `trigger_from_rtsi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `trigger_from_star_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `trigger_to_pfi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `trigger_to_rtsi_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `trigger_to_star_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+            * `slave_trigger_delay` [#822](https://github.com/ni/nimi-python/issues/822)
+        * Methods removed
+            * `get_frequency_response()` [#823](https://github.com/ni/nimi-python/issues/823)
+            * `export_signal()` - [#828](https://github.com/ni/nimi-python/issues/828)
 
-* ### 0.8.0 - 2018-04-27
+* ### <a id="niscope-080---2018-04-27"></a>0.8.0 - 2018-04-27
     * #### Changed
-            * All exceptions raised by the Python bindings inherit from `<driver>.Error`
-            * Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
-                * This encapsulates any error that is returned by the underlying driver
-            * All timeout parameters can now also take a simple number in seconds. `timeout=datetime.timedelta(milliseconds=100)` and `timeout=0.1` are identical. [#796](https://github.com/ni/nimi-python/issues/796)
-            * `Session.fetch()`, `Session.read()` and `Session.fetch_into()` updated
-                * Takes additional parameters that modify fetch behavior
-                * Add resulting record as part of the waveform info
-                * Channel name and record number added to waveform info
-                * See documentation for [fetch](http://nimi-python.readthedocs.io/en/master/niscope/functions.html#niscope.Session.fetch),
+        * All exceptions raised by the Python bindings inherit from `<driver>.Error`
+        * Exception type formerly known as `<driver>.Error` is now known as `<driver>.DriverError`
+            * This encapsulates any error that is returned by the underlying driver
+        * All timeout parameters can now also take a simple number in seconds. `timeout=datetime.timedelta(milliseconds=100)` and `timeout=0.1` are identical. [#796](https://github.com/ni/nimi-python/issues/796)
+        * `Session.fetch()`, `Session.read()` and `Session.fetch_into()` updated
+            * Takes additional parameters that modify fetch behavior
+            * Add resulting record as part of the waveform info
+            * Channel name and record number added to waveform info
+            * See documentation for [fetch](http://nimi-python.readthedocs.io/en/master/niscope/functions.html#niscope.Session.fetch),
                     [read](http://nimi-python.readthedocs.io/en/master/niscope/functions.html#niscope.Session.read),
                     and [fetch_into](http://nimi-python.readthedocs.io/en/master/niscope/functions.html#niscope.Session.fetch_into) for more details.
-            * Rename `wfm` parameter to `waveform` in `fetch()` and `fetch_into()`
-            * Enum values and attribute names that start with an underscore + digit have been renamed
-                * `Session._5102_adjust_pretrigger_samples` --> `Session.adjust_pretrigger_samples_5102`
-                * `Session._5v_out_output_terminal` --> `Session.five_v_out_output_terminal`
-                * `ExportableSignals._5V_OUT` --> `ExportableSignals.FIVE_V_OUT`
-                * `FlexFIRAntialiasFilterType._48_TAP_STANDARD` --> `FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD`
-                * `FlexFIRAntialiasFilterType._48_TAP_HANNING` --> `FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING`
-                * `FlexFIRAntialiasFilterType._16_TAP_HANNING` --> `FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING`
-                * `FlexFIRAntialiasFilterType._8_TAP_HANNING` --> `FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING`
-                * `VideoSignalFormat._480I_59_94_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND`
-                * `VideoSignalFormat._480I_60_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND`
-                * `VideoSignalFormat._480P_59_94_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND`
-                * `VideoSignalFormat._480P_60_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND`
-                * `VideoSignalFormat._576I_50_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND`
-                * `VideoSignalFormat._576P_50_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND`
-                * `VideoSignalFormat._720P_50_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND`
-                * `VideoSignalFormat._720P_59_94_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND`
-                * `VideoSignalFormat._720P_60_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND`
-                * `VideoSignalFormat._1080I_50_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND`
-                * `VideoSignalFormat._1080I_59_94_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND`
-                * `VideoSignalFormat._1080I_60_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND`
-                * `VideoSignalFormat._1080P_24_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND`
-            * `Session.cal_self_calibration()` renamed to `Session.self_cal()` to match other drivers - issue [#615](https://github.com/ni/nimi-python/issues/615)
+        * Rename `wfm` parameter to `waveform` in `fetch()` and `fetch_into()`
+        * Enum values and attribute names that start with an underscore + digit have been renamed
+            * `Session._5102_adjust_pretrigger_samples` --> `Session.adjust_pretrigger_samples_5102`
+            * `Session._5v_out_output_terminal` --> `Session.five_v_out_output_terminal`
+            * `ExportableSignals._5V_OUT` --> `ExportableSignals.FIVE_V_OUT`
+            * `FlexFIRAntialiasFilterType._48_TAP_STANDARD` --> `FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_STANDARD`
+            * `FlexFIRAntialiasFilterType._48_TAP_HANNING` --> `FlexFIRAntialiasFilterType.FOURTYEIGHT_TAP_HANNING`
+            * `FlexFIRAntialiasFilterType._16_TAP_HANNING` --> `FlexFIRAntialiasFilterType.SIXTEEN_TAP_HANNING`
+            * `FlexFIRAntialiasFilterType._8_TAP_HANNING` --> `FlexFIRAntialiasFilterType.EIGHT_TAP_HANNING`
+            * `VideoSignalFormat._480I_59_94_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_480I_59_94_FIELDS_PER_SECOND`
+            * `VideoSignalFormat._480I_60_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_480I_60_FIELDS_PER_SECOND`
+            * `VideoSignalFormat._480P_59_94_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_480P_59_94_FRAMES_PER_SECOND`
+            * `VideoSignalFormat._480P_60_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_480P_60_FRAMES_PER_SECOND`
+            * `VideoSignalFormat._576I_50_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_576I_50_FIELDS_PER_SECOND`
+            * `VideoSignalFormat._576P_50_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_576P_50_FRAMES_PER_SECOND`
+            * `VideoSignalFormat._720P_50_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_720P_50_FRAMES_PER_SECOND`
+            * `VideoSignalFormat._720P_59_94_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_720P_59_94_FRAMES_PER_SECOND`
+            * `VideoSignalFormat._720P_60_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_720P_60_FRAMES_PER_SECOND`
+            * `VideoSignalFormat._1080I_50_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080I_50_FIELDS_PER_SECOND`
+            * `VideoSignalFormat._1080I_59_94_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080I_59_94_FIELDS_PER_SECOND`
+            * `VideoSignalFormat._1080I_60_FIELDS_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080I_60_FIELDS_PER_SECOND`
+            * `VideoSignalFormat._1080P_24_FRAMES_PER_SECOND` --> `VideoSignalFormat.VIDEO_1080P_24_FRAMES_PER_SECOND`
+        * `Session.cal_self_calibration()` renamed to `Session.self_cal()` to match other drivers - issue [#615](https://github.com/ni/nimi-python/issues/615)
     * #### Removed
-            * Following properties are now removed (use parameters to fetch calls):
-                * `fetch_relative_to`
-                * `fetch_offset`
-                * `fetch_record_number`
-                * `fetch_num_records`
-            * Removed `number_of_coefficients` parameter from `get_equalization_filter_coefficients()`
-            * Removed Measurement Library waveform methods and properties - issue [#809](https://github.com/ni/nimi-python/issues/809)
-                * `actual_meas_wfm_size()`
-                * `add_waveform_processing()`
-                * `clear_waveform_processing()`
-                * `fetch_array_measurement()`
-                * `clear_waveform_measurement_stats()`
-                * `fetch_measurement()`
-                * `fetch_measurement_stats()`
-                * `read_measurement()`
-                * `configure_ref_levels()`
-                * `meas_ref_level_units`
-                * `meas_other_channel`
-                * `meas_hysteresis_percent`
-                * `meas_last_acq_histogram_size`
-                * `meas_voltage_histogram_size`
-                * `meas_voltage_histogram_low_volts`
-                * `meas_voltage_histogram_high_volts`
-                * `meas_time_histogram_size`
-                * `meas_time_histogram_low_volts`
-                * `meas_time_histogram_high_volts`
-                * `meas_time_histogram_low_time`
-                * `meas_time_histogram_high_time`
-                * `meas_polynomial_interpolation_order`
-                * `meas_interpolation_sampling_factor`
-                * `meas_filter_cutoff_freq`
-                * `meas_filter_center_freq`
-                * `meas_filter_ripple`
-                * `meas_filter_transient_waveform_percent`
-                * `meas_filter_type`
-                * `meas_filter_order`
-                * `meas_filter_taps`
-                * `meas_chan_low_ref_level`
-                * `meas_chan_mid_ref_level`
-                * `meas_chan_high_ref_level`
-                * `meas_filter_width`
-                * `meas_fir_filter_window`
-                * `meas_array_gain`
-                * `meas_array_offset`
-                * `meas_percentage_method`
-                * `fetch_meas_num_samples`
+        * Following properties are now removed (use parameters to fetch calls):
+            * `fetch_relative_to`
+            * `fetch_offset`
+            * `fetch_record_number`
+            * `fetch_num_records`
+        * Removed `number_of_coefficients` parameter from `get_equalization_filter_coefficients()`
+        * Removed Measurement Library waveform methods and properties - issue [#809](https://github.com/ni/nimi-python/issues/809)
+            * `actual_meas_wfm_size()`
+            * `add_waveform_processing()`
+            * `clear_waveform_processing()`
+            * `fetch_array_measurement()`
+            * `clear_waveform_measurement_stats()`
+            * `fetch_measurement()`
+            * `fetch_measurement_stats()`
+            * `read_measurement()`
+            * `configure_ref_levels()`
+            * `meas_ref_level_units`
+            * `meas_other_channel`
+            * `meas_hysteresis_percent`
+            * `meas_last_acq_histogram_size`
+            * `meas_voltage_histogram_size`
+            * `meas_voltage_histogram_low_volts`
+            * `meas_voltage_histogram_high_volts`
+            * `meas_time_histogram_size`
+            * `meas_time_histogram_low_volts`
+            * `meas_time_histogram_high_volts`
+            * `meas_time_histogram_low_time`
+            * `meas_time_histogram_high_time`
+            * `meas_polynomial_interpolation_order`
+            * `meas_interpolation_sampling_factor`
+            * `meas_filter_cutoff_freq`
+            * `meas_filter_center_freq`
+            * `meas_filter_ripple`
+            * `meas_filter_transient_waveform_percent`
+            * `meas_filter_type`
+            * `meas_filter_order`
+            * `meas_filter_taps`
+            * `meas_chan_low_ref_level`
+            * `meas_chan_mid_ref_level`
+            * `meas_chan_high_ref_level`
+            * `meas_filter_width`
+            * `meas_fir_filter_window`
+            * `meas_array_gain`
+            * `meas_array_offset`
+            * `meas_percentage_method`
+            * `fetch_meas_num_samples`
 
-* ### 0.7.0 - 2018-02-20
+* ### <a id="niscope-070---2018-02-20"></a>0.7.0 - 2018-02-20
     * #### Added
-            * Repeated capablilites - See [#737](https://github.com/ni/nimi-python/issues/737) for discussion:
+        * Repeated capablilites - See [#737](https://github.com/ni/nimi-python/issues/737) for discussion:
                 * `channel` repeated capability
     * #### Changed
-            * Option string can now be a python dictionary instead of a string. (Fix [#661](https://github.com/ni/nimi-python/issues/661))
-                * Key/Value pairs approporiate for desired behavior
+        * Option string can now be a python dictionary instead of a string. (Fix [#661](https://github.com/ni/nimi-python/issues/661))
+            * Key/Value pairs approporiate for desired behavior
                     ``` python
                     session = nidmm.Session('Dev1', False, {'simulate': True, 'driver_setup': {'Model': '4071', 'BoardType': 'PXI'}})
                     ```
-            * Repeated capabilities are handled differently. See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
-            * All function parameters or attributes that represent time now use `datetime.timedelta()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
-            * All functions that return calibration dates now return `datetime.datetime()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
-            * `niscope.Session()` no longer takes id_query parameter (Fix [#670](https://github.com/ni/nimi-python/issues/670))
-            * The following functions timeout, delay or holdoff parameters now is required to be a `datetime.timedelta()` object:
-                * `configure_trigger_digital()`
-                * `configure_trigger_edge()`
-                * `configure_trigger_hysteresis()`
-                * `configure_trigger_software()`
-                * `configure_trigger_video()`
-                * `configure_trigger_window()`
-                * `fetch()`
-                * `fetch_measurement_stats()`
-                * `read()`
+        * Repeated capabilities are handled differently. See [#737](https://github.com/ni/nimi-python/issues/737) for discussion
+        * All function parameters or attributes that represent time now use `datetime.timedelta()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+        * All functions that return calibration dates now return `datetime.datetime()`. See [#659](https://github.com/ni/nimi-python/issues/659) for discussion
+        * `niscope.Session()` no longer takes id_query parameter (Fix [#670](https://github.com/ni/nimi-python/issues/670))
+        * The following functions timeout, delay or holdoff parameters now is required to be a `datetime.timedelta()` object:
+            * `configure_trigger_digital()`
+            * `configure_trigger_edge()`
+            * `configure_trigger_hysteresis()`
+            * `configure_trigger_software()`
+            * `configure_trigger_video()`
+            * `configure_trigger_window()`
+            * `fetch()`
+            * `fetch_measurement_stats()`
+            * `read()`
     * #### Removed
-            * Removed these enums and disconnected them from the associated attribute (Fix [#666](https://github.com/ni/nimi-python/issues/666))
-                * `BoolEnableDisable` - `P2P_ENABLED`, `P2P_ADVANCED_ATTRIBUTES_ENABLED`, `P2P_ONBOARD_MEMORY_ENABLED`
-                * `BoolEnableDisableChan` - `CHANNEL_ENABLED`
-                * `BoolEnableDisableIQ` - `FETCH_INTERLEAVED_IQ_DATA`
-                * `BoolEnableDisableRealtime` - `HORZ_ENFORCE_REALTIME`
-                * `BoolEnableDisableTIS` - `ENABLE_TIME_INTERLEAVED_SAMPLING`
+        * Removed these enums and disconnected them from the associated attribute (Fix [#666](https://github.com/ni/nimi-python/issues/666))
+            * `BoolEnableDisable` - `P2P_ENABLED`, `P2P_ADVANCED_ATTRIBUTES_ENABLED`, `P2P_ONBOARD_MEMORY_ENABLED`
+            * `BoolEnableDisableChan` - `CHANNEL_ENABLED`
+            * `BoolEnableDisableIQ` - `FETCH_INTERLEAVED_IQ_DATA`
+            * `BoolEnableDisableRealtime` - `HORZ_ENFORCE_REALTIME`
+            * `BoolEnableDisableTIS` - `ENABLE_TIME_INTERLEAVED_SAMPLING`
 
-* ### 0.6.0 - 2017-12-20
+* ### <a id="niscope-060---2017-12-20"></a>0.6.0 - 2017-12-20
     * #### Added
         * `abort`. See [#660](https://github.com/ni/nimi-python/issues/655).
         * `fetch_into` for high-performance fetch using numpy.array. Supported element types:
@@ -2180,28 +2176,7 @@
         * enum definitions that are not referenced by a function and/or an attributes
         * Removed Peer to Peer attributes
 
-* ### 0.4.0 - 2017-11-07
-    * #### Changed
-        * Simplified examples by removing try/except
-        * **SOURCE BREAKER:** Changed names of enum value names to correspond to C #defines
-
-* ### 0.3.0 - 2017-10-13
-    * #### Added
-        * Support for ViInt64 (64-bit integers)
-    * #### Changed
-        * Modified how methods with repeated capabilities are invoked. There's no longer (for example) a `channel_name` input. Instead:
-          ```python
-          # Sets sequence on channels 0 through 3
-          session['0-3'].set_sequence(values, source_delays)
-          ```
-        * Enum value documentation lists the fully qualified name - this is to allow easy copy/paste
-
-* ### 0.2.0 - 2017-09-20
-    * #### Added
-        * Suport for channel-based properties
-    * #### Changed
-        * Warnings no longer raise an exception
-          * Warnings are now added to warnings.warn()
+---
 
 ## `niswitch` (NI-SWITCH)
 
