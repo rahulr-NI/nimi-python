@@ -1297,8 +1297,8 @@
 
 * ### 1.1.2 - 2019-06-06
     * #### Changed
-            * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
-            * New internal process for generating metadata
+        * Switched to slightly different metadata format - Actual `True`/`False` instead of strings
+        * New internal process for generating metadata
             * Enum values for `HardwareState` were incorrect - fix to match niFgen.h
 
 * ### 1.1.0 - 2018-10-25
