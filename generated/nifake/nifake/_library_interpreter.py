@@ -157,12 +157,10 @@ class LibraryInterpreter(object):
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 
-    def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency):  # noqa: N802
+    def create3d_deembedding_sparameter_table_array(self, frequency):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
-        port_ctype = ctypes.create_string_buffer(port.encode(self._encoding))  # case C020
-        table_name_ctype = ctypes.create_string_buffer(table_name.encode(self._encoding))  # case C020
-        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_visatype.ComplexViReal64)  # case B550
-        error_code = self._library.niFake_Create3dDeembeddingSparameterTableArray(vi_ctype, port_ctype, table_name_ctype, frequency_ctype)
+        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64)  # case B550
+        error_code = self._library.niFake_Create3dDeembeddingSparameterTableArray(vi_ctype, frequency_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 

@@ -866,7 +866,7 @@ class TestLibraryInterpreter:
         self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
             _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST),
             _matchers.ViInt32Matcher(len(flattened_array)),
-            _matchers.ComplexViReal64PointerMatcher(ctypes_pointer, len(flattened_array))
+           ctypes_pointer
         )
 
 

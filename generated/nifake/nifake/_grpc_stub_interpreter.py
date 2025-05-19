@@ -101,7 +101,7 @@ class GrpcStubInterpreter(object):
             grpc_types.ConfigureAbcRequest(vi=self._vi),
         )
 
-    def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency):  # noqa: N802
+    def create3d_deembedding_sparameter_table_array(self, frequency):  # noqa: N802
         raise NotImplementedError('create3d_deembedding_sparameter_table_array is not supported over gRPC')
 
     def custom_nested_struct_roundtrip(self, nested_custom_type_in):  # noqa: N802

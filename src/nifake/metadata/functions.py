@@ -2819,13 +2819,6 @@ functions = {
             },
             {
                 'direction': 'in',
-                'name': 'port',
-                'type': 'ViConstString',
-                'use_array': False,
-                'use_in_python_api': True
-            },
-            {
-                'direction': 'in',
                 'name': 'frequency',
                 'type': 'ComplexViReal64[][][]',
                 'use_numpy_array': True,

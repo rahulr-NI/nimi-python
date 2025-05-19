@@ -265,7 +265,7 @@ class SideEffectsHelper(object):
             return self._defaults['ConfigureABC']['return']
         return self._defaults['ConfigureABC']['return']
 
-    def niFake_Create3dDeembeddingSparameterTableArray(self, vi, port, table_name, frequency):  # noqa: N802
+    def niFake_Create3dDeembeddingSparameterTableArray(self, vi, frequency):  # noqa: N802
         if self._defaults['Create3dDeembeddingSparameterTableArray']['return'] != 0:
             return self._defaults['Create3dDeembeddingSparameterTableArray']['return']
         return self._defaults['Create3dDeembeddingSparameterTableArray']['return']

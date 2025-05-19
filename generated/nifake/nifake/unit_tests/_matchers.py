@@ -331,6 +331,31 @@ class ComplexViInt16PointerMatcher(_PointerMatcher):
     def __repr__(self):
         return f"ComplexViInt16PointerMatcher({self.expected_data})"
 
+
+class ComplexViReal64Pointer3DMatcher(_PointerMatcher):
+    def __init__(self, expected_data, expected_shape):
+
+        _PointerMatcher.__init__(self, _complextype.ComplexViReal64)
+        self.expected_data = expected_data
+        self.expected_shape = expected_shape
+        self.expected_size = len(expected_data)
+
+    def __eq__(self, other):
+
+        _PointerMatcher.__eq__(self, other)
+
+        for i in range(self.expected_size):
+            expected_value = self.expected_data[i]
+            actual_value = other[i]
+            if expected_value.real != actual_value.real or expected_value.imag != actual_value.imag:
+                print(f"Mismatch at index {i}: Expected ({expected_value.real}, {expected_value.imag}), "
+                      f"Received ({actual_value.real}, {actual_value.imag})")
+                return False
+        return True
+
+    def __repr__(self):
+        return f"ComplexViReal64Pointer3DMatcher(shape={self.expected_shape}, data={self.expected_data})"
+
 # Buffers
 
 
