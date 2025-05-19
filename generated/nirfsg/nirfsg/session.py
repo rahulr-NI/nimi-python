@@ -7195,6 +7195,23 @@ class Session(_SessionBase):
         '''
         self._interpreter.configure_software_start_trigger()
 
+    def _create3d_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):
+        r'''_create3d_deembedding_sparameter_table_array
+
+        
+
+        Args:
+            port (str):
+
+            table_name (str):
+
+            frequency (list of ComplexViReal64):
+
+            frequencies_size (int):
+
+        '''
+        self._interpreter.create3d_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
+
     def create_deembedding_sparameter_table_s2_p_file(self, port, table_name, s2p_file_path, sparameter_orientation):
         r'''create_deembedding_sparameter_table_s2_p_file
 
