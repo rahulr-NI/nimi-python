@@ -25,6 +25,8 @@ class SideEffectsHelper(object):
         self._defaults['BoolArrayOutputFunction']['anArray'] = None
         self._defaults['ConfigureABC'] = {}
         self._defaults['ConfigureABC']['return'] = 0
+        self._defaults['Create3dDeembeddingSparameterTableArray'] = {}
+        self._defaults['Create3dDeembeddingSparameterTableArray']['return'] = 0
         self._defaults['CustomNestedStructRoundtrip'] = {}
         self._defaults['CustomNestedStructRoundtrip']['return'] = 0
         self._defaults['CustomNestedStructRoundtrip']['nestedCustomTypeOut'] = None
@@ -262,6 +264,11 @@ class SideEffectsHelper(object):
         if self._defaults['ConfigureABC']['return'] != 0:
             return self._defaults['ConfigureABC']['return']
         return self._defaults['ConfigureABC']['return']
+
+    def niFake_Create3dDeembeddingSparameterTableArray(self, vi, port, table_name, frequency):  # noqa: N802
+        if self._defaults['Create3dDeembeddingSparameterTableArray']['return'] != 0:
+            return self._defaults['Create3dDeembeddingSparameterTableArray']['return']
+        return self._defaults['Create3dDeembeddingSparameterTableArray']['return']
 
     def niFake_CustomNestedStructRoundtrip(self, nested_custom_type_in, nested_custom_type_out):  # noqa: N802
         if self._defaults['CustomNestedStructRoundtrip']['return'] != 0:
@@ -1024,6 +1031,8 @@ class SideEffectsHelper(object):
         mock_library.niFake_BoolArrayOutputFunction.return_value = 0
         mock_library.niFake_ConfigureABC.side_effect = MockFunctionCallError("niFake_ConfigureABC")
         mock_library.niFake_ConfigureABC.return_value = 0
+        mock_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = MockFunctionCallError("niFake_Create3dDeembeddingSparameterTableArray")
+        mock_library.niFake_Create3dDeembeddingSparameterTableArray.return_value = 0
         mock_library.niFake_CustomNestedStructRoundtrip.side_effect = MockFunctionCallError("niFake_CustomNestedStructRoundtrip")
         mock_library.niFake_CustomNestedStructRoundtrip.return_value = 0
         mock_library.niFake_DoubleAllTheNums.side_effect = MockFunctionCallError("niFake_DoubleAllTheNums")

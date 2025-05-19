@@ -2797,6 +2797,44 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
+        'Create3dDeembeddingSparameterTableArray': {
+        'codegen_method': 'private',
+        'included_in_proto': False,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'default_method'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'name': 'port',
+                'type': 'ViConstString',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'name': 'frequency',
+                'type': 'ComplexViReal64[][][]',
+                'use_numpy_array': True,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus',
+        'use_session_lock': False
+    },
     'WriteWaveformComplexF32': {
         'codegen_method': 'public',
         'documentation': {

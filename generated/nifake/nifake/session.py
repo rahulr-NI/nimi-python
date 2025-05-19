@@ -824,6 +824,21 @@ class Session(_SessionBase):
         '''
         self._interpreter.configure_abc()
 
+    def _create3d_deembedding_sparameter_table_array(self, port, table_name, frequency):
+        r'''_create3d_deembedding_sparameter_table_array
+
+        
+
+        Args:
+            port (str):
+
+            table_name (str):
+
+            frequency (list of ComplexViReal64):
+
+        '''
+        self._interpreter.create3d_deembedding_sparameter_table_array(port, table_name, frequency)
+
     @ivi_synchronized
     def custom_nested_struct_roundtrip(self, nested_custom_type_in):
         r'''custom_nested_struct_roundtrip

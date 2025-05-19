@@ -24,16 +24,21 @@ _was_runtime_environment_set = None
 
 # Helper functions for creating ctypes needed for calling into the driver DLL
 def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, complex_type='none'):
+    import numpy as np
+
     if isinstance(value, array.array):
         assert library_type is not None, 'library_type is required for array.array'
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
-    elif str(type(value)).find("'numpy.ndarray'") != -1:
-        import numpy
+    elif isinstance(value, np.ndarray):
+        complex_dtype = np.dtype(library_type)
         if complex_type == 'none':
-            return numpy.ctypeslib.as_ctypes(value)
+            if value.ndim == 3:
+                flattened_array = value.reshape(-1).view(complex_dtype)
+                return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
+            else:
+                return np.ctypeslib.as_ctypes(value)
         else:
-            complex_dtype = numpy.dtype(library_type)
             structured_array = value.view(complex_dtype)
             return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
     elif isinstance(value, bytes):
@@ -149,6 +154,15 @@ class LibraryInterpreter(object):
     def configure_abc(self):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
         error_code = self._library.niFake_ConfigureABC(vi_ctype)
+        errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
+        return
+
+    def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency):  # noqa: N802
+        vi_ctype = _visatype.ViSession(self._vi)  # case S110
+        port_ctype = ctypes.create_string_buffer(port.encode(self._encoding))  # case C020
+        table_name_ctype = ctypes.create_string_buffer(table_name.encode(self._encoding))  # case C020
+        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_visatype.ComplexViReal64)  # case B550
+        error_code = self._library.niFake_Create3dDeembeddingSparameterTableArray(vi_ctype, port_ctype, table_name_ctype, frequency_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 

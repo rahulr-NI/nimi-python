@@ -30,6 +30,7 @@ class Library(object):
         self.niFake_AcceptListOfDurationsInSeconds_cfunc = None
         self.niFake_BoolArrayOutputFunction_cfunc = None
         self.niFake_ConfigureABC_cfunc = None
+        self.niFake_Create3dDeembeddingSparameterTableArray_cfunc = None
         self.niFake_CustomNestedStructRoundtrip_cfunc = None
         self.niFake_DoubleAllTheNums_cfunc = None
         self.niFake_EnumArrayOutputFunction_cfunc = None
@@ -138,6 +139,14 @@ class Library(object):
                 self.niFake_ConfigureABC_cfunc.argtypes = [ViSession]  # noqa: F405
                 self.niFake_ConfigureABC_cfunc.restype = ViStatus  # noqa: F405
         return self.niFake_ConfigureABC_cfunc(vi)
+
+    def niFake_Create3dDeembeddingSparameterTableArray(self, vi, port, table_name, frequency):  # noqa: N802
+        with self._func_lock:
+            if self.niFake_Create3dDeembeddingSparameterTableArray_cfunc is None:
+                self.niFake_Create3dDeembeddingSparameterTableArray_cfunc = self._get_library_function('niFake_Create3dDeembeddingSparameterTableArray')
+                self.niFake_Create3dDeembeddingSparameterTableArray_cfunc.argtypes = [ViSession, ctypes.POINTER(ViChar), ctypes.POINTER(ViChar), ctypes.POINTER(ComplexViReal64)]  # noqa: F405
+                self.niFake_Create3dDeembeddingSparameterTableArray_cfunc.restype = ViStatus  # noqa: F405
+        return self.niFake_Create3dDeembeddingSparameterTableArray_cfunc(vi, port, table_name, frequency)
 
     def niFake_CustomNestedStructRoundtrip(self, nested_custom_type_in, nested_custom_type_out):  # noqa: N802
         with self._func_lock:
