@@ -888,6 +888,7 @@ class TestLibraryInterpreter:
         interpreter = self.get_initialized_library_interpreter()
         interpreter.create3d_deembedding_sparameter_table_array(array_3d)
         self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
+            _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST),
             _matchers.ComplexViReal64PointerMatcher(array_3d_ptr, number_of_samples)
         )
 

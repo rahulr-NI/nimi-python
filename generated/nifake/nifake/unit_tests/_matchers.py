@@ -292,20 +292,6 @@ class ComplexViReal64PointerMatcher(_PointerMatcher):
         return f"ComplexViReal64PointerMatcher({self.expected_data})"
 
 
-class ComplexViReal64PointerMatcher:
-    def __init__(self, expected_ptr, count):
-        self.expected_ptr = expected_ptr
-        self.count = count
-
-    def __eq__(self, other):
-        if not isinstance(other, ctypes.POINTER(type(self.expected_ptr.contents))):
-            return False
-
-        expected_addr = ctypes.addressof(self.expected_ptr.contents)
-        actual_addr = ctypes.addressof(other.contents)
-        return expected_addr == actual_addr
-
-
 class ComplexViReal32PointerMatcher(_PointerMatcher):
     def __init__(self, expected_data, expected_size):
         _PointerMatcher.__init__(self, _complextype.ComplexViReal32)
