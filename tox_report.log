@@ -1,0 +1,442 @@
+test: commands[0]> python --version
+Python 3.10.12
+test: commands[1]> python -c 'import platform; print(platform.architecture())'
+('64bit', 'ELF')
+test: commands[2]> python -m pip install --disable-pip-version-check --upgrade pip
+Requirement already satisfied: pip in ./.tox/64/test/lib/python3.10/site-packages (25.1.1)
+test: commands[3]> python tools/install_local_wheel.py --driver nitclk
+Processing ./generated/nitclk/dist/nitclk-1.4.10.dev0-py3-none-any.whl
+Requirement already satisfied: hightime>=0.2.0 in ./.tox/64/test/lib/python3.10/site-packages (from nitclk==1.4.10.dev0) (0.2.2)
+nitclk is already installed with the same version as the provided wheel. Use --force-reinstall to force an installation of the wheel.
+test: commands[4]> coverage run --rcfile=tools/coverage_unit_tests.rc --source nifake -m pytest generated/nifake/nifake -s
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.3.5, pluggy-1.5.0 -- /home/rahur/nimipythonmyfork/nimi-python/.tox/64/test/bin/python
+cachedir: .tox/64/test/.pytest_cache
+rootdir: /home/rahur/nimipythonmyfork/nimi-python
+configfile: tox.ini
+plugins: timeout-2.4.0
+collecting ... collected 252 items
+
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_init_with_options_dictionary PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_timedelta_to_seconds_double PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_timedelta_to_milliseconds_int32 PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_timedeltas_to_seconds_real64 PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_seconds_real64_to_timedelta PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_seconds_real64_to_timedeltas PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_string_channel PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_string_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_list_channel PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_list_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_tuple_channel PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_tuple_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_unicode PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_raw PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_slice_channel PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_mixed_channel PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_mixed_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_invalid_repeated_capabilities PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_slice_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_without_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_string_resource_name PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_list_resource_name PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_tuple_resource_name PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_mixed_resource_name PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_repeated_capabilities_invalid_resource_names PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_expand_channel_string_non_fully_qualified_channel_names PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_expand_channel_string_fully_qualified_channel_names PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_chained_repeated_capability_to_parts_three_parts PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_chained_repeated_capability_to_parts_single_part PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_chained_repeated_capability_to_parts_empty_string PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_string_to_list_channel PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_string_to_list_prefix PASSED
+generated/nifake/nifake/unit_tests/test_converters.py::test_convert_comma_separated_string_to_list PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_server_unavailable PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_function_not_implemented PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_api_key_sent_to_init PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_new_session_already_exists PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_attach_to_non_existent_session PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_lock_unlock PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_simple_function PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_a_number PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_one_input_function PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_vi_int_64_function PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_two_input_function PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_enum_value PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_a_list_enums PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_a_boolean PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_a_list_booleans PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_single_point_read_nan PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_fetch_waveform PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_fetch_waveform_into PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_write_waveform PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_write_waveform_numpy PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_return_multiple_types PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_multiple_array_types PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_multiple_array_types_none_input PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_multiple_arrays_same_size PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_multiple_arrays_same_size_none_input PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_multiple_arrays_same_size_wrong_size PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_parameters_are_multiple_types PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_method_with_error PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_call_not_enough_parameters_error PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_invalid_method_call_wrong_type_error PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_method_with_warning PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_read_with_warning PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_a_string_of_fixed_maximum_size PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_return_a_number_and_a_string PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_an_ivi_dance_char_array PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_string_ivi_dance_error PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_an_ivi_dance_with_a_twist_string PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_array_using_ivi_dance PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_attribute_real64 PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_attribute_real64 PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_attribute_string PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_attribute_string PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_attribute_boolean PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_attribute_boolean PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_attribute_int64 PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_attribute_int64 PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_error_message_returns_error PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_custom_type PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_custom_type PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_set_custom_type_array PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_custom_type_array PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_custom_type_typedef PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_get_cal_date_time PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_import_attribute_configuration_buffer PASSED
+generated/nifake/nifake/unit_tests/test_grpc.py::TestGrpcStubInterpreter::test_missing_function PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_simple_function PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_a_number PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_one_input_function PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_vi_int_64_function PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_two_input_function PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_enum_value PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_a_list_enums PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_a_boolean PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_a_list_booleans PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_single_point_read_nan PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_fetch_waveform PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_fetch_waveform_into PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_waveform PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_waveform_numpy PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_return_multiple_types PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_multiple_array_types PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_multiple_array_types_none_input PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_multiple_arrays_same_size PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_multiple_arrays_same_size_none_input PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_parameters_are_multiple_types PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_method_with_error PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_call_not_enough_parameters_error PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_invalid_method_call_wrong_type_error PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_method_with_warning PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_read_with_warning PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_library_interpreter_always_uses_same_library_instance PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_runtime_environment_is_called_once_if_present PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_runtime_environment_not_present_in_driver_runtime PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_a_string_of_fixed_maximum_size PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_a_string_of_size_python_code PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_return_a_number_and_a_string PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_an_ivi_dance_char_array PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_string_ivi_dance_error PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_an_ivi_dance_with_a_twist_string PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_array_using_ivi_dance PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_attribute_real64 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_attribute_real64 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_attribute_string PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_attribute_string PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_attribute_boolean PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_attribute_boolean PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_attribute_int64 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_attribute_int64 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_error_returns_mismatched_error_code PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_error_and_error_message_returns_error PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_error_description_error_message_error PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_custom_type PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_custom_type PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_set_custom_type_array PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_custom_type_array PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_custom_type_typedef PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_array_using_python_code_double PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_array_using_python_code_custom_type PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_get_cal_date_time PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_import_attribute_configuration_buffer_list_i8 PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_import_attribute_configuration_buffer_bytes PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_import_attribute_configuration_buffer_bytearray PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_import_attribute_configuration_buffer_array_bytes PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_import_attribute_configuration_buffer_str PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_3d FAILED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_numpy_complex128_valid_input FAILED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_waveform_complex_f64_invalid_input PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_interleaved_complexi16_invalid_input PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_interleaved_complexi16_valid_input PASSED
+generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_matcher_prints PASSED
+generated/nifake/nifake/unit_tests/test_library_singleton.py::test_driver_runtime_not_installed_raises_driver_not_installed_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_init_with_options_and_close PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_init_with_options_nondefault_and_close PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_close PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_session_context_manager PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_init_with_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_close_with_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_session_context_manager_init_with_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_session_context_manager_close_with_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_lock_session_none PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_unlock_session_none PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_lock_context_manager PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_lock_context_manager_abnormal_exit PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_self_test PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_self_test_fail PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_acquisition_context_manager PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_acquisition_no_context_manager PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_single_point_read_timedelta PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_enum_input_function_with_defaults PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_string_valued_enum_input_function_with_defaults PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_fetch_waveform_into_wrong_type PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_parameters_are_multiple_types_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_error_with_rep_cap PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_call_not_enough_parameters_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_enum_input_function_with_defaults_bad_type_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_channel_names PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_repeated_capability_method_on_session_timedelta PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_repeated_capability_method_on_specific_channel PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_device_method_not_exist_on_repeated_capability_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_repeated_capabilities_list PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_chained_repeated_capabilities_list PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_chained_repeated_capability_method_on_specific_channel PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_function_with_repeated_capability_type PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_int32_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_int32_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_real64 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_real64 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_real64_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_real64_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_string PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_string PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_string_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_string_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_boolean PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_boolean PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_enum_int32 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_enum_int32 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_enum_real64 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_enum_real64 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_enum_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_enum_with_converter_invalid_value_from_driver PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_enum_with_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_enum_with_converter_invalid_input PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_channel PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_channel PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_int64 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_int64 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_attribute_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_attribute_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_add_properties_to_session_error_set PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_add_properties_to_session_error_get PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_add_properties_to_repeated_capability_error_set PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_add_properties_to_repeated_capability_error_get PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_enum_attribute_int32_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_set_wrong_enum_attribute_int32_error PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_multiple_arrays_same_size_wrong_size_2 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_multiple_arrays_same_size_wrong_size_3 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_multiple_arrays_same_size_wrong_size_4 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_cal_date_time PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_get_cal_interval PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_import_attribute_configuration_buffer_list_i8_big PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_import_attribute_configuration_buffer_list_i8_float PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_import_attribute_configuration_buffer_list_i8_big_float PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_export_attribute_configuration_buffer PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_channel_on_session PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_function_name PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_buffer_converter PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_nitclk_integration PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_accept_list_of_time_values_as_floats PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_accept_array_of_time_values_as_floats PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_accept_list_of_time_values_as_timedelta_instances PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_return_timedelta PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestSession::test_return_timedeltas PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_init_with_options_and_close PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_lock_session_none PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_unlock_session_none PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_lock_context_manager PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_lock_context_manager_abnormal_exit PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_self_test PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_export_attribute_configuration_buffer PASSED
+generated/nifake/nifake/unit_tests/test_session.py::TestGrpcSession::test_get_attribute_int32 PASSED
+generated/nifake/nifake/unit_tests/test_session.py::test_diagnostic_information OS:
+    Name:      Linux
+    Version:   #1 SMP Tue Nov 5 00:21:55 UTC 2024
+    Bits:      64
+Driver:
+    Name:      NI-FAKE
+    Version:   Unknown
+Module:
+    Name:      nifake
+    Version:   1.4.10.dev0
+Python:
+    Version:   3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+    Bits:      64
+    Is_Venv:   True
+    Installed Packages:
+        Mako==1.3.10
+        MarkupSafe==3.0.2
+        coverage==7.8.0
+        grpcio==1.67.0
+        hightime==0.2.2
+        nifake==1.4.10.dev0
+        nitclk==1.4.10.dev0
+        pip==25.1.1
+        pluggy==1.5.0
+        pytest==8.3.5
+        pytest-timeout==2.4.0
+        setuptools==80.3.1
+PASSED
+generated/nifake/nifake/unit_tests/test_session.py::test_dunder_version Version = 1.4.10.dev0
+PASSED
+
+=================================== FAILURES ===================================
+________________________ TestLibraryInterpreter.test_3d ________________________
+
+self = <test_library_interpreter.TestLibraryInterpreter object at 0x7f0540bdd4b0>
+
+    def test_3d(self):
+        import ctypes
+        import numpy as np
+    
+        from nifake._complextype import ComplexViReal64
+    
+    
+        array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
+    
+        flattened_array = array_3d.flatten()
+    
+        complex_array = (ComplexViReal64 * len(flattened_array))()
+        for i, value in enumerate(flattened_array):
+            complex_array[i] = ComplexViReal64(value.real, value.imag)
+        array_3d_ptr = ctypes.cast(complex_array, ctypes.POINTER(ComplexViReal64))
+    
+    
+        number_of_samples = array_3d.size
+    
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
+        interpreter = self.get_initialized_library_interpreter()
+        interpreter.create3d_deembedding_sparameter_table_array(array_3d)
+>       self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
+            _matchers.ComplexViReal64PointerMatcher(array_3d_ptr, number_of_samples)
+        )
+
+generated/nifake/nifake/unit_tests/test_library_interpreter.py:890: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/unittest/mock.py:941: in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <MagicMock id='139660423630512'>
+args = (<_matchers.ComplexViReal64PointerMatcher object at 0x7f0539e022c0>,)
+kwargs = {}
+expected = call(<_matchers.ComplexViReal64PointerMatcher object at 0x7f0539e022c0>)
+actual = call(c_uint(42), <test_library_interpreter.LP_ComplexViReal64 object at 0x7f053a1daac0>)
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0x7f053a94d120>
+cause = None
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\nActual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: mock(<_matchers.ComplexViReal64PointerMatcher object at 0x7f0539e022c0>)
+E           Actual: mock(c_uint(42), <test_library_interpreter.LP_ComplexViReal64 object at 0x7f053a1daac0>)
+
+/usr/lib/python3.10/unittest/mock.py:929: AssertionError
+________ TestLibraryInterpreter.test_write_numpy_complex128_valid_input ________
+
+self = <test_library_interpreter.TestLibraryInterpreter object at 0x7f0540e843a0>
+
+    def test_write_numpy_complex128_valid_input(self):
+        import ctypes
+        import numpy as np
+    
+        from nifake._complextype import ComplexViReal64
+    
+        waveform_data = np.full(1000, 0.707 + 0.707j, dtype=np.complex128)
+        number_of_samples = len(waveform_data)
+    
+        waveform_data_ctypes = (ComplexViReal64 * number_of_samples)(
+            *[ComplexViReal64(real=0.707, imag=0.707) for _ in range(number_of_samples)]
+        )
+        waveform_data_pointer = ctypes.cast(waveform_data_ctypes, ctypes.POINTER(ComplexViReal64))
+        self.patched_library.niFake_WriteWaveformComplexF64.side_effect = self.side_effects_helper.niFake_WriteWaveformComplexF64
+        interpreter = self.get_initialized_library_interpreter()
+        interpreter.write_waveform_complex_f64(waveform_data)
+>       self.patched_library.niFake_WriteWaveformComplexF64.assert_called_once_with(
+            _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST),
+            _matchers.ViInt32Matcher(number_of_samples),
+            _matchers.ComplexViReal64PointerMatcher(waveform_data_pointer, number_of_samples)
+        )
+
+generated/nifake/nifake/unit_tests/test_library_interpreter.py:911: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.10/unittest/mock.py:941: in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <MagicMock id='139660420491984'>
+args = (ViSessionMatcher(<class 'ctypes.c_uint'>, 42), ViInt32Matcher(<class 'ctypes.c_int'>, 1000), <_matchers.ComplexViReal64PointerMatcher object at 0x7f0539c23fd0>)
+kwargs = {}
+expected = call(ViSessionMatcher(<class 'ctypes.c_uint'>, 42), ViInt32Matcher(<class 'ctypes.c_int'>, 1000), <_matchers.ComplexViReal64PointerMatcher object at 0x7f0539c23fd0>)
+actual = call(c_uint(42), c_int(1000), <test_library_interpreter.LP_ComplexViReal64 object at 0x7f0539c9e140>)
+_error_message = <function NonCallableMock.assert_called_with.<locals>._error_message at 0x7f053a94d000>
+cause = None
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\nActual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: mock(ViSessionMatcher(<class 'ctypes.c_uint'>, 42), ViInt32Matcher(<class 'ctypes.c_int'>, 1000), <_matchers.ComplexViReal64PointerMatcher object at 0x7f0539c23fd0>)
+E           Actual: mock(c_uint(42), c_int(1000), <test_library_interpreter.LP_ComplexViReal64 object at 0x7f0539c9e140>)
+
+/usr/lib/python3.10/unittest/mock.py:929: AssertionError
+=========================== short test summary info ============================
+FAILED generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_3d
+FAILED generated/nifake/nifake/unit_tests/test_library_interpreter.py::TestLibraryInterpreter::test_write_numpy_complex128_valid_input
+======================== 2 failed, 250 passed in 8.60s =========================
+test: exit 1 (9.77 seconds) /home/rahur/nimipythonmyfork/nimi-python> coverage run --rcfile=tools/coverage_unit_tests.rc --source nifake -m pytest generated/nifake/nifake -s pid=41379
+  test: FAIL code 1 (13.31=setup[0.07]+cmd[0.01,0.03,1.76,1.69,9.77] seconds)
+  evaluation failed :( (13.37 seconds)

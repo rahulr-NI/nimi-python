@@ -2818,12 +2818,15 @@ functions = {
                 'use_in_python_api': True
             },
             {
+                'complex_type': 'numpy',
                 'direction': 'in',
                 'name': 'frequency',
-                'type': 'ComplexViReal64[][][]',
+                'type': 'ComplexViReal64[]',
+                'numpy': True,
                 'use_numpy_array': True,
-                'use_in_python_api': True
-            }
+                'use_in_python_api': True,
+                'arrayDimension': 3
+            },
         ],
         'returns': 'ViStatus',
         'use_session_lock': False

@@ -4979,11 +4979,13 @@ functions = {
                 'use_in_python_api': True
             },
             {
+                'complex_type': 'numpy',
                 'direction': 'in',
                 'name': 'frequency',
                 'type': 'ComplexViReal64[][][]',
                 'use_numpy_array': True,
-                'use_in_python_api': True
+                'use_in_python_api': True,
+                'arrayDimension': 3
             },
             {
                 'direction': 'in',

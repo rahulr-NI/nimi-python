@@ -31,16 +31,17 @@ def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, com
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
     elif isinstance(value, np.ndarray):
-        complex_dtype = np.dtype(library_type)
+        
         if complex_type == 'none':
-            if value.ndim == 3:
-                flattened_array = value.reshape(-1).view(complex_dtype)
+            return np.ctypeslib.as_ctypes(value)
+        else:
+            complex_dtype = np.dtype(library_type)
+            if value.ndim > 1:
+                flattened_array = value.ravel().view(complex_dtype)
                 return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
             else:
-                return np.ctypeslib.as_ctypes(value)
-        else:
-            structured_array = value.view(complex_dtype)
-            return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
+                structured_array = value.view(complex_dtype)
+                return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
     elif isinstance(value, bytes):
         return ctypes.cast(value, ctypes.POINTER(library_type))
     elif isinstance(value, list):
@@ -159,7 +160,7 @@ class LibraryInterpreter(object):
 
     def create3d_deembedding_sparameter_table_array(self, frequency):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
-        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64)  # case B550
+        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64, complex_type='numpy')  # case B550
         error_code = self._library.niFake_Create3dDeembeddingSparameterTableArray(vi_ctype, frequency_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
