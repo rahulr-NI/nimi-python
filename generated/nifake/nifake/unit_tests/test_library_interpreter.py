@@ -862,7 +862,7 @@ class TestLibraryInterpreter:
             _matchers.ComplexViReal64PointerMatcher(array_3d_ptr, number_of_samples)
         )
 
-    def test_create_3d_memory_compare(self):
+    def test_create_3d_memory_address_compare(self):
         import ctypes
         import numpy as np
         from nifake._complextype import ComplexViReal64
@@ -876,7 +876,7 @@ class TestLibraryInterpreter:
         ctypes_addr = ctypes.addressof(actual_pointer.contents)
         assert numpy_addr == ctypes_addr, f"Addresses do NOT match: numpy={numpy_addr}, ctypes={ctypes_addr}"
 
-    def test_create_1d_memory_compare(self):
+    def test_create_1d_memory_address_compare(self):
         import ctypes
         import numpy as np
         from nifake._complextype import ComplexViReal64
