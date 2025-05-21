@@ -332,21 +332,6 @@ class ComplexViInt16PointerMatcher(_PointerMatcher):
         return f"ComplexViInt16PointerMatcher({self.expected_data})"
 
 
-class MemoryAddressMatcher:
-    def __init__(self, expected_np_array):
-        self.expected_address = expected_np_array.ctypes.data
-
-    def __eq__(self, other):
-        if hasattr(other, "contents"):
-            actual_address = ctypes.addressof(other.contents)
-        else:
-            actual_address = ctypes.cast(other, ctypes.c_void_p).value
-
-        return self.expected_address == actual_address
-
-    def __repr__(self):
-        return f"MemoryAddressMatcher(address={self.expected_address})"
-
 # Buffers
 
 
