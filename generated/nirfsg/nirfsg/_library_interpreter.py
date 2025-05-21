@@ -12,7 +12,7 @@ import nirfsg.errors as errors
 
 
 # Helper functions for creating ctypes needed for calling into the driver DLL
-def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, complex_type='none', array_dimension= 1):
+def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, complex_type='none'):
     import numpy as np
 
     if isinstance(value, array.array):
@@ -20,12 +20,11 @@ def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, com
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
     elif isinstance(value, np.ndarray):
-        
         if complex_type == 'none':
             return np.ctypeslib.as_ctypes(value)
         else:
             complex_dtype = np.dtype(library_type)
-            if array_dimension > 1:
+            if value.ndim > 1:
                 flattened_array = value.ravel().view(complex_dtype)
                 return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
             else:

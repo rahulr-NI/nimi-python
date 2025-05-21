@@ -48,7 +48,6 @@ def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, com
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
     elif isinstance(value, np.ndarray):
-        
         if complex_type == 'none':
             return np.ctypeslib.as_ctypes(value)
         else:

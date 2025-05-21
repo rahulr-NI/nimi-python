@@ -827,7 +827,7 @@ class Session(_SessionBase):
     def _create3d_deembedding_sparameter_table_array(self, frequency):
         r'''_create3d_deembedding_sparameter_table_array
 
-        
+
 
         Args:
             frequency (list of ComplexViReal64):

@@ -292,22 +292,6 @@ class ComplexViReal64PointerMatcher(_PointerMatcher):
         return f"ComplexViReal64PointerMatcher({self.expected_data})"
 
 
-class MemoryAddressMatcher:
-    def __init__(self, expected_np_array):
-        self.expected_address = expected_np_array.ctypes.data
-
-    def __eq__(self, other):
-        if hasattr(other, "contents"):
-            actual_address = ctypes.addressof(other.contents)
-        else:
-            actual_address = ctypes.cast(other, ctypes.c_void_p).value
-
-        return self.expected_address == actual_address
-
-    def __repr__(self):
-        return f"MemoryAddressMatcher(address={self.expected_address})"
-
-
 class ComplexViReal32PointerMatcher(_PointerMatcher):
     def __init__(self, expected_data, expected_size):
         _PointerMatcher.__init__(self, _complextype.ComplexViReal32)
@@ -346,6 +330,22 @@ class ComplexViInt16PointerMatcher(_PointerMatcher):
 
     def __repr__(self):
         return f"ComplexViInt16PointerMatcher({self.expected_data})"
+
+
+class MemoryAddressMatcher:
+    def __init__(self, expected_np_array):
+        self.expected_address = expected_np_array.ctypes.data
+
+    def __eq__(self, other):
+        if hasattr(other, "contents"):
+            actual_address = ctypes.addressof(other.contents)
+        else:
+            actual_address = ctypes.cast(other, ctypes.c_void_p).value
+
+        return self.expected_address == actual_address
+
+    def __repr__(self):
+        return f"MemoryAddressMatcher(address={self.expected_address})"
 
 # Buffers
 
