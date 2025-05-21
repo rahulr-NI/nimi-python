@@ -843,6 +843,44 @@ class TestLibraryInterpreter:
             interpreter.import_attribute_configuration_buffer(configuration)
         self.patched_library.niFake_ImportAttributeConfigurationBuffer.assert_called_once_with(_matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST), _matchers.ViInt32Matcher(len(configuration)), _matchers.ViInt8BufferMatcher(expected_list))
 
+    def test_Create_3d_Deembedding_Sparameter_Table_Array(self):
+        import ctypes
+        import numpy as np
+
+        from nifake._complextype import ComplexViReal64
+
+        array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
+        number_of_samples = array_3d.size
+        
+        flattened_array = array_3d.flatten()
+        complex_array = (ComplexViReal64 * len(flattened_array))()
+        for i, value in enumerate(flattened_array):
+            complex_array[i] = ComplexViReal64(value.real, value.imag)
+        array_3d_ptr = ctypes.cast(complex_array, ctypes.POINTER(ComplexViReal64))
+
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
+        interpreter = self.get_initialized_library_interpreter()
+        interpreter.create3d_deembedding_sparameter_table_array(array_3d)
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
+            _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST),
+            _matchers.ComplexViReal64PointerMatcher(array_3d_ptr, number_of_samples)
+        )
+
+    def test_3darray_Validate_no_memory_copy(self):
+        import ctypes
+        import numpy as np
+
+        from nifake._complextype import ComplexViReal64
+        array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
+        complex_ptr = array_3d.ctypes.data_as(ctypes.POINTER(ComplexViReal64))
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
+        session = "dummy_session"
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray(session, complex_ptr)
+        matcher = _matchers.MemoryAddressMatcher(array_3d)
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
+            session, matcher
+        )
+        
     def test_write_numpy_complex128_valid_input(self):
         import ctypes
         import numpy as np

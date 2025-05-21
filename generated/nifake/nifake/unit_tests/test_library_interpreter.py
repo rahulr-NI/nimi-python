@@ -875,18 +875,12 @@ class TestLibraryInterpreter:
         complex_ptr = array_3d.ctypes.data_as(ctypes.POINTER(ComplexViReal64))
         self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
         session = "dummy_session"
-        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray(
-            ViSessionMatcher(SESSION_NUM_FOR_TEST), complex_ptr
-        )
-
-        # Assert with matcher
+        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray(session, complex_ptr)
+        matcher = _matchers.MemoryAddressMatcher(array_3d)
         self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
-            ViSessionMatcher(SESSION_NUM_FOR_TEST),
-            MemoryAddressMatcher(array_3d)
+            session, matcher
         )
-        )
-    
-
+        
     def test_write_numpy_complex128_valid_input(self):
         import ctypes
         import numpy as np
@@ -932,6 +926,27 @@ class TestLibraryInterpreter:
         with pytest.raises(ValueError) as exc_info:
             interpreter.write_waveform_complex_i16(invalid_waveform_data)
         assert str(exc_info.value) == expected_error_message
+
+    def test_write_interleaved_complexi16_valid_input(self):
+        import ctypes
+        import numpy as np
+
+        from nifake._complextype import ComplexViInt16
+
+        waveform_data = np.array([32767, 0] * 1000, dtype=np.int16)
+        number_of_samples = len(waveform_data) // 2
+        waveform_data_ctypes = (ComplexViInt16 * number_of_samples)(
+            *[ComplexViInt16(real=32767, imag=0) for _ in range(number_of_samples)]
+        )
+        waveform_data_pointer = ctypes.cast(waveform_data_ctypes, ctypes.POINTER(ComplexViInt16))
+        self.patched_library.niFake_WriteWaveformComplexI16.side_effect = self.side_effects_helper.niFake_WriteWaveformComplexI16
+        interpreter = self.get_initialized_library_interpreter()
+        interpreter.write_waveform_complex_i16(waveform_data)
+        self.patched_library.niFake_WriteWaveformComplexI16.assert_called_once_with(
+            _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST),
+            _matchers.ViInt32Matcher(number_of_samples),
+            _matchers.ComplexViInt16PointerMatcher(waveform_data_pointer, number_of_samples)
+        )
 
     def test_matcher_prints(self):
         assert _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST).__repr__() == "ViSessionMatcher(" + str(nifake._visatype.ViSession) + ", 42)"
