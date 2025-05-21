@@ -846,9 +846,7 @@ class TestLibraryInterpreter:
     def test_create_3d_deembedding_sparameter_table_array(self):
         import ctypes
         import numpy as np
-
         from nifake._complextype import ComplexViReal64
-
         array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
         number_of_samples = array_3d.size
         flattened_array = array_3d.flatten()
@@ -864,21 +862,38 @@ class TestLibraryInterpreter:
             _matchers.ComplexViReal64PointerMatcher(array_3d_ptr, number_of_samples)
         )
 
-    def test_3darray_validate_no_memory_copy(self):
+    def test_create_3d_memory_compare(self):
         import ctypes
         import numpy as np
-
         from nifake._complextype import ComplexViReal64
         array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
-        complex_ptr = array_3d.ctypes.data_as(ctypes.POINTER(ComplexViReal64))
         self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
-        session = "dummy_session"
-        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray(session, complex_ptr)
-        matcher = _matchers.MemoryAddressMatcher(array_3d)
-        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
-            session, matcher
+        interpreter = self.get_initialized_library_interpreter()
+        interpreter.create3d_deembedding_sparameter_table_array(array_3d)
+        args, kwargs = self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.call_args
+        actual_pointer = args[1]
+        numpy_addr = array_3d.__array_interface__['data'][0]
+        ctypes_addr = ctypes.addressof(actual_pointer.contents)
+        assert numpy_addr == ctypes_addr, f"Addresses do NOT match: numpy={numpy_addr}, ctypes={ctypes_addr}"
+
+    def test_create_1d_memory_compare(self):
+        import ctypes
+        import numpy as np
+        from nifake._complextype import ComplexViReal64
+        waveform_data = np.full(1000, 0.707 + 0.707j, dtype=np.complex128)
+        self.patched_library.niFake_WriteWaveformComplexF64.side_effect = (
+            self.side_effects_helper.niFake_WriteWaveformComplexF64
         )
-        
+        interpreter = self.get_initialized_library_interpreter()
+        interpreter.write_waveform_complex_f64(waveform_data)
+        args, kwargs = self.patched_library.niFake_WriteWaveformComplexF64.call_args
+        actual_pointer = args[2]  
+        numpy_addr = waveform_data.__array_interface__['data'][0]
+        ctypes_addr = ctypes.addressof(actual_pointer.contents)
+        assert numpy_addr == ctypes_addr, (
+            f"Addresses do NOT match: numpy={numpy_addr}, ctypes={ctypes_addr}"
+        )
+ 
     def test_write_numpy_complex128_valid_input(self):
         import ctypes
         import numpy as np
