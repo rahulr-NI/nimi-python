@@ -102,7 +102,7 @@ class GrpcStubInterpreter(object):
         )
 
     def create3d_deembedding_sparameter_table_array(self, frequency):  # noqa: N802
-        raise NotImplementedError('create3d_deembedding_sparameter_table_array is not supported over gRPC')
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
     def custom_nested_struct_roundtrip(self, nested_custom_type_in):  # noqa: N802
         response = self._invoke(

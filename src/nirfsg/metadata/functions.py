@@ -4950,10 +4950,10 @@ functions = {
         'is_error_handling': False,
         'method_templates': [
             {
-                'documentation_filename': 'default_method',
-                'library_interpreter_filename': 'default_method',
+                'documentation_filename': 'numpy_method',
+                'library_interpreter_filename': 'numpy_write_method',
                 'method_python_name_suffix': '',
-                'session_filename': 'default_method'
+                'session_filename': 'numpy_write_method'
             }
         ],
         'parameters': [

@@ -7205,11 +7205,17 @@ class Session(_SessionBase):
 
             table_name (str):
 
-            frequency (list of ComplexViReal64):
-
-            frequencies_size (int):
+            frequency (numpy.array(dtype=numpy.complex128)):
 
         '''
+        import numpy
+
+        if type(frequency) is not numpy.ndarray:
+            raise TypeError('frequency must be {0}, is {1}'.format(numpy.ndarray, type(frequency)))
+        if numpy.isfortran(frequency) is True:
+            raise TypeError('frequency must be in C-order')
+        if frequency.dtype is not numpy.dtype('complex128'):
+            raise TypeError('frequency must be numpy.ndarray of dtype=complex128, is ' + str(frequency.dtype))
         self._interpreter.create3d_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
 
     def create_deembedding_sparameter_table_s2_p_file(self, port, table_name, s2p_file_path, sparameter_orientation):
