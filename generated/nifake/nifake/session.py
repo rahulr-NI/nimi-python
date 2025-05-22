@@ -839,8 +839,8 @@ class Session(_SessionBase):
             raise TypeError('frequency must be {0}, is {1}'.format(numpy.ndarray, type(frequency)))
         if numpy.isfortran(frequency) is True:
             raise TypeError('frequency must be in C-order')
-        if frequency.dtype is not numpy.dtype('complex128'):
-            raise TypeError('frequency must be numpy.ndarray of dtype=complex128, is ' + str(frequency.dtype))
+        if frequency.ndim != 3:
+            raise TypeError('frequency must be numpy.ndarray of dimension=3, is ' + str(frequency.ndim))
         self._interpreter.create3d_deembedding_sparameter_table_array(frequency)
 
     @ivi_synchronized

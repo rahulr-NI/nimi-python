@@ -4951,9 +4951,9 @@ functions = {
         'method_templates': [
             {
                 'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_write_method',
+                'library_interpreter_filename': 'numpy_3d_array_method',
                 'method_python_name_suffix': '',
-                'session_filename': 'numpy_write_method'
+                'session_filename': 'numpy_3d_array_method'
             }
         ],
         'parameters': [
@@ -4986,7 +4986,7 @@ functions = {
                 'numpy': True,
                 'use_numpy_array': True,
                 'use_in_python_api': True,
-                'arrayDimension': 3
+                'array_dimension': 3
             },
             {
                 'direction': 'in',
