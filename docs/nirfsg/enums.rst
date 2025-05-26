@@ -1727,7 +1727,7 @@ LoadOptions
 
 .. py:class:: LoadOptions
 
-    .. py:attribute:: LoadOptions.RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_LOAD_OPTIONS_SKIP_NONE
+    .. py:attribute:: LoadOptions.NONE
 
 
 
@@ -1737,21 +1737,13 @@ LoadOptions
 
 
 
-    .. py:attribute:: LoadOptions.MANUAL
-
-
-
-    .. py:attribute:: LoadOptions.RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_LOAD_OPTIONS_SKIP_WAVEFORM
+    .. py:attribute:: LoadOptions.WAVEFORMS
 
 
 
         NI-RFSG skips loading the waveform configurations to the session.
 
         
-
-
-
-    .. py:attribute:: LoadOptions.SCRIPT_TRIGGER
 
 
 
