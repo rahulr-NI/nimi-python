@@ -2,7 +2,7 @@
 # This file was generated
 
 from enum import Enum
-from enum import Flag
+from enum import IntFlag as Flag
 
 
 class AllowOutOfSpecificationUserSettings(Enum):
@@ -1194,7 +1194,7 @@ class ResetOptions(Enum):
 
 
 class ResetWithOptionsStepsToOmit(Flag):
-    DEEMBEDDING_TABLES = 1<<3
+    DEEMBEDDING_TABLES = 8
     r'''
     Omits deleting de-embedding tables. This step is valid only for the PXIe-5830/5831/5832/5840.
     '''
@@ -1202,15 +1202,15 @@ class ResetWithOptionsStepsToOmit(Flag):
     r'''
     No step is omitted during reset.
     '''
-    ROUTES = 1<<2
+    ROUTES = 4
     r'''
     Omits the routing reset step. Routing is preserved after a reset. However, routing related properties are reset to default, and routing is released if the default properties are committed after a reset.
     '''
-    SCRIPTS = 1<<1
+    SCRIPTS = 2
     r'''
     Omits clearing scripts.
     '''
-    WAVEFORMS = 1<<0
+    WAVEFORMS = 1
     r'''
     Omits clearing waveforms.
     '''
@@ -1539,11 +1539,11 @@ class ScriptTrigType(Enum):
 
 
 class SelfCalibrateRangeStepsToOmit(Flag):
-    IMAGE_SUPPRESSION = 1<<3
+    IMAGE_SUPPRESSION = 8
     r'''
     Omits the Image Suppression step. If you omit this step, the Residual Sideband Image performance is not adjusted.
     '''
-    LO_SELF_CAL = 1<<0
+    LO_SELF_CAL = 1
     r'''
     Omits the LO Self Cal step. If you omit this step, the power level of the LO is not adjusted.
     '''
@@ -1551,15 +1551,15 @@ class SelfCalibrateRangeStepsToOmit(Flag):
     r'''
     No calibration steps are omitted.
     '''
-    POWER_LEVEL_ACCURACY = 1<<1
+    POWER_LEVEL_ACCURACY = 2
     r'''
     Omits the Power Level Accuracy step. If you omit this step, the power level accuracy of the device is not adjusted.
     '''
-    RESIDUAL_LO_POWER = 1<<2
+    RESIDUAL_LO_POWER = 4
     r'''
     Omits the Residual LO Power step. If you omit this step, the Residual LO Power performance is not adjusted.
     '''
-    SYNTHESIZER_ALIGNMENT = 1<<4
+    SYNTHESIZER_ALIGNMENT = 16
     r'''
     Omits the Voltage Controlled Oscillator (VCO) Alignment step. If you omit this step, the LO PLL is not adjusted.
     '''
