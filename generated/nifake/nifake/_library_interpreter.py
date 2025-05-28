@@ -29,13 +29,17 @@ def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, com
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
     elif str(type(value)).find("'numpy.ndarray'") != -1:
-        import numpy
+        import numpy as np
         if complex_type == 'none':
-            return numpy.ctypeslib.as_ctypes(value)
+            return np.ctypeslib.as_ctypes(value)
         else:
-            complex_dtype = numpy.dtype(library_type)
-            structured_array = value.view(complex_dtype)
-            return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
+            complex_dtype = np.dtype(library_type)
+            if value.ndim > 1:
+                flattened_array = value.ravel().view(complex_dtype)
+                return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
+            else:
+                structured_array = value.view(complex_dtype)
+                return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
     elif isinstance(value, bytes):
         return ctypes.cast(value, ctypes.POINTER(library_type))
     elif isinstance(value, list):
@@ -215,6 +219,13 @@ class LibraryInterpreter(object):
         waveform_data_ctype = _get_ctypes_pointer_for_buffer(value=waveform_data)  # case B510
         actual_number_of_samples_ctype = _visatype.ViInt32()  # case S220
         error_code = self._library.niFake_FetchWaveform(vi_ctype, number_of_samples_ctype, waveform_data_ctype, None if actual_number_of_samples_ctype is None else (ctypes.pointer(actual_number_of_samples_ctype)))
+        errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
+        return
+
+    def function_with_numpy3d_array_input_parameter(self, frequency):  # noqa: N802
+        vi_ctype = _visatype.ViSession(self._vi)  # case S110
+        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64, complex_type='numpy')  # case B510
+        error_code = self._library.niFake_FunctionWithNumpy3dArrayInputParameter(vi_ctype, frequency_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 

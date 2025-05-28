@@ -945,6 +945,25 @@ class Session(_SessionBase):
             raise TypeError('waveform_data must be numpy.ndarray of dtype=float64, is ' + str(waveform_data.dtype))
         self._interpreter.fetch_waveform_into(waveform_data)
 
+    def function_with_numpy3d_array_input_parameter(self, frequency):
+        r'''function_with_numpy3d_array_input_parameter
+
+        
+
+        Args:
+            frequency (numpy.array(dtype=numpy.complex128)):
+
+        '''
+        import numpy
+
+        if type(frequency) is not numpy.ndarray:
+            raise TypeError('frequency must be {0}, is {1}'.format(numpy.ndarray, type(frequency)))
+        if numpy.isfortran(frequency) is True:
+            raise TypeError('frequency must be in C-order')
+        if frequency.ndim != 3:
+            raise TypeError('frequency must be numpy.ndarray of dimension=3, is ' + str(frequency.ndim))
+        self._interpreter.function_with_numpy3d_array_input_parameter(frequency)
+
     @ivi_synchronized
     def get_a_boolean(self):
         r'''get_a_boolean

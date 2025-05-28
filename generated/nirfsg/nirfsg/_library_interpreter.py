@@ -18,13 +18,17 @@ def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, com
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
     elif str(type(value)).find("'numpy.ndarray'") != -1:
-        import numpy
+        import numpy as np
         if complex_type == 'none':
-            return numpy.ctypeslib.as_ctypes(value)
+            return np.ctypeslib.as_ctypes(value)
         else:
-            complex_dtype = numpy.dtype(library_type)
-            structured_array = value.view(complex_dtype)
-            return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
+            complex_dtype = np.dtype(library_type)
+            if value.ndim > 1:
+                flattened_array = value.ravel().view(complex_dtype)
+                return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
+            else:
+                structured_array = value.view(complex_dtype)
+                return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
     elif isinstance(value, bytes):
         return ctypes.cast(value, ctypes.POINTER(library_type))
     elif isinstance(value, list):
@@ -343,6 +347,16 @@ class LibraryInterpreter(object):
     def configure_software_start_trigger(self):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
         error_code = self._library.niRFSG_ConfigureSoftwareStartTrigger(vi_ctype)
+        errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
+        return
+
+    def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):  # noqa: N802
+        vi_ctype = _visatype.ViSession(self._vi)  # case S110
+        port_ctype = ctypes.create_string_buffer(port.encode(self._encoding))  # case C020
+        table_name_ctype = ctypes.create_string_buffer(table_name.encode(self._encoding))  # case C020
+        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64, complex_type='numpy')  # case B510
+        frequencies_size_ctype = _visatype.ViInt32(frequencies_size)  # case S150
+        error_code = self._library.niRFSG_Create3dDeembeddingSparameterTableArray(vi_ctype, port_ctype, table_name_ctype, frequency_ctype, frequencies_size_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 

@@ -87,6 +87,8 @@ class SideEffectsHelper(object):
         self._defaults['ConfigureSoftwareScriptTrigger']['return'] = 0
         self._defaults['ConfigureSoftwareStartTrigger'] = {}
         self._defaults['ConfigureSoftwareStartTrigger']['return'] = 0
+        self._defaults['Create3dDeembeddingSparameterTableArray'] = {}
+        self._defaults['Create3dDeembeddingSparameterTableArray']['return'] = 0
         self._defaults['CreateDeembeddingSparameterTableS2PFile'] = {}
         self._defaults['CreateDeembeddingSparameterTableS2PFile']['return'] = 0
         self._defaults['DeleteAllDeembeddingTables'] = {}
@@ -434,6 +436,11 @@ class SideEffectsHelper(object):
         if self._defaults['ConfigureSoftwareStartTrigger']['return'] != 0:
             return self._defaults['ConfigureSoftwareStartTrigger']['return']
         return self._defaults['ConfigureSoftwareStartTrigger']['return']
+
+    def niRFSG_Create3dDeembeddingSparameterTableArray(self, vi, port, table_name, frequency, frequencies_size):  # noqa: N802
+        if self._defaults['Create3dDeembeddingSparameterTableArray']['return'] != 0:
+            return self._defaults['Create3dDeembeddingSparameterTableArray']['return']
+        return self._defaults['Create3dDeembeddingSparameterTableArray']['return']
 
     def niRFSG_CreateDeembeddingSparameterTableS2PFile(self, vi, port, table_name, s2p_file_path, sparameter_orientation):  # noqa: N802
         if self._defaults['CreateDeembeddingSparameterTableS2PFile']['return'] != 0:
@@ -997,6 +1004,8 @@ class SideEffectsHelper(object):
         mock_library.niRFSG_ConfigureSoftwareScriptTrigger.return_value = 0
         mock_library.niRFSG_ConfigureSoftwareStartTrigger.side_effect = MockFunctionCallError("niRFSG_ConfigureSoftwareStartTrigger")
         mock_library.niRFSG_ConfigureSoftwareStartTrigger.return_value = 0
+        mock_library.niRFSG_Create3dDeembeddingSparameterTableArray.side_effect = MockFunctionCallError("niRFSG_Create3dDeembeddingSparameterTableArray")
+        mock_library.niRFSG_Create3dDeembeddingSparameterTableArray.return_value = 0
         mock_library.niRFSG_CreateDeembeddingSparameterTableS2PFile.side_effect = MockFunctionCallError("niRFSG_CreateDeembeddingSparameterTableS2PFile")
         mock_library.niRFSG_CreateDeembeddingSparameterTableS2PFile.return_value = 0
         mock_library.niRFSG_DeleteAllDeembeddingTables.side_effect = MockFunctionCallError("niRFSG_DeleteAllDeembeddingTables")
