@@ -7195,8 +7195,8 @@ class Session(_SessionBase):
         '''
         self._interpreter.configure_software_start_trigger()
 
-    def _create3d_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):
-        r'''_create3d_deembedding_sparameter_table_array
+    def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):
+        r'''create3d_deembedding_sparameter_table_array
 
         
 

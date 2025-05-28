@@ -4945,13 +4945,13 @@ functions = {
         'use_session_lock': False
     },
     'Create3dDeembeddingSparameterTableArray': {
-        'codegen_method': 'private',
+        'codegen_method': 'public',
         'included_in_proto': False,
         'is_error_handling': False,
         'method_templates': [
             {
                 'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_3d_array_method',
+                'library_interpreter_filename': 'numpy_write_method',
                 'method_python_name_suffix': '',
                 'session_filename': 'numpy_3d_array_method'
             }
@@ -4986,7 +4986,7 @@ functions = {
                 'numpy': True,
                 'use_numpy_array': True,
                 'use_in_python_api': True,
-                'array_dimension': 3
+                'multidimension': 3
             },
             {
                 'direction': 'in',

@@ -30,13 +30,13 @@ class Library(object):
         self.niFake_AcceptListOfDurationsInSeconds_cfunc = None
         self.niFake_BoolArrayOutputFunction_cfunc = None
         self.niFake_ConfigureABC_cfunc = None
-        self.niFake_Create3dDeembeddingSparameterTableArray_cfunc = None
         self.niFake_CustomNestedStructRoundtrip_cfunc = None
         self.niFake_DoubleAllTheNums_cfunc = None
         self.niFake_EnumArrayOutputFunction_cfunc = None
         self.niFake_EnumInputFunctionWithDefaults_cfunc = None
         self.niFake_ExportAttributeConfigurationBuffer_cfunc = None
         self.niFake_FetchWaveform_cfunc = None
+        self.niFake_FunctionWithNumpy3dArrayInputParameter_cfunc = None
         self.niFake_FunctionWithRepeatedCapabilityType_cfunc = None
         self.niFake_GetABoolean_cfunc = None
         self.niFake_GetANumber_cfunc = None
@@ -140,14 +140,6 @@ class Library(object):
                 self.niFake_ConfigureABC_cfunc.restype = ViStatus  # noqa: F405
         return self.niFake_ConfigureABC_cfunc(vi)
 
-    def niFake_Create3dDeembeddingSparameterTableArray(self, vi, frequency):  # noqa: N802
-        with self._func_lock:
-            if self.niFake_Create3dDeembeddingSparameterTableArray_cfunc is None:
-                self.niFake_Create3dDeembeddingSparameterTableArray_cfunc = self._get_library_function('niFake_Create3dDeembeddingSparameterTableArray')
-                self.niFake_Create3dDeembeddingSparameterTableArray_cfunc.argtypes = [ViSession, ctypes.POINTER(ComplexViReal64)]  # noqa: F405
-                self.niFake_Create3dDeembeddingSparameterTableArray_cfunc.restype = ViStatus  # noqa: F405
-        return self.niFake_Create3dDeembeddingSparameterTableArray_cfunc(vi, frequency)
-
     def niFake_CustomNestedStructRoundtrip(self, nested_custom_type_in, nested_custom_type_out):  # noqa: N802
         with self._func_lock:
             if self.niFake_CustomNestedStructRoundtrip_cfunc is None:
@@ -195,6 +187,14 @@ class Library(object):
                 self.niFake_FetchWaveform_cfunc.argtypes = [ViSession, ViInt32, ctypes.POINTER(ViReal64), ctypes.POINTER(ViInt32)]  # noqa: F405
                 self.niFake_FetchWaveform_cfunc.restype = ViStatus  # noqa: F405
         return self.niFake_FetchWaveform_cfunc(vi, number_of_samples, waveform_data, actual_number_of_samples)
+
+    def niFake_FunctionWithNumpy3dArrayInputParameter(self, vi, frequency):  # noqa: N802
+        with self._func_lock:
+            if self.niFake_FunctionWithNumpy3dArrayInputParameter_cfunc is None:
+                self.niFake_FunctionWithNumpy3dArrayInputParameter_cfunc = self._get_library_function('niFake_FunctionWithNumpy3dArrayInputParameter')
+                self.niFake_FunctionWithNumpy3dArrayInputParameter_cfunc.argtypes = [ViSession, ctypes.POINTER(ComplexViReal64)]  # noqa: F405
+                self.niFake_FunctionWithNumpy3dArrayInputParameter_cfunc.restype = ViStatus  # noqa: F405
+        return self.niFake_FunctionWithNumpy3dArrayInputParameter_cfunc(vi, frequency)
 
     def niFake_FunctionWithRepeatedCapabilityType(self, vi, site_list):  # noqa: N802
         with self._func_lock:

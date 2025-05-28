@@ -24,17 +24,17 @@ _was_runtime_environment_set = None
 
 # Helper functions for creating ctypes needed for calling into the driver DLL
 def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None, complex_type='none'):
-    import numpy as np
+    import numpy
 
     if isinstance(value, array.array):
         assert library_type is not None, 'library_type is required for array.array'
         addr, _ = value.buffer_info()
         return ctypes.cast(addr, ctypes.POINTER(library_type))
-    elif isinstance(value, np.ndarray):
+    elif isinstance(value, numpy.ndarray):
         if complex_type == 'none':
-            return np.ctypeslib.as_ctypes(value)
+            return numpy.ctypeslib.as_ctypes(value)
         else:
-            complex_dtype = np.dtype(library_type)
+            complex_dtype = numpy.dtype(library_type)
             if value.ndim > 1:
                 flattened_array = value.ravel().view(complex_dtype)
                 return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
@@ -157,13 +157,6 @@ class LibraryInterpreter(object):
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 
-    def create3d_deembedding_sparameter_table_array(self, frequency):  # noqa: N802
-        vi_ctype = _visatype.ViSession(self._vi)  # case S110
-        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64, complex_type='numpy')  # case B510
-        error_code = self._library.niFake_Create3dDeembeddingSparameterTableArray(vi_ctype, frequency_ctype)
-        errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
-        return
-
     def custom_nested_struct_roundtrip(self, nested_custom_type_in):  # noqa: N802
         nested_custom_type_in_ctype = custom_struct_nested_typedef.struct_CustomStructNestedTypedef(nested_custom_type_in)  # case S150
         nested_custom_type_out_ctype = custom_struct_nested_typedef.struct_CustomStructNestedTypedef()  # case S220
@@ -227,6 +220,13 @@ class LibraryInterpreter(object):
         waveform_data_ctype = _get_ctypes_pointer_for_buffer(value=waveform_data)  # case B510
         actual_number_of_samples_ctype = _visatype.ViInt32()  # case S220
         error_code = self._library.niFake_FetchWaveform(vi_ctype, number_of_samples_ctype, waveform_data_ctype, None if actual_number_of_samples_ctype is None else (ctypes.pointer(actual_number_of_samples_ctype)))
+        errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
+        return
+
+    def function_with_numpy3d_array_input_parameter(self, frequency):  # noqa: N802
+        vi_ctype = _visatype.ViSession(self._vi)  # case S110
+        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64, complex_type='numpy')  # case B510
+        error_code = self._library.niFake_FunctionWithNumpy3dArrayInputParameter(vi_ctype, frequency_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 

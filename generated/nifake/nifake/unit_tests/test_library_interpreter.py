@@ -846,7 +846,9 @@ class TestLibraryInterpreter:
     def test_create_3d_deembedding_sparameter_table_array(self):
         import ctypes
         import numpy as np
+
         from nifake._complextype import ComplexViReal64
+
         array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
         number_of_samples = array_3d.size
         flattened_array = array_3d.flatten()
@@ -854,32 +856,32 @@ class TestLibraryInterpreter:
         for i, value in enumerate(flattened_array):
             complex_array[i] = ComplexViReal64(value.real, value.imag)
         array_3d_ptr = ctypes.cast(complex_array, ctypes.POINTER(ComplexViReal64))
-        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
+        self.patched_library.niFake_FunctionWithNumpy3dArrayInputParameter.side_effect = self.side_effects_helper.niFake_FunctionWithNumpy3dArrayInputParameter
         interpreter = self.get_initialized_library_interpreter()
-        interpreter.create3d_deembedding_sparameter_table_array(array_3d)
-        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.assert_called_once_with(
+        interpreter.function_with_numpy3d_array_input_parameter(array_3d)
+        self.patched_library.niFake_FunctionWithNumpy3dArrayInputParameter.assert_called_once_with(
             _matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST),
             _matchers.ComplexViReal64PointerMatcher(array_3d_ptr, number_of_samples)
         )
 
-    def test_create_3d_memory_address_compare(self):
+    def test_numpy3dcomplexarrayinput_nomemorycopy(self):
         import ctypes
         import numpy as np
-        from nifake._complextype import ComplexViReal64
+
         array_3d = np.full((2, 3, 4), 1.0 + 2.0j, dtype=np.complex128)
-        self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.side_effect = self.side_effects_helper.niFake_Create3dDeembeddingSparameterTableArray
+        self.patched_library.niFake_FunctionWithNumpy3dArrayInputParameter.side_effect = self.side_effects_helper.niFake_FunctionWithNumpy3dArrayInputParameter
         interpreter = self.get_initialized_library_interpreter()
-        interpreter.create3d_deembedding_sparameter_table_array(array_3d)
-        args, kwargs = self.patched_library.niFake_Create3dDeembeddingSparameterTableArray.call_args
+        interpreter.function_with_numpy3d_array_input_parameter(array_3d)
+        args, kwargs = self.patched_library.niFake_FunctionWithNumpy3dArrayInputParameter.call_args
         actual_pointer = args[1]
         numpy_addr = array_3d.__array_interface__['data'][0]
         ctypes_addr = ctypes.addressof(actual_pointer.contents)
         assert numpy_addr == ctypes_addr, f"Addresses do NOT match: numpy={numpy_addr}, ctypes={ctypes_addr}"
 
-    def test_create_1d_memory_address_compare(self):
+    def test_numpy1dcomplexarrayinput_nomemorycopy(self):
         import ctypes
         import numpy as np
-        from nifake._complextype import ComplexViReal64
+
         waveform_data = np.full(1000, 0.707 + 0.707j, dtype=np.complex128)
         self.patched_library.niFake_WriteWaveformComplexF64.side_effect = (
             self.side_effects_helper.niFake_WriteWaveformComplexF64
@@ -887,7 +889,7 @@ class TestLibraryInterpreter:
         interpreter = self.get_initialized_library_interpreter()
         interpreter.write_waveform_complex_f64(waveform_data)
         args, kwargs = self.patched_library.niFake_WriteWaveformComplexF64.call_args
-        actual_pointer = args[2]  
+        actual_pointer = args[2]
         numpy_addr = waveform_data.__array_interface__['data'][0]
         ctypes_addr = ctypes.addressof(actual_pointer.contents)
         assert numpy_addr == ctypes_addr, (
@@ -902,7 +904,6 @@ class TestLibraryInterpreter:
 
         waveform_data = np.full(1000, 0.707 + 0.707j, dtype=np.complex128)
         number_of_samples = len(waveform_data)
-
         waveform_data_ctypes = (ComplexViReal64 * number_of_samples)(
             *[ComplexViReal64(real=0.707, imag=0.707) for _ in range(number_of_samples)]
         )

@@ -2797,14 +2797,14 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
-        'Create3dDeembeddingSparameterTableArray': {
-        'codegen_method': 'private',
+        'FunctionWithNumpy3dArrayInputParameter': {
+        'codegen_method': 'public',
         'included_in_proto': False,
         'is_error_handling': False,
         'method_templates': [
             {
                 'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_3d_array_method',
+                'library_interpreter_filename': 'numpy_write_method',
                 'method_python_name_suffix': '',
                 'session_filename': 'numpy_3d_array_method'
             }
@@ -2825,7 +2825,7 @@ functions = {
                 'numpy': True,
                 'use_numpy_array': True,
                 'use_in_python_api': True,
-                'array_dimension': 3
+                'multidimension': 3
             },
         ],
         'returns': 'ViStatus',

@@ -101,9 +101,6 @@ class GrpcStubInterpreter(object):
             grpc_types.ConfigureAbcRequest(vi=self._vi),
         )
 
-    def create3d_deembedding_sparameter_table_array(self, frequency):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
-
     def custom_nested_struct_roundtrip(self, nested_custom_type_in):  # noqa: N802
         response = self._invoke(
             self._client.CustomNestedStructRoundtrip,
@@ -145,6 +142,9 @@ class GrpcStubInterpreter(object):
         return response.waveform_data
 
     def fetch_waveform_into(self, number_of_samples):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+
+    def function_with_numpy3d_array_input_parameter(self, frequency):  # noqa: N802
         raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
     def function_with_repeated_capability_type(self, site_list):  # noqa: N802
