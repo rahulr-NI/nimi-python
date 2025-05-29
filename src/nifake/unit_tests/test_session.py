@@ -837,6 +837,17 @@ class TestSession:
             assert returned_timedeltas == expected_timedeltas
             self.patched_library_interpreter.return_list_of_durations_in_seconds.assert_called_once_with(len(time_values))
 
+    def test_function_with_int_flag_parameter(self):
+        import functools
+        import operator
+        session = nifake.Session('dev1')
+        # Patch the library interpreter function
+        with patch.object(session._interpreter, 'function_with_int_flag_parameter', return_value=None) as mock_func:
+            # OR all flags together
+            flags = functools.reduce(operator.or_, list(nifake.IntFlagEnum))
+            session.function_with_int_flag_parameter(flags)
+            mock_func.assert_called_once_with(flags)
+
 
 class TestGrpcSession:
 
