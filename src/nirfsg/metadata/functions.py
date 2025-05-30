@@ -2198,6 +2198,434 @@ functions = {
         'returns': 'ViStatus',
         'use_session_lock': False
     },
+    'GetAllNamedWaveformNames': {
+        'codegen_method': 'public',
+        'documentation': {
+            'description': '\n                Return names of the waveforms present in the memory.\n\n                **Supported Devices** :PXIe-5830/5831/5840/5841/5842E\n                '
+        },
+        'included_in_proto': True,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'default_method'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+                },
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns a string having waveform names separated by commas.'
+                },
+                'name': 'waveformNames',
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
+                },
+                'type': 'ViChar[]',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': '                        Pass the number of bytes in the ViChar buffer you specify for the **NIRFSG_ATTR_WAVEFORM_NAMES** parameter.\n\n                        If you pass 0, you can pass VI_NULL for the **NIRFSG_ATTR_WAVEFORM_NAMES** parameter.\n                        '
+                },
+                'name': 'bufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': '                        Fetch the number of bytes needed to pass in the **NIRFSG_ATTR_BUFFER_SIZE** parameter.\n\n                        It can be fetch by passing VI_NULL in the **NIRFSG_ATTR_WAVEFORM_NAMES** parameter.\n                        '
+                },
+                'name': 'actualBufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus',
+        'use_session_lock': False
+    },
+    'GetAllScriptNames': {
+        'codegen_method': 'public',
+        'documentation': {
+            'description': '               \n\n                Return names of the scripts present in the memory.\n\n                **Supported Devices** :PXIe-5830/5831/5840/5841/5842E\n                '
+        },
+        'included_in_proto': True,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'default_method'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+                },
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns a string having script names separated by commas.'
+                },
+                'name': 'scriptNames',
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
+                },
+                'type': 'ViChar[]',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': '                        Pass the number of bytes in the ViChar buffer you specify for the **waveformNames** parameter.\n\n                        If you pass 0, you can pass VI_NULL for the **waveformNames** parameter.\n                        '
+                },
+                'name': 'bufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': '                        Fetch the number of bytes needed to pass in the **NIRFSG_ATTR_BUFFER_SIZE** parameter.\n\n                        It can be fetch by passing VI_NULL in the **NIRFSG_ATTR_SCRIPT_NAMES** parameter.\n                        '
+                },
+                'name': 'actualBufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus',
+        'use_session_lock': True
+    },
+    'GetChannelName': {
+        'codegen_method': 'public',
+        'documentation': {
+            'description': '                Returns the channel string that is in the channel table at an index you specify.\n\n                **Supported Devices** : PXI-5670/5671, PXIe-5672/5673/5673E\n                '
+        },
+        'included_in_proto': True,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'default_method'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+                },
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies a one-based index into the channel table.'
+                },
+                'name': 'index',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies the size of the buffer for the channel string.'
+                },
+                'name': 'bufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns a channel string from the channel table at the index you specify in the Index parameter. Do not modify the contents of the channel string.'
+                },
+                'name': 'name',
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
+                },
+                'type': 'ViChar[]',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus',
+        'use_session_lock': True
+    },
+    'GetError': {
+        'codegen_method': 'public',
+        'documentation': {
+            'description': '               \n                Retrieves and then clears the IVI error information for the session or the current execution thread.\n\n                **Supported Devices** : PXI-5610, PXIe-5611, PXIe-5644/5645/5646, PXI/PXIe-5650/5651/5652, PXIe-5653/5654/5654 with PXIe-5696, PXI-5670/5671, PXIe-5672/5673/5673E, PXIe-5820/5840/5841/5842/5860\n            ',
+            'note': 'If the **bufferSize** parameter is 0, this function does not clear the error information. By passing 0 to the **bufferSize** parameter, you can determine the buffer size required to obtain the entire NIRFSG_ATTR_ERROR_DESCRIPTION string. You can then call this function again with a sufficiently large buffer. If you specify a valid IVI session for the NIRFSG_ATTR_VI parameter, this function retrieves and clears the error information for the session. If you pass VI_NULL for the NIRFSG_ATTR_VI parameter, this function retrieves and clears the error information for the current execution thread. If the NIRFSG_ATTR_VI parameter is an invalid session, this function does nothing and returns an error. Normally, the error information describes the first error that occurred since the user last called this function or the niRFSG_ClearError function.'
+        },
+        'included_in_proto': True,
+        'is_error_handling': True,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'none'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+                },
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns the error code for the session or execution thread. If you pass 0 for the **BufferSize** parameter, you can pass VI_NULL for this parameter.'
+                },
+                'name': 'errorCode',
+                'type': 'ViStatus',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'default_value': '256',
+                'direction': 'in',
+                'documentation': {
+                    'description': '                        Pass the number of bytes in the ViChar array you specify for the **description** parameter.\n\n                        If the NIRFSG_ATTR_ERROR_DESCRIPTION, including the terminating NULL byte, contains more bytes than you indicate in this parameter, the function copies **bufferSize** - 1 bytes into the buffer, places an ASCII NULL byte at the end of the buffer, and returns the buffer size you must pass to get the entire value. Forexample, if the value is 123456 and the buffer size is 4, the function places 123 into the buffer and returns 7. If you pass 0, you can pass VI_NULL for the **description** parameter.\n\n                        **Default Value** : None\n\n                        '
+                },
+                'name': 'errorDescriptionBufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': '                        Returns the NIRFSG_ATTR_ERROR_DESCRIPTION for the IVI session or execution thread.\n\n                        If there is no description, the function returns an empty string. The buffer must contain at least as many elements as the value you specify with the **bufferSize** parameter. If the NIRFSG_ATTR_ERROR_DESCRIPTION, including the terminating NULL byte, contains more bytes than you indicate with the **bufferSize** parameter, the function copies **bufferSize** - 1 bytes into the buffer, places an ASCII NULL byte at the end of the buffer, and returns the buffer size you must pass to get the entire value. For example, if the value is 123456 and the buffer size is 4, the function places 123 into the buffer and returns 7. If you pass 0, you can pass VI_NULL for this parameter.\n\n                        '
+                },
+                'name': 'errorDescription',
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'errorDescriptionBufferSize'
+                },
+                'type': 'ViChar[]',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus',
+        'use_session_lock': False
+    },
+    'GetTerminalName': {
+        'codegen_method': 'public',
+        'documentation': {
+            'description': '\n                Returns the fully-qualified name of the specified signal. \n                \n                The fully-qualified name is helpful to automatically route signals in a multisegment chassis.\n\n                **Supported Devices** : PXI/PXIe-5650/5651/5652, PXIe-5653/5654/5654 with PXIe-5696, PXI-5670/5671, PXIe-5672/5673/5673E, PXIe-5820/5830/5831/5832/5840/5841/5842/5860\n\n                **Related Topics**\n\n                `Triggers <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/triggers.html>`_\n\n                `Events <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/events.html>`_\n\n                `Syntax for Terminal Names <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/syntax_for_terminal_names.html>`_\n                '
+        },
+        'included_in_proto': True,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'default_method'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+                },
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies the signal to query. **Defined Values** :\n                    ',
+                    'table_body': [
+                        [
+                            'NIRFSG_VAL_START_TRIGGER',
+                            '0 (0x0)',
+                            'Exports a Start Trigger.'
+                        ],
+                        [
+                            'NIRFSG_VAL_SCRIPT_TRIGGER',
+                            '1 (0x1)',
+                            'Exports a Script Trigger.'
+                        ],
+                        [
+                            'NIRFSG_VAL_MARKER_EVENT',
+                            '2 (0x2)',
+                            'Exports a Marker Event.'
+                        ],
+                        [
+                            'NIRFSG_VAL_REF_CLOCK',
+                            '3 (0x3)',
+                            'Exports the Reference Clock.'
+                        ],
+                        [
+                            'NIRFSG_VAL_STARTED_EVENT',
+                            '4 (0x4)',
+                            'Exports a Started Event.'
+                        ],
+                        [
+                            'NIRFSG_VAL_DONE_EVENT',
+                            '5 (0x5)',
+                            'Exports a Done Event.'
+                        ],
+                        [
+                            'NIRFSG_VAL_CONFIGURATION_LIST_STEP_TRIGGER',
+                            '6 (0x6)',
+                            'Exports a Configuration List Step Trigger.'
+                        ],
+                        [
+                            'NIRFSG_VAL_CONFIGURATION_SETTLED_EVENT',
+                            '7 (0x7)',
+                            'Exports a Configuration Settled Event.'
+                        ]
+                    ],
+                    'table_header': [
+                        'Name',
+                        'Value',
+                        'Description'
+                    ]
+                },
+                'enum': 'Signal',
+                'name': 'signal',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': "Specifies which instance of the selected signal to query. This parameter is necessary when you set the NIRFSG_ATTR_SIGNAL parameter to NIRFSG_VAL_SCRIPT_TRIGGER or NIRFSG_VAL_MARKER_EVENT  . Otherwise, set the NIRFSG_ATTR_SIGNAL_IDENTIFIER parameter to '' (empty string). **Defined Values** :\n                    ",
+                    'table_body': [
+                        [
+                            'NIRFSG_VAL_MARKER_EVENT0',
+                            'marker0',
+                            'Specifies Marker 0.'
+                        ],
+                        [
+                            'NIRFSG_VAL_MARKER_EVENT1',
+                            'marker1',
+                            'Specifies Marker 1.'
+                        ],
+                        [
+                            'NIRFSG_VAL_MARKER_EVENT2',
+                            'marker2',
+                            'Specifies Marker 2.'
+                        ],
+                        [
+                            'NIRFSG_VAL_MARKER_EVENT3',
+                            'marker3',
+                            'Specifies Marker 3.'
+                        ],
+                        [
+                            'NIRFSG_VAL_SCRIPT_TRIGGER0',
+                            'scriptTrigger0',
+                            'Specifies Script Trigger 0.'
+                        ],
+                        [
+                            'NIRFSG_VAL_SCRIPT_TRIGGER1',
+                            'scriptTrigger1',
+                            'Specifies Script Trigger 1.'
+                        ],
+                        [
+                            'NIRFSG_VAL_SCRIPT_TRIGGER2',
+                            'scriptTrigger2',
+                            'Specifies Script Trigger 2.'
+                        ],
+                        [
+                            'NIRFSG_VAL_SCRIPT_TRIGGER3',
+                            'scriptTrigger3',
+                            'Specifies Script Trigger 3.'
+                        ]
+                    ],
+                    'table_header': [
+                        'Name',
+                        'Value',
+                        'Description'
+                    ]
+                },
+                'enum': 'SignalIdentifier',
+                'name': 'signalIdentifier',
+                'type': 'ViConstString',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': '                        Pass the number of bytes in the ViChar buffer you specify for the **NIRFSG_ATTR_TERMINAL_NAME** parameter.\n\n                        If you pass 0, you can pass VI_NULL for the **NIRFSG_ATTR_TERMINAL_NAME** parameter.\n                        '
+                },
+                'name': 'bufferSize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns the string to use as the source for other devices.'
+                },
+                'name': 'terminalName',
+                'size': {
+                    'mechanism': 'ivi-dance',
+                    'value': 'bufferSize'
+                },
+                'type': 'ViChar[]',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus',
+        'use_session_lock': True
+    },
     'GetAttributeViBoolean': {
         'codegen_method': 'private',
         'documentation': {

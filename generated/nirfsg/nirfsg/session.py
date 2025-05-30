@@ -1796,7 +1796,7 @@ class _SessionBase(object):
 
                     **High-Level Methods**:
 
-                    - GetTerminalName
+                    - get_terminal_name
     '''
     events_delay = _attributes.AttributeViReal64TimeDeltaSeconds(1150154)
     '''Type: hightime.timedelta, datetime.timedelta, or float in seconds
@@ -3488,7 +3488,7 @@ class _SessionBase(object):
 
                     **High-Level Methods**:
 
-                    - GetTerminalName
+                    - get_terminal_name
 
     Tip:
     This property can be set/get on specific markers within your :py:class:`nirfsg.Session` instance.
@@ -4449,7 +4449,7 @@ class _SessionBase(object):
 
                     **High-Level Methods**:
 
-                    - GetTerminalName
+                    - get_terminal_name
 
     Tip:
     This property can be set/get on specific script_triggers within your :py:class:`nirfsg.Session` instance.
@@ -4691,7 +4691,7 @@ class _SessionBase(object):
 
                     **High-Level Methods**:
 
-                    - GetTerminalName
+                    - get_terminal_name
     '''
     start_trigger_terminal_name = _attributes.AttributeViString(1150114)
     '''Type: str
@@ -4720,7 +4720,7 @@ class _SessionBase(object):
 
                     **High-Level Methods**:
 
-                    - GetTerminalName
+                    - get_terminal_name
     '''
     start_trigger_type = _attributes.AttributeEnum(_attributes.AttributeViInt32, enums.StartTrigType, 1250458)
     '''Type: enums.StartTrigType
@@ -7400,6 +7400,68 @@ class Session(_SessionBase):
             raise TypeError('Parameter output_terminal must be of type ' + str(enums.ReferenceClockExportOutputTerminal))
         self._interpreter.export_signal(signal, signal_identifier, output_terminal)
 
+    def get_all_named_waveform_names(self):
+        r'''get_all_named_waveform_names
+
+        Return names of the waveforms present in the memory.
+
+                        **Supported Devices** :PXIe-5830/5831/5840/5841/5842E
+
+        Returns:
+            waveform_names (str): Returns a string having waveform names separated by commas.
+
+            actual_buffer_size (int): Fetch the number of bytes needed to pass in the **BUFFER_SIZE** parameter.
+
+                                        It can be fetch by passing VI_NULL in the **WAVEFORM_NAMES** parameter.
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
+
+        '''
+        waveform_names, actual_buffer_size = self._interpreter.get_all_named_waveform_names()
+        return waveform_names, actual_buffer_size
+
+    @ivi_synchronized
+    def get_all_script_names(self):
+        r'''get_all_script_names
+
+        Return names of the scripts present in the memory.
+
+                        **Supported Devices** :PXIe-5830/5831/5840/5841/5842E
+
+        Returns:
+            script_names (str): Returns a string having script names separated by commas.
+
+            actual_buffer_size (int): Fetch the number of bytes needed to pass in the **BUFFER_SIZE** parameter.
+
+                                        It can be fetch by passing VI_NULL in the **SCRIPT_NAMES** parameter.
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
+
+        '''
+        script_names, actual_buffer_size = self._interpreter.get_all_script_names()
+        return script_names, actual_buffer_size
+
+    @ivi_synchronized
+    def get_channel_name(self, index):
+        r'''get_channel_name
+
+        Returns the channel string that is in the channel table at an index you specify.
+
+                        **Supported Devices** : PXI-5670/5671, PXIe-5672/5673/5673E
+
+        Args:
+            index (int): Specifies a one-based index into the channel table.
+
+
+        Returns:
+            name (str): Returns a channel string from the channel table at the index you specify in the Index parameter. Do not modify the contents of the channel string.
+
+        '''
+        name = self._interpreter.get_channel_name(index)
+        return name
+
     def _get_external_calibration_last_date_and_time(self):
         r'''_get_external_calibration_last_date_and_time
 
@@ -7557,6 +7619,90 @@ class Session(_SessionBase):
         '''
         reader_handle = self._interpreter.get_stream_endpoint_handle(stream_endpoint)
         return reader_handle
+
+    @ivi_synchronized
+    def get_terminal_name(self, signal, signal_identifier):
+        r'''get_terminal_name
+
+        Returns the fully-qualified name of the specified signal.
+
+                        The fully-qualified name is helpful to automatically route signals in a multisegment chassis.
+
+                        **Supported Devices** : PXI/PXIe-5650/5651/5652, PXIe-5653/5654/5654 with PXIe-5696, PXI-5670/5671, PXIe-5672/5673/5673E, PXIe-5820/5830/5831/5832/5840/5841/5842/5860
+
+                        **Related Topics**
+
+                        `Triggers <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/triggers.html>`_
+
+                        `Events <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/events.html>`_
+
+                        `Syntax for Terminal Names <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/syntax_for_terminal_names.html>`_
+
+        Args:
+            signal (enums.Signal): Specifies the signal to query. **Defined Values** :
+
+                +----------------------------------------+---------+--------------------------------------------+
+                | Name                                   | Value   | Description                                |
+                +========================================+=========+============================================+
+                | Signal.START_TRIGGER                   | 0 (0x0) | Exports a Start Trigger.                   |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.SCRIPT_TRIGGER                  | 1 (0x1) | Exports a Script Trigger.                  |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.MARKER_EVENT                    | 2 (0x2) | Exports a Marker Event.                    |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.REF_CLOCK                       | 3 (0x3) | Exports the Reference Clock.               |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.STARTED_EVENT                   | 4 (0x4) | Exports a Started Event.                   |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.DONE_EVENT                      | 5 (0x5) | Exports a Done Event.                      |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.CONFIGURATION_LIST_STEP_TRIGGER | 6 (0x6) | Exports a Configuration List Step Trigger. |
+                +----------------------------------------+---------+--------------------------------------------+
+                | Signal.CONFIGURATION_SETTLED_EVENT     | 7 (0x7) | Exports a Configuration Settled Event.     |
+                +----------------------------------------+---------+--------------------------------------------+
+
+                Note:
+                One or more of the referenced values are not in the Python API for this driver. Enums that only define values, or represent True/False, have been removed.
+
+            signal_identifier (enums.SignalIdentifier): Specifies which instance of the selected signal to query. This parameter is necessary when you set the SIGNAL parameter to NIRFSG_VAL_SCRIPT_TRIGGER or NIRFSG_VAL_MARKER_EVENT  . Otherwise, set the SIGNAL_IDENTIFIER parameter to '' (empty string). **Defined Values** :
+
+                +----------------------------------+----------------+-----------------------------+
+                | Name                             | Value          | Description                 |
+                +==================================+================+=============================+
+                | SignalIdentifier.MARKER_EVENT0   | marker0        | Specifies Marker 0.         |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.MARKER_EVENT1   | marker1        | Specifies Marker 1.         |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.MARKER_EVENT2   | marker2        | Specifies Marker 2.         |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.MARKER_EVENT3   | marker3        | Specifies Marker 3.         |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.SCRIPT_TRIGGER0 | scriptTrigger0 | Specifies Script Trigger 0. |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.SCRIPT_TRIGGER1 | scriptTrigger1 | Specifies Script Trigger 1. |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.SCRIPT_TRIGGER2 | scriptTrigger2 | Specifies Script Trigger 2. |
+                +----------------------------------+----------------+-----------------------------+
+                | SignalIdentifier.SCRIPT_TRIGGER3 | scriptTrigger3 | Specifies Script Trigger 3. |
+                +----------------------------------+----------------+-----------------------------+
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
+
+                Note:
+                One or more of the referenced values are not in the Python API for this driver. Enums that only define values, or represent True/False, have been removed.
+
+
+        Returns:
+            terminal_name (str): Returns the string to use as the source for other devices.
+
+        '''
+        if type(signal) is not enums.Signal:
+            raise TypeError('Parameter signal must be of type ' + str(enums.Signal))
+        if type(signal_identifier) is not enums.SignalIdentifier:
+            raise TypeError('Parameter signal_identifier must be of type ' + str(enums.SignalIdentifier))
+        terminal_name = self._interpreter.get_terminal_name(signal, signal_identifier)
+        return terminal_name
 
     def _init_with_options(self, resource_name, id_query, reset_device, option_string):
         r'''_init_with_options

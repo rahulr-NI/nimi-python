@@ -60,18 +60,22 @@ class Library(object):
         self.niRFSG_DisableScriptTrigger_cfunc = None
         self.niRFSG_DisableStartTrigger_cfunc = None
         self.niRFSG_ExportSignal_cfunc = None
+        self.niRFSG_GetAllNamedWaveformNames_cfunc = None
+        self.niRFSG_GetAllScriptNames_cfunc = None
         self.niRFSG_GetAttributeViBoolean_cfunc = None
         self.niRFSG_GetAttributeViInt32_cfunc = None
         self.niRFSG_GetAttributeViInt64_cfunc = None
         self.niRFSG_GetAttributeViReal64_cfunc = None
         self.niRFSG_GetAttributeViSession_cfunc = None
         self.niRFSG_GetAttributeViString_cfunc = None
+        self.niRFSG_GetChannelName_cfunc = None
         self.niRFSG_GetError_cfunc = None
         self.niRFSG_GetExternalCalibrationLastDateAndTime_cfunc = None
         self.niRFSG_GetMaxSettablePower_cfunc = None
         self.niRFSG_GetSelfCalibrationDateAndTime_cfunc = None
         self.niRFSG_GetSelfCalibrationTemperature_cfunc = None
         self.niRFSG_GetStreamEndpointHandle_cfunc = None
+        self.niRFSG_GetTerminalName_cfunc = None
         self.niRFSG_GetWaveformBurstStartLocations_cfunc = None
         self.niRFSG_GetWaveformBurstStopLocations_cfunc = None
         self.niRFSG_GetWaveformMarkerEventLocations_cfunc = None
@@ -444,6 +448,22 @@ class Library(object):
                 self.niRFSG_ExportSignal_cfunc.restype = ViStatus  # noqa: F405
         return self.niRFSG_ExportSignal_cfunc(vi, signal, signal_identifier, output_terminal)
 
+    def niRFSG_GetAllNamedWaveformNames(self, vi, waveform_names, buffer_size, actual_buffer_size):  # noqa: N802
+        with self._func_lock:
+            if self.niRFSG_GetAllNamedWaveformNames_cfunc is None:
+                self.niRFSG_GetAllNamedWaveformNames_cfunc = self._get_library_function('niRFSG_GetAllNamedWaveformNames')
+                self.niRFSG_GetAllNamedWaveformNames_cfunc.argtypes = [ViSession, ctypes.POINTER(ViChar), ViInt32, ctypes.POINTER(ViInt32)]  # noqa: F405
+                self.niRFSG_GetAllNamedWaveformNames_cfunc.restype = ViStatus  # noqa: F405
+        return self.niRFSG_GetAllNamedWaveformNames_cfunc(vi, waveform_names, buffer_size, actual_buffer_size)
+
+    def niRFSG_GetAllScriptNames(self, vi, script_names, buffer_size, actual_buffer_size):  # noqa: N802
+        with self._func_lock:
+            if self.niRFSG_GetAllScriptNames_cfunc is None:
+                self.niRFSG_GetAllScriptNames_cfunc = self._get_library_function('niRFSG_GetAllScriptNames')
+                self.niRFSG_GetAllScriptNames_cfunc.argtypes = [ViSession, ctypes.POINTER(ViChar), ViInt32, ctypes.POINTER(ViInt32)]  # noqa: F405
+                self.niRFSG_GetAllScriptNames_cfunc.restype = ViStatus  # noqa: F405
+        return self.niRFSG_GetAllScriptNames_cfunc(vi, script_names, buffer_size, actual_buffer_size)
+
     def niRFSG_GetAttributeViBoolean(self, vi, channel_name, attribute, value):  # noqa: N802
         with self._func_lock:
             if self.niRFSG_GetAttributeViBoolean_cfunc is None:
@@ -492,6 +512,14 @@ class Library(object):
                 self.niRFSG_GetAttributeViString_cfunc.restype = ViStatus  # noqa: F405
         return self.niRFSG_GetAttributeViString_cfunc(vi, channel_name, attribute, buf_size, value)
 
+    def niRFSG_GetChannelName(self, vi, index, buffer_size, name):  # noqa: N802
+        with self._func_lock:
+            if self.niRFSG_GetChannelName_cfunc is None:
+                self.niRFSG_GetChannelName_cfunc = self._get_library_function('niRFSG_GetChannelName')
+                self.niRFSG_GetChannelName_cfunc.argtypes = [ViSession, ViInt32, ViInt32, ctypes.POINTER(ViChar)]  # noqa: F405
+                self.niRFSG_GetChannelName_cfunc.restype = ViStatus  # noqa: F405
+        return self.niRFSG_GetChannelName_cfunc(vi, index, buffer_size, name)
+
     def niRFSG_GetError(self, vi, error_code, error_description_buffer_size, error_description):  # noqa: N802
         with self._func_lock:
             if self.niRFSG_GetError_cfunc is None:
@@ -539,6 +567,14 @@ class Library(object):
                 self.niRFSG_GetStreamEndpointHandle_cfunc.argtypes = [ViSession, ctypes.POINTER(ViChar), ctypes.POINTER(ViUInt32)]  # noqa: F405
                 self.niRFSG_GetStreamEndpointHandle_cfunc.restype = ViStatus  # noqa: F405
         return self.niRFSG_GetStreamEndpointHandle_cfunc(vi, stream_endpoint, reader_handle)
+
+    def niRFSG_GetTerminalName(self, vi, signal, signal_identifier, buffer_size, terminal_name):  # noqa: N802
+        with self._func_lock:
+            if self.niRFSG_GetTerminalName_cfunc is None:
+                self.niRFSG_GetTerminalName_cfunc = self._get_library_function('niRFSG_GetTerminalName')
+                self.niRFSG_GetTerminalName_cfunc.argtypes = [ViSession, ViInt32, ctypes.POINTER(ViChar), ViInt32, ctypes.POINTER(ViChar)]  # noqa: F405
+                self.niRFSG_GetTerminalName_cfunc.restype = ViStatus  # noqa: F405
+        return self.niRFSG_GetTerminalName_cfunc(vi, signal, signal_identifier, buffer_size, terminal_name)
 
     def niRFSG_GetWaveformBurstStartLocations(self, vi, channel_name, number_of_locations, locations, required_size):  # noqa: N802
         with self._func_lock:

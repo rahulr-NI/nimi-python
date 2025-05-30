@@ -725,7 +725,7 @@ class LoadOptions(Enum):
     NI-RFSG loads all the configurations to the session.
     '''
     MANUAL = 0
-    RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_LOAD_OPTIONS_SKIP_WAVEFORM = 1
+    RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_LOAD_OPTIONS_SKIP_WAVEFORMS = 1
     r'''
     NI-RFSG skips loading the waveform configurations to the session.
     '''

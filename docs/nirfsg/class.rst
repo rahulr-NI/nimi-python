@@ -1712,6 +1712,121 @@ export_signal
 
             :type output_terminal: :py:data:`nirfsg.ReferenceClockExportOutputTerminal`
 
+get_all_named_waveform_names
+----------------------------
+
+    .. py:currentmodule:: nirfsg.Session
+
+    .. py:method:: get_all_named_waveform_names()
+
+            Return names of the waveforms present in the memory.
+
+                            **Supported Devices** :PXIe-5830/5831/5840/5841/5842E
+
+            
+
+
+
+            :rtype: tuple (waveform_names, actual_buffer_size)
+
+                WHERE
+
+                waveform_names (str): 
+
+
+                    Returns a string having waveform names separated by commas.
+
+                    
+
+
+                actual_buffer_size (int): 
+
+
+                    Fetch the number of bytes needed to pass in the **:py:attr:`nirfsg.Session.BUFFER_SIZE`** parameter.
+
+                                            It can be fetch by passing VI_NULL in the **:py:attr:`nirfsg.Session.WAVEFORM_NAMES`** parameter.
+
+                    
+
+                    .. note:: One or more of the referenced properties are not in the Python API for this driver.
+
+
+
+get_all_script_names
+--------------------
+
+    .. py:currentmodule:: nirfsg.Session
+
+    .. py:method:: get_all_script_names()
+
+            Return names of the scripts present in the memory.
+
+                            **Supported Devices** :PXIe-5830/5831/5840/5841/5842E
+
+            
+
+
+
+            :rtype: tuple (script_names, actual_buffer_size)
+
+                WHERE
+
+                script_names (str): 
+
+
+                    Returns a string having script names separated by commas.
+
+                    
+
+
+                actual_buffer_size (int): 
+
+
+                    Fetch the number of bytes needed to pass in the **:py:attr:`nirfsg.Session.BUFFER_SIZE`** parameter.
+
+                                            It can be fetch by passing VI_NULL in the **:py:attr:`nirfsg.Session.SCRIPT_NAMES`** parameter.
+
+                    
+
+                    .. note:: One or more of the referenced properties are not in the Python API for this driver.
+
+
+
+get_channel_name
+----------------
+
+    .. py:currentmodule:: nirfsg.Session
+
+    .. py:method:: get_channel_name(index)
+
+            Returns the channel string that is in the channel table at an index you specify.
+
+                            **Supported Devices** : PXI-5670/5671, PXIe-5672/5673/5673E
+
+            
+
+
+
+            :param index:
+
+
+                Specifies a one-based index into the channel table.
+
+                
+
+
+            :type index: int
+
+            :rtype: str
+            :return:
+
+
+                    Returns a channel string from the channel table at the index you specify in the Index parameter. Do not modify the contents of the channel string.
+
+                    
+
+
+
 get_error
 ---------
 
@@ -1904,6 +2019,102 @@ get_stream_endpoint_handle
 
 
                     Returns the reader endpoint handle that is used with NI-P2P to create a stream with the NI-RFSG device as an endpoint.
+
+                    
+
+
+
+get_terminal_name
+-----------------
+
+    .. py:currentmodule:: nirfsg.Session
+
+    .. py:method:: get_terminal_name(signal, signal_identifier)
+
+            Returns the fully-qualified name of the specified signal.
+
+                            The fully-qualified name is helpful to automatically route signals in a multisegment chassis.
+
+                            **Supported Devices** : PXI/PXIe-5650/5651/5652, PXIe-5653/5654/5654 with PXIe-5696, PXI-5670/5671, PXIe-5672/5673/5673E, PXIe-5820/5830/5831/5832/5840/5841/5842/5860
+
+                            **Related Topics**
+
+                            `Triggers <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/triggers.html>`_
+
+                            `Events <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/events.html>`_
+
+                            `Syntax for Terminal Names <https://www.ni.com/docs/en-US/bundle/rfsg/page/rfsg/syntax_for_terminal_names.html>`_
+
+            
+
+
+
+            :param signal:
+
+
+                Specifies the signal to query. **Defined Values** :
+
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | Name                                                      | Value   | Description                                |
+                +===========================================================+=========+============================================+
+                | :py:data:`~nirfsg.Signal.START_TRIGGER`                   | 0 (0x0) | Exports a Start Trigger.                   |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.SCRIPT_TRIGGER`                  | 1 (0x1) | Exports a Script Trigger.                  |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.MARKER_EVENT`                    | 2 (0x2) | Exports a Marker Event.                    |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.REF_CLOCK`                       | 3 (0x3) | Exports the Reference Clock.               |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.STARTED_EVENT`                   | 4 (0x4) | Exports a Started Event.                   |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.DONE_EVENT`                      | 5 (0x5) | Exports a Done Event.                      |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.CONFIGURATION_LIST_STEP_TRIGGER` | 6 (0x6) | Exports a Configuration List Step Trigger. |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+                | :py:data:`~nirfsg.Signal.CONFIGURATION_SETTLED_EVENT`     | 7 (0x7) | Exports a Configuration Settled Event.     |
+                +-----------------------------------------------------------+---------+--------------------------------------------+
+
+                .. note:: One or more of the referenced values are not in the Python API for this driver. Enums that only define values, or represent True/False, have been removed.
+
+
+            :type signal: :py:data:`nirfsg.Signal`
+            :param signal_identifier:
+
+
+                Specifies which instance of the selected signal to query. This parameter is necessary when you set the :py:attr:`nirfsg.Session.SIGNAL` parameter to :py:data:`~nirfsg.NIRFSG_VAL_SCRIPT_TRIGGER` or :py:data:`~nirfsg.NIRFSG_VAL_MARKER_EVENT`  . Otherwise, set the :py:attr:`nirfsg.Session.SIGNAL_IDENTIFIER` parameter to '' (empty string). **Defined Values** :
+
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | Name                                                | Value          | Description                 |
+                +=====================================================+================+=============================+
+                | :py:data:`~nirfsg.SignalIdentifier.MARKER_EVENT0`   | marker0        | Specifies Marker 0.         |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.MARKER_EVENT1`   | marker1        | Specifies Marker 1.         |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.MARKER_EVENT2`   | marker2        | Specifies Marker 2.         |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.MARKER_EVENT3`   | marker3        | Specifies Marker 3.         |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.SCRIPT_TRIGGER0` | scriptTrigger0 | Specifies Script Trigger 0. |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.SCRIPT_TRIGGER1` | scriptTrigger1 | Specifies Script Trigger 1. |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.SCRIPT_TRIGGER2` | scriptTrigger2 | Specifies Script Trigger 2. |
+                +-----------------------------------------------------+----------------+-----------------------------+
+                | :py:data:`~nirfsg.SignalIdentifier.SCRIPT_TRIGGER3` | scriptTrigger3 | Specifies Script Trigger 3. |
+                +-----------------------------------------------------+----------------+-----------------------------+
+
+                .. note:: One or more of the referenced properties are not in the Python API for this driver.
+
+                .. note:: One or more of the referenced values are not in the Python API for this driver. Enums that only define values, or represent True/False, have been removed.
+
+
+            :type signal_identifier: :py:data:`nirfsg.SignalIdentifier`
+
+            :rtype: str
+            :return:
+
+
+                    Returns the string to use as the source for other devices.
 
                     
 
@@ -5925,7 +6136,7 @@ done_event_terminal_name
 
                         **High-Level Methods**:
 
-                        - :py:meth:`nirfsg.Session.GetTerminalName`
+                        - :py:meth:`nirfsg.Session.get_terminal_name`
 
         The following table lists the characteristics of this property.
 
@@ -8930,7 +9141,7 @@ marker_event_terminal_name
 
                         **High-Level Methods**:
 
-                        - :py:meth:`nirfsg.Session.GetTerminalName`
+                        - :py:meth:`nirfsg.Session.get_terminal_name`
 
 
 
@@ -10699,7 +10910,7 @@ script_trigger_terminal_name
 
                         **High-Level Methods**:
 
-                        - :py:meth:`nirfsg.Session.GetTerminalName`
+                        - :py:meth:`nirfsg.Session.get_terminal_name`
 
 
 
@@ -11244,7 +11455,7 @@ started_event_terminal_name
 
                         **High-Level Methods**:
 
-                        - :py:meth:`nirfsg.Session.GetTerminalName`
+                        - :py:meth:`nirfsg.Session.get_terminal_name`
 
         The following table lists the characteristics of this property.
 
@@ -11293,7 +11504,7 @@ start_trigger_terminal_name
 
                         **High-Level Methods**:
 
-                        - :py:meth:`nirfsg.Session.GetTerminalName`
+                        - :py:meth:`nirfsg.Session.get_terminal_name`
 
         The following table lists the characteristics of this property.
 
