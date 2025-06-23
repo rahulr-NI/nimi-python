@@ -5,7 +5,7 @@ import ctypes
 import nirfsg.errors as errors
 import threading
 
-from nirfsg._complextype import *  # noqa: F403,H303
+from nirfsg._complextype import *  # noqa: F403
 from nirfsg._visatype import *  # noqa: F403,H303
 
 

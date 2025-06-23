@@ -20,7 +20,7 @@ import ${module_name}.errors as errors
 import threading
 
 % if are_complex_parameters_used:
-from ${module_name}._complextype import *  # noqa: F403,H303
+from ${module_name}._complextype import *  # noqa: F403
 % endif
 from ${module_name}._visatype import *  # noqa: F403,H303
 % for c in config['custom_types']:
