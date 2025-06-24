@@ -5073,10 +5073,6 @@ deembedding_compensation_gain
 
             Example: :py:attr:`my_session.deembedding_port[ ... ].deembedding_compensation_gain`
 
-            To set/get on all deembedding_port, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.deembedding_compensation_gain`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+------------------+
@@ -5117,10 +5113,6 @@ deembedding_selected_table
             Use Python index notation on the repeated capabilities container deembedding_port to specify a subset.
 
             Example: :py:attr:`my_session.deembedding_port[ ... ].deembedding_selected_table`
-
-            To set/get on all deembedding_port, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.deembedding_selected_table`
 
         The following table lists the characteristics of this property.
 
@@ -5176,10 +5168,6 @@ deembedding_type
             Use Python index notation on the repeated capabilities container deembedding_port to specify a subset.
 
             Example: :py:attr:`my_session.deembedding_port[ ... ].deembedding_type`
-
-            To set/get on all deembedding_port, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.deembedding_type`
 
         The following table lists the characteristics of this property.
 
@@ -5340,10 +5328,6 @@ digital_edge_script_trigger_edge
 
             Example: :py:attr:`my_session.script_triggers[ ... ].digital_edge_script_trigger_edge`
 
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.digital_edge_script_trigger_edge`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+-----------------------------+
@@ -5442,10 +5426,6 @@ digital_edge_script_trigger_source
             Use Python index notation on the repeated capabilities container script_triggers to specify a subset.
 
             Example: :py:attr:`my_session.script_triggers[ ... ].digital_edge_script_trigger_source`
-
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.digital_edge_script_trigger_source`
 
         The following table lists the characteristics of this property.
 
@@ -5705,10 +5685,6 @@ digital_level_script_trigger_active_level
 
             Example: :py:attr:`my_session.script_triggers[ ... ].digital_level_script_trigger_active_level`
 
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.digital_level_script_trigger_active_level`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+-------------------------------------+
@@ -5803,10 +5779,6 @@ digital_level_script_trigger_source
             Use Python index notation on the repeated capabilities container script_triggers to specify a subset.
 
             Example: :py:attr:`my_session.script_triggers[ ... ].digital_level_script_trigger_source`
-
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.digital_level_script_trigger_source`
 
         The following table lists the characteristics of this property.
 
@@ -6475,10 +6447,6 @@ exported_marker_event_output_terminal
 
             Example: :py:attr:`my_session.markers[ ... ].exported_marker_event_output_terminal`
 
-            To set/get on all markers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.exported_marker_event_output_terminal`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+------------+
@@ -6755,10 +6723,6 @@ exported_script_trigger_output_terminal
             Use Python index notation on the repeated capabilities container script_triggers to specify a subset.
 
             Example: :py:attr:`my_session.script_triggers[ ... ].exported_script_trigger_output_terminal`
-
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.exported_script_trigger_output_terminal`
 
         The following table lists the characteristics of this property.
 
@@ -9027,10 +8991,6 @@ marker_event_output_behavior
 
             Example: :py:attr:`my_session.markers[ ... ].marker_event_output_behavior`
 
-            To set/get on all markers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.marker_event_output_behavior`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+---------------------------------+
@@ -9073,10 +9033,6 @@ marker_event_pulse_width
             Use Python index notation on the repeated capabilities container markers to specify a subset.
 
             Example: :py:attr:`my_session.markers[ ... ].marker_event_pulse_width`
-
-            To set/get on all markers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.marker_event_pulse_width`
 
         The following table lists the characteristics of this property.
 
@@ -9128,10 +9084,6 @@ marker_event_pulse_width_units
             Use Python index notation on the repeated capabilities container markers to specify a subset.
 
             Example: :py:attr:`my_session.markers[ ... ].marker_event_pulse_width_units`
-
-            To set/get on all markers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.marker_event_pulse_width_units`
 
         The following table lists the characteristics of this property.
 
@@ -9186,10 +9138,6 @@ marker_event_terminal_name
 
             Example: :py:attr:`my_session.markers[ ... ].marker_event_terminal_name`
 
-            To set/get on all markers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.marker_event_terminal_name`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+-----------+
@@ -9240,10 +9188,6 @@ marker_event_toggle_initial_state
             Use Python index notation on the repeated capabilities container markers to specify a subset.
 
             Example: :py:attr:`my_session.markers[ ... ].marker_event_toggle_initial_state`
-
-            To set/get on all markers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.marker_event_toggle_initial_state`
 
         The following table lists the characteristics of this property.
 
@@ -10953,10 +10897,6 @@ script_trigger_terminal_name
 
             Example: :py:attr:`my_session.script_triggers[ ... ].script_trigger_terminal_name`
 
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.script_trigger_terminal_name`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+-----------------+
@@ -11017,10 +10957,6 @@ script_trigger_type
             Use Python index notation on the repeated capabilities container script_triggers to specify a subset.
 
             Example: :py:attr:`my_session.script_triggers[ ... ].script_trigger_type`
-
-            To set/get on all script_triggers, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.script_trigger_type`
 
         The following table lists the characteristics of this property.
 
@@ -12412,10 +12348,6 @@ waveform_iq_rate
 
             Example: :py:attr:`my_session.waveform[ ... ].waveform_iq_rate`
 
-            To set/get on all waveform, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.waveform_iq_rate`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+------------+
@@ -12450,10 +12382,6 @@ waveform_papr
             Use Python index notation on the repeated capabilities container waveform to specify a subset.
 
             Example: :py:attr:`my_session.waveform[ ... ].waveform_papr`
-
-            To set/get on all waveform, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.waveform_papr`
 
         The following table lists the characteristics of this property.
 
@@ -12518,10 +12446,6 @@ waveform_rf_blanking
 
             Example: :py:attr:`my_session.waveform[ ... ].waveform_rf_blanking`
 
-            To set/get on all waveform, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.waveform_rf_blanking`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+------------------+
@@ -12558,10 +12482,6 @@ waveform_runtime_scaling
             Use Python index notation on the repeated capabilities container waveform to specify a subset.
 
             Example: :py:attr:`my_session.waveform[ ... ].waveform_runtime_scaling`
-
-            To set/get on all waveform, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.waveform_runtime_scaling`
 
         The following table lists the characteristics of this property.
 
@@ -12600,10 +12520,6 @@ waveform_signal_bandwidth
 
             Example: :py:attr:`my_session.waveform[ ... ].waveform_signal_bandwidth`
 
-            To set/get on all waveform, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.waveform_signal_bandwidth`
-
         The following table lists the characteristics of this property.
 
             +-----------------------+------------+
@@ -12638,10 +12554,6 @@ waveform_waveform_size
             Use Python index notation on the repeated capabilities container waveform to specify a subset.
 
             Example: :py:attr:`my_session.waveform[ ... ].waveform_waveform_size`
-
-            To set/get on all waveform, you can call the property directly on the :py:class:`nirfsg.Session`.
-
-            Example: :py:attr:`my_session.waveform_waveform_size`
 
         The following table lists the characteristics of this property.
 
