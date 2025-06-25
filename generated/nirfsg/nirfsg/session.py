@@ -7287,6 +7287,25 @@ class Session(_SessionBase):
         return name
 
     @ivi_synchronized
+    def get_deembedding_sparameters(self, sparameter_array_size):
+        r'''get_deembedding_sparameters
+
+        
+
+        Args:
+            sparameter_array_size (int):
+
+
+        Returns:
+            sparameters (array.array("d")):
+
+            number_of_ports (int):
+
+        '''
+        sparameters, number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter_array_size)
+        return sparameters, number_of_ports
+
+    @ivi_synchronized
     def _get_external_calibration_last_date_and_time(self):
         r'''_get_external_calibration_last_date_and_time
 

@@ -1825,6 +1825,42 @@ get_channel_name
 
 
 
+get_deembedding_sparameters
+---------------------------
+
+    .. py:currentmodule:: nirfsg.Session
+
+    .. py:method:: get_deembedding_sparameters(sparameter_array_size)
+
+            
+
+
+
+            :param sparameter_array_size:
+
+
+                
+
+
+            :type sparameter_array_size: int
+
+            :rtype: tuple (sparameters, number_of_ports)
+
+                WHERE
+
+                sparameters (array.array("d")): 
+
+
+                    
+
+
+                number_of_ports (int): 
+
+
+                    
+
+
+
 get_error
 ---------
 

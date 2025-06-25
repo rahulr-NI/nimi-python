@@ -5178,6 +5178,64 @@ functions = {
         'returns': 'ViStatus',
         'use_session_lock': False
     },
+    'GetDeembeddingSparameters': {
+        'codegen_method': 'public',
+        'included_in_proto': False,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'default_method'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+                },
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'name': 'sparameterArraySize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'name': 'numberOfSparameters',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': False
+            },
+            {
+                'direction': 'out',
+                'name': 'sparameters',
+                'size': {
+                    'mechanism': 'passed-in',
+                    'value': 'numberOfSparameters'
+                },
+                'type': 'ViReal64[]',
+                'use_array': True,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'name': 'numberOfPorts',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'close': {
         'codegen_method': 'private',
         'documentation': {
