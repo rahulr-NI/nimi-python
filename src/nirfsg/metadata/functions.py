@@ -5222,7 +5222,7 @@ functions = {
                     'mechanism': 'passed-in',
                     'value': 'numberOfSparameters'
                 },
-                'type': 'ViReal64[]',
+                'type': 'NIComplexNumber[]',
                 'use_array': True,
                 'use_in_python_api': True
             },

@@ -524,7 +524,7 @@ class Library(object):
         with self._func_lock:
             if self.niRFSG_GetDeembeddingSparameters_cfunc is None:
                 self.niRFSG_GetDeembeddingSparameters_cfunc = self._get_library_function('niRFSG_GetDeembeddingSparameters')
-                self.niRFSG_GetDeembeddingSparameters_cfunc.argtypes = [ViSession, ViInt32, ctypes.POINTER(ViInt32), ctypes.POINTER(ViReal64), ctypes.POINTER(ViInt32)]  # noqa: F405
+                self.niRFSG_GetDeembeddingSparameters_cfunc.argtypes = [ViSession, ViInt32, ctypes.POINTER(ViInt32), ctypes.POINTER(NIComplexNumber), ctypes.POINTER(ViInt32)]  # noqa: F405
                 self.niRFSG_GetDeembeddingSparameters_cfunc.restype = ViStatus  # noqa: F405
         return self.niRFSG_GetDeembeddingSparameters_cfunc(vi, sparameter_array_size, number_of_sparameters, sparameters, number_of_ports)
 

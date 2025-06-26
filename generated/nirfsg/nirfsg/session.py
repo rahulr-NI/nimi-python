@@ -7297,7 +7297,7 @@ class Session(_SessionBase):
 
 
         Returns:
-            sparameters (array.array("d")):
+            sparameters (array.array("P")):
 
             number_of_ports (int):
 

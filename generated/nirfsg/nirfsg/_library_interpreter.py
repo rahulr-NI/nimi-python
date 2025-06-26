@@ -501,8 +501,8 @@ class LibraryInterpreter(object):
         sparameter_array_size_ctype = _visatype.ViInt32(sparameter_array_size)  # case S150
         number_of_sparameters_ctype = _visatype.ViInt32()  # case S220
         sparameters_size = number_of_sparameters  # case B600
-        sparameters_array = array.array("d", [0]) * sparameters_size  # case B600
-        sparameters_ctype = _get_ctypes_pointer_for_buffer(value=sparameters_array, library_type=_visatype.ViReal64)  # case B600
+        sparameters_array = array.array("P", [0]) * sparameters_size  # case B600
+        sparameters_ctype = _get_ctypes_pointer_for_buffer(value=sparameters_array, library_type=_visatype.NIComplexNumber)  # case B600
         number_of_ports_ctype = _visatype.ViInt32()  # case S220
         error_code = self._library.niRFSG_GetDeembeddingSparameters(vi_ctype, sparameter_array_size_ctype, None if number_of_sparameters_ctype is None else (ctypes.pointer(number_of_sparameters_ctype)), sparameters_ctype, None if number_of_ports_ctype is None else (ctypes.pointer(number_of_ports_ctype)))
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
