@@ -218,13 +218,6 @@ class LibraryInterpreter(object):
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return
 
-    def function_with_numpy3d_array_input_parameter(self, frequency):  # noqa: N802
-        vi_ctype = _visatype.ViSession(self._vi)  # case S110
-        frequency_ctype = _get_ctypes_pointer_for_buffer(value=frequency, library_type=_complextype.ComplexViReal64, complex_type='numpy')  # case B510
-        error_code = self._library.niFake_FunctionWithNumpy3dArrayInputParameter(vi_ctype, frequency_ctype)
-        errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
-        return
-
     def function_with_repeated_capability_type(self, site_list):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
         site_list_ctype = ctypes.create_string_buffer(site_list.encode(self._encoding))  # case C010

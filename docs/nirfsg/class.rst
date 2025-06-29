@@ -1419,39 +1419,6 @@ configure_software_start_trigger
 
 
 
-create3d_deembedding_sparameter_table_array
--------------------------------------------
-
-    .. py:currentmodule:: nirfsg.Session
-
-    .. py:method:: create3d_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
-
-            
-
-
-
-            :param port:
-
-
-                
-
-
-            :type port: str
-            :param table_name:
-
-
-                
-
-
-            :type table_name: str
-            :param frequency:
-
-
-                
-
-
-            :type frequency: numpy.array(dtype=numpy.complex128)
-
 create_deembedding_sparameter_table_s2_p_file
 ---------------------------------------------
 

@@ -42,8 +42,6 @@ class SideEffectsHelper(object):
         self._defaults['FetchWaveform']['return'] = 0
         self._defaults['FetchWaveform']['waveformData'] = None
         self._defaults['FetchWaveform']['actualNumberOfSamples'] = None
-        self._defaults['FunctionWithNumpy3dArrayInputParameter'] = {}
-        self._defaults['FunctionWithNumpy3dArrayInputParameter']['return'] = 0
         self._defaults['FunctionWithRepeatedCapabilityType'] = {}
         self._defaults['FunctionWithRepeatedCapabilityType']['return'] = 0
         self._defaults['GetABoolean'] = {}
@@ -338,11 +336,6 @@ class SideEffectsHelper(object):
         if actual_number_of_samples is not None:
             actual_number_of_samples.contents.value = self._defaults['FetchWaveform']['actualNumberOfSamples']
         return self._defaults['FetchWaveform']['return']
-
-    def niFake_FunctionWithNumpy3dArrayInputParameter(self, vi, frequency):  # noqa: N802
-        if self._defaults['FunctionWithNumpy3dArrayInputParameter']['return'] != 0:
-            return self._defaults['FunctionWithNumpy3dArrayInputParameter']['return']
-        return self._defaults['FunctionWithNumpy3dArrayInputParameter']['return']
 
     def niFake_FunctionWithRepeatedCapabilityType(self, vi, site_list):  # noqa: N802
         if self._defaults['FunctionWithRepeatedCapabilityType']['return'] != 0:
@@ -1043,8 +1036,6 @@ class SideEffectsHelper(object):
         mock_library.niFake_ExportAttributeConfigurationBuffer.return_value = 0
         mock_library.niFake_FetchWaveform.side_effect = MockFunctionCallError("niFake_FetchWaveform")
         mock_library.niFake_FetchWaveform.return_value = 0
-        mock_library.niFake_FunctionWithNumpy3dArrayInputParameter.side_effect = MockFunctionCallError("niFake_FunctionWithNumpy3dArrayInputParameter")
-        mock_library.niFake_FunctionWithNumpy3dArrayInputParameter.return_value = 0
         mock_library.niFake_FunctionWithRepeatedCapabilityType.side_effect = MockFunctionCallError("niFake_FunctionWithRepeatedCapabilityType")
         mock_library.niFake_FunctionWithRepeatedCapabilityType.return_value = 0
         mock_library.niFake_GetABoolean.side_effect = MockFunctionCallError("niFake_GetABoolean")
