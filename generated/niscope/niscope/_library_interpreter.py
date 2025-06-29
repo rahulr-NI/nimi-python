@@ -371,7 +371,7 @@ class LibraryInterpreter(object):
         wfm_info_ctype = _get_ctypes_pointer_for_buffer(library_type=waveform_info.struct_niScope_wfmInfo, size=wfm_info_size)  # case B560
         error_code = self._library.niScope_Fetch(vi_ctype, channel_list_ctype, timeout_ctype, num_samples_ctype, waveform_ctype, wfm_info_ctype)
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
-        return waveform_array, [waveform_info.WaveformInfo(wfm_info_ctype[i]) for i in range(self.actual_num_wfms(channel_list))]
+        return list(waveform_array), [waveform_info.WaveformInfo(wfm_info_ctype[i]) for i in range(self.actual_num_wfms(channel_list))]
 
     def fetch_into_numpy(self, channel_list, num_samples, waveform, timeout):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110

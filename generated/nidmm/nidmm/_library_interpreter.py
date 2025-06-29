@@ -254,7 +254,7 @@ class LibraryInterpreter(object):
         actual_number_of_points_ctype = _visatype.ViInt32()  # case S220
         error_code = self._library.niDMM_FetchWaveform(vi_ctype, maximum_time_ctype, array_size_ctype, waveform_array_ctype, None if actual_number_of_points_ctype is None else (ctypes.pointer(actual_number_of_points_ctype)))
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
-        return waveform_array_array
+        return list(waveform_array_array)
 
     def fetch_waveform_into(self, waveform_array, maximum_time):  # noqa: N802
         array_size = len(waveform_array)

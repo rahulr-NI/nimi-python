@@ -5222,6 +5222,7 @@ functions = {
                     'mechanism': 'passed-in',
                     'value': 'numberOfSparameters'
                 },
+                'numpy': True,
                 'type': 'NIComplexNumber[]',
                 'use_array': True,
                 'use_in_python_api': True

@@ -206,7 +206,7 @@ class LibraryInterpreter(object):
         actual_number_of_samples_ctype = _visatype.ViInt32()  # case S220
         error_code = self._library.niFake_FetchWaveform(vi_ctype, number_of_samples_ctype, waveform_data_ctype, None if actual_number_of_samples_ctype is None else (ctypes.pointer(actual_number_of_samples_ctype)))
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
-        return waveform_data_array
+        return list(waveform_data_array)
 
     def fetch_waveform_into(self, waveform_data):  # noqa: N802
         number_of_samples = len(waveform_data)
