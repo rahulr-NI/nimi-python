@@ -7019,6 +7019,30 @@ class Session(_SessionBase):
         self._interpreter.configure_software_start_trigger()
 
     @ivi_synchronized
+    def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):
+        r'''create3d_deembedding_sparameter_table_array
+
+        
+
+        Args:
+            port (str):
+
+            table_name (str):
+
+            frequency (numpy.array(dtype=numpy.complex128)):
+
+        '''
+        import numpy
+
+        if type(frequency) is not numpy.ndarray:
+            raise TypeError('frequency must be {0}, is {1}'.format(numpy.ndarray, type(frequency)))
+        if numpy.isfortran(frequency) is True:
+            raise TypeError('frequency must be in C-order')
+        if frequency.ndim != 3:
+            raise TypeError('frequency must be numpy.ndarray of dimension=3, is ' + str(frequency.ndim))
+        self._interpreter.create3d_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
+
+    @ivi_synchronized
     def create_deembedding_sparameter_table_s2_p_file(self, port, table_name, s2p_file_path, sparameter_orientation):
         r'''create_deembedding_sparameter_table_s2_p_file
 
