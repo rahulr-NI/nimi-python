@@ -1881,7 +1881,7 @@ get_deembedding_sparameters
 
                 WHERE
 
-                sparameters (array.array("P")): 
+                sparameters (list of NIComplexNumber): 
 
 
                     

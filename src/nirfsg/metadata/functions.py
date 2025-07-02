@@ -5230,6 +5230,36 @@ functions = {
         'returns': 'ViStatus',
         'use_session_lock': False
     },
+    'GetDeembeddingTableNumberOfPorts': {
+        'codegen_method': 'private',
+        'included_in_proto': False,
+        'is_error_handling': False,
+        'method_templates': [
+            {
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'default_method',
+                'method_python_name_suffix': '',
+                'session_filename': 'write_arb_waveform'
+            }
+        ],
+        'parameters': [
+            {
+                'direction': 'in',
+                'name': 'vi',
+                'type': 'ViSession',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'name': 'numberOfPorts',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            }
+        ],
+        'returns': 'ViStatus'
+    },
     'GetDeembeddingSparameters': {
         'codegen_method': 'public',
         'included_in_proto': False,
@@ -5276,8 +5306,8 @@ functions = {
                 },
                 'numpy': True,
                 'type': 'NIComplexNumber[]',
-                'use_array': True,
-                'use_in_python_api': True
+                'use_numpy_array': True,
+                'use_in_python_api': True,
             },
             {
                 'direction': 'out',
@@ -5288,6 +5318,7 @@ functions = {
             }
         ],
         'returns': 'ViStatus'
+        'python_name': '_close',
     },
     'close': {
         'codegen_method': 'private',
