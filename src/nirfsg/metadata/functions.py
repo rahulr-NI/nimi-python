@@ -5269,7 +5269,7 @@ functions = {
                 'documentation_filename': 'default_method',
                 'library_interpreter_filename': 'default_method',
                 'method_python_name_suffix': '',
-                'session_filename': 'default_method'
+                'session_filename': 'get_deembedding_sparameter'
             }
         ],
         'parameters': [
@@ -5317,6 +5317,7 @@ functions = {
                 'use_in_python_api': True
             }
         ],
+        'python_name': 'get_deembedding_sparameters',
         'returns': 'ViStatus'
     },
     'close': {
