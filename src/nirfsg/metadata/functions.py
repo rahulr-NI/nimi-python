@@ -5230,7 +5230,7 @@ functions = {
         'returns': 'ViStatus',
         'use_session_lock': False
     },
-    'GetDeembeddingTableNumberOfPorts': {
+        'GetDeembeddingTableNumberOfPorts': {
         'codegen_method': 'private',
         'included_in_proto': False,
         'is_error_handling': False,
@@ -5239,7 +5239,7 @@ functions = {
                 'documentation_filename': 'default_method',
                 'library_interpreter_filename': 'default_method',
                 'method_python_name_suffix': '',
-                'session_filename': 'write_arb_waveform'
+                'session_filename': 'default_method'
             }
         ],
         'parameters': [
@@ -5307,7 +5307,7 @@ functions = {
                 'numpy': True,
                 'type': 'NIComplexNumber[]',
                 'use_numpy_array': True,
-                'use_in_python_api': True,
+                'use_in_python_api': True
             },
             {
                 'direction': 'out',
@@ -5318,7 +5318,6 @@ functions = {
             }
         ],
         'returns': 'ViStatus'
-        'python_name': '_close',
     },
     'close': {
         'codegen_method': 'private',
