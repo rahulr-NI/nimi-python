@@ -7326,17 +7326,16 @@ class Session(_SessionBase):
             number_of_ports (int):
 
         '''
+        import pdb; pdb.set_trace()
 
-        if sparameter_array_size > 0:
-            import numpy as np
-            number_of_ports = self._interpreter._get_deembedding_table_number_of_ports()
-            waveform = np.full(number_of_ports, 0+0j, dtype=np.complex128)
-            sparameterArraySize = number_of_ports ** 2
-            waveform, number_of_ports = self._interpreter.get_deembedding_sparameter(sparameterArraySize)
-            waveform = np.array(waveform).reshape((number_of_ports, number_of_ports))
-            return list(waveform), number_of_ports
-        else:
-            raise TypeError("S Parameter array size is expected to be greater than 0.")
+        import numpy as np
+        number_of_ports = self._get_deembedding_table_number_of_ports()
+        sparameter = np.full(number_of_ports, 0+0j, dtype=np.complex128)
+        sparameterArraySize = number_of_ports ** 2
+        number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter)
+        sparameter = sparameter.reshape((number_of_ports, number_of_ports))
+        return list(sparameter), number_of_ports
+
 
 
 

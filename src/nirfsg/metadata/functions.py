@@ -5230,7 +5230,7 @@ functions = {
         'returns': 'ViStatus',
         'use_session_lock': False
     },
-        'GetDeembeddingTableNumberOfPorts': {
+    'GetDeembeddingTableNumberOfPorts': {
         'codegen_method': 'private',
         'included_in_proto': False,
         'is_error_handling': False,
@@ -5267,7 +5267,7 @@ functions = {
         'method_templates': [
             {
                 'documentation_filename': 'default_method',
-                'library_interpreter_filename': 'default_method',
+                'library_interpreter_filename': 'numpy_read_method',
                 'method_python_name_suffix': '',
                 'session_filename': 'get_deembedding_sparameter'
             }
@@ -5288,13 +5288,6 @@ functions = {
                 'name': 'sparameterArraySize',
                 'type': 'ViInt32',
                 'use_array': False,
-                'use_in_python_api': True
-            },
-            {
-                'direction': 'out',
-                'name': 'numberOfSparameters',
-                'type': 'ViInt32',
-                'use_array': False,
                 'use_in_python_api': False
             },
             {
@@ -5302,12 +5295,21 @@ functions = {
                 'name': 'sparameters',
                 'size': {
                     'mechanism': 'passed-in',
-                    'value': 'numberOfSparameters'
+                    'value': 'sparameterArraySize'
                 },
                 'numpy': True,
                 'type': 'NIComplexNumber[]',
+                'complex_type': 'numpy',
                 'use_numpy_array': True,
-                'use_in_python_api': True
+                'use_in_python_api': True,
+                'multidimension': 2
+            },
+            {
+                'direction': 'out',
+                'name': 'numberOfSparameters',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': False
             },
             {
                 'direction': 'out',

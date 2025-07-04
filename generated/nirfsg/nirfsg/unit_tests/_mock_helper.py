@@ -134,8 +134,8 @@ class SideEffectsHelper(object):
         self._defaults['GetChannelName']['name'] = None
         self._defaults['GetDeembeddingSparameters'] = {}
         self._defaults['GetDeembeddingSparameters']['return'] = 0
-        self._defaults['GetDeembeddingSparameters']['numberOfSparameters'] = None
         self._defaults['GetDeembeddingSparameters']['sparameters'] = None
+        self._defaults['GetDeembeddingSparameters']['numberOfSparameters'] = None
         self._defaults['GetDeembeddingSparameters']['numberOfPorts'] = None
         self._defaults['GetDeembeddingTableNumberOfPorts'] = {}
         self._defaults['GetDeembeddingTableNumberOfPorts']['return'] = 0
@@ -584,14 +584,9 @@ class SideEffectsHelper(object):
         name.value = self._defaults['GetChannelName']['name'].encode('ascii')
         return self._defaults['GetChannelName']['return']
 
-    def niRFSG_GetDeembeddingSparameters(self, vi, sparameter_array_size, number_of_sparameters, sparameters, number_of_ports):  # noqa: N802
+    def niRFSG_GetDeembeddingSparameters(self, vi, sparameter_array_size, sparameters, number_of_sparameters, number_of_ports):  # noqa: N802
         if self._defaults['GetDeembeddingSparameters']['return'] != 0:
             return self._defaults['GetDeembeddingSparameters']['return']
-        # number_of_sparameters
-        if self._defaults['GetDeembeddingSparameters']['numberOfSparameters'] is None:
-            raise MockFunctionCallError("niRFSG_GetDeembeddingSparameters", param='numberOfSparameters')
-        if number_of_sparameters is not None:
-            number_of_sparameters.contents.value = self._defaults['GetDeembeddingSparameters']['numberOfSparameters']
         # sparameters
         if self._defaults['GetDeembeddingSparameters']['sparameters'] is None:
             raise MockFunctionCallError("niRFSG_GetDeembeddingSparameters", param='sparameters')
@@ -603,6 +598,11 @@ class SideEffectsHelper(object):
         assert len(sparameters_ref) >= len(test_value)
         for i in range(len(test_value)):
             sparameters_ref[i] = test_value[i]
+        # number_of_sparameters
+        if self._defaults['GetDeembeddingSparameters']['numberOfSparameters'] is None:
+            raise MockFunctionCallError("niRFSG_GetDeembeddingSparameters", param='numberOfSparameters')
+        if number_of_sparameters is not None:
+            number_of_sparameters.contents.value = self._defaults['GetDeembeddingSparameters']['numberOfSparameters']
         # number_of_ports
         if self._defaults['GetDeembeddingSparameters']['numberOfPorts'] is None:
             raise MockFunctionCallError("niRFSG_GetDeembeddingSparameters", param='numberOfPorts')

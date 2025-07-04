@@ -21,8 +21,12 @@ def _get_ctypes_pointer_for_buffer(value=None, library_type=None, size=None):
         import numpy
         if library_type in (_complextype.NIComplexI16, _complextype.NIComplexNumberF32, _complextype.NIComplexNumber):
             complex_dtype = numpy.dtype(library_type)
-            structured_array = value.view(complex_dtype)
-            return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
+            if value.ndim > 1:
+                flattened_array = value.ravel().view(complex_dtype)
+                return flattened_array.ctypes.data_as(ctypes.POINTER(library_type))
+            else:
+                structured_array = value.view(complex_dtype)
+                return structured_array.ctypes.data_as(ctypes.POINTER(library_type))
         else:
             return numpy.ctypeslib.as_ctypes(value)
     elif isinstance(value, bytes):
@@ -506,16 +510,16 @@ class LibraryInterpreter(object):
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return name_ctype.value.decode(self._encoding)
 
-    def get_deembedding_sparameters(self, sparameter_array_size):  # noqa: N802
+    def get_deembedding_sparameters(self, sparameters):  # noqa: N802
+        sparameter_array_size = len(sparameters)
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
-        sparameter_array_size_ctype = _visatype.ViInt32(sparameter_array_size)  # case S150
+        sparameter_array_size_ctype = _visatype.ViInt32(sparameter_array_size)  # case S210
+        sparameters_ctype = _get_ctypes_pointer_for_buffer(value=sparameters, library_type=_complextype.NIComplexNumber)  # case B510
         number_of_sparameters_ctype = _visatype.ViInt32()  # case S220
-        sparameters_size = number_of_sparameters  # case B600
-        sparameters_ctype = _get_ctypes_pointer_for_buffer(library_type=_visatype.NIComplexNumber, size=sparameters_size)  # case B600
         number_of_ports_ctype = _visatype.ViInt32()  # case S220
-        error_code = self._library.niRFSG_GetDeembeddingSparameters(vi_ctype, sparameter_array_size_ctype, None if number_of_sparameters_ctype is None else (ctypes.pointer(number_of_sparameters_ctype)), sparameters_ctype, None if number_of_ports_ctype is None else (ctypes.pointer(number_of_ports_ctype)))
+        error_code = self._library.niRFSG_GetDeembeddingSparameters(vi_ctype, sparameter_array_size_ctype, sparameters_ctype, None if number_of_sparameters_ctype is None else (ctypes.pointer(number_of_sparameters_ctype)), None if number_of_ports_ctype is None else (ctypes.pointer(number_of_ports_ctype)))
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
-        return [NIComplexNumber(sparameters_ctype[i]) for i in range(number_of_sparameters_ctype.value)], int(number_of_ports_ctype.value)
+        return int(number_of_ports_ctype.value)
 
     def get_deembedding_table_number_of_ports(self):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
