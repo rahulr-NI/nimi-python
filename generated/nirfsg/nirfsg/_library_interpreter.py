@@ -510,14 +510,13 @@ class LibraryInterpreter(object):
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return name_ctype.value.decode(self._encoding)
 
-    def get_deembedding_sparameters(self, sparameters):  # noqa: N802
-        sparameter_array_size = len(sparameters)
+    def get_deembedding_sparameters(self, sparameters, sparameter_array_size):  # noqa: N802
         vi_ctype = _visatype.ViSession(self._vi)  # case S110
-        sparameter_array_size_ctype = _visatype.ViInt32(sparameter_array_size)  # case S210
         sparameters_ctype = _get_ctypes_pointer_for_buffer(value=sparameters, library_type=_complextype.NIComplexNumber)  # case B510
+        sparameter_array_size_ctype = _visatype.ViInt32(sparameter_array_size)  # case S150
         number_of_sparameters_ctype = _visatype.ViInt32()  # case S220
         number_of_ports_ctype = _visatype.ViInt32()  # case S220
-        error_code = self._library.niRFSG_GetDeembeddingSparameters(vi_ctype, sparameter_array_size_ctype, sparameters_ctype, None if number_of_sparameters_ctype is None else (ctypes.pointer(number_of_sparameters_ctype)), None if number_of_ports_ctype is None else (ctypes.pointer(number_of_ports_ctype)))
+        error_code = self._library.niRFSG_GetDeembeddingSparameters(vi_ctype, sparameters_ctype, sparameter_array_size_ctype, None if number_of_sparameters_ctype is None else (ctypes.pointer(number_of_sparameters_ctype)), None if number_of_ports_ctype is None else (ctypes.pointer(number_of_ports_ctype)))
         errors.handle_error(self, error_code, ignore_warnings=False, is_error_handling=False)
         return int(number_of_ports_ctype.value)
 

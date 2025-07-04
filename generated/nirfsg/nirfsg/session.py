@@ -7326,13 +7326,11 @@ class Session(_SessionBase):
             number_of_ports (int):
 
         '''
-        import pdb; pdb.set_trace()
-
         import numpy as np
         number_of_ports = self._get_deembedding_table_number_of_ports()
-        sparameter = np.full(number_of_ports, 0+0j, dtype=np.complex128)
         sparameterArraySize = number_of_ports ** 2
-        number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter)
+        sparameter = np.full(sparameterArraySize, 0+0j, dtype=np.complex128)
+        number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter, sparameterArraySize)
         sparameter = sparameter.reshape((number_of_ports, number_of_ports))
         return list(sparameter), number_of_ports
 

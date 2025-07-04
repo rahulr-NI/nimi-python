@@ -5284,25 +5284,25 @@ functions = {
                 'use_in_python_api': True
             },
             {
-                'direction': 'in',
-                'name': 'sparameterArraySize',
-                'type': 'ViInt32',
-                'use_array': False,
-                'use_in_python_api': False
-            },
-            {
                 'direction': 'out',
                 'name': 'sparameters',
                 'size': {
-                    'mechanism': 'passed-in',
-                    'value': 'sparameterArraySize'
+                    'mechanism': 'pass',
+                    'value': 'numberOfSparameters'
                 },
                 'numpy': True,
                 'type': 'NIComplexNumber[]',
                 'complex_type': 'numpy',
                 'use_numpy_array': True,
                 'use_in_python_api': True,
-                'multidimension': 2
+                'multidimension': 3
+            },
+            {
+                'direction': 'in',
+                'name': 'sparameterArraySize',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
             },
             {
                 'direction': 'out',
