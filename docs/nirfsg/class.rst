@@ -1426,7 +1426,15 @@ create_deembedding_sparameter_table_array
 
     .. py:method:: create_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
 
-            Creates a 3D array of S-parameters for de-embedding purposes.
+            Creates an s-parameter de-embedding table for the port from the input data.
+
+                            If you only create one table for a port, NI-RFSA automatically selects that table to de-embed the measurement.
+
+                            **Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860
+
+                            **Related Topics**
+
+                            `De-embedding Overview <https://www.ni.com/docs/en-US/bundle/pxie-5840/page/de-embedding-overview.html>`_
 
             
 
@@ -1435,12 +1443,16 @@ create_deembedding_sparameter_table_array
             :param port:
 
 
+                Specifies the name of the port. The only valid value for the PXIe-5840/5841/5842/5860 is "" (empty string).
+
                 
 
 
             :type port: str
             :param table_name:
 
+
+                Specifies the name of the table. The name must be unique for a given port, but not across ports. If you use the same name as an existing table, the table is replaced.
 
                 
 
@@ -1449,7 +1461,11 @@ create_deembedding_sparameter_table_array
             :param frequency:
 
 
+                Specifies the frequencies for the :py:attr:`nirfsg.Session.SPARAMETER_TABLE` rows. Frequencies must be unique and in ascending order.
+
                 
+
+                .. note:: One or more of the referenced properties are not in the Python API for this driver.
 
 
             :type frequency: numpy.array(dtype=numpy.complex128)

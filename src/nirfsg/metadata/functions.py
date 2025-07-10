@@ -4777,7 +4777,7 @@ functions = {
     'CreateDeembeddingSparameterTableArray': {
         'codegen_method': 'public',
         'documentation': {
-            'description': '\n                Creates a 3D array of S-parameters for de-embedding purposes.\n                '
+        'description': '\n                Creates an s-parameter de-embedding table for the port from the input data.\n                \n                If you only create one table for a port, NI-RFSA automatically selects that table to de-embed the measurement.\n\n                **Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860\n\n                **Related Topics**\n\n                `De-embedding Overview <https://www.ni.com/docs/en-US/bundle/pxie-5840/page/de-embedding-overview.html>`_\n                '
         },
         'included_in_proto': True,
         'method_templates': [
@@ -4792,6 +4792,9 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'vi',
+                'documentation': {
+                    'description': 'Identifies your instrument session. NIRFSG_ATTR_VI is obtained from the nirfsg_Init or nirfsg_InitWithOptions function.'
+                },
                 'type': 'ViSession',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4799,6 +4802,9 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'port',
+                'documentation': {
+                    'description': 'Specifies the name of the port. The only valid value for the PXIe-5840/5841/5842/5860 is \"\" (empty string).'
+                },
                 'type': 'ViConstString',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4806,6 +4812,9 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'tableName',
+                'documentation': {
+                    'description': 'Specifies the name of the table. The name must be unique for a given port, but not across ports. If you use the same name as an existing table, the table is replaced.'
+                },
                 'type': 'ViConstString',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4814,6 +4823,9 @@ functions = {
                 'complex_type': 'numpy',
                 'direction': 'in',
                 'name': 'frequency',
+                'documentation': {
+                    'description': 'Specifies the frequencies for the NIRFSG_ATTR_SPARAMETER_TABLE rows. Frequencies must be unique and in ascending order.'
+                },
                 'type': 'NIComplexNumber[]',
                 'numpy': True,
                 'use_numpy_array': True,
@@ -4823,6 +4835,9 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'frequenciesSize',
+                'documentation': {
+                    'description': 'Specifies the size of the frequency.'
+                },
                 'type': 'ViInt32',
                 'use_array': False,
                 'use_in_python_api': False

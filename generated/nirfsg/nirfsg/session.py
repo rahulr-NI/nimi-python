@@ -7022,14 +7022,25 @@ class Session(_SessionBase):
     def create_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):
         r'''create_deembedding_sparameter_table_array
 
-        Creates a 3D array of S-parameters for de-embedding purposes.
+        Creates an s-parameter de-embedding table for the port from the input data.
+
+                        If you only create one table for a port, NI-RFSA automatically selects that table to de-embed the measurement.
+
+                        **Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860
+
+                        **Related Topics**
+
+                        `De-embedding Overview <https://www.ni.com/docs/en-US/bundle/pxie-5840/page/de-embedding-overview.html>`_
 
         Args:
-            port (str):
+            port (str): Specifies the name of the port. The only valid value for the PXIe-5840/5841/5842/5860 is "" (empty string).
 
-            table_name (str):
+            table_name (str): Specifies the name of the table. The name must be unique for a given port, but not across ports. If you use the same name as an existing table, the table is replaced.
 
-            frequency (numpy.array(dtype=numpy.complex128)):
+            frequency (numpy.array(dtype=numpy.complex128)): Specifies the frequencies for the SPARAMETER_TABLE rows. Frequencies must be unique and in ascending order.
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
 
         '''
         import numpy
