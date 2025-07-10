@@ -1426,6 +1426,8 @@ create3d_deembedding_sparameter_table_array
 
     .. py:method:: create3d_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
 
+            Creates a 3D array of S-parameters for de-embedding purposes.
+
             
 
 
@@ -1865,6 +1867,16 @@ get_deembedding_sparameters
 
     .. py:method:: get_deembedding_sparameters(sparameter_array_size)
 
+            Returns the S-parameters used for de-embedding a measurement on the selected port.
+
+                            This includes interpolation of the parameters based on the configured carrier frequency. This method returns an empty array if no de-embedding is done.
+
+                            If you want to call this method just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.
+
+                            **Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860
+
+                            **Note**: The port orientation for the returned S-parameters is normalized to :py:data:`~nirfsg.SparameterOrientation.PORT1`.
+
             
 
 
@@ -1872,7 +1884,11 @@ get_deembedding_sparameters
             :param sparameter_array_size:
 
 
+                Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **:py:attr:`nirfsg.Session.MORE_DATA_PENDING`** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+
                 
+
+                .. note:: One or more of the referenced properties are not in the Python API for this driver.
 
 
             :type sparameter_array_size: int
@@ -1884,7 +1900,11 @@ get_deembedding_sparameters
                 sparameters (list of NIComplexNumber): 
 
 
+                    Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **:py:attr:`nirfsg.Session.MORE_DATA_PENDING`** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+
                     
+
+                    .. note:: One or more of the referenced properties are not in the Python API for this driver.
 
 
                 number_of_ports (int): 

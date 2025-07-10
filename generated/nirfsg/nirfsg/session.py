@@ -7022,7 +7022,7 @@ class Session(_SessionBase):
     def create3d_deembedding_sparameter_table_array(self, port, table_name, frequency, frequencies_size):
         r'''create3d_deembedding_sparameter_table_array
 
-        
+        Creates a 3D array of S-parameters for de-embedding purposes.
 
         Args:
             port (str):
@@ -7311,26 +7311,40 @@ class Session(_SessionBase):
         return name
 
     @ivi_synchronized
-    def get_deembedding_sparameters(self, sparameter_array_size):
+    def get_deembedding_sparameters(self):
         '''get_deembedding_sparameters
 
-        
+        Returns the S-parameters used for de-embedding a measurement on the selected port.
+
+                        This includes interpolation of the parameters based on the configured carrier frequency. This method returns an empty array if no de-embedding is done.
+
+                        If you want to call this method just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.
+
+                        **Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860
+
+                        **Note**: The port orientation for the returned S-parameters is normalized to SparameterOrientation.PORT1.
 
         Args:
-            sparameter_array_size (int):
+            sparameter_array_size (int): Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **MORE_DATA_PENDING** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
 
 
         Returns:
-            sparameters (list of NIComplexNumber):
+            sparameters (list of NIComplexNumber): Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **MORE_DATA_PENDING** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
 
             number_of_ports (int):
 
         '''
         import numpy as np
         number_of_ports = self._get_deembedding_table_number_of_ports()
-        sparameterArraySize = number_of_ports ** 2
-        sparameter = np.full((number_of_ports, number_of_ports), 0+0j, dtype=np.complex128)
-        number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter, sparameterArraySize)
+        sparameter_array_size = number_of_ports ** 2
+        sparameter = np.full((number_of_ports, number_of_ports), 0 + 0j, dtype=np.complex128)
+        number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter, sparameter_array_size)
         sparameter = sparameter.reshape((number_of_ports, number_of_ports))
         return sparameter, number_of_ports
 
@@ -7346,7 +7360,10 @@ class Session(_SessionBase):
         
 
         Returns:
-            number_of_ports (int):
+            number_of_ports (int): Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **MORE_DATA_PENDING** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+
+                Note:
+                One or more of the referenced properties are not in the Python API for this driver.
 
         '''
         number_of_ports = self._interpreter.get_deembedding_table_number_of_ports()

@@ -4776,6 +4776,9 @@ functions = {
     },
     'Create3dDeembeddingSparameterTableArray': {
         'codegen_method': 'public',
+        'documentation': {
+            'description': '\n                Creates a 3D array of S-parameters for de-embedding purposes.\n                '
+        },
         'included_in_proto': True,
         'method_templates': [
             {
@@ -5245,6 +5248,9 @@ functions = {
         'parameters': [
             {
                 'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                },
                 'name': 'vi',
                 'type': 'ViSession',
                 'use_array': False,
@@ -5252,6 +5258,9 @@ functions = {
             },
             {
                 'direction': 'out',
+                'documentation': {
+                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                },
                 'name': 'numberOfPorts',
                 'type': 'ViInt32',
                 'use_array': False,
@@ -5262,6 +5271,9 @@ functions = {
     },
     'GetDeembeddingSparameters': {
         'codegen_method': 'public',
+        'documentation': {
+            'description': '            \n                Returns the S-parameters used for de-embedding a measurement on the selected port. \n\n                This includes interpolation of the parameters based on the configured carrier frequency. This function returns an empty array if no de-embedding is done.\n\n                If you want to call this function just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.\n\n                **Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860\n\n                **Note**: The port orientation for the returned S-parameters is normalized to NIRFSG_VAL_PORT1_TOWARDS_DUT.\n                '
+        },
         'included_in_proto': False,
         'is_error_handling': False,
         'method_templates': [
@@ -5285,6 +5297,9 @@ functions = {
             },
             {
                 'direction': 'out',
+                'documentation': {
+                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                },
                 'name': 'sparameters',
                 'size': {
                     'mechanism': 'pass',
@@ -5299,6 +5314,9 @@ functions = {
             },
             {
                 'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                },
                 'name': 'sparameterArraySize',
                 'type': 'ViInt32',
                 'use_array': False,

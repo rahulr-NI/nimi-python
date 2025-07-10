@@ -948,10 +948,10 @@ class Session(_SessionBase):
     def function_with_numpy3d_array_input_parameter(self, frequency):
         r'''function_with_numpy3d_array_input_parameter
 
-        
+        Method that takes a 3D numpy array as an input parameter.
 
         Args:
-            frequency (numpy.array(dtype=numpy.complex128)):
+            frequency (numpy.array(dtype=numpy.complex128)): Specifies the 3D array of complex numbers to write.
 
         '''
         import numpy

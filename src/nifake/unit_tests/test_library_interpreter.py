@@ -895,7 +895,7 @@ class TestLibraryInterpreter:
         assert numpy_addr == ctypes_addr, (
             f"Addresses do NOT match: numpy={numpy_addr}, ctypes={ctypes_addr}"
         )
-        
+
     def test_write_waveform_numpy_complex128_valid_input(self):
         from nifake._complextype import NIComplexNumber
         waveform_data = numpy.full(1000, 0.707 + 0.707j, dtype=numpy.complex128)

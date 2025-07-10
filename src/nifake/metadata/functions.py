@@ -2799,6 +2799,9 @@ functions = {
     },
     'FunctionWithNumpy3dArrayInputParameter': {
         'codegen_method': 'public',
+        'documentation': {
+            'description': 'Function that takes a 3D numpy array as an input parameter.'
+        },
         'included_in_proto': False,
         'is_error_handling': False,
         'method_templates': [
@@ -2820,6 +2823,9 @@ functions = {
             {
                 'complex_type': 'numpy',
                 'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies the 3D array of complex numbers to write. '
+                },
                 'name': 'frequency',
                 'type': 'NIComplexNumber[]',
                 'numpy': True,
