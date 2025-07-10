@@ -843,7 +843,7 @@ class TestLibraryInterpreter:
             interpreter.import_attribute_configuration_buffer(configuration)
         self.patched_library.niFake_ImportAttributeConfigurationBuffer.assert_called_once_with(_matchers.ViSessionMatcher(SESSION_NUM_FOR_TEST), _matchers.ViInt32Matcher(len(configuration)), _matchers.ViInt8BufferMatcher(expected_list))
 
-    def test_create_3d_deembedding_sparameter_table_array(self):
+    def test_create_deembedding_sparameter_table_array(self):
         import ctypes
         import numpy as np
 

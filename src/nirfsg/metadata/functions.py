@@ -4774,7 +4774,7 @@ functions = {
         ],
         'returns': 'ViStatus'
     },
-    'Create3dDeembeddingSparameterTableArray': {
+    'CreateDeembeddingSparameterTableArray': {
         'codegen_method': 'public',
         'documentation': {
             'description': '\n                Creates a 3D array of S-parameters for de-embedding purposes.\n                '
@@ -5235,6 +5235,10 @@ functions = {
     },
     'GetDeembeddingTableNumberOfPorts': {
         'codegen_method': 'private',
+        
+        'documentation': {
+            'description': '            \n                Returns the number of S-parameter ports.'
+        },
         'included_in_proto': False,
         'is_error_handling': False,
         'method_templates': [
@@ -5249,7 +5253,7 @@ functions = {
             {
                 'direction': 'in',
                 'documentation': {
-                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
                 },
                 'name': 'vi',
                 'type': 'ViSession',
@@ -5259,7 +5263,7 @@ functions = {
             {
                 'direction': 'out',
                 'documentation': {
-                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                    'description': 'Returns the number of S-parameter ports. The **sparameter** array is always *n* x *n*, where span *n* is the number of ports.'
                 },
                 'name': 'numberOfPorts',
                 'type': 'ViInt32',
@@ -5298,7 +5302,7 @@ functions = {
             {
                 'direction': 'out',
                 'documentation': {
-                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                    'description': 'Returns an array of S-parameters. The S-parameters are returned in the following order: s11, s12, s21, s22.'
                 },
                 'name': 'sparameters',
                 'size': {
@@ -5315,7 +5319,7 @@ functions = {
             {
                 'direction': 'in',
                 'documentation': {
-                    'description': 'Specifies whether or not the data block contains the end of the waveform. Set this parameter to VI_TRUE to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **NIRFSG_ATTR_MORE_DATA_PENDING** to VI_FALSE to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.'
+                    'description': 'Specifies the size of the array that is returned by the NIRFSG_ATTR_SPARAMETERS output.'
                 },
                 'name': 'sparameterArraySize',
                 'type': 'ViInt32',
@@ -5325,6 +5329,9 @@ functions = {
             {
                 'direction': 'out',
                 'name': 'numberOfSparameters',
+                'documentation': {
+                    'description': 'Returns the number of S-parameters.'
+                },
                 'type': 'ViInt32',
                 'use_array': False,
                 'use_in_python_api': False
@@ -5332,6 +5339,9 @@ functions = {
             {
                 'direction': 'out',
                 'name': 'numberOfPorts',
+                'documentation': {
+                    'description': 'Returns the number of S-parameter ports. The **sparameter** array is always *n* x *n*, where span *n* is the number of ports.'
+                },
                 'type': 'ViInt32',
                 'use_array': False,
                 'use_in_python_api': True

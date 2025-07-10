@@ -54,7 +54,7 @@ class Library(object):
         self.niRFSG_ConfigureSignalBandwidth_cfunc = None
         self.niRFSG_ConfigureSoftwareScriptTrigger_cfunc = None
         self.niRFSG_ConfigureSoftwareStartTrigger_cfunc = None
-        self.niRFSG_Create3dDeembeddingSparameterTableArray_cfunc = None
+        self.niRFSG_CreateDeembeddingSparameterTableArray_cfunc = None
         self.niRFSG_CreateDeembeddingSparameterTableS2PFile_cfunc = None
         self.niRFSG_DeleteAllDeembeddingTables_cfunc = None
         self.niRFSG_DeleteDeembeddingTable_cfunc = None
@@ -394,13 +394,13 @@ class Library(object):
                 self.niRFSG_ConfigureSoftwareStartTrigger_cfunc.restype = ViStatus  # noqa: F405
         return self.niRFSG_ConfigureSoftwareStartTrigger_cfunc(vi)
 
-    def niRFSG_Create3dDeembeddingSparameterTableArray(self, vi, port, table_name, frequency, frequencies_size):  # noqa: N802
+    def niRFSG_CreateDeembeddingSparameterTableArray(self, vi, port, table_name, frequency, frequencies_size):  # noqa: N802
         with self._func_lock:
-            if self.niRFSG_Create3dDeembeddingSparameterTableArray_cfunc is None:
-                self.niRFSG_Create3dDeembeddingSparameterTableArray_cfunc = self._get_library_function('niRFSG_Create3dDeembeddingSparameterTableArray')
-                self.niRFSG_Create3dDeembeddingSparameterTableArray_cfunc.argtypes = [ViSession, ctypes.POINTER(ViChar), ctypes.POINTER(ViChar), ctypes.POINTER(NIComplexNumber), ViInt32]  # noqa: F405
-                self.niRFSG_Create3dDeembeddingSparameterTableArray_cfunc.restype = ViStatus  # noqa: F405
-        return self.niRFSG_Create3dDeembeddingSparameterTableArray_cfunc(vi, port, table_name, frequency, frequencies_size)
+            if self.niRFSG_CreateDeembeddingSparameterTableArray_cfunc is None:
+                self.niRFSG_CreateDeembeddingSparameterTableArray_cfunc = self._get_library_function('niRFSG_CreateDeembeddingSparameterTableArray')
+                self.niRFSG_CreateDeembeddingSparameterTableArray_cfunc.argtypes = [ViSession, ctypes.POINTER(ViChar), ctypes.POINTER(ViChar), ctypes.POINTER(NIComplexNumber), ViInt32]  # noqa: F405
+                self.niRFSG_CreateDeembeddingSparameterTableArray_cfunc.restype = ViStatus  # noqa: F405
+        return self.niRFSG_CreateDeembeddingSparameterTableArray_cfunc(vi, port, table_name, frequency, frequencies_size)
 
     def niRFSG_CreateDeembeddingSparameterTableS2PFile(self, vi, port, table_name, s2p_file_path, sparameter_orientation):  # noqa: N802
         with self._func_lock:

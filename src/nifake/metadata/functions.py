@@ -2816,6 +2816,9 @@ functions = {
             {
                 'direction': 'in',
                 'name': 'vi',
+                'documentation': {
+                    'description': 'Identifies a particular instrument session.'
+                },
                 'type': 'ViSession',
                 'use_array': False,
                 'use_in_python_api': True

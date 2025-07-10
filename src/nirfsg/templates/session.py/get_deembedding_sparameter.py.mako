@@ -15,8 +15,3 @@
         number_of_ports = self._interpreter.get_deembedding_sparameters(sparameter, sparameter_array_size)
         sparameter = sparameter.reshape((number_of_ports, number_of_ports))
         return sparameter, number_of_ports
-
-
-
-
-        

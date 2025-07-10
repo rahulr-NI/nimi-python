@@ -1419,12 +1419,12 @@ configure_software_start_trigger
 
 
 
-create3d_deembedding_sparameter_table_array
--------------------------------------------
+create_deembedding_sparameter_table_array
+-----------------------------------------
 
     .. py:currentmodule:: nirfsg.Session
 
-    .. py:method:: create3d_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
+    .. py:method:: create_deembedding_sparameter_table_array(port, table_name, frequency, frequencies_size)
 
             Creates a 3D array of S-parameters for de-embedding purposes.
 
@@ -1884,7 +1884,7 @@ get_deembedding_sparameters
             :param sparameter_array_size:
 
 
-                Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **:py:attr:`nirfsg.Session.MORE_DATA_PENDING`** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+                Specifies the size of the array that is returned by the :py:attr:`nirfsg.Session.SPARAMETERS` output.
 
                 
 
@@ -1900,15 +1900,15 @@ get_deembedding_sparameters
                 sparameters (list of NIComplexNumber): 
 
 
-                    Specifies whether or not the data block contains the end of the waveform. Set this parameter to True to allow data to be appended later to the waveform. Splitting the waveform into multiple data blocks can reduce the memory requirements of the write operation. Append data to a previously written waveform by using the same waveform in the **name** parameter. Set **:py:attr:`nirfsg.Session.MORE_DATA_PENDING`** to False to indicate that this data block contains the end of the waveform. If the waveform is already allocated, this parameter is ignored.
+                    Returns an array of S-parameters. The S-parameters are returned in the following order: s11, s12, s21, s22.
 
                     
-
-                    .. note:: One or more of the referenced properties are not in the Python API for this driver.
 
 
                 number_of_ports (int): 
 
+
+                    Returns the number of S-parameter ports. The **sparameter** array is always *n* x *n*, where span *n* is the number of ports.
 
                     
 
