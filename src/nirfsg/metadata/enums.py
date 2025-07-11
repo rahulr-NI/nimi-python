@@ -1369,6 +1369,55 @@ enums = {
             }
         ]
     },
+    'ResetOptions': {
+        'codegen_method': 'public',
+        'values': [
+            {
+                'documentation': {
+                    'description': 'NI-RFSG skips resetting the waveform configurations.'
+                },
+                'name': 'RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_WAVEFORMS',
+                'value': 1
+            },
+            {
+                'name': 'NIRFSG_VAL_MANUAL',
+                'value': 0
+            },
+            {
+                'documentation': {
+                    'description': 'NI-RFSG skips resetting the de-embedding tables.'
+                },
+                'name': 'RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_DEEMBEDDING_TABLES',
+                'value': 8
+            },
+            {
+                'name': 'NIRFSG_VAL_SCRIPT_TRIGGER',
+                'value': 1
+            },
+            {
+                'documentation': {
+                    'description': 'NI-RFSG skips resetting the scripts.'
+                },
+                'name': 'RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_SCRIPTS',
+                'value': 2
+            },
+            {
+                'name': 'NIRFSG_VAL_MARKER_EVENT',
+                'value': 2
+            },
+            {
+                'documentation': {
+                    'description': 'NI-RFSG resets all configurations.'
+                },
+                'name': 'RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_NONE',
+                'value': 0
+            },
+            {
+                'name': 'NIRFSG_VAL_SELF_CAL_IMAGE_SUPPRESSION',
+                'value': 8
+            }
+        ]
+    },
     'ResetWithOptionsStepsToOmit': {
         'codegen_method': 'public',
         'values': [

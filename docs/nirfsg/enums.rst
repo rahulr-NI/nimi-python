@@ -1538,6 +1538,67 @@ RelativeTo
 
 
 
+ResetOptions
+------------
+
+.. py:class:: ResetOptions
+
+    .. py:attribute:: ResetOptions.RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_WAVEFORMS
+
+
+
+        NI-RFSG skips resetting the waveform configurations.
+
+        
+
+
+
+    .. py:attribute:: ResetOptions.MANUAL
+
+
+
+    .. py:attribute:: ResetOptions.RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_DEEMBEDDING_TABLES
+
+
+
+        NI-RFSG skips resetting the de-embedding tables.
+
+        
+
+
+
+    .. py:attribute:: ResetOptions.SCRIPT_TRIGGER
+
+
+
+    .. py:attribute:: ResetOptions.RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_SCRIPTS
+
+
+
+        NI-RFSG skips resetting the scripts.
+
+        
+
+
+
+    .. py:attribute:: ResetOptions.MARKER_EVENT
+
+
+
+    .. py:attribute:: ResetOptions.RFSG_VAL_LOAD_CONFIGURATIONS_FROM_FILE_RESET_OPTIONS_SKIP_NONE
+
+
+
+        NI-RFSG resets all configurations.
+
+        
+
+
+
+    .. py:attribute:: ResetOptions.SELF_CAL_IMAGE_SUPPRESSION
+
+
+
 ResetWithOptionsStepsToOmit
 ---------------------------
 
