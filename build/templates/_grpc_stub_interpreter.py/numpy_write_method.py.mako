@@ -41,9 +41,14 @@
             for val in ${p['python_name']}.ravel()
         ]
 % elif p['original_type'] == 'NIComplexI16[]':
+        import numpy as np
+        arr = ${p['python_name']}.ravel()
+        if arr.size % 2 != 0:
+            raise ValueError("Interleaved int16 array must have even length (real/imag pairs)")
+        arr_pairs = arr.reshape(-1, 2)
         ${p['python_name']}_list = [
-            grpc_complex_types.NIComplexI16(real=int(val['real']), imaginary=int(val['imag']))
-            for val in ${p['python_name']}.ravel()
+            grpc_complex_types.NIComplexI16(real=int(pair[0]), imaginary=int(pair[1]))
+            for pair in arr_pairs
         ]
 % endif
 % endfor
