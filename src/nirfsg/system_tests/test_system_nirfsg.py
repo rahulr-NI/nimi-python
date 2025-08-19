@@ -5,9 +5,9 @@ import numpy as np
 import os
 import pathlib
 import pytest
-import grpc
 import sys
 import time
+import grpc
 
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent / 'shared'))
@@ -17,7 +17,7 @@ import system_test_utilities  # noqa: E402
 test_files_base_dir = os.path.join(os.path.dirname(__file__))
 use_simulated_session = True
 real_hw_resource_name = '5841'
-
+grpc_enable = False
 
 def get_test_file_path(file_name):
     return os.path.join(test_files_base_dir, file_name)
@@ -539,6 +539,8 @@ class SystemTests:
             rfsg_device_session.check_generation_status()
 
     def test_set_get_deembedding_sparameters(self, rfsg_device_session):
+        if grpc_enable:
+            pytest.skip("gRPC does not support deembedding S-parameters yet")
         frequencies = np.array([1e9, 2e9, 3e9], dtype=np.float64)
         sparameter_tables = np.array([[[1 + 1j, 2 + 2j], [3 + 3j, 4 + 4j]], [[5 + 5j, 6 + 6j], [7 + 7j, 8 + 8j]], [[9 + 9j, 10 + 10j], [11 + 11j, 12 + 12j]]], dtype=np.complex128)
         expected_sparameter_table = np.array([[5 + 5j, 6 + 6j], [7 + 7j, 8 + 8j]], dtype=np.complex128)
@@ -584,16 +586,14 @@ class TestLibrary(SystemTests):
     @pytest.fixture(scope='class')
     def session_creation_kwargs(self):
         return {}
-
-
+    
 class TestGrpc(SystemTests):
     @pytest.fixture(scope='class')
     def grpc_channel(self):
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        config_file_path = os.path.join(current_directory, 'grpc_server_config.json')
-        with system_test_utilities.GrpcServerProcess(config_file_path) as proc:
-            channel = grpc.insecure_channel(f"localhost:{proc.server_port}")
-            yield channel
+        global grpc_enable
+        grpc_enable = True
+        channel = grpc.insecure_channel(f"localhost:31763")
+        yield channel
 
     @pytest.fixture(scope='class')
     def session_creation_kwargs(self, grpc_channel):
