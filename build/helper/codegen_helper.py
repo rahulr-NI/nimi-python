@@ -371,7 +371,7 @@ def _get_ctype_variable_definition_snippet_for_scalar(parameter, parameters, ivi
             if corresponding_buffer_parameters[0]['complex_type'] == 'interleaved':
                 definitions.append(parameter['ctypes_variable_name'] + ' = {0}.{1}(0 if {2} is None else len({2}) // 2)  # case S160'.format(module_name, parameter['ctypes_type'], corresponding_buffer_parameters[0]['python_name']))
             else:
-                definitions.append(parameter['ctypes_variable_name'] + ' = {0}.{1}(0 if {2} is None else len({2}))  # case S160'.format(module_name, parameter['ctypes_type'], corresponding_buffer_parameters[0]['python_name']))
+                definitions.append(parameter['ctypes_variable_name'] + ' = {0}.{1}(0 if {2} is None else {2}.size if hasattr({2}, "size") else len({2}))  # case S160'.format(module_name, parameter['ctypes_type'], corresponding_buffer_parameters[0]['python_name']))
         else:
             if corresponding_buffer_parameters[0]['size']['mechanism'] == 'ivi-dance':  # We are only looking at the first one. Assumes all are the same here, assert below if not
                 # Verify all corresponding_buffer_parameters are 'out' and 'ivi-dance'
