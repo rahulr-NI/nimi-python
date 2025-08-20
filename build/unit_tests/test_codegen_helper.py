@@ -1182,7 +1182,7 @@ def test_get_ctype_variable_declaration_snippet_case_s150():
 
 def test_get_ctype_variable_declaration_snippet_case_s160():
     actual = get_ctype_variable_declaration_snippet(parameters_for_testing[11], parameters_for_testing, IviDanceStep.NOT_APPLICABLE, config_for_testing, use_numpy_array=False)
-    assert actual == ["input_array_size_ctype = _visatype.ViInt32(0 if input_array is None else input_array.size if hasattr(input_array, "size") else len(input_array))  # case S160"]
+    assert actual == ['input_array_size_ctype = _visatype.ViInt32(0 if input_array is None else input_array.size if hasattr(input_array, "size") else len(input_array))  # case S160']
 
 
 def test_get_ctype_variable_declaration_snippet_case_s170():
