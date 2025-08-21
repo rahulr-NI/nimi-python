@@ -1525,7 +1525,7 @@ functions = {
             },
             {
                 'array_dimension': 3,
-                'complex_type': 'numpy',
+                'complex_type': 'ndim-numpy',
                 'direction': 'in',
                 'documentation': {
                     'description': 'Specifies the S-parameters for each frequency. S-parameters for each frequency are placed in the array in the following order: s11, s12, s21, s22.'
