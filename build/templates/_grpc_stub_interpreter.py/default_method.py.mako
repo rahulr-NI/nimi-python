@@ -13,7 +13,6 @@
     included_in_proto = f.get('included_in_proto', True)
 %>\
 
-
     def ${full_func_name}(${method_decl_params}):  # noqa: N802
 % if included_in_proto:
 % if grpc_client_var == 'restricted_grpc':
