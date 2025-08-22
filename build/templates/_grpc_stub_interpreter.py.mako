@@ -41,7 +41,7 @@ class GrpcStubInterpreter(object):
         self._lock = threading.RLock()
         self._client = ${module_name}_grpc.${service_class_prefix}Stub(grpc_options.grpc_channel)
 % if 'restricted_proto' in config:
-        self._restricted_client = restricted_grpc.${service_class_prefix}Stub(grpc_options.grpc_channel)
+        self._restricted_client = restricted_grpc.${service_class_prefix}RestrictedStub(grpc_options.grpc_channel)
 % endif
         self.set_session_handle()
 
