@@ -1,4 +1,4 @@
-<%page args="f, config, method_template"/>\
+<%page args="f, config, method_template, grpc_types_var, grpc_client_var"/>\
 <%
     '''Renders a GrpcStubInterpreter method for reading repeated NIComplex proto fields into numpy arrays.'''
     import build.helper as helper
@@ -13,7 +13,6 @@
     included_in_proto = f.get('included_in_proto', True)
     full_func_name = f['interpreter_name'] + method_template['method_python_name_suffix']
     numpy_complex_params = [p for p in helper.filter_parameters(parameters, helper.ParameterUsageOptions.NUMPY_PARAMETERS) if p['complex_type'] is not None]
-    grpc_types_var = 'restricted_grpc_types' if f.get('grpc_type') == 'restricted' else 'grpc_types'
 
 %>\
 
@@ -22,8 +21,9 @@
         import numpy
 % endif
 % if included_in_proto:
+        client = self._restricted_client if grpc_client_var == 'restricted_grpc' else self._client
         ${capture_response}self._invoke(
-            self._client.${grpc_name},
+            client.${grpc_name},
             ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
         )
 % for p in numpy_complex_params:

@@ -1,4 +1,4 @@
-<%page args="f, config, method_template"/>\
+<%page args="f, config, method_template, grpc_types_var, grpc_client_var"/>\
 <%
     '''Renders a GrpcStubInterpreter initialization method, adding proto-specific fields to the passed-in function metadata.'''
 

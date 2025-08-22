@@ -92,7 +92,13 @@ class GrpcStubInterpreter(object):
 % for func_name in sorted(functions):
 % for method_template in functions[func_name]['method_templates']:
 % if method_template['library_interpreter_filename'] != '/none':
-<%include file="${'/_grpc_stub_interpreter.py' + method_template['library_interpreter_filename'] + '.py.mako'}" args="f=functions[func_name], config=config, method_template=method_template" />\
+<%
+# Determine which grpc types and client to use for this function
+f = functions[func_name]
+grpc_types_var = 'restricted_grpc_types' if f.get('grpc_type') == 'restricted' else 'grpc_types'
+grpc_client_var = 'restricted_grpc' if f.get('grpc_type') == 'restricted' else module_name + '_grpc'
+%>
+<%include file="${'/_grpc_stub_interpreter.py' + method_template['library_interpreter_filename'] + '.py.mako'}" args="f=f, config=config, method_template=method_template, grpc_types_var=grpc_types_var, grpc_client_var=grpc_client_var" />\
 % endif
 % endfor
 % endfor

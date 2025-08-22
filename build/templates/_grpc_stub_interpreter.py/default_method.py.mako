@@ -1,4 +1,4 @@
-<%page args="f, config, method_template"/>\
+<%page args="f, config, method_template, grpc_types_var, grpc_client_var"/>\
 <%
     '''Renders a GrpcStubInterpreter method corresponding to the passed-in function metadata.'''
     import build.helper as helper
@@ -11,14 +11,16 @@
         return_statement = None
     capture_response = 'response = ' if return_statement else ''
     included_in_proto = f.get('included_in_proto', True)
-    grpc_types_var = 'restricted_grpc_types' if f.get('grpc_type') == 'restricted' else 'grpc_types'
+%>\
+
 
     def ${full_func_name}(${method_decl_params}):  # noqa: N802
 % if included_in_proto:
-        ${capture_response}self._invoke(
-            self._client.${grpc_name},
-            ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
-        )
+    client = self._restricted_client if grpc_client_var == 'restricted_grpc' else self._client
+    ${capture_response}self._invoke(
+        client.${grpc_name},
+        ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
+    )
 % if return_statement:
         ${return_statement}
 % endif
