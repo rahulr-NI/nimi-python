@@ -16,7 +16,7 @@
         p for p in helper.filter_parameters(parameters, helper.ParameterUsageOptions.NUMPY_PARAMETERS)
         if p['complex_type'] is not None and p.get('original_type') in ('NIComplexNumber[]', 'NIComplexNumberF32[]', 'NIComplexI16[]')
     ]
-
+    grpc_types_var = 'restricted_grpc_types' if f.get('grpc_type') == 'restricted' else 'grpc_types'
     # For numpy complex inputs, create NIComplex message lists and map them in the request args
     for p in numpy_complex_params:
         # Replace occurrences like "field=python_name" with "field=python_name_list"
@@ -54,7 +54,7 @@
 % endfor
         ${capture_response}self._invoke(
             self._client.${grpc_name},
-            grpc_types.${grpc_name}Request(${grpc_request_args}),
+            ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
         )
 % if return_statement:
         ${return_statement}

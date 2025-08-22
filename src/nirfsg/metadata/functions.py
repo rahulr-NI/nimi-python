@@ -2729,6 +2729,7 @@ functions = {
     },
     'GetDeembeddingTableNumberOfPorts': {
         'codegen_method': 'private',
+        'grpc_type': 'restricted',
         'documentation': {
             'description': '\nReturns the number of S-parameter ports.'
         },

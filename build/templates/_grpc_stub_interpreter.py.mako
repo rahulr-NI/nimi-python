@@ -21,6 +21,10 @@ from . import enums as enums  # noqa: F401
 from . import errors as errors
 from . import ${proto_name}_pb2 as grpc_types
 from . import ${proto_name}_pb2_grpc as ${module_name}_grpc
+% if 'restricted_proto' in config:
+from . import ${config['restricted_proto']}_pb2 as restricted_grpc_types
+from . import ${config['restricted_proto']}_pb2_grpc as restricted_grpc
+% endif
 from . import session_pb2 as session_grpc_types
 from . import nidevice_pb2 as grpc_complex_types
 % for c in config['custom_types']:

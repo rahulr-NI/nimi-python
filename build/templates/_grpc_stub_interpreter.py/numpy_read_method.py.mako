@@ -13,6 +13,8 @@
     included_in_proto = f.get('included_in_proto', True)
     full_func_name = f['interpreter_name'] + method_template['method_python_name_suffix']
     numpy_complex_params = [p for p in helper.filter_parameters(parameters, helper.ParameterUsageOptions.NUMPY_PARAMETERS) if p['complex_type'] is not None]
+    grpc_types_var = 'restricted_grpc_types' if f.get('grpc_type') == 'restricted' else 'grpc_types'
+
 %>\
 
     def ${full_func_name}(${param_names_method}):  # noqa: N802
@@ -22,7 +24,7 @@
 % if included_in_proto:
         ${capture_response}self._invoke(
             self._client.${grpc_name},
-            grpc_types.${grpc_name}Request(${grpc_request_args}),
+            ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
         )
 % for p in numpy_complex_params:
 % if p['original_type'] == 'NIComplexNumber[]':
