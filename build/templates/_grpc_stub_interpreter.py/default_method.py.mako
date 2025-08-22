@@ -16,11 +16,11 @@
 
     def ${full_func_name}(${method_decl_params}):  # noqa: N802
 % if included_in_proto:
-    client = self._restricted_client if grpc_client_var == 'restricted_grpc' else self._client
-    ${capture_response}self._invoke(
-        client.${grpc_name},
-        ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
-    )
+        client = self._restricted_client if grpc_client_var == 'restricted_grpc' else self._client
+        ${capture_response}self._invoke(
+            client.${grpc_name},
+            ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
+        )
 % if return_statement:
         ${return_statement}
 % endif
