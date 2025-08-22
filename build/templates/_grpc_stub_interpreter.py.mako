@@ -40,6 +40,9 @@ class GrpcStubInterpreter(object):
         self._grpc_options = grpc_options
         self._lock = threading.RLock()
         self._client = ${module_name}_grpc.${service_class_prefix}Stub(grpc_options.grpc_channel)
+% if 'restricted_proto' in config:
+        self._restricted_client = restricted_grpc.${service_class_prefix}Stub(grpc_options.grpc_channel)
+% endif
         self.set_session_handle()
 
     def set_session_handle(self, value=session_grpc_types.Session()):
