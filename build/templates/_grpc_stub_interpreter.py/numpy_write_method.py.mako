@@ -51,7 +51,11 @@
         ]
 % endif
 % endfor
-        client = self._restricted_client if grpc_client_var == 'restricted_grpc' else self._client
+% if grpc_client_var == 'restricted_grpc':
+        client = self._restricted_client
+% else:
+        client = self._client
+% endif
         ${capture_response}self._invoke(
             client.${grpc_name},
             ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
