@@ -32,11 +32,11 @@
         )
 % for p in numpy_complex_params:
 % if p['original_type'] == 'NIComplexNumber[]':
-        temp_array = numpy.array([(c.real, c.imag) for c in response.${p['python_name']}], dtype=numpy.complex128)
+        temp_array = numpy.array([c.real + 1j * c.imaginary for c in response.${p['python_name']}], dtype=numpy.complex128)
 % elif p['original_type'] == 'NIComplexNumberF32[]':
-        temp_array = numpy.array([(c.real, c.imag) for c in response.${p['python_name']}], dtype=numpy.complex64)
+        temp_array = numpy.array([c.real + 1j * c.imaginary for c in response.${p['python_name']}], dtype=numpy.complex64)
 % elif p['original_type'] == 'NIComplexI16[]':
-        temp_array = numpy.array([(c.real, c.imag) for c in response.${p['python_name']}], dtype=numpy.dtype([('real', numpy.int16), ('imag', numpy.int16)]))
+        temp_array = numpy.array([c.real + 1j * c.imaginary for c in response.${p['python_name']}], dtype=numpy.dtype([('real', numpy.int16), ('imag', numpy.int16)]))
 % endif
         numpy.copyto(${p['python_name']}, temp_array.view(${p['python_name']}.dtype).reshape(${p['python_name']}.shape))
 % endfor

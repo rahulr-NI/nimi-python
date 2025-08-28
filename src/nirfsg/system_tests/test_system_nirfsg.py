@@ -382,7 +382,7 @@ class SystemTests:
         rfsg_device_session.iq_rate = 1e6
         config_path = get_test_file_path('tempConfiguration.json')
         rfsg_device_session.save_configurations_to_file(config_path)
-        if not grpc_enable:
+        if not grpc_enable or hostname == "localhost":
             assert os.path.exists(config_path)
         else:
             import paramiko
@@ -405,7 +405,7 @@ class SystemTests:
         assert rfsg_device_session.frequency == 2e9
         assert rfsg_device_session.power_level == -5.0
         assert rfsg_device_session.iq_rate == 1e6
-        if grpc_enable:
+        if grpc_enable and hostname != "localhost":
             # Remove the file from the server via SSH
             ssh = paramiko.SSHClient()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -608,10 +608,10 @@ class SystemTests:
             rfsg_device_session.wait_until_settled(15000)
 
 
-# class TestLibrary(SystemTests):
-#     @pytest.fixture(scope='class')
-#     def session_creation_kwargs(self):
-#         return {}
+class TestLibrary(SystemTests):
+    @pytest.fixture(scope='class')
+    def session_creation_kwargs(self):
+        return {}
     
 class TestGrpc(SystemTests):
     @pytest.fixture(scope='class')
