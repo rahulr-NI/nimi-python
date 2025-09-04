@@ -11,6 +11,7 @@ from . import errors as errors
 from . import niswitch_pb2 as grpc_types
 from . import niswitch_pb2_grpc as niswitch_grpc
 from . import session_pb2 as session_grpc_types
+from . import nidevice_pb2 as grpc_complex_types
 
 
 class GrpcStubInterpreter(object):
@@ -70,130 +71,169 @@ class GrpcStubInterpreter(object):
             warnings.warn(errors.DriverWarning(error_code, error_message))
         return response
 
+
     def abort(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.AbortScan,
+            client.AbortScan,
             grpc_types.AbortScanRequest(vi=self._vi),
         )
 
+
     def can_connect(self, channel1, channel2):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.CanConnect,
+            client.CanConnect,
             grpc_types.CanConnectRequest(vi=self._vi, channel1=channel1, channel2=channel2),
         )
         return enums.PathCapability(response.path_capability_raw)
 
+
     def commit(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Commit,
+            client.Commit,
             grpc_types.CommitRequest(vi=self._vi),
         )
 
+
     def connect(self, channel1, channel2):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Connect,
+            client.Connect,
             grpc_types.ConnectRequest(vi=self._vi, channel1=channel1, channel2=channel2),
         )
 
+
     def connect_multiple(self, connection_list):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.ConnectMultiple,
+            client.ConnectMultiple,
             grpc_types.ConnectMultipleRequest(vi=self._vi, connection_list=connection_list),
         )
 
+
     def disable(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Disable,
+            client.Disable,
             grpc_types.DisableRequest(vi=self._vi),
         )
 
+
     def disconnect(self, channel1, channel2):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Disconnect,
+            client.Disconnect,
             grpc_types.DisconnectRequest(vi=self._vi, channel1=channel1, channel2=channel2),
         )
 
+
     def disconnect_all(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.DisconnectAll,
+            client.DisconnectAll,
             grpc_types.DisconnectAllRequest(vi=self._vi),
         )
 
+
     def disconnect_multiple(self, disconnection_list):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.DisconnectMultiple,
+            client.DisconnectMultiple,
             grpc_types.DisconnectMultipleRequest(vi=self._vi, disconnection_list=disconnection_list),
         )
 
+
     def get_attribute_vi_boolean(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViBoolean,
+            client.GetAttributeViBoolean,
             grpc_types.GetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_int32(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViInt32,
+            client.GetAttributeViInt32,
             grpc_types.GetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_real64(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViReal64,
+            client.GetAttributeViReal64,
             grpc_types.GetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_string(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViString,
+            client.GetAttributeViString,
             grpc_types.GetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_channel_name(self, index):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetChannelName,
+            client.GetChannelName,
             grpc_types.GetChannelNameRequest(vi=self._vi, index=index),
         )
         return response.channel_name_buffer
 
+
     def get_error(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetError,
+            client.GetError,
             grpc_types.GetErrorRequest(vi=self._vi),
         )
         return response.code, response.description
 
+
     def get_path(self, channel1, channel2):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetPath,
+            client.GetPath,
             grpc_types.GetPathRequest(vi=self._vi, channel1=channel1, channel2=channel2),
         )
         return response.path
 
+
     def get_relay_count(self, relay_name):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetRelayCount,
+            client.GetRelayCount,
             grpc_types.GetRelayCountRequest(vi=self._vi, relay_name=relay_name),
         )
         return response.relay_count
 
+
     def get_relay_name(self, index):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetRelayName,
+            client.GetRelayName,
             grpc_types.GetRelayNameRequest(vi=self._vi, index=index),
         )
         return response.relay_name_buffer
 
+
     def get_relay_position(self, relay_name):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetRelayPosition,
+            client.GetRelayPosition,
             grpc_types.GetRelayPositionRequest(vi=self._vi, relay_name=relay_name),
         )
         return enums.RelayPosition(response.relay_position_raw)
+
 
     def init_with_topology(self, resource_name, topology, simulate, reset_device):  # noqa: N802
         metadata = (
@@ -207,115 +247,152 @@ class GrpcStubInterpreter(object):
         self._close_on_exit = response.new_session_initialized
         return response.vi
 
+
     def initiate_scan(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.InitiateScan,
+            client.InitiateScan,
             grpc_types.InitiateScanRequest(vi=self._vi),
         )
+
 
     def lock(self):  # noqa: N802
         self._lock.acquire()
 
+
     def relay_control(self, relay_name, relay_action):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.RelayControl,
+            client.RelayControl,
             grpc_types.RelayControlRequest(vi=self._vi, relay_name=relay_name, relay_action_raw=relay_action.value),
         )
 
+
     def reset_with_defaults(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.ResetWithDefaults,
+            client.ResetWithDefaults,
             grpc_types.ResetWithDefaultsRequest(vi=self._vi),
         )
 
+
     def route_scan_advanced_output(self, scan_advanced_output_connector, scan_advanced_output_bus_line, invert):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.RouteScanAdvancedOutput,
+            client.RouteScanAdvancedOutput,
             grpc_types.RouteScanAdvancedOutputRequest(vi=self._vi, scan_advanced_output_connector_raw=scan_advanced_output_connector.value, scan_advanced_output_bus_line_raw=scan_advanced_output_bus_line.value, invert=invert),
         )
 
+
     def route_trigger_input(self, trigger_input_connector, trigger_input_bus_line, invert):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.RouteTriggerInput,
+            client.RouteTriggerInput,
             grpc_types.RouteTriggerInputRequest(vi=self._vi, trigger_input_connector_raw=trigger_input_connector.value, trigger_input_bus_line_raw=trigger_input_bus_line.value, invert=invert),
         )
 
+
     def send_software_trigger(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SendSoftwareTrigger,
+            client.SendSoftwareTrigger,
             grpc_types.SendSoftwareTriggerRequest(vi=self._vi),
         )
 
+
     def set_attribute_vi_boolean(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViBoolean,
+            client.SetAttributeViBoolean,
             grpc_types.SetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value=attribute_value),
         )
 
+
     def set_attribute_vi_int32(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViInt32,
+            client.SetAttributeViInt32,
             grpc_types.SetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_attribute_vi_real64(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViReal64,
+            client.SetAttributeViReal64,
             grpc_types.SetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_attribute_vi_string(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViString,
+            client.SetAttributeViString,
             grpc_types.SetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_path(self, path_list):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetPath,
+            client.SetPath,
             grpc_types.SetPathRequest(vi=self._vi, path_list=path_list),
         )
+
 
     def set_runtime_environment(self, environment, environment_version, reserved1, reserved2):  # noqa: N802
         raise NotImplementedError('set_runtime_environment is not supported over gRPC')
 
+
     def unlock(self):  # noqa: N802
         self._lock.release()
 
+
     def wait_for_debounce(self, maximum_time_ms):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.WaitForDebounce,
+            client.WaitForDebounce,
             grpc_types.WaitForDebounceRequest(vi=self._vi, maximum_time_ms=maximum_time_ms),
         )
 
+
     def wait_for_scan_complete(self, maximum_time_ms):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.WaitForScanComplete,
+            client.WaitForScanComplete,
             grpc_types.WaitForScanCompleteRequest(vi=self._vi, maximum_time_ms=maximum_time_ms),
         )
 
+
     def close(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Close,
+            client.Close,
             grpc_types.CloseRequest(vi=self._vi),
         )
 
+
     def error_message(self, error_code):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ErrorMessage,
+            client.ErrorMessage,
             grpc_types.ErrorMessageRequest(vi=self._vi, error_code=error_code),
         )
         return response.error_message
 
+
     def reset(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Reset,
+            client.Reset,
             grpc_types.ResetRequest(vi=self._vi),
         )
 
+
     def self_test(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.SelfTest,
+            client.SelfTest,
             grpc_types.SelfTestRequest(vi=self._vi),
         )
         return response.self_test_result, response.self_test_message

@@ -6394,7 +6394,7 @@ class _SessionBase(object):
 class Session(_SessionBase):
     '''An NI-RFSG session to the NI-RFSG driver'''
 
-    def __init__(self, resource_name, id_query=False, reset_device=False, options={}):
+    def __init__(self, resource_name, id_query=False, reset_device=False, options={}, *, grpc_options=None):
         r'''An NI-RFSG session to the NI-RFSG driver
 
         Opens a session to the device you specify as the RESOURCE_NAME and returns a ViSession handle that you use to identify the NI-RFSG device in all subsequent NI-RFSG method calls.
@@ -6473,12 +6473,18 @@ class Session(_SessionBase):
                 | driver_setup            | {}      |
                 +-------------------------+---------+
 
+            grpc_options (nirfsg.grpc_session_options.GrpcSessionOptions): MeasurementLink gRPC session options
+
 
         Returns:
             new_vi (int): Returns a ViSession handle that you use to identify the NI-RFSG device in all subsequent NI-RFSG method calls.
 
         '''
-        interpreter = _library_interpreter.LibraryInterpreter(encoding='windows-1251')
+        if grpc_options:
+            import nirfsg._grpc_stub_interpreter as _grpc_stub_interpreter
+            interpreter = _grpc_stub_interpreter.GrpcStubInterpreter(grpc_options)
+        else:
+            interpreter = _library_interpreter.LibraryInterpreter(encoding='windows-1251')
 
         # Initialize the superclass with default values first, populate them later
         super(Session, self).__init__(
@@ -6496,7 +6502,9 @@ class Session(_SessionBase):
         # with the actual session handle.
         self._interpreter.set_session_handle(self._init_with_options(resource_name, id_query, reset_device, options))
 
-        self.tclk = nitclk.SessionReference(self._interpreter.get_session_handle())
+        # NI-TClk does not work over NI gRPC Device Server
+        if not grpc_options:
+            self.tclk = nitclk.SessionReference(self._interpreter.get_session_handle())
 
         # Store the parameter list for later printing in __repr__
         param_list = []
@@ -6523,7 +6531,8 @@ class Session(_SessionBase):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        self.close()
+        if self._interpreter._close_on_exit:
+            self.close()
 
     def initiate(self):
         '''initiate
@@ -7021,7 +7030,7 @@ class Session(_SessionBase):
         self._interpreter.configure_software_start_trigger()
 
     @ivi_synchronized
-    def _create_deembedding_sparameter_table_array(self, port, table_name, frequencies, sparameter_table, sparameter_table_size, number_of_ports, sparameter_orientation):
+    def _create_deembedding_sparameter_table_array(self, port, table_name, frequencies, sparameter_table, number_of_ports, sparameter_orientation):
         r'''_create_deembedding_sparameter_table_array
 
         Creates an s-parameter de-embedding table for the port from the input data.
@@ -7079,7 +7088,7 @@ class Session(_SessionBase):
             raise TypeError('sparameter_table must be numpy.ndarray of dtype=complex128, is ' + str(sparameter_table.dtype))
         if sparameter_table.ndim != 3:
             raise TypeError('sparameter_table must be numpy.ndarray of dimension=3, is ' + str(sparameter_table.ndim))
-        self._interpreter.create_deembedding_sparameter_table_array(port, table_name, frequencies, sparameter_table, sparameter_table_size, number_of_ports, sparameter_orientation)
+        self._interpreter.create_deembedding_sparameter_table_array(port, table_name, frequencies, sparameter_table, number_of_ports, sparameter_orientation)
 
     @ivi_synchronized
     def create_deembedding_sparameter_table_s2p_file(self, port, table_name, s2p_file_path, sparameter_orientation):
@@ -7233,8 +7242,7 @@ class Session(_SessionBase):
                 if frequencies.size == sparameter_table.shape[0]:
                     if sparameter_table.shape[1] == sparameter_table.shape[2]:
                         number_of_ports = sparameter_table.shape[1]
-                        sparameter_table_size = sparameter_table.size
-                        return self._create_deembedding_sparameter_table_array(port, table_name, frequencies, sparameter_table, sparameter_table_size, number_of_ports, sparameter_orientation)
+                        return self._create_deembedding_sparameter_table_array(port, table_name, frequencies, sparameter_table, number_of_ports, sparameter_orientation)
                     else:
                         raise ValueError("Row and column count of sparameter table should be equal. Table row count is {} and column count is {}.".format(sparameter_table.shape[1], sparameter_table.shape[2]))
                 else:

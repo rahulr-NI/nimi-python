@@ -11,6 +11,7 @@ from . import errors as errors
 from . import nifake_pb2 as grpc_types
 from . import nifake_pb2_grpc as nifake_grpc
 from . import session_pb2 as session_grpc_types
+from . import nidevice_pb2 as grpc_complex_types
 
 from . import custom_struct as custom_struct  # noqa: F401
 
@@ -76,241 +77,317 @@ class GrpcStubInterpreter(object):
             warnings.warn(errors.DriverWarning(error_code, error_message))
         return response
 
+
     def abort(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Abort,
+            client.Abort,
             grpc_types.AbortRequest(vi=self._vi),
         )
 
+
     def accept_list_of_durations_in_seconds(self, delays):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.AcceptListOfDurationsInSeconds,
+            client.AcceptListOfDurationsInSeconds,
             grpc_types.AcceptListOfDurationsInSecondsRequest(vi=self._vi, delays=delays),
         )
 
+
     def bool_array_output_function(self, number_of_elements):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.BoolArrayOutputFunction,
+            client.BoolArrayOutputFunction,
             grpc_types.BoolArrayOutputFunctionRequest(vi=self._vi, number_of_elements=number_of_elements),
         )
         return response.an_array
 
+
     def configure_abc(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.ConfigureAbc,
+            client.ConfigureAbc,
             grpc_types.ConfigureAbcRequest(vi=self._vi),
         )
 
+
     def custom_nested_struct_roundtrip(self, nested_custom_type_in):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.CustomNestedStructRoundtrip,
+            client.CustomNestedStructRoundtrip,
             grpc_types.CustomNestedStructRoundtripRequest(nested_custom_type_in=nested_custom_type_in._create_copy(grpc_types.CustomStructNestedTypedef)),
         )
         return custom_struct_nested_typedef.CustomStructNestedTypedef(response.nested_custom_type_out)
 
+
     def double_all_the_nums(self, numbers):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.DoubleAllTheNums,
+            client.DoubleAllTheNums,
             grpc_types.DoubleAllTheNumsRequest(vi=self._vi, numbers=numbers),
         )
 
+
     def enum_array_output_function(self, number_of_elements):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.EnumArrayOutputFunction,
+            client.EnumArrayOutputFunction,
             grpc_types.EnumArrayOutputFunctionRequest(vi=self._vi, number_of_elements=number_of_elements),
         )
         return [enums.Turtle(x) for x in response.an_array_raw]
 
+
     def enum_input_function_with_defaults(self, a_turtle):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.EnumInputFunctionWithDefaults,
+            client.EnumInputFunctionWithDefaults,
             grpc_types.EnumInputFunctionWithDefaultsRequest(vi=self._vi, a_turtle_raw=a_turtle.value),
         )
 
+
     def export_attribute_configuration_buffer(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ExportAttributeConfigurationBuffer,
+            client.ExportAttributeConfigurationBuffer,
             grpc_types.ExportAttributeConfigurationBufferRequest(vi=self._vi),
         )
         return response.configuration
 
+
     def fetch_waveform(self, number_of_samples):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.FetchWaveform,
+            client.FetchWaveform,
             grpc_types.FetchWaveformRequest(vi=self._vi, number_of_samples=number_of_samples),
         )
         return response.waveform_data
 
-    def fetch_waveform_into(self, number_of_samples):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+
+    def fetch_waveform_into(self, waveform_data):  # noqa: N802
+        client = self._client
+        self._invoke(
+            client.FetchWaveform,
+            grpc_types.FetchWaveformRequest(vi=self._vi, number_of_samples=number_of_samples),
+        )
+
 
     def function_with_3d_numpy_array_of_numpy_complex128_input_parameter(self, multidimensional_array):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+        raise NotImplementedError('function_with_3d_numpy_array_of_numpy_complex128_input_parameter is not supported over gRPC')
+
 
     def function_with_intflag_parameter(self, flag):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.FunctionWithIntflagParameter,
+            client.FunctionWithIntflagParameter,
             grpc_types.FunctionWithIntflagParameterRequest(vi=self._vi, flag=flag.value),
         )
+
 
     def function_with_repeated_capability_type(self, site_list):  # noqa: N802
         raise NotImplementedError('function_with_repeated_capability_type is not supported over gRPC')
 
+
     def get_a_boolean(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetABoolean,
+            client.GetABoolean,
             grpc_types.GetABooleanRequest(vi=self._vi),
         )
         return response.a_boolean
 
+
     def get_a_number(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetANumber,
+            client.GetANumber,
             grpc_types.GetANumberRequest(vi=self._vi),
         )
         return response.a_number
 
+
     def get_a_string_of_fixed_maximum_size(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAStringOfFixedMaximumSize,
+            client.GetAStringOfFixedMaximumSize,
             grpc_types.GetAStringOfFixedMaximumSizeRequest(vi=self._vi),
         )
         return response.a_string
 
+
     def get_a_string_using_python_code(self, a_number):  # noqa: N802
         raise NotImplementedError('get_a_string_using_python_code is not supported over gRPC')
 
+
     def get_an_ivi_dance_char_array(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAnIviDanceCharArray,
+            client.GetAnIviDanceCharArray,
             grpc_types.GetAnIviDanceCharArrayRequest(vi=self._vi),
         )
         return response.char_array
 
+
     def get_an_ivi_dance_with_a_twist_string(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAnIviDanceWithATwistString,
+            client.GetAnIviDanceWithATwistString,
             grpc_types.GetAnIviDanceWithATwistStringRequest(vi=self._vi),
         )
         return response.a_string
 
+
     def get_array_for_python_code_custom_type(self):  # noqa: N802
         raise NotImplementedError('get_array_for_python_code_custom_type is not supported over gRPC')
+
 
     def get_array_for_python_code_double(self):  # noqa: N802
         raise NotImplementedError('get_array_for_python_code_double is not supported over gRPC')
 
+
     def get_array_size_for_python_code(self):  # noqa: N802
         raise NotImplementedError('get_array_size_for_python_code is not supported over gRPC')
 
+
     def get_array_using_ivi_dance(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetArrayUsingIviDance,
+            client.GetArrayUsingIviDance,
             grpc_types.GetArrayUsingIviDanceRequest(vi=self._vi),
         )
         return response.array_out
 
+
     def get_attribute_vi_boolean(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViBoolean,
+            client.GetAttributeViBoolean,
             grpc_types.GetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_int32(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViInt32,
+            client.GetAttributeViInt32,
             grpc_types.GetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_int64(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViInt64,
+            client.GetAttributeViInt64,
             grpc_types.GetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_real64(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViReal64,
+            client.GetAttributeViReal64,
             grpc_types.GetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_attribute_vi_string(self, channel_name, attribute_id):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetAttributeViString,
+            client.GetAttributeViString,
             grpc_types.GetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
         return response.attribute_value
 
+
     def get_cal_date_and_time(self, cal_type):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetCalDateAndTime,
+            client.GetCalDateAndTime,
             grpc_types.GetCalDateAndTimeRequest(vi=self._vi, cal_type=cal_type),
         )
         return response.month, response.day, response.year, response.hour, response.minute
 
+
     def get_cal_interval(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetCalInterval,
+            client.GetCalInterval,
             grpc_types.GetCalIntervalRequest(vi=self._vi),
         )
         return response.months
 
+
     def get_channel_names(self, indices):  # noqa: N802
         raise NotImplementedError('get_channel_names is not supported over gRPC')
 
+
     def get_custom_type(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetCustomType,
+            client.GetCustomType,
             grpc_types.GetCustomTypeRequest(vi=self._vi),
         )
         return custom_struct.CustomStruct(response.cs)
 
+
     def get_custom_type_array(self, number_of_elements):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetCustomTypeArray,
+            client.GetCustomTypeArray,
             grpc_types.GetCustomTypeArrayRequest(vi=self._vi, number_of_elements=number_of_elements),
         )
         return [custom_struct.CustomStruct(x) for x in response.cs]
 
+
     def get_custom_type_typedef(self):  # noqa: N802
         raise NotImplementedError('get_custom_type_typedef is not supported over gRPC')
 
+
     def get_enum_value(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetEnumValue,
+            client.GetEnumValue,
             grpc_types.GetEnumValueRequest(vi=self._vi),
         )
         return response.a_quantity, enums.Turtle(response.a_turtle_raw)
 
+
     def get_error(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetError,
+            client.GetError,
             grpc_types.GetErrorRequest(vi=self._vi),
         )
         return response.error_code, response.description
 
+
     def get_parameter_with_overridden_grpc_name(self, enum_parameter):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.GetParameterWithOverriddenGrpcName,
+            client.GetParameterWithOverriddenGrpcName,
             grpc_types.GetParameterWithOverriddenGrpcNameRequest(vi=self._vi, enum_parameter_raw=enum_parameter.value),
         )
         return response.overridden_parameter
 
+
     def import_attribute_configuration_buffer(self, configuration):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.ImportAttributeConfigurationBuffer,
+            client.ImportAttributeConfigurationBuffer,
             grpc_types.ImportAttributeConfigurationBufferRequest(vi=self._vi, configuration=configuration),
         )
 
+
     def import_attribute_configuration_buffer_ex(self, configuration):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.ImportAttributeConfigurationBufferEx,
+            client.ImportAttributeConfigurationBufferEx,
             grpc_types.ImportAttributeConfigurationBufferExRequest(vi=self._vi, configuration=configuration),
         )
+
 
     def init_with_options(self, resource_name, id_query, reset_device, option_string):  # noqa: N802
         metadata = (
@@ -324,201 +401,268 @@ class GrpcStubInterpreter(object):
         self._close_on_exit = response.new_session_initialized
         return response.vi
 
+
     def initiate(self):  # noqa: N802
         raise NotImplementedError('initiate is not supported over gRPC')
+
 
     def lock(self):  # noqa: N802
         self._lock.acquire()
 
+
     def method_using_whole_and_fractional_numbers(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.MethodUsingWholeAndFractionalNumbers,
+            client.MethodUsingWholeAndFractionalNumbers,
             grpc_types.MethodUsingWholeAndFractionalNumbersRequest(),
         )
         return response.whole_number_raw, response.fractional_number_raw
 
+
     def method_with_grpc_only_param(self, simple_param):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.MethodWithGrpcOnlyParam,
+            client.MethodWithGrpcOnlyParam,
             grpc_types.MethodWithGrpcOnlyParamRequest(simple_param=simple_param),
         )
 
+
     def method_with_proto_only_parameter(self, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.MethodWithProtoOnlyParameter,
+            client.MethodWithProtoOnlyParameter,
             grpc_types.MethodWithProtoOnlyParameterRequest(attribute_value=attribute_value),
         )
 
+
     def multiple_array_types(self, output_array_size, input_array_of_floats, input_array_of_integers):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.MultipleArrayTypes,
+            client.MultipleArrayTypes,
             grpc_types.MultipleArrayTypesRequest(vi=self._vi, output_array_size=output_array_size, input_array_of_floats=input_array_of_floats, input_array_of_integers=input_array_of_integers),
         )
         return response.output_array, response.output_array_of_fixed_length
 
+
     def multiple_arrays_same_size(self, values1, values2, values3, values4):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.MultipleArraysSameSize,
+            client.MultipleArraysSameSize,
             grpc_types.MultipleArraysSameSizeRequest(vi=self._vi, values1=values1, values2=values2, values3=values3, values4=values4),
         )
 
+
     def one_input_function(self, a_number):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.OneInputFunction,
+            client.OneInputFunction,
             grpc_types.OneInputFunctionRequest(vi=self._vi, a_number=a_number),
         )
 
+
     def parameters_are_multiple_types(self, a_boolean, an_int32, an_int64, an_int_enum, a_float, a_float_enum, a_string):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.ParametersAreMultipleTypes,
+            client.ParametersAreMultipleTypes,
             grpc_types.ParametersAreMultipleTypesRequest(vi=self._vi, a_boolean=a_boolean, an_int32=an_int32, an_int64=an_int64, an_int_enum_raw=an_int_enum.value, a_float=a_float, a_float_enum_raw=a_float_enum.value, a_string=a_string),
         )
 
+
     def simple_function(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.PoorlyNamedSimpleFunction,
+            client.PoorlyNamedSimpleFunction,
             grpc_types.PoorlyNamedSimpleFunctionRequest(vi=self._vi),
         )
 
+
     def read(self, maximum_time):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.Read,
+            client.Read,
             grpc_types.ReadRequest(vi=self._vi, maximum_time=maximum_time),
         )
         return response.reading
 
+
     def read_from_channel(self, channel_name, maximum_time):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ReadFromChannel,
+            client.ReadFromChannel,
             grpc_types.ReadFromChannelRequest(vi=self._vi, channel_name=channel_name, maximum_time=maximum_time),
         )
         return response.reading
 
+
     def return_a_number_and_a_string(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ReturnANumberAndAString,
+            client.ReturnANumberAndAString,
             grpc_types.ReturnANumberAndAStringRequest(vi=self._vi),
         )
         return response.a_number, response.a_string
 
+
     def return_duration_in_seconds(self):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ReturnDurationInSeconds,
+            client.ReturnDurationInSeconds,
             grpc_types.ReturnDurationInSecondsRequest(vi=self._vi),
         )
         return response.timedelta
 
+
     def return_list_of_durations_in_seconds(self, number_of_elements):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ReturnListOfDurationsInSeconds,
+            client.ReturnListOfDurationsInSeconds,
             grpc_types.ReturnListOfDurationsInSecondsRequest(vi=self._vi, number_of_elements=number_of_elements),
         )
         return response.timedeltas
 
+
     def return_multiple_types(self, array_size):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ReturnMultipleTypes,
+            client.ReturnMultipleTypes,
             grpc_types.ReturnMultipleTypesRequest(vi=self._vi, array_size=array_size),
         )
         return response.a_boolean, response.an_int32, response.an_int64, enums.Turtle(response.an_int_enum_raw), response.a_float, enums.FloatEnum(response.a_float_enum_raw), response.an_array, response.a_string
 
+
     def set_attribute_vi_boolean(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViBoolean,
+            client.SetAttributeViBoolean,
             grpc_types.SetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value=attribute_value),
         )
 
+
     def set_attribute_vi_int32(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViInt32,
+            client.SetAttributeViInt32,
             grpc_types.SetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_attribute_vi_int64(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViInt64,
+            client.SetAttributeViInt64,
             grpc_types.SetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_attribute_vi_real64(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViReal64,
+            client.SetAttributeViReal64,
             grpc_types.SetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_attribute_vi_string(self, channel_name, attribute_id, attribute_value):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetAttributeViString,
+            client.SetAttributeViString,
             grpc_types.SetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id, attribute_value_raw=attribute_value),
         )
 
+
     def set_custom_type(self, cs):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetCustomType,
+            client.SetCustomType,
             grpc_types.SetCustomTypeRequest(vi=self._vi, cs=cs._create_copy(grpc_types.FakeCustomStruct)),
         )
 
+
     def set_custom_type_array(self, cs):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.SetCustomTypeArray,
+            client.SetCustomTypeArray,
             grpc_types.SetCustomTypeArrayRequest(vi=self._vi, cs=cs and [x._create_copy(grpc_types.FakeCustomStruct) for x in cs]),
         )
+
 
     def set_runtime_environment(self, environment, environment_version, reserved1, reserved2):  # noqa: N802
         raise NotImplementedError('set_runtime_environment is not supported over gRPC')
 
+
     def string_valued_enum_input_function_with_defaults(self, a_mobile_os_name):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.StringValuedEnumInputFunctionWithDefaults,
+            client.StringValuedEnumInputFunctionWithDefaults,
             grpc_types.StringValuedEnumInputFunctionWithDefaultsRequest(vi=self._vi, a_mobile_os_name_raw=a_mobile_os_name.value),
         )
 
+
     def two_input_function(self, a_number, a_string):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.TwoInputFunction,
+            client.TwoInputFunction,
             grpc_types.TwoInputFunctionRequest(vi=self._vi, a_number=a_number, a_string=a_string),
         )
+
 
     def unlock(self):  # noqa: N802
         self._lock.release()
 
+
     def use64_bit_number(self, input):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.Use64BitNumber,
+            client.Use64BitNumber,
             grpc_types.Use64BitNumberRequest(vi=self._vi, input=input),
         )
         return response.output
 
+
     def write_waveform(self, waveform):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.WriteWaveform,
+            client.WriteWaveform,
             grpc_types.WriteWaveformRequest(vi=self._vi, waveform=waveform),
         )
 
+
     def write_waveform_numpy(self, waveform):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+        client = self._client
+        self._invoke(
+            client.WriteWaveform,
+            grpc_types.WriteWaveformRequest(vi=self._vi, waveform=waveform),
+        )
+
 
     def write_waveform_numpy_complex128(self, waveform_data_array):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+        raise NotImplementedError('write_waveform_numpy_complex128 is not supported over gRPC')
+
 
     def write_waveform_numpy_complex64(self, waveform_data_array):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+        raise NotImplementedError('write_waveform_numpy_complex64 is not supported over gRPC')
+
 
     def write_waveform_numpy_complex_interleaved_i16(self, waveform_data_array):  # noqa: N802
-        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
+        raise NotImplementedError('write_waveform_numpy_complex_interleaved_i16 is not supported over gRPC')
+
 
     def close(self):  # noqa: N802
+        client = self._client
         self._invoke(
-            self._client.Close,
+            client.Close,
             grpc_types.CloseRequest(vi=self._vi),
         )
 
+
     def error_message(self, error_code):  # noqa: N802
+        client = self._client
         response = self._invoke(
-            self._client.ErrorMessage,
+            client.ErrorMessage,
             grpc_types.ErrorMessageRequest(vi=self._vi, error_code=error_code),
         )
         return response.error_message
+
 
     def self_test(self):  # noqa: N802
         raise NotImplementedError('self_test is not supported over gRPC')
