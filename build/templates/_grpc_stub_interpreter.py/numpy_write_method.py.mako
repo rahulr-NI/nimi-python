@@ -17,6 +17,7 @@
         if p['complex_type'] is not None and p.get('original_type') in ('NIComplexNumber[]', 'NIComplexNumberF32[]', 'NIComplexI16[]')
     ]
     # For numpy complex inputs, create NIComplex message lists and map them in the request args
+    client = 'self._restricted_client' if grpc_client_var == 'restricted_grpc' else 'self._client'
     for p in numpy_complex_params:
         # Replace occurrences like "field=python_name" with "field=python_name_list"
         grpc_request_args = grpc_request_args.replace(
@@ -51,13 +52,8 @@
         ]
 % endif
 % endfor
-% if grpc_client_var == 'restricted_grpc':
-        client = self._restricted_client
-% else:
-        client = self._client
-% endif
         ${capture_response}self._invoke(
-            client.${grpc_name},
+            ${client}.${grpc_name},
             ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
         )
 % if return_statement:

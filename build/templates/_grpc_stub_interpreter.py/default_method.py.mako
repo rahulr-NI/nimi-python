@@ -10,18 +10,14 @@
     if return_statement == 'return':
         return_statement = None
     capture_response = 'response = ' if return_statement else ''
+    client = 'self._restricted_client' if grpc_client_var == 'restricted_grpc' else 'self._client'
     included_in_proto = f.get('included_in_proto', True)
 %>\
 
     def ${full_func_name}(${method_decl_params}):  # noqa: N802
 % if included_in_proto:
-% if grpc_client_var == 'restricted_grpc':
-        client = self._restricted_client
-% else:
-        client = self._client
-% endif
         ${capture_response}self._invoke(
-            client.${grpc_name},
+            ${client}.${grpc_name},
             ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
         )
 % if return_statement:

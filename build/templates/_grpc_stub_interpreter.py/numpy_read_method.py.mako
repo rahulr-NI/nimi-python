@@ -12,6 +12,7 @@
     capture_response = 'response = ' if return_statement else ''
     included_in_proto = f.get('included_in_proto', True)
     full_func_name = f['interpreter_name'] + method_template['method_python_name_suffix']
+    client = 'self._restricted_client' if grpc_client_var == 'restricted_grpc' else 'self._client'
     numpy_complex_params = [p for p in helper.filter_parameters(parameters, helper.ParameterUsageOptions.NUMPY_PARAMETERS) if p['complex_type'] is not None]
 
 %>\
@@ -21,13 +22,8 @@
         import numpy
 % endif
 % if included_in_proto:
-% if grpc_client_var == 'restricted_grpc':
-        client = self._restricted_client
-% else:
-        client = self._client
-% endif
         ${capture_response}self._invoke(
-            client.${grpc_name},
+            ${client}.${grpc_name},
             ${grpc_types_var}.${grpc_name}Request(${grpc_request_args}),
         )
 % for p in numpy_complex_params:

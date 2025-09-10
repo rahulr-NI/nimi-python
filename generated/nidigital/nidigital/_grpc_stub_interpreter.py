@@ -75,234 +75,205 @@ class GrpcStubInterpreter(object):
 
 
     def abort(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Abort,
+            self._client.Abort,
             grpc_types.AbortRequest(vi=self._vi),
         )
 
 
     def abort_keep_alive(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.AbortKeepAlive,
+            self._client.AbortKeepAlive,
             grpc_types.AbortKeepAliveRequest(vi=self._vi),
         )
 
 
     def apply_levels_and_timing(self, site_list, levels_sheet, timing_sheet, initial_state_high_pins, initial_state_low_pins, initial_state_tristate_pins):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ApplyLevelsAndTiming,
+            self._client.ApplyLevelsAndTiming,
             grpc_types.ApplyLevelsAndTimingRequest(vi=self._vi, site_list=site_list, levels_sheet=levels_sheet, timing_sheet=timing_sheet, initial_state_high_pins=initial_state_high_pins, initial_state_low_pins=initial_state_low_pins, initial_state_tristate_pins=initial_state_tristate_pins),
         )
 
 
     def apply_tdr_offsets(self, channel_list, offsets):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ApplyTDROffsets,
+            self._client.ApplyTDROffsets,
             grpc_types.ApplyTDROffsetsRequest(vi=self._vi, channel_list=channel_list, offsets=offsets),
         )
 
 
     def burst_pattern(self, site_list, start_label, select_digital_function, wait_until_done, timeout):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.BurstPattern,
+            self._client.BurstPattern,
             grpc_types.BurstPatternRequest(vi=self._vi, site_list=site_list, start_label=start_label, select_digital_function=select_digital_function, wait_until_done=wait_until_done, timeout=timeout),
         )
 
 
     def clock_generator_abort(self, channel_list):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ClockGeneratorAbort,
+            self._client.ClockGeneratorAbort,
             grpc_types.ClockGeneratorAbortRequest(vi=self._vi, channel_list=channel_list),
         )
 
 
     def clock_generator_generate_clock(self, channel_list, frequency, select_digital_function):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ClockGeneratorGenerateClock,
+            self._client.ClockGeneratorGenerateClock,
             grpc_types.ClockGeneratorGenerateClockRequest(vi=self._vi, channel_list=channel_list, frequency=frequency, select_digital_function=select_digital_function),
         )
 
 
     def commit(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Commit,
+            self._client.Commit,
             grpc_types.CommitRequest(vi=self._vi),
         )
 
 
     def configure_active_load_levels(self, channel_list, iol, ioh, vcom):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureActiveLoadLevels,
+            self._client.ConfigureActiveLoadLevels,
             grpc_types.ConfigureActiveLoadLevelsRequest(vi=self._vi, channel_list=channel_list, iol=iol, ioh=ioh, vcom=vcom),
         )
 
 
     def configure_pattern_burst_sites(self, site_list):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigurePatternBurstSites,
+            self._client.ConfigurePatternBurstSites,
             grpc_types.ConfigurePatternBurstSitesRequest(vi=self._vi, site_list=site_list),
         )
 
 
     def configure_time_set_compare_edges_strobe(self, pin_list, time_set_name, strobe_edge):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetCompareEdgesStrobe,
+            self._client.ConfigureTimeSetCompareEdgesStrobe,
             grpc_types.ConfigureTimeSetCompareEdgesStrobeRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, strobe_edge=strobe_edge),
         )
 
 
     def configure_time_set_compare_edges_strobe2x(self, pin_list, time_set_name, strobe_edge, strobe2_edge):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetCompareEdgesStrobe2x,
+            self._client.ConfigureTimeSetCompareEdgesStrobe2x,
             grpc_types.ConfigureTimeSetCompareEdgesStrobe2xRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, strobe_edge=strobe_edge, strobe2_edge=strobe2_edge),
         )
 
 
     def configure_time_set_drive_edges(self, pin_list, time_set_name, format, drive_on_edge, drive_data_edge, drive_return_edge, drive_off_edge):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetDriveEdges,
+            self._client.ConfigureTimeSetDriveEdges,
             grpc_types.ConfigureTimeSetDriveEdgesRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, format_raw=format.value, drive_on_edge=drive_on_edge, drive_data_edge=drive_data_edge, drive_return_edge=drive_return_edge, drive_off_edge=drive_off_edge),
         )
 
 
     def configure_time_set_drive_edges2x(self, pin_list, time_set_name, format, drive_on_edge, drive_data_edge, drive_return_edge, drive_off_edge, drive_data2_edge, drive_return2_edge):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetDriveEdges2x,
+            self._client.ConfigureTimeSetDriveEdges2x,
             grpc_types.ConfigureTimeSetDriveEdges2xRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, format_raw=format.value, drive_on_edge=drive_on_edge, drive_data_edge=drive_data_edge, drive_return_edge=drive_return_edge, drive_off_edge=drive_off_edge, drive_data2_edge=drive_data2_edge, drive_return2_edge=drive_return2_edge),
         )
 
 
     def configure_time_set_drive_format(self, pin_list, time_set_name, drive_format):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetDriveFormat,
+            self._client.ConfigureTimeSetDriveFormat,
             grpc_types.ConfigureTimeSetDriveFormatRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, drive_format_raw=drive_format.value),
         )
 
 
     def configure_time_set_edge(self, pin_list, time_set_name, edge, time):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetEdge,
+            self._client.ConfigureTimeSetEdge,
             grpc_types.ConfigureTimeSetEdgeRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, edge_raw=edge.value, time=time),
         )
 
 
     def configure_time_set_edge_multiplier(self, pin_list, time_set_name, edge_multiplier):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetEdgeMultiplier,
+            self._client.ConfigureTimeSetEdgeMultiplier,
             grpc_types.ConfigureTimeSetEdgeMultiplierRequest(vi=self._vi, pin_list=pin_list, time_set_name=time_set_name, edge_multiplier=edge_multiplier),
         )
 
 
     def configure_time_set_period(self, time_set_name, period):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureTimeSetPeriod,
+            self._client.ConfigureTimeSetPeriod,
             grpc_types.ConfigureTimeSetPeriodRequest(vi=self._vi, time_set_name=time_set_name, period=period),
         )
 
 
     def configure_voltage_levels(self, channel_list, vil, vih, vol, voh, vterm):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureVoltageLevels,
+            self._client.ConfigureVoltageLevels,
             grpc_types.ConfigureVoltageLevelsRequest(vi=self._vi, channel_list=channel_list, vil=vil, vih=vih, vol=vol, voh=voh, vterm=vterm),
         )
 
 
     def create_capture_waveform_from_file_digicapture(self, waveform_name, waveform_file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateCaptureWaveformFromFileDigicapture,
+            self._client.CreateCaptureWaveformFromFileDigicapture,
             grpc_types.CreateCaptureWaveformFromFileDigicaptureRequest(vi=self._vi, waveform_name=waveform_name, waveform_file_path=waveform_file_path),
         )
 
 
     def create_capture_waveform_parallel(self, pin_list, waveform_name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateCaptureWaveformParallel,
+            self._client.CreateCaptureWaveformParallel,
             grpc_types.CreateCaptureWaveformParallelRequest(vi=self._vi, pin_list=pin_list, waveform_name=waveform_name),
         )
 
 
     def create_capture_waveform_serial(self, pin_list, waveform_name, sample_width, bit_order):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateCaptureWaveformSerial,
+            self._client.CreateCaptureWaveformSerial,
             grpc_types.CreateCaptureWaveformSerialRequest(vi=self._vi, pin_list=pin_list, waveform_name=waveform_name, sample_width=sample_width, bit_order_raw=bit_order.value),
         )
 
 
     def create_source_waveform_from_file_tdms(self, waveform_name, waveform_file_path, write_waveform_data):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateSourceWaveformFromFileTDMS,
+            self._client.CreateSourceWaveformFromFileTDMS,
             grpc_types.CreateSourceWaveformFromFileTDMSRequest(vi=self._vi, waveform_name=waveform_name, waveform_file_path=waveform_file_path, write_waveform_data=write_waveform_data),
         )
 
 
     def create_source_waveform_parallel(self, pin_list, waveform_name, data_mapping):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateSourceWaveformParallel,
+            self._client.CreateSourceWaveformParallel,
             grpc_types.CreateSourceWaveformParallelRequest(vi=self._vi, pin_list=pin_list, waveform_name=waveform_name, data_mapping_raw=data_mapping.value),
         )
 
 
     def create_source_waveform_serial(self, pin_list, waveform_name, data_mapping, sample_width, bit_order):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateSourceWaveformSerial,
+            self._client.CreateSourceWaveformSerial,
             grpc_types.CreateSourceWaveformSerialRequest(vi=self._vi, pin_list=pin_list, waveform_name=waveform_name, data_mapping_raw=data_mapping.value, sample_width=sample_width, bit_order_raw=bit_order.value),
         )
 
 
     def create_time_set(self, name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateTimeSet,
+            self._client.CreateTimeSet,
             grpc_types.CreateTimeSetRequest(vi=self._vi, name=name),
         )
 
 
     def delete_all_time_sets(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.DeleteAllTimeSets,
+            self._client.DeleteAllTimeSets,
             grpc_types.DeleteAllTimeSetsRequest(vi=self._vi),
         )
 
 
     def disable_sites(self, site_list):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.DisableSites,
+            self._client.DisableSites,
             grpc_types.DisableSitesRequest(vi=self._vi, site_list=site_list),
         )
 
 
 
     def enable_sites(self, site_list):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.EnableSites,
+            self._client.EnableSites,
             grpc_types.EnableSitesRequest(vi=self._vi, site_list=site_list),
         )
 
@@ -316,216 +287,192 @@ class GrpcStubInterpreter(object):
 
 
     def fetch_history_ram_cycle_information(self, site, sample_index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.FetchHistoryRAMCycleInformation,
+            self._client.FetchHistoryRAMCycleInformation,
             grpc_types.FetchHistoryRAMCycleInformationRequest(vi=self._vi, site=site, sample_index=sample_index),
         )
         return response.pattern_index, response.time_set_index, response.vector_number, response.cycle_number, response.num_dut_cycles
 
 
     def fetch_history_ram_cycle_pin_data(self, site, pin_list, sample_index, dut_cycle_index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.FetchHistoryRAMCyclePinData,
+            self._client.FetchHistoryRAMCyclePinData,
             grpc_types.FetchHistoryRAMCyclePinDataRequest(vi=self._vi, site=site, pin_list=pin_list, sample_index=sample_index, dut_cycle_index=dut_cycle_index),
         )
         return [enums.PinState(x) for x in response.expected_pin_states_raw], [enums.PinState(x) for x in response.actual_pin_states_raw], response.per_pin_pass_fail
 
 
     def fetch_history_ram_scan_cycle_number(self, site, sample_index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.FetchHistoryRAMScanCycleNumber,
+            self._client.FetchHistoryRAMScanCycleNumber,
             grpc_types.FetchHistoryRAMScanCycleNumberRequest(vi=self._vi, site=site, sample_index=sample_index),
         )
         return response.scan_cycle_number
 
 
     def frequency_counter_measure_frequency(self, channel_list):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.FrequencyCounterMeasureFrequency,
+            self._client.FrequencyCounterMeasureFrequency,
             grpc_types.FrequencyCounterMeasureFrequencyRequest(vi=self._vi, channel_list=channel_list),
         )
         return response.frequencies
 
 
     def get_attribute_vi_boolean(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViBoolean,
+            self._client.GetAttributeViBoolean,
             grpc_types.GetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_int32(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViInt32,
+            self._client.GetAttributeViInt32,
             grpc_types.GetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_int64(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViInt64,
+            self._client.GetAttributeViInt64,
             grpc_types.GetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_real64(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViReal64,
+            self._client.GetAttributeViReal64,
             grpc_types.GetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_string(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViString,
+            self._client.GetAttributeViString,
             grpc_types.GetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_channel_names(self, indices):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetChannelNameFromString,
+            self._client.GetChannelNameFromString,
             grpc_types.GetChannelNameFromStringRequest(vi=self._vi, indices=indices),
         )
         return response.names
 
 
     def get_error(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetError,
+            self._client.GetError,
             grpc_types.GetErrorRequest(vi=self._vi),
         )
         return response.error_code, response.error_description
 
 
     def get_fail_count(self, channel_list):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetFailCount,
+            self._client.GetFailCount,
             grpc_types.GetFailCountRequest(vi=self._vi, channel_list=channel_list),
         )
         return response.failure_count
 
 
     def get_history_ram_sample_count(self, site):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetHistoryRAMSampleCount,
+            self._client.GetHistoryRAMSampleCount,
             grpc_types.GetHistoryRAMSampleCountRequest(vi=self._vi, site=site),
         )
         return response.sample_count
 
 
     def get_pattern_name(self, pattern_index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetPatternName,
+            self._client.GetPatternName,
             grpc_types.GetPatternNameRequest(vi=self._vi, pattern_index=pattern_index),
         )
         return response.name
 
 
     def get_pattern_pin_names(self, start_label):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetPatternPinList,
+            self._client.GetPatternPinList,
             grpc_types.GetPatternPinListRequest(vi=self._vi, start_label=start_label),
         )
         return response.pin_list
 
 
     def get_pin_name(self, pin_index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetPinName,
+            self._client.GetPinName,
             grpc_types.GetPinNameRequest(vi=self._vi, pin_index=pin_index),
         )
         return response.name
 
 
     def get_pin_results_pin_information(self, channel_list):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetPinResultsPinInformation,
+            self._client.GetPinResultsPinInformation,
             grpc_types.GetPinResultsPinInformationRequest(vi=self._vi, channel_list=channel_list),
         )
         return response.pin_indexes, response.site_numbers, response.channel_indexes
 
 
     def get_site_pass_fail(self, site_list):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetSitePassFail,
+            self._client.GetSitePassFail,
             grpc_types.GetSitePassFailRequest(vi=self._vi, site_list=site_list),
         )
         return response.pass_fail
 
 
     def get_site_results_site_numbers(self, site_list, site_result_type):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetSiteResultsSiteNumbers,
+            self._client.GetSiteResultsSiteNumbers,
             grpc_types.GetSiteResultsSiteNumbersRequest(vi=self._vi, site_list=site_list, site_result_type_raw=site_result_type.value),
         )
         return response.site_numbers
 
 
     def get_time_set_drive_format(self, pin, time_set_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetTimeSetDriveFormat,
+            self._client.GetTimeSetDriveFormat,
             grpc_types.GetTimeSetDriveFormatRequest(vi=self._vi, pin=pin, time_set_name=time_set_name),
         )
         return enums.DriveFormat(response.format_raw)
 
 
     def get_time_set_edge(self, pin, time_set_name, edge):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetTimeSetEdge,
+            self._client.GetTimeSetEdge,
             grpc_types.GetTimeSetEdgeRequest(vi=self._vi, pin=pin, time_set_name=time_set_name, edge_raw=edge.value),
         )
         return response.time
 
 
     def get_time_set_edge_multiplier(self, pin, time_set_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetTimeSetEdgeMultiplier,
+            self._client.GetTimeSetEdgeMultiplier,
             grpc_types.GetTimeSetEdgeMultiplierRequest(vi=self._vi, pin=pin, time_set_name=time_set_name),
         )
         return response.edge_multiplier
 
 
     def get_time_set_name(self, time_set_index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetTimeSetName,
+            self._client.GetTimeSetName,
             grpc_types.GetTimeSetNameRequest(vi=self._vi, time_set_index=time_set_index),
         )
         return response.name
 
 
     def get_time_set_period(self, time_set_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetTimeSetPeriod,
+            self._client.GetTimeSetPeriod,
             grpc_types.GetTimeSetPeriodRequest(vi=self._vi, time_set_name=time_set_name),
         )
         return response.period
@@ -545,67 +492,59 @@ class GrpcStubInterpreter(object):
 
 
     def initiate(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Initiate,
+            self._client.Initiate,
             grpc_types.InitiateRequest(vi=self._vi),
         )
 
 
     def is_done(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.IsDone,
+            self._client.IsDone,
             grpc_types.IsDoneRequest(vi=self._vi),
         )
         return response.done
 
 
     def is_site_enabled(self, site):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.IsSiteEnabled,
+            self._client.IsSiteEnabled,
             grpc_types.IsSiteEnabledRequest(vi=self._vi, site=site),
         )
         return response.enable
 
 
     def load_levels(self, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.LoadLevels,
+            self._client.LoadLevels,
             grpc_types.LoadLevelsRequest(vi=self._vi, file_path=file_path),
         )
 
 
     def load_pattern(self, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.LoadPattern,
+            self._client.LoadPattern,
             grpc_types.LoadPatternRequest(vi=self._vi, file_path=file_path),
         )
 
 
     def load_pin_map(self, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.LoadPinMap,
+            self._client.LoadPinMap,
             grpc_types.LoadPinMapRequest(vi=self._vi, file_path=file_path),
         )
 
 
     def load_specifications(self, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.LoadSpecifications,
+            self._client.LoadSpecifications,
             grpc_types.LoadSpecificationsRequest(vi=self._vi, file_path=file_path),
         )
 
 
     def load_timing(self, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.LoadTiming,
+            self._client.LoadTiming,
             grpc_types.LoadTimingRequest(vi=self._vi, file_path=file_path),
         )
 
@@ -615,109 +554,96 @@ class GrpcStubInterpreter(object):
 
 
     def ppmu_measure(self, channel_list, measurement_type):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.PPMUMeasure,
+            self._client.PPMUMeasure,
             grpc_types.PPMUMeasureRequest(vi=self._vi, channel_list=channel_list, measurement_type_raw=measurement_type.value),
         )
         return response.measurements
 
 
     def ppmu_source(self, channel_list):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.PPMUSource,
+            self._client.PPMUSource,
             grpc_types.PPMUSourceRequest(vi=self._vi, channel_list=channel_list),
         )
 
 
     def read_sequencer_flag(self, flag):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.ReadSequencerFlag,
+            self._client.ReadSequencerFlag,
             grpc_types.ReadSequencerFlagRequest(vi=self._vi, flag=flag.value),
         )
         return response.value
 
 
     def read_sequencer_register(self, reg):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.ReadSequencerRegister,
+            self._client.ReadSequencerRegister,
             grpc_types.ReadSequencerRegisterRequest(vi=self._vi, reg=reg.value),
         )
         return response.value
 
 
     def read_static(self, channel_list):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.ReadStatic,
+            self._client.ReadStatic,
             grpc_types.ReadStaticRequest(vi=self._vi, channel_list=channel_list),
         )
         return [enums.PinState(x) for x in response.data_raw]
 
 
     def reset_device(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ResetDevice,
+            self._client.ResetDevice,
             grpc_types.ResetDeviceRequest(vi=self._vi),
         )
 
 
     def self_calibrate(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SelfCalibrate,
+            self._client.SelfCalibrate,
             grpc_types.SelfCalibrateRequest(vi=self._vi),
         )
 
 
     def send_software_edge_trigger(self, trigger, trigger_identifier):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SendSoftwareEdgeTrigger,
+            self._client.SendSoftwareEdgeTrigger,
             grpc_types.SendSoftwareEdgeTriggerRequest(vi=self._vi, trigger_raw=trigger.value, trigger_identifier=trigger_identifier),
         )
 
 
     def set_attribute_vi_boolean(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViBoolean,
+            self._client.SetAttributeViBoolean,
             grpc_types.SetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=value),
         )
 
 
     def set_attribute_vi_int32(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViInt32,
+            self._client.SetAttributeViInt32,
             grpc_types.SetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_int64(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViInt64,
+            self._client.SetAttributeViInt64,
             grpc_types.SetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_real64(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViReal64,
+            self._client.SetAttributeViReal64,
             grpc_types.SetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_string(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViString,
+            self._client.SetAttributeViString,
             grpc_types.SetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
@@ -727,26 +653,23 @@ class GrpcStubInterpreter(object):
 
 
     def tdr(self, channel_list, apply_offsets):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.TDR,
+            self._client.TDR,
             grpc_types.TDRRequest(vi=self._vi, channel_list=channel_list, apply_offsets=apply_offsets),
         )
         return response.offsets
 
 
     def unload_all_patterns(self, unload_keep_alive_pattern):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.UnloadAllPatterns,
+            self._client.UnloadAllPatterns,
             grpc_types.UnloadAllPatternsRequest(vi=self._vi, unload_keep_alive_pattern=unload_keep_alive_pattern),
         )
 
 
     def unload_specifications(self, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.UnloadSpecifications,
+            self._client.UnloadSpecifications,
             grpc_types.UnloadSpecificationsRequest(vi=self._vi, file_path=file_path),
         )
 
@@ -756,90 +679,79 @@ class GrpcStubInterpreter(object):
 
 
     def wait_until_done(self, timeout):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WaitUntilDone,
+            self._client.WaitUntilDone,
             grpc_types.WaitUntilDoneRequest(vi=self._vi, timeout=timeout),
         )
 
 
     def write_sequencer_flag(self, flag, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteSequencerFlag,
+            self._client.WriteSequencerFlag,
             grpc_types.WriteSequencerFlagRequest(vi=self._vi, flag=flag.value, value=value),
         )
 
 
     def write_sequencer_register(self, reg, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteSequencerRegister,
+            self._client.WriteSequencerRegister,
             grpc_types.WriteSequencerRegisterRequest(vi=self._vi, reg=reg.value, value=value),
         )
 
 
     def write_source_waveform_broadcast(self, waveform_name, waveform_data):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteSourceWaveformBroadcastU32,
+            self._client.WriteSourceWaveformBroadcastU32,
             grpc_types.WriteSourceWaveformBroadcastU32Request(vi=self._vi, waveform_name=waveform_name, waveform_data=waveform_data),
         )
 
 
     def write_source_waveform_data_from_file_tdms(self, waveform_name, waveform_file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteSourceWaveformDataFromFileTDMS,
+            self._client.WriteSourceWaveformDataFromFileTDMS,
             grpc_types.WriteSourceWaveformDataFromFileTDMSRequest(vi=self._vi, waveform_name=waveform_name, waveform_file_path=waveform_file_path),
         )
 
 
     def write_source_waveform_site_unique_u32(self, site_list, waveform_name, num_waveforms, samples_per_waveform, waveform_data):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteSourceWaveformSiteUniqueU32,
+            self._client.WriteSourceWaveformSiteUniqueU32,
             grpc_types.WriteSourceWaveformSiteUniqueU32Request(vi=self._vi, site_list=site_list, waveform_name=waveform_name, num_waveforms=num_waveforms, samples_per_waveform=samples_per_waveform, waveform_data=waveform_data),
         )
 
 
     def write_static(self, channel_list, state):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteStatic,
+            self._client.WriteStatic,
             grpc_types.WriteStaticRequest(vi=self._vi, channel_list=channel_list, state_raw=state.value),
         )
 
 
     def close(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Close,
+            self._client.Close,
             grpc_types.CloseRequest(vi=self._vi),
         )
 
 
     def error_message(self, error_code):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.ErrorMessage,
+            self._client.ErrorMessage,
             grpc_types.ErrorMessageRequest(vi=self._vi, error_code=error_code),
         )
         return response.error_message
 
 
     def reset(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Reset,
+            self._client.Reset,
             grpc_types.ResetRequest(vi=self._vi),
         )
 
 
     def self_test(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.SelfTest,
+            self._client.SelfTest,
             grpc_types.SelfTestRequest(vi=self._vi),
         )
         return response.test_result, response.test_message

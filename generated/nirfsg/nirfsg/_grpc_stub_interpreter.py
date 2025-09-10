@@ -76,236 +76,207 @@ class GrpcStubInterpreter(object):
 
 
     def abort(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Abort,
+            self._client.Abort,
             grpc_types.AbortRequest(vi=self._vi),
         )
 
 
     def allocate_arb_waveform(self, waveform_name, size_in_samples):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.AllocateArbWaveform,
+            self._client.AllocateArbWaveform,
             grpc_types.AllocateArbWaveformRequest(vi=self._vi, waveform_name=waveform_name, size_in_samples=size_in_samples),
         )
 
 
     def change_external_calibration_password(self, old_password, new_password):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ChangeExternalCalibrationPassword,
+            self._client.ChangeExternalCalibrationPassword,
             grpc_types.ChangeExternalCalibrationPasswordRequest(vi=self._vi, old_password=old_password, new_password=new_password),
         )
 
 
     def check_attribute_vi_boolean(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CheckAttributeViBoolean,
+            self._client.CheckAttributeViBoolean,
             grpc_types.CheckAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=value),
         )
 
 
     def check_attribute_vi_int32(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CheckAttributeViInt32,
+            self._client.CheckAttributeViInt32,
             grpc_types.CheckAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def check_attribute_vi_int64(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CheckAttributeViInt64,
+            self._client.CheckAttributeViInt64,
             grpc_types.CheckAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def check_attribute_vi_real64(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CheckAttributeViReal64,
+            self._client.CheckAttributeViReal64,
             grpc_types.CheckAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def check_attribute_vi_session(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CheckAttributeViSession,
+            self._client.CheckAttributeViSession,
             grpc_types.CheckAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=self._vi),
         )
 
 
     def check_attribute_vi_string(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CheckAttributeViString,
+            self._client.CheckAttributeViString,
             grpc_types.CheckAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def check_generation_status(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.CheckGenerationStatus,
+            self._client.CheckGenerationStatus,
             grpc_types.CheckGenerationStatusRequest(vi=self._vi),
         )
         return response.is_done
 
 
     def check_if_script_exists(self, script_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.CheckIfScriptExists,
+            self._client.CheckIfScriptExists,
             grpc_types.CheckIfScriptExistsRequest(vi=self._vi, script_name=script_name),
         )
         return response.script_exists
 
 
     def check_if_waveform_exists(self, waveform_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.CheckIfWaveformExists,
+            self._client.CheckIfWaveformExists,
             grpc_types.CheckIfWaveformExistsRequest(vi=self._vi, waveform_name=waveform_name),
         )
         return response.waveform_exists
 
 
     def clear_all_arb_waveforms(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ClearAllArbWaveforms,
+            self._client.ClearAllArbWaveforms,
             grpc_types.ClearAllArbWaveformsRequest(vi=self._vi),
         )
 
 
     def clear_arb_waveform(self, name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ClearArbWaveform,
+            self._client.ClearArbWaveform,
             grpc_types.ClearArbWaveformRequest(vi=self._vi, name=name),
         )
 
 
     def clear_error(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ClearError,
+            self._client.ClearError,
             grpc_types.ClearErrorRequest(vi=self._vi),
         )
 
 
     def clear_self_calibrate_range(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ClearSelfCalibrateRange,
+            self._client.ClearSelfCalibrateRange,
             grpc_types.ClearSelfCalibrateRangeRequest(vi=self._vi),
         )
 
 
     def commit(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Commit,
+            self._client.Commit,
             grpc_types.CommitRequest(vi=self._vi),
         )
 
 
     def configure_deembedding_table_interpolation_linear(self, port, table_name, format):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDeembeddingTableInterpolationLinear,
+            self._client.ConfigureDeembeddingTableInterpolationLinear,
             grpc_types.ConfigureDeembeddingTableInterpolationLinearRequest(vi=self._vi, port=port, table_name=table_name, format_raw=format.value),
         )
 
 
     def configure_deembedding_table_interpolation_nearest(self, port, table_name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDeembeddingTableInterpolationNearest,
+            self._client.ConfigureDeembeddingTableInterpolationNearest,
             grpc_types.ConfigureDeembeddingTableInterpolationNearestRequest(vi=self._vi, port=port, table_name=table_name),
         )
 
 
     def configure_deembedding_table_interpolation_spline(self, port, table_name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDeembeddingTableInterpolationSpline,
+            self._client.ConfigureDeembeddingTableInterpolationSpline,
             grpc_types.ConfigureDeembeddingTableInterpolationSplineRequest(vi=self._vi, port=port, table_name=table_name),
         )
 
 
     def configure_digital_edge_script_trigger(self, trigger_id, source, edge):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDigitalEdgeScriptTrigger,
+            self._client.ConfigureDigitalEdgeScriptTrigger,
             grpc_types.ConfigureDigitalEdgeScriptTriggerRequest(vi=self._vi, trigger_id_raw=trigger_id, source_raw=source, edge=edge.value),
         )
 
 
     def configure_digital_edge_start_trigger(self, source, edge):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDigitalEdgeStartTrigger,
+            self._client.ConfigureDigitalEdgeStartTrigger,
             grpc_types.ConfigureDigitalEdgeStartTriggerRequest(vi=self._vi, source_raw=source, edge=edge.value),
         )
 
 
     def configure_digital_level_script_trigger(self, trigger_id, source, level):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDigitalLevelScriptTrigger,
+            self._client.ConfigureDigitalLevelScriptTrigger,
             grpc_types.ConfigureDigitalLevelScriptTriggerRequest(vi=self._vi, trigger_id_raw=trigger_id, source=source, level=level),
         )
 
 
     def configure_digital_modulation_user_defined_waveform(self, number_of_samples, user_defined_waveform):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureDigitalModulationUserDefinedWaveform,
+            self._client.ConfigureDigitalModulationUserDefinedWaveform,
             grpc_types.ConfigureDigitalModulationUserDefinedWaveformRequest(vi=self._vi, number_of_samples=number_of_samples, user_defined_waveform=user_defined_waveform),
         )
 
 
     def configure_pxi_chassis_clk10(self, pxi_clk10_source):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigurePxiChassisClk10,
+            self._client.ConfigurePxiChassisClk10,
             grpc_types.ConfigurePxiChassisClk10Request(vi=self._vi, pxi_clk10_source=pxi_clk10_source),
         )
 
 
     def configure_rf(self, frequency, power_level):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureRF,
+            self._client.ConfigureRF,
             grpc_types.ConfigureRFRequest(vi=self._vi, frequency=frequency, power_level=power_level),
         )
 
 
     def configure_ref_clock(self, ref_clock_source, ref_clock_rate):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureRefClock,
+            self._client.ConfigureRefClock,
             grpc_types.ConfigureRefClockRequest(vi=self._vi, ref_clock_source=ref_clock_source, ref_clock_rate=ref_clock_rate),
         )
 
 
     def configure_software_script_trigger(self, trigger_id):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureSoftwareScriptTrigger,
+            self._client.ConfigureSoftwareScriptTrigger,
             grpc_types.ConfigureSoftwareScriptTriggerRequest(vi=self._vi, trigger_id_raw=trigger_id),
         )
 
 
     def configure_software_start_trigger(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ConfigureSoftwareStartTrigger,
+            self._client.ConfigureSoftwareStartTrigger,
             grpc_types.ConfigureSoftwareStartTriggerRequest(vi=self._vi),
         )
 
@@ -315,154 +286,136 @@ class GrpcStubInterpreter(object):
             grpc_complex_types.NIComplexNumber(real=val.real, imaginary=val.imag)
             for val in sparameter_table.ravel()
         ]
-        client = self._client
         self._invoke(
-            client.CreateDeembeddingSparameterTableArray,
+            self._client.CreateDeembeddingSparameterTableArray,
             grpc_types.CreateDeembeddingSparameterTableArrayRequest(vi=self._vi, port=port, table_name=table_name, frequencies=frequencies, sparameter_table=sparameter_table_list, number_of_ports=number_of_ports, sparameter_orientation_raw=sparameter_orientation.value),
         )
 
 
     def create_deembedding_sparameter_table_s2p_file(self, port, table_name, s2p_file_path, sparameter_orientation):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.CreateDeembeddingSparameterTableS2PFile,
+            self._client.CreateDeembeddingSparameterTableS2PFile,
             grpc_types.CreateDeembeddingSparameterTableS2PFileRequest(vi=self._vi, port=port, table_name=table_name, s2p_file_path=s2p_file_path, sparameter_orientation_raw=sparameter_orientation.value),
         )
 
 
     def delete_all_deembedding_tables(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.DeleteAllDeembeddingTables,
+            self._client.DeleteAllDeembeddingTables,
             grpc_types.DeleteAllDeembeddingTablesRequest(vi=self._vi),
         )
 
 
     def delete_deembedding_table(self, port, table_name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.DeleteDeembeddingTable,
+            self._client.DeleteDeembeddingTable,
             grpc_types.DeleteDeembeddingTableRequest(vi=self._vi, port=port, table_name=table_name),
         )
 
 
     def disable(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Disable,
+            self._client.Disable,
             grpc_types.DisableRequest(vi=self._vi),
         )
 
 
     def disable_script_trigger(self, trigger_id):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.DisableScriptTrigger,
+            self._client.DisableScriptTrigger,
             grpc_types.DisableScriptTriggerRequest(vi=self._vi, trigger_id_raw=trigger_id),
         )
 
 
     def disable_start_trigger(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.DisableStartTrigger,
+            self._client.DisableStartTrigger,
             grpc_types.DisableStartTriggerRequest(vi=self._vi),
         )
 
 
     def error_message(self, error_code, error_message):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ErrorMessage,
+            self._client.ErrorMessage,
             grpc_types.ErrorMessageRequest(vi=self._vi, error_code=error_code, error_message=error_message),
         )
 
 
     def error_query(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.ErrorQuery,
+            self._client.ErrorQuery,
             grpc_types.ErrorQueryRequest(vi=self._vi),
         )
         return response.error_code, response.error_message
 
 
     def get_all_named_waveform_names(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAllNamedWaveformNames,
+            self._client.GetAllNamedWaveformNames,
             grpc_types.GetAllNamedWaveformNamesRequest(vi=self._vi),
         )
         return response.waveform_names, response.actual_buffer_size
 
 
     def get_all_script_names(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAllScriptNames,
+            self._client.GetAllScriptNames,
             grpc_types.GetAllScriptNamesRequest(vi=self._vi),
         )
         return response.script_names, response.actual_buffer_size
 
 
     def get_attribute_vi_boolean(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViBoolean,
+            self._client.GetAttributeViBoolean,
             grpc_types.GetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_int32(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViInt32,
+            self._client.GetAttributeViInt32,
             grpc_types.GetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_int64(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViInt64,
+            self._client.GetAttributeViInt64,
             grpc_types.GetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_real64(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViReal64,
+            self._client.GetAttributeViReal64,
             grpc_types.GetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_session(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViSession,
+            self._client.GetAttributeViSession,
             grpc_types.GetAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_attribute_vi_string(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetAttributeViString,
+            self._client.GetAttributeViString,
             grpc_types.GetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
         )
         return response.value
 
 
     def get_channel_name(self, index):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetChannelName,
+            self._client.GetChannelName,
             grpc_types.GetChannelNameRequest(vi=self._vi, index=index),
         )
         return response.name
@@ -470,9 +423,8 @@ class GrpcStubInterpreter(object):
 
     def get_deembedding_sparameters(self, sparameters, sparameters_array_size):  # noqa: N802
         import numpy
-        client = self._client
         response = self._invoke(
-            client.GetDeembeddingSparameters,
+            self._client.GetDeembeddingSparameters,
             grpc_types.GetDeembeddingSparametersRequest(vi=self._vi, sparameters_array_size=sparameters_array_size),
         )
         temp_array = numpy.array([c.real + 1j * c.imaginary for c in response.sparameters], dtype=numpy.complex128)
@@ -481,90 +433,80 @@ class GrpcStubInterpreter(object):
 
 
     def get_deembedding_table_number_of_ports(self):  # noqa: N802
-        client = self._restricted_client
         response = self._invoke(
-            client.GetDeembeddingTableNumberOfPorts,
+            self._restricted_client.GetDeembeddingTableNumberOfPorts,
             restricted_grpc_types.GetDeembeddingTableNumberOfPortsRequest(vi=self._vi),
         )
         return response.number_of_ports
 
 
     def get_error(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetError,
+            self._client.GetError,
             grpc_types.GetErrorRequest(vi=self._vi),
         )
         return response.error_code, response.error_description
 
 
     def get_external_calibration_last_date_and_time(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetExternalCalibrationLastDateAndTime,
+            self._client.GetExternalCalibrationLastDateAndTime,
             grpc_types.GetExternalCalibrationLastDateAndTimeRequest(vi=self._vi),
         )
         return response.year, response.month, response.day, response.hour, response.minute, response.second
 
 
     def get_max_settable_power(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetMaxSettablePower,
+            self._client.GetMaxSettablePower,
             grpc_types.GetMaxSettablePowerRequest(vi=self._vi),
         )
         return response.value
 
 
     def get_self_calibration_date_and_time(self, module):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetSelfCalibrationDateAndTime,
+            self._client.GetSelfCalibrationDateAndTime,
             grpc_types.GetSelfCalibrationDateAndTimeRequest(vi=self._vi, module=module.value),
         )
         return response.year, response.month, response.day, response.hour, response.minute, response.second
 
 
     def get_self_calibration_temperature(self, module):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetSelfCalibrationTemperature,
+            self._client.GetSelfCalibrationTemperature,
             grpc_types.GetSelfCalibrationTemperatureRequest(vi=self._vi, module_raw=module.value),
         )
         return response.temperature
 
 
     def get_terminal_name(self, signal, signal_identifier):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetTerminalName,
+            self._client.GetTerminalName,
             grpc_types.GetTerminalNameRequest(vi=self._vi, signal_raw=signal.value, signal_identifier_raw=signal_identifier),
         )
         return response.terminal_name
 
 
     def get_waveform_burst_start_locations(self, channel_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetWaveformBurstStartLocations,
+            self._client.GetWaveformBurstStartLocations,
             grpc_types.GetWaveformBurstStartLocationsRequest(vi=self._vi, channel_name=channel_name),
         )
         return response.locations
 
 
     def get_waveform_burst_stop_locations(self, channel_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetWaveformBurstStopLocations,
+            self._client.GetWaveformBurstStopLocations,
             grpc_types.GetWaveformBurstStopLocationsRequest(vi=self._vi, channel_name=channel_name),
         )
         return response.locations
 
 
     def get_waveform_marker_event_locations(self, channel_name):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.GetWaveformMarkerEventLocations,
+            self._client.GetWaveformMarkerEventLocations,
             grpc_types.GetWaveformMarkerEventLocationsRequest(vi=self._vi, channel_name=channel_name),
         )
         return response.locations
@@ -584,17 +526,15 @@ class GrpcStubInterpreter(object):
 
 
     def initiate(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Initiate,
+            self._client.Initiate,
             grpc_types.InitiateRequest(vi=self._vi),
         )
 
 
     def load_configurations_from_file(self, channel_name, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.LoadConfigurationsFromFile,
+            self._client.LoadConfigurationsFromFile,
             grpc_types.LoadConfigurationsFromFileRequest(vi=self._vi, channel_name=channel_name, file_path=file_path),
         )
 
@@ -604,204 +544,179 @@ class GrpcStubInterpreter(object):
 
 
     def perform_power_search(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.PerformPowerSearch,
+            self._client.PerformPowerSearch,
             grpc_types.PerformPowerSearchRequest(vi=self._vi),
         )
 
 
     def perform_thermal_correction(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.PerformThermalCorrection,
+            self._client.PerformThermalCorrection,
             grpc_types.PerformThermalCorrectionRequest(vi=self._vi),
         )
 
 
     def query_arb_waveform_capabilities(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.QueryArbWaveformCapabilities,
+            self._client.QueryArbWaveformCapabilities,
             grpc_types.QueryArbWaveformCapabilitiesRequest(vi=self._vi),
         )
         return response.max_number_waveforms, response.waveform_quantum, response.min_waveform_size, response.max_waveform_size
 
 
     def read_and_download_waveform_from_file_tdms(self, waveform_name, file_path, waveform_index):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ReadAndDownloadWaveformFromFileTDMS,
+            self._client.ReadAndDownloadWaveformFromFileTDMS,
             grpc_types.ReadAndDownloadWaveformFromFileTDMSRequest(vi=self._vi, waveform_name=waveform_name, file_path=file_path, waveform_index=waveform_index),
         )
 
 
     def reset_attribute(self, channel_name, attribute_id):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ResetAttribute,
+            self._client.ResetAttribute,
             grpc_types.ResetAttributeRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute_id),
         )
 
 
     def reset_device(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ResetDevice,
+            self._client.ResetDevice,
             grpc_types.ResetDeviceRequest(vi=self._vi),
         )
 
 
     def reset_with_defaults(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ResetWithDefaults,
+            self._client.ResetWithDefaults,
             grpc_types.ResetWithDefaultsRequest(vi=self._vi),
         )
 
 
     def reset_with_options(self, steps_to_omit):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.ResetWithOptions,
+            self._client.ResetWithOptions,
             grpc_types.ResetWithOptionsRequest(vi=self._vi, steps_to_omit_raw=steps_to_omit.value),
         )
 
 
     def revision_query(self):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.RevisionQuery,
+            self._client.RevisionQuery,
             grpc_types.RevisionQueryRequest(vi=self._vi),
         )
         return response.instrument_driver_revision, response.firmware_revision
 
 
     def save_configurations_to_file(self, channel_name, file_path):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SaveConfigurationsToFile,
+            self._client.SaveConfigurationsToFile,
             grpc_types.SaveConfigurationsToFileRequest(vi=self._vi, channel_name=channel_name, file_path=file_path),
         )
 
 
     def select_arb_waveform(self, name):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SelectArbWaveform,
+            self._client.SelectArbWaveform,
             grpc_types.SelectArbWaveformRequest(vi=self._vi, name=name),
         )
 
 
     def self_cal(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SelfCal,
+            self._client.SelfCal,
             grpc_types.SelfCalRequest(vi=self._vi),
         )
 
 
     def self_calibrate_range(self, steps_to_omit, min_frequency, max_frequency, min_power_level, max_power_level):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SelfCalibrateRange,
+            self._client.SelfCalibrateRange,
             grpc_types.SelfCalibrateRangeRequest(vi=self._vi, steps_to_omit_raw=steps_to_omit.value, min_frequency=min_frequency, max_frequency=max_frequency, min_power_level=min_power_level, max_power_level=max_power_level),
         )
 
 
     def self_test(self, self_test_message):  # noqa: N802
-        client = self._client
         response = self._invoke(
-            client.SelfTest,
+            self._client.SelfTest,
             grpc_types.SelfTestRequest(vi=self._vi, self_test_message=self_test_message),
         )
         return response.self_test_result
 
 
     def send_software_edge_trigger(self, trigger, trigger_identifier):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SendSoftwareEdgeTrigger,
+            self._client.SendSoftwareEdgeTrigger,
             grpc_types.SendSoftwareEdgeTriggerRequest(vi=self._vi, trigger_raw=trigger.value, trigger_identifier_raw=trigger_identifier),
         )
 
 
     def set_arb_waveform_next_write_position(self, waveform_name, relative_to, offset):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetArbWaveformNextWritePosition,
+            self._client.SetArbWaveformNextWritePosition,
             grpc_types.SetArbWaveformNextWritePositionRequest(vi=self._vi, waveform_name=waveform_name, relative_to_raw=relative_to.value, offset=offset),
         )
 
 
     def set_attribute_vi_boolean(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViBoolean,
+            self._client.SetAttributeViBoolean,
             grpc_types.SetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=value),
         )
 
 
     def set_attribute_vi_int32(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViInt32,
+            self._client.SetAttributeViInt32,
             grpc_types.SetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_int64(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViInt64,
+            self._client.SetAttributeViInt64,
             grpc_types.SetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_real64(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViReal64,
+            self._client.SetAttributeViReal64,
             grpc_types.SetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_session(self, channel_name, attribute):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViSession,
+            self._client.SetAttributeViSession,
             grpc_types.SetAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=self._vi),
         )
 
 
     def set_attribute_vi_string(self, channel_name, attribute, value):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetAttributeViString,
+            self._client.SetAttributeViString,
             grpc_types.SetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
         )
 
 
     def set_waveform_burst_start_locations(self, channel_name, locations):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetWaveformBurstStartLocations,
+            self._client.SetWaveformBurstStartLocations,
             grpc_types.SetWaveformBurstStartLocationsRequest(vi=self._vi, channel_name=channel_name, locations=locations),
         )
 
 
     def set_waveform_burst_stop_locations(self, channel_name, locations):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetWaveformBurstStopLocations,
+            self._client.SetWaveformBurstStopLocations,
             grpc_types.SetWaveformBurstStopLocationsRequest(vi=self._vi, channel_name=channel_name, locations=locations),
         )
 
 
     def set_waveform_marker_event_locations(self, channel_name, locations):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.SetWaveformMarkerEventLocations,
+            self._client.SetWaveformMarkerEventLocations,
             grpc_types.SetWaveformMarkerEventLocationsRequest(vi=self._vi, channel_name=channel_name, locations=locations),
         )
 
@@ -811,9 +726,8 @@ class GrpcStubInterpreter(object):
 
 
     def wait_until_settled(self, max_time_milliseconds):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WaitUntilSettled,
+            self._client.WaitUntilSettled,
             grpc_types.WaitUntilSettledRequest(vi=self._vi, max_time_milliseconds=max_time_milliseconds),
         )
 
@@ -823,9 +737,8 @@ class GrpcStubInterpreter(object):
             grpc_complex_types.NIComplexNumberF32(real=val.real, imaginary=val.imag)
             for val in waveform_data_array.ravel()
         ]
-        client = self._client
         self._invoke(
-            client.WriteArbWaveformComplexF32,
+            self._client.WriteArbWaveformComplexF32,
             grpc_types.WriteArbWaveformComplexF32Request(vi=self._vi, waveform_name=waveform_name, wfm_data=waveform_data_array_list, more_data_pending=more_data_pending),
         )
 
@@ -835,9 +748,8 @@ class GrpcStubInterpreter(object):
             grpc_complex_types.NIComplexNumber(real=val.real, imaginary=val.imag)
             for val in waveform_data_array.ravel()
         ]
-        client = self._client
         self._invoke(
-            client.WriteArbWaveformComplexF64,
+            self._client.WriteArbWaveformComplexF64,
             grpc_types.WriteArbWaveformComplexF64Request(vi=self._vi, waveform_name=waveform_name, wfm_data=waveform_data_array_list, more_data_pending=more_data_pending),
         )
 
@@ -852,32 +764,28 @@ class GrpcStubInterpreter(object):
             grpc_complex_types.NIComplexI16(real=int(pair[0]), imaginary=int(pair[1]))
             for pair in arr_pairs
         ]
-        client = self._client
         self._invoke(
-            client.WriteArbWaveformComplexI16,
+            self._client.WriteArbWaveformComplexI16,
             grpc_types.WriteArbWaveformComplexI16Request(vi=self._vi, waveform_name=waveform_name, wfm_data=waveform_data_array_list),
         )
 
 
     def write_script(self, script):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.WriteScript,
+            self._client.WriteScript,
             grpc_types.WriteScriptRequest(vi=self._vi, script=script),
         )
 
 
     def close(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Close,
+            self._client.Close,
             grpc_types.CloseRequest(vi=self._vi),
         )
 
 
     def reset(self):  # noqa: N802
-        client = self._client
         self._invoke(
-            client.Reset,
+            self._client.Reset,
             grpc_types.ResetRequest(vi=self._vi),
         )
