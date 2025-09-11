@@ -276,13 +276,8 @@ class GrpcStubInterpreter(object):
         return response.waveform, [waveform_info.WaveformInfo(x) for x in response.wfm_info]
 
 
-    def fetch_into_numpy(self, channel_list, num_samples, waveform, timeout):  # noqa: N802
-        response = self._invoke(
-            self._client.Fetch,
-            grpc_types.FetchRequest(vi=self._vi, channel_list=channel_list, timeout=timeout, num_samples=num_samples),
-        )
-        return [waveform_info.WaveformInfo(x) for x in response.wfm_info]
-
+    def fetch_into_numpy(self, channel_list, timeout, num_samples):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
     def fetch_array_measurement(self, channel_list, timeout, array_meas_function, measurement_waveform_size):  # noqa: N802
         response = self._invoke(
@@ -292,29 +287,14 @@ class GrpcStubInterpreter(object):
         return response.meas_wfm, [waveform_info.WaveformInfo(x) for x in response.wfm_info]
 
 
-    def fetch_binary16_into_numpy(self, channel_list, num_samples, waveform, timeout):  # noqa: N802
-        response = self._invoke(
-            self._client.FetchBinary16,
-            grpc_types.FetchBinary16Request(vi=self._vi, channel_list=channel_list, timeout=timeout, num_samples=num_samples),
-        )
-        return [waveform_info.WaveformInfo(x) for x in response.wfm_info]
+    def fetch_binary16_into_numpy(self, channel_list, timeout, num_samples):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
+    def fetch_binary32_into_numpy(self, channel_list, timeout, num_samples):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
-    def fetch_binary32_into_numpy(self, channel_list, num_samples, waveform, timeout):  # noqa: N802
-        response = self._invoke(
-            self._client.FetchBinary32,
-            grpc_types.FetchBinary32Request(vi=self._vi, channel_list=channel_list, timeout=timeout, num_samples=num_samples),
-        )
-        return [waveform_info.WaveformInfo(x) for x in response.wfm_info]
-
-
-    def fetch_binary8_into_numpy(self, channel_list, num_samples, waveform, timeout):  # noqa: N802
-        response = self._invoke(
-            self._client.FetchBinary8,
-            grpc_types.FetchBinary8Request(vi=self._vi, channel_list=channel_list, timeout=timeout, num_samples=num_samples),
-        )
-        return [waveform_info.WaveformInfo(x) for x in response.wfm_info]
-
+    def fetch_binary8_into_numpy(self, channel_list, timeout, num_samples):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
     def fetch_measurement_stats(self, channel_list, timeout, scalar_meas_function):  # noqa: N802
         response = self._invoke(

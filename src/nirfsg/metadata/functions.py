@@ -166,6 +166,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -225,6 +226,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -285,6 +287,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -345,6 +348,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -405,6 +409,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -464,6 +469,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -1043,7 +1049,7 @@ functions = {
                     'description': 'Specifies the active edge for the digital edge Script Trigger. NI-RFSG sets the NIRFSG_ATTR_DIGITAL_EDGE_SCRIPT_TRIGGER_EDGE attribute to this value.'
                 },
                 'enum': 'ScriptTriggerDigitalEdgeEdge',
-                'grpc_enum': None,
+                'grpc_enum': 'DigitalEdgeEdge',
                 'name': 'edge',
                 'type': 'ViInt32',
                 'use_array': False,
@@ -1096,7 +1102,7 @@ functions = {
                     'description': 'Specifies the active edge for the Start Trigger. NI-RFSG sets the NIRFSG_ATTR_DIGITAL_EDGE_START_TRIGGER_EDGE attribute to this value.'
                 },
                 'enum': 'StartTriggerDigitalEdgeEdge',
-                'grpc_enum': None,
+                'grpc_enum': 'DigitalEdgeEdge',
                 'name': 'edge',
                 'type': 'ViInt32',
                 'use_array': False,
@@ -2061,52 +2067,6 @@ functions = {
         'returns': 'ViStatus',
         'use_session_lock': False
     },
-    'FancyGetDeembeddingSparameters': {
-        'codegen_method': 'python-only',
-        'documentation': {
-            'description': '\nReturns the S-parameters used for de-embedding a measurement on the selected port.\n\nThis includes interpolation of the parameters based on the configured carrier frequency. This function returns an empty array if no de-embedding is done.\n\nIf you want to call this function just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.\n\n**Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860',
-            'note': 'The port orientation for the returned S-parameters is normalized to NIRFSG_VAL_PORT1_TOWARDS_DUT.'
-        },
-        'included_in_proto': True,
-        'method_name_for_documentation': 'get_deembedding_sparameters',
-        'method_templates': [
-            {
-                'documentation_filename': 'default_method',
-                'library_interpreter_filename': 'none',
-                'method_python_name_suffix': '',
-                'session_filename': 'get_deembedding_sparameter'
-            }
-        ],
-        'parameters': [
-            {
-                'direction': 'in',
-                'documentation': {
-                    'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
-                },
-                'name': 'vi',
-                'type': 'ViSession',
-                'use_array': False,
-                'use_in_python_api': True
-            },
-            {
-                'array_dimension': 2,
-                'complex_type': 'numpy',
-                'direction': 'out',
-                'documentation': {
-                    'description': 'Returns an array of S-parameters. The S-parameters are returned in the following order: s11, s12, s21, s22.'
-                },
-                'name': 'sparameters',
-                'numpy': True,
-                'type': 'NIComplexNumber[]',
-                'type_in_documentation': 'numpy.array(dtype=numpy.complex128)',
-                'use_array': False,
-                'use_in_python_api': True
-            }
-        ],
-        'python_name': 'get_deembedding_sparameters',
-        'returns': None,
-        'use_session_lock': False
-    },
     'GetAllNamedWaveformNames': {
         'codegen_method': 'public',
         'documentation': {
@@ -2273,6 +2233,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -2331,6 +2292,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -2389,6 +2351,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -2447,6 +2410,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -2505,6 +2469,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -2563,6 +2528,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -2657,18 +2623,19 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetDeembeddingSparameters': {
-        'codegen_method': 'private',
+        'codegen_method': 'python-only',
         'documentation': {
             'description': '\nReturns the S-parameters used for de-embedding a measurement on the selected port.\n\nThis includes interpolation of the parameters based on the configured carrier frequency. This function returns an empty array if no de-embedding is done.\n\nIf you want to call this function just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.\n\n**Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860',
             'note': 'The port orientation for the returned S-parameters is normalized to NIRFSG_VAL_PORT1_TOWARDS_DUT.'
         },
         'included_in_proto': True,
+        'method_name_for_documentation': 'get_deembedding_sparameters',
         'method_templates': [
             {
-                'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_read_method',
+                'documentation_filename': 'default_method',
+                'library_interpreter_filename': 'get_deembedding_sparameter',
                 'method_python_name_suffix': '',
-                'session_filename': 'numpy_read_method'
+                'session_filename': 'default_method'
             }
         ],
         'parameters': [
@@ -2692,41 +2659,86 @@ functions = {
                 'name': 'sparameters',
                 'numpy': True,
                 'type': 'NIComplexNumber[]',
-                'use_array': False,
-                'use_in_python_api': True
-            },
-            {
-                'direction': 'in',
-                'documentation': {
-                    'description': 'Specifies the size of the array that is returned by the NIRFSG_ATTR_SPARAMETERS output.'
-                },
-                'name': 'sparametersArraySize',
-                'type': 'ViInt32',
-                'use_array': False
-            },
-            {
-                'direction': 'out',
-                'documentation': {
-                    'description': 'Returns the number of S-parameters.'
-                },
-                'name': 'numberOfSparameters',
-                'type': 'ViInt32',
-                'use_array': False,
-                'use_in_python_api': True
-            },
-            {
-                'direction': 'out',
-                'documentation': {
-                    'description': 'Returns the number of S-parameter ports. The **sparameter** array is always *n* x *n*, where span *n* is the number of ports.'
-                },
-                'name': 'numberOfPorts',
-                'type': 'ViInt32',
+                'type_in_documentation': 'numpy.array(dtype=numpy.complex128)',
                 'use_array': False,
                 'use_in_python_api': True
             }
         ],
-        'returns': 'ViStatus'
+        'python_name': 'get_deembedding_sparameters',
+        'returns': None,
+        'use_session_lock': False
     },
+    # 'GetDeembeddingSparameters': {
+    #     'codegen_method': 'private',
+    #     'documentation': {
+    #         'description': '\nReturns the S-parameters used for de-embedding a measurement on the selected port.\n\nThis includes interpolation of the parameters based on the configured carrier frequency. This function returns an empty array if no de-embedding is done.\n\nIf you want to call this function just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.\n\n**Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860',
+    #         'note': 'The port orientation for the returned S-parameters is normalized to NIRFSG_VAL_PORT1_TOWARDS_DUT.'
+    #     },
+    #     'included_in_proto': True,
+    #     'method_templates': [
+    #         {
+    #             'documentation_filename': 'numpy_method',
+    #             'library_interpreter_filename': 'numpy_read_method',
+    #             'method_python_name_suffix': '',
+    #             'session_filename': 'numpy_read_method'
+    #         }
+    #     ],
+    #     'parameters': [
+    #         {
+    #             'direction': 'in',
+    #             'documentation': {
+    #                 'description': 'Identifies your instrument session. The ViSession handle is obtained from the nirfsg_Init function or the nirfsg_InitWithOptions function and identifies a particular instrument session.'
+    #             },
+    #             'name': 'vi',
+    #             'type': 'ViSession',
+    #             'use_array': False,
+    #             'use_in_python_api': True
+    #         },
+    #         {
+    #             'array_dimension': 2,
+    #             'complex_type': 'numpy',
+    #             'direction': 'out',
+    #             'documentation': {
+    #                 'description': 'Returns an array of S-parameters. The S-parameters are returned in the following order: s11, s12, s21, s22.'
+    #             },
+    #             'name': 'sparameters',
+    #             'numpy': True,
+    #             'type': 'NIComplexNumber[]',
+    #             'use_array': False,
+    #             'use_in_python_api': True
+    #         },
+    #         {
+    #             'direction': 'in',
+    #             'documentation': {
+    #                 'description': 'Specifies the size of the array that is returned by the NIRFSG_ATTR_SPARAMETERS output.'
+    #             },
+    #             'name': 'sparametersArraySize',
+    #             'type': 'ViInt32',
+    #             'use_array': False
+    #         },
+    #         {
+    #             'direction': 'out',
+    #             'documentation': {
+    #                 'description': 'Returns the number of S-parameters.'
+    #             },
+    #             'name': 'numberOfSparameters',
+    #             'type': 'ViInt32',
+    #             'use_array': False,
+    #             'use_in_python_api': True
+    #         },
+    #         {
+    #             'direction': 'out',
+    #             'documentation': {
+    #                 'description': 'Returns the number of S-parameter ports. The **sparameter** array is always *n* x *n*, where span *n* is the number of ports.'
+    #             },
+    #             'name': 'numberOfPorts',
+    #             'type': 'ViInt32',
+    #             'use_array': False,
+    #             'use_in_python_api': True
+    #         }
+    #     ],
+    #     'returns': 'ViStatus'
+    # },
     'GetDeembeddingTableNumberOfPorts': {
         'codegen_method': 'private',
         'grpc_type': 'restricted',
@@ -3681,6 +3693,7 @@ functions = {
                     'description': 'Returns a ViSession handle that you use to identify the NI-RFSG device in all subsequent NI-RFSG function calls.'
                 },
                 'name': 'newVi',
+                'grpc_name': 'vi',
                 'type': 'ViSession',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4713,6 +4726,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4772,6 +4786,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4832,6 +4847,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4891,6 +4907,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -4951,6 +4968,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True
@@ -5010,6 +5028,7 @@ functions = {
                     'description': 'Pass the ID of an attribute.'
                 },
                 'name': 'attribute',
+                'grpc_name': 'attribute_id',
                 'type': 'ViAttr',
                 'use_array': False,
                 'use_in_python_api': True

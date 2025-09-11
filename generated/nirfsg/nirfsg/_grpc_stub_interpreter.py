@@ -99,42 +99,42 @@ class GrpcStubInterpreter(object):
     def check_attribute_vi_boolean(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.CheckAttributeViBoolean,
-            grpc_types.CheckAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=value),
+            grpc_types.CheckAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value=value),
         )
 
 
     def check_attribute_vi_int32(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.CheckAttributeViInt32,
-            grpc_types.CheckAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.CheckAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
     def check_attribute_vi_int64(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.CheckAttributeViInt64,
-            grpc_types.CheckAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.CheckAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
     def check_attribute_vi_real64(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.CheckAttributeViReal64,
-            grpc_types.CheckAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.CheckAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
     def check_attribute_vi_session(self, channel_name, attribute):  # noqa: N802
         self._invoke(
             self._client.CheckAttributeViSession,
-            grpc_types.CheckAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=self._vi),
+            grpc_types.CheckAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value=self._vi),
         )
 
 
     def check_attribute_vi_string(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.CheckAttributeViString,
-            grpc_types.CheckAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.CheckAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
@@ -221,14 +221,14 @@ class GrpcStubInterpreter(object):
     def configure_digital_edge_script_trigger(self, trigger_id, source, edge):  # noqa: N802
         self._invoke(
             self._client.ConfigureDigitalEdgeScriptTrigger,
-            grpc_types.ConfigureDigitalEdgeScriptTriggerRequest(vi=self._vi, trigger_id_raw=trigger_id, source_raw=source, edge=edge.value),
+            grpc_types.ConfigureDigitalEdgeScriptTriggerRequest(vi=self._vi, trigger_id_raw=trigger_id, source_raw=source, edge_raw=edge.value),
         )
 
 
     def configure_digital_edge_start_trigger(self, source, edge):  # noqa: N802
         self._invoke(
             self._client.ConfigureDigitalEdgeStartTrigger,
-            grpc_types.ConfigureDigitalEdgeStartTriggerRequest(vi=self._vi, source_raw=source, edge=edge.value),
+            grpc_types.ConfigureDigitalEdgeStartTriggerRequest(vi=self._vi, source_raw=source, edge_raw=edge.value),
         )
 
 
@@ -368,7 +368,7 @@ class GrpcStubInterpreter(object):
     def get_attribute_vi_boolean(self, channel_name, attribute):  # noqa: N802
         response = self._invoke(
             self._client.GetAttributeViBoolean,
-            grpc_types.GetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
+            grpc_types.GetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute),
         )
         return response.value
 
@@ -376,7 +376,7 @@ class GrpcStubInterpreter(object):
     def get_attribute_vi_int32(self, channel_name, attribute):  # noqa: N802
         response = self._invoke(
             self._client.GetAttributeViInt32,
-            grpc_types.GetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
+            grpc_types.GetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute),
         )
         return response.value
 
@@ -384,7 +384,7 @@ class GrpcStubInterpreter(object):
     def get_attribute_vi_int64(self, channel_name, attribute):  # noqa: N802
         response = self._invoke(
             self._client.GetAttributeViInt64,
-            grpc_types.GetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
+            grpc_types.GetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute),
         )
         return response.value
 
@@ -392,7 +392,7 @@ class GrpcStubInterpreter(object):
     def get_attribute_vi_real64(self, channel_name, attribute):  # noqa: N802
         response = self._invoke(
             self._client.GetAttributeViReal64,
-            grpc_types.GetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute),
+            grpc_types.GetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute),
         )
         return response.value
 
@@ -400,7 +400,7 @@ class GrpcStubInterpreter(object):
     def get_attribute_vi_session(self, channel_name, attribute):  # noqa: N802
         response = self._invoke(
             self._client.GetAttributeViSession,
-            grpc_types.GetAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
+            grpc_types.GetAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute),
         )
         return response.value
 
@@ -408,7 +408,7 @@ class GrpcStubInterpreter(object):
     def get_attribute_vi_string(self, channel_name, attribute):  # noqa: N802
         response = self._invoke(
             self._client.GetAttributeViString,
-            grpc_types.GetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute),
+            grpc_types.GetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute),
         )
         return response.value
 
@@ -420,16 +420,16 @@ class GrpcStubInterpreter(object):
         )
         return response.name
 
-
-    def get_deembedding_sparameters(self, sparameters, sparameters_array_size):  # noqa: N802
-        import numpy
+    def get_deembedding_sparameters(self):
+        import numpy as np
+        sparameters = np.full((1, 1), 0 + 0j, dtype=np.complex128)
         response = self._invoke(
             self._client.GetDeembeddingSparameters,
-            grpc_types.GetDeembeddingSparametersRequest(vi=self._vi, sparameters_array_size=sparameters_array_size),
+            grpc_types.GetDeembeddingSparametersRequest(vi=self._vi),
         )
-        temp_array = numpy.array([c.real + 1j * c.imaginary for c in response.sparameters], dtype=numpy.complex128)
-        numpy.copyto(sparameters, temp_array.view(sparameters.dtype).reshape(sparameters.shape))
-        return response.number_of_sparameters, response.number_of_ports
+        temp_array = np.array([c.real + 1j * c.imaginary for c in response.sparameters], dtype=np.complex128)
+        np.copyto(sparameters, temp_array.view(sparameters.dtype).reshape(sparameters.shape))
+        return sparameters
 
 
     def get_deembedding_table_number_of_ports(self):  # noqa: N802
@@ -522,7 +522,7 @@ class GrpcStubInterpreter(object):
             metadata=metadata,
         )
         self._close_on_exit = response.new_session_initialized
-        return response.new_vi
+        return response.vi
 
 
     def initiate(self):  # noqa: N802
@@ -661,42 +661,42 @@ class GrpcStubInterpreter(object):
     def set_attribute_vi_boolean(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.SetAttributeViBoolean,
-            grpc_types.SetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=value),
+            grpc_types.SetAttributeViBooleanRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value=value),
         )
 
 
     def set_attribute_vi_int32(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.SetAttributeViInt32,
-            grpc_types.SetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.SetAttributeViInt32Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_int64(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.SetAttributeViInt64,
-            grpc_types.SetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.SetAttributeViInt64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_real64(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.SetAttributeViReal64,
-            grpc_types.SetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.SetAttributeViReal64Request(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 
     def set_attribute_vi_session(self, channel_name, attribute):  # noqa: N802
         self._invoke(
             self._client.SetAttributeViSession,
-            grpc_types.SetAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value=self._vi),
+            grpc_types.SetAttributeViSessionRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value=self._vi),
         )
 
 
     def set_attribute_vi_string(self, channel_name, attribute, value):  # noqa: N802
         self._invoke(
             self._client.SetAttributeViString,
-            grpc_types.SetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute=attribute, value_raw=value),
+            grpc_types.SetAttributeViStringRequest(vi=self._vi, channel_name=channel_name, attribute_id=attribute, value_raw=value),
         )
 
 

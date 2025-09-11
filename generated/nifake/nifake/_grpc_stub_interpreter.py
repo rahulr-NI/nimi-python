@@ -153,16 +153,11 @@ class GrpcStubInterpreter(object):
         return response.waveform_data
 
 
-    def fetch_waveform_into(self, waveform_data):  # noqa: N802
-        self._invoke(
-            self._client.FetchWaveform,
-            grpc_types.FetchWaveformRequest(vi=self._vi, number_of_samples=number_of_samples),
-        )
-
+    def fetch_waveform_into(self, number_of_samples):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
     def function_with_3d_numpy_array_of_numpy_complex128_input_parameter(self, multidimensional_array):  # noqa: N802
-        raise NotImplementedError('function_with_3d_numpy_array_of_numpy_complex128_input_parameter is not supported over gRPC')
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def function_with_intflag_parameter(self, flag):  # noqa: N802
         self._invoke(
@@ -571,23 +566,16 @@ class GrpcStubInterpreter(object):
 
 
     def write_waveform_numpy(self, waveform):  # noqa: N802
-        self._invoke(
-            self._client.WriteWaveform,
-            grpc_types.WriteWaveformRequest(vi=self._vi, waveform=waveform),
-        )
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def write_waveform_numpy_complex128(self, waveform_data_array):  # noqa: N802
-        raise NotImplementedError('write_waveform_numpy_complex128 is not supported over gRPC')
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def write_waveform_numpy_complex64(self, waveform_data_array):  # noqa: N802
-        raise NotImplementedError('write_waveform_numpy_complex64 is not supported over gRPC')
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def write_waveform_numpy_complex_interleaved_i16(self, waveform_data_array):  # noqa: N802
-        raise NotImplementedError('write_waveform_numpy_complex_interleaved_i16 is not supported over gRPC')
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def close(self):  # noqa: N802
         self._invoke(

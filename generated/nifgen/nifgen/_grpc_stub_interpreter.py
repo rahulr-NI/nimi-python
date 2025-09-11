@@ -197,12 +197,7 @@ class GrpcStubInterpreter(object):
 
 
     def create_waveform_f64_numpy(self, channel_name, waveform_data_array):  # noqa: N802
-        response = self._invoke(
-            self._client.CreateWaveformF64,
-            grpc_types.CreateWaveformF64Request(vi=self._vi, channel_name=channel_name, waveform_data_array=waveform_data_array),
-        )
-        return response.waveform_handle
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def create_waveform_from_file_f64(self, channel_name, file_name, byte_order):  # noqa: N802
         response = self._invoke(
@@ -221,12 +216,7 @@ class GrpcStubInterpreter(object):
 
 
     def create_waveform_i16_numpy(self, channel_name, waveform_data_array):  # noqa: N802
-        response = self._invoke(
-            self._client.CreateWaveformI16,
-            grpc_types.CreateWaveformI16Request(vi=self._vi, channel_name=channel_name, waveform_data_array=waveform_data_array),
-        )
-        return response.waveform_handle
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def define_user_standard_waveform(self, channel_name, waveform_data_array):  # noqa: N802
         self._invoke(
@@ -539,11 +529,7 @@ class GrpcStubInterpreter(object):
 
 
     def write_binary16_waveform_numpy(self, channel_name, waveform_handle, data):  # noqa: N802
-        self._invoke(
-            self._client.WriteBinary16Waveform,
-            grpc_types.WriteBinary16WaveformRequest(vi=self._vi, channel_name=channel_name, waveform_handle=waveform_handle, data=data),
-        )
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def write_named_waveform_f64(self, channel_name, waveform_name, data):  # noqa: N802
         self._invoke(
@@ -553,18 +539,10 @@ class GrpcStubInterpreter(object):
 
 
     def write_named_waveform_f64_numpy(self, channel_name, waveform_name, data):  # noqa: N802
-        self._invoke(
-            self._client.WriteNamedWaveformF64,
-            grpc_types.WriteNamedWaveformF64Request(vi=self._vi, channel_name=channel_name, waveform_name=waveform_name, data=data),
-        )
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def write_named_waveform_i16_numpy(self, channel_name, waveform_name, data):  # noqa: N802
-        self._invoke(
-            self._client.WriteNamedWaveformI16,
-            grpc_types.WriteNamedWaveformI16Request(vi=self._vi, channel_name=channel_name, waveform_name=waveform_name, data=data),
-        )
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def write_script(self, channel_name, script):  # noqa: N802
         self._invoke(
@@ -581,11 +559,7 @@ class GrpcStubInterpreter(object):
 
 
     def write_waveform_numpy(self, channel_name, waveform_handle, data):  # noqa: N802
-        self._invoke(
-            self._client.WriteWaveform,
-            grpc_types.WriteWaveformRequest(vi=self._vi, channel_name=channel_name, waveform_handle=waveform_handle, data=data),
-        )
-
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')\
 
     def close(self):  # noqa: N802
         self._invoke(

@@ -188,12 +188,8 @@ class GrpcStubInterpreter(object):
         return response.waveform_array
 
 
-    def fetch_waveform_into(self, waveform_array, maximum_time):  # noqa: N802
-        self._invoke(
-            self._client.FetchWaveform,
-            grpc_types.FetchWaveformRequest(vi=self._vi, maximum_time_raw=maximum_time, array_size=array_size),
-        )
-
+    def fetch_waveform_into(self, maximum_time, array_size):  # noqa: N802
+        raise NotImplementedError('numpy-specific methods are not supported over gRPC')
 
     def get_attribute_vi_boolean(self, channel_name, attribute_id):  # noqa: N802
         response = self._invoke(
