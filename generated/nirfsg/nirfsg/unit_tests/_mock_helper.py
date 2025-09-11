@@ -126,6 +126,9 @@ class SideEffectsHelper(object):
         self._defaults['GetChannelName'] = {}
         self._defaults['GetChannelName']['return'] = 0
         self._defaults['GetChannelName']['name'] = None
+        self._defaults['GetDeembeddingSparameters'] = {}
+        self._defaults['GetDeembeddingSparameters']['return'] = 0
+        self._defaults['GetDeembeddingSparameters']['sparameters'] = None
         self._defaults['GetDeembeddingTableNumberOfPorts'] = {}
         self._defaults['GetDeembeddingTableNumberOfPorts']['return'] = 0
         self._defaults['GetDeembeddingTableNumberOfPorts']['numberOfPorts'] = None
@@ -583,6 +586,22 @@ class SideEffectsHelper(object):
             return len(self._defaults['GetChannelName']['name'])
         name.value = self._defaults['GetChannelName']['name'].encode('ascii')
         return self._defaults['GetChannelName']['return']
+
+    def niRFSG_GetDeembeddingSparameters(self, vi, sparameters):  # noqa: N802
+        if self._defaults['GetDeembeddingSparameters']['return'] != 0:
+            return self._defaults['GetDeembeddingSparameters']['return']
+        # sparameters
+        if self._defaults['GetDeembeddingSparameters']['sparameters'] is None:
+            raise MockFunctionCallError("niRFSG_GetDeembeddingSparameters", param='sparameters')
+        test_value = self._defaults['GetDeembeddingSparameters']['sparameters']
+        try:
+            sparameters_ref = sparameters.contents
+        except AttributeError:
+            sparameters_ref = sparameters
+        assert len(sparameters_ref) >= len(test_value)
+        for i in range(len(test_value)):
+            sparameters_ref[i] = test_value[i]
+        return self._defaults['GetDeembeddingSparameters']['return']
 
     def niRFSG_GetDeembeddingTableNumberOfPorts(self, vi, number_of_ports):  # noqa: N802
         if self._defaults['GetDeembeddingTableNumberOfPorts']['return'] != 0:
@@ -1113,6 +1132,8 @@ class SideEffectsHelper(object):
         mock_library.niRFSG_GetAttributeViString.return_value = 0
         mock_library.niRFSG_GetChannelName.side_effect = MockFunctionCallError("niRFSG_GetChannelName")
         mock_library.niRFSG_GetChannelName.return_value = 0
+        mock_library.niRFSG_GetDeembeddingSparameters.side_effect = MockFunctionCallError("niRFSG_GetDeembeddingSparameters")
+        mock_library.niRFSG_GetDeembeddingSparameters.return_value = 0
         mock_library.niRFSG_GetDeembeddingTableNumberOfPorts.side_effect = MockFunctionCallError("niRFSG_GetDeembeddingTableNumberOfPorts")
         mock_library.niRFSG_GetDeembeddingTableNumberOfPorts.return_value = 0
         mock_library.niRFSG_GetError.side_effect = MockFunctionCallError("niRFSG_GetError")

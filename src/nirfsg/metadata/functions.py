@@ -2623,7 +2623,7 @@ functions = {
         'returns': 'ViStatus'
     },
     'GetDeembeddingSparameters': {
-        'codegen_method': 'python-only',
+        'codegen_method': 'public',
         'documentation': {
             'description': '\nReturns the S-parameters used for de-embedding a measurement on the selected port.\n\nThis includes interpolation of the parameters based on the configured carrier frequency. This function returns an empty array if no de-embedding is done.\n\nIf you want to call this function just to get the required buffer size, you can pass 0 for **S-parameter Size** and VI_NULL for the **S-parameters** buffer.\n\n**Supported Devices** : PXIe-5830/5831/5832/5840/5841/5842/5860',
             'note': 'The port orientation for the returned S-parameters is normalized to NIRFSG_VAL_PORT1_TOWARDS_DUT.'

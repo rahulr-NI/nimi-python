@@ -67,6 +67,7 @@ class Library(object):
         self.niRFSG_GetAttributeViSession_cfunc = None
         self.niRFSG_GetAttributeViString_cfunc = None
         self.niRFSG_GetChannelName_cfunc = None
+        self.niRFSG_GetDeembeddingSparameters_cfunc = None
         self.niRFSG_GetDeembeddingTableNumberOfPorts_cfunc = None
         self.niRFSG_GetError_cfunc = None
         self.niRFSG_GetExternalCalibrationLastDateAndTime_cfunc = None
@@ -497,6 +498,14 @@ class Library(object):
                 self.niRFSG_GetChannelName_cfunc.argtypes = [ViSession, ViInt32, ViInt32, ctypes.POINTER(ViChar)]  # noqa: F405
                 self.niRFSG_GetChannelName_cfunc.restype = ViStatus  # noqa: F405
         return self.niRFSG_GetChannelName_cfunc(vi, index, buffer_size, name)
+
+    def niRFSG_GetDeembeddingSparameters(self, vi, sparameters):  # noqa: N802
+        with self._func_lock:
+            if self.niRFSG_GetDeembeddingSparameters_cfunc is None:
+                self.niRFSG_GetDeembeddingSparameters_cfunc = self._get_library_function('niRFSG_GetDeembeddingSparameters')
+                self.niRFSG_GetDeembeddingSparameters_cfunc.argtypes = [ViSession, ctypes.POINTER(NIComplexNumber)]  # noqa: F405
+                self.niRFSG_GetDeembeddingSparameters_cfunc.restype = None  # noqa: F405
+        return self.niRFSG_GetDeembeddingSparameters_cfunc(vi, sparameters)
 
     def niRFSG_GetDeembeddingTableNumberOfPorts(self, vi, number_of_ports):  # noqa: N802
         with self._func_lock:
