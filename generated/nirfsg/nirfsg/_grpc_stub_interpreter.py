@@ -422,15 +422,14 @@ class GrpcStubInterpreter(object):
 
     def get_deembedding_sparameters(self):
         import numpy as np
-        sparameters = np.full((1, 1), 0 + 0j, dtype=np.complex128)
         response = self._invoke(
             self._client.GetDeembeddingSparameters,
             grpc_types.GetDeembeddingSparametersRequest(vi=self._vi),
         )
-        temp_array = np.array([c.real + 1j * c.imaginary for c in response.sparameters], dtype=np.complex128)
-        np.copyto(sparameters, temp_array.view(sparameters.dtype).reshape(sparameters.shape))
+        number_of_ports = response.number_of_ports
+        sparameters = np.array([c.real + 1j * c.imaginary for c in response.sparameters], dtype=np.complex128)
+        sparameters = sparameters.reshape((number_of_ports, number_of_ports))
         return sparameters
-
 
     def get_deembedding_table_number_of_ports(self):  # noqa: N802
         response = self._invoke(

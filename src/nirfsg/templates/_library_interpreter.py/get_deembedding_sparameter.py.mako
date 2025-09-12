@@ -4,7 +4,7 @@
     import build.helper as helper
 %>\
 
-    def ${f['python_name']}(${helper.get_params_snippet(f, helper.ParameterUsageOptions.SESSION_METHOD_DECLARATION)}):
+    def ${f['python_name']}(self):
         import numpy as np
         number_of_ports = self.get_deembedding_table_number_of_ports()
         sparameters_array_size = number_of_ports ** 2

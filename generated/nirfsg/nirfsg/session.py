@@ -7316,7 +7316,7 @@ class Session(_SessionBase):
         return name
 
     def get_deembedding_sparameters(self):
-        r'''get_deembedding_sparameters
+        '''get_deembedding_sparameters
 
         Returns the S-parameters used for de-embedding a measurement on the selected port.
 
@@ -7334,7 +7334,6 @@ class Session(_SessionBase):
         '''
         sparameters = self._interpreter.get_deembedding_sparameters()
         return sparameters
-
     @ivi_synchronized
     def _get_deembedding_table_number_of_ports(self):
         r'''_get_deembedding_table_number_of_ports

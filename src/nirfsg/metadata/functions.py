@@ -2635,7 +2635,7 @@ functions = {
                 'documentation_filename': 'default_method',
                 'library_interpreter_filename': 'get_deembedding_sparameter',
                 'method_python_name_suffix': '',
-                'session_filename': 'default_method'
+                'session_filename': 'get_deembedding_sparameter'
             }
         ],
         'parameters': [
@@ -2662,10 +2662,39 @@ functions = {
                 'type_in_documentation': 'numpy.array(dtype=numpy.complex128)',
                 'use_array': False,
                 'use_in_python_api': True
+            },
+            {
+                'direction': 'in',
+                'documentation': {
+                    'description': 'Specifies the size of the array that is returned by the NIRFSG_ATTR_SPARAMETERS output.'
+                },
+                'name': 'sparametersArraySize',
+                'type': 'ViInt32',
+                'use_array': False
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns the number of S-parameters.'
+                },
+                'name': 'numberOfSparameters',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
+            },
+            {
+                'direction': 'out',
+                'documentation': {
+                    'description': 'Returns the number of S-parameter ports. The **sparameter** array is always *n* x *n*, where span *n* is the number of ports.'
+                },
+                'name': 'numberOfPorts',
+                'type': 'ViInt32',
+                'use_array': False,
+                'use_in_python_api': True
             }
         ],
         'python_name': 'get_deembedding_sparameters',
-        'returns': None,
+        'returns': 'ViStatus',
         'use_session_lock': False
     },
     # 'GetDeembeddingSparameters': {
