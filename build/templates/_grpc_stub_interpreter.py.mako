@@ -21,7 +21,12 @@ from . import enums as enums  # noqa: F401
 from . import errors as errors
 from . import ${proto_name}_pb2 as grpc_types
 from . import ${proto_name}_pb2_grpc as ${module_name}_grpc
+% if 'restricted_proto' in config:
+from . import ${config['restricted_proto']}_pb2 as restricted_grpc_types
+from . import ${config['restricted_proto']}_pb2_grpc as restricted_grpc
+% endif
 from . import session_pb2 as session_grpc_types
+from . import nidevice_pb2 as grpc_complex_types
 % for c in config['custom_types']:
 
 from . import ${c['file_name']} as ${c['file_name']}  # noqa: F401
@@ -35,6 +40,9 @@ class GrpcStubInterpreter(object):
         self._grpc_options = grpc_options
         self._lock = threading.RLock()
         self._client = ${module_name}_grpc.${service_class_prefix}Stub(grpc_options.grpc_channel)
+% if 'restricted_proto' in config:
+        self._restricted_client = restricted_grpc.${service_class_prefix}RestrictedStub(grpc_options.grpc_channel)
+% endif
         self.set_session_handle()
 
     def set_session_handle(self, value=session_grpc_types.Session()):
@@ -87,7 +95,13 @@ class GrpcStubInterpreter(object):
 % for func_name in sorted(functions):
 % for method_template in functions[func_name]['method_templates']:
 % if method_template['library_interpreter_filename'] != '/none':
-<%include file="${'/_grpc_stub_interpreter.py' + method_template['library_interpreter_filename'] + '.py.mako'}" args="f=functions[func_name], config=config, method_template=method_template" />\
+<%
+# Determine which grpc types and client to use for this function
+f = functions[func_name]
+grpc_types_var = 'restricted_grpc_types' if f.get('grpc_type') == 'restricted' else 'grpc_types'
+grpc_client_var = 'restricted_grpc' if f.get('grpc_type') == 'restricted' else module_name + '_grpc'
+%>
+<%include file="${'/_grpc_stub_interpreter.py' + method_template['library_interpreter_filename'] + '.py.mako'}" args="f=f, config=config, method_template=method_template, grpc_types_var=grpc_types_var, grpc_client_var=grpc_client_var" />\
 % endif
 % endfor
 % endfor

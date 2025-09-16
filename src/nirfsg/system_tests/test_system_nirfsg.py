@@ -7,6 +7,7 @@ import pathlib
 import pytest
 import sys
 import time
+import grpc
 
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent / 'shared'))
@@ -14,9 +15,12 @@ import system_test_utilities  # noqa: E402
 
 # Set up global information we need
 test_files_base_dir = os.path.join(os.path.dirname(__file__))
-use_simulated_session = True
+use_simulated_session = False
 real_hw_resource_name = '5841'
-
+grpc_enable = False
+hostname = "sg-debug1.ni.systems"  # <-- set your server IP or hostname
+username = "rfuser"               # <-- set your SSH username
+password = "rfRocks"               # <-- set your SSH password
 
 def get_test_file_path(file_name):
     return os.path.join(test_files_base_dir, file_name)
@@ -376,18 +380,41 @@ class SystemTests:
     def test_save_load_configuration(self, rfsg_device_session):
         rfsg_device_session.configure_rf(2e9, -5.0)
         rfsg_device_session.iq_rate = 1e6
-        rfsg_device_session.save_configurations_to_file(get_test_file_path('tempConfiguration.json'))
-        assert os.path.exists(get_test_file_path('tempConfiguration.json'))
+        config_path = get_test_file_path('tempConfiguration.json')
+        rfsg_device_session.save_configurations_to_file(config_path)
+        if not grpc_enable or hostname == "localhost":
+            assert os.path.exists(config_path)
+        else:
+            import paramiko
+            # Use Windows CMD shell command for file existence check
+            remote_path = config_path.replace('/', '\\')
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(hostname, username=username, password=password)
+            # CMD shell: if exist "path" (echo exists) else (echo missing)
+            stdin, stdout, stderr = ssh.exec_command(f'if exist "{remote_path}" (echo exists) else (echo missing)')
+            result = stdout.read().decode().strip()
+            ssh.close()
+            assert result == "exists", f"File not found on server: {remote_path}"
         rfsg_device_session.configure_rf(3e9, -15.0)
         rfsg_device_session.iq_rate = 2e6
         assert rfsg_device_session.frequency == 3e9
         assert rfsg_device_session.power_level == -15.0
         assert rfsg_device_session.iq_rate == 2e6
-        rfsg_device_session.load_configurations_from_file(get_test_file_path('tempConfiguration.json'))
+        rfsg_device_session.load_configurations_from_file(config_path)
         assert rfsg_device_session.frequency == 2e9
         assert rfsg_device_session.power_level == -5.0
         assert rfsg_device_session.iq_rate == 1e6
-        os.remove(get_test_file_path('tempConfiguration.json'))
+        if grpc_enable and hostname != "localhost":
+            # Remove the file from the server via SSH
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(hostname, username=username, password=password)
+            # CMD shell: del "path"
+            ssh.exec_command(f'del /f /q "{remote_path}"')
+            ssh.close()
+        if os.path.exists(config_path):
+            os.remove(config_path)
 
 # Basic tests for generation
     @pytest.mark.skipif(use_simulated_session is False, reason="Test executed with status check in real hw")
@@ -538,6 +565,8 @@ class SystemTests:
             rfsg_device_session.check_generation_status()
 
     def test_set_get_deembedding_sparameters(self, rfsg_device_session):
+        if grpc_enable:
+            pytest.skip("gRPC does not support deembedding S-parameters yet")
         frequencies = np.array([1e9, 2e9, 3e9], dtype=np.float64)
         sparameter_tables = np.array([[[1 + 1j, 2 + 2j], [3 + 3j, 4 + 4j]], [[5 + 5j, 6 + 6j], [7 + 7j, 8 + 8j]], [[9 + 9j, 10 + 10j], [11 + 11j, 12 + 12j]]], dtype=np.complex128)
         expected_sparameter_table = np.array([[5 + 5j, 6 + 6j], [7 + 7j, 8 + 8j]], dtype=np.complex128)
@@ -583,3 +612,16 @@ class TestLibrary(SystemTests):
     @pytest.fixture(scope='class')
     def session_creation_kwargs(self):
         return {}
+    
+class TestGrpc(SystemTests):
+    @pytest.fixture(scope='class')
+    def grpc_channel(self):
+        global grpc_enable
+        grpc_enable = True
+        channel = grpc.insecure_channel(f"{hostname}:31763")
+        yield channel
+
+    @pytest.fixture(scope='class')
+    def session_creation_kwargs(self, grpc_channel):
+        grpc_options = nirfsg.GrpcSessionOptions(grpc_channel, '')
+        return {'grpc_options': grpc_options}

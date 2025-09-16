@@ -48,6 +48,7 @@ config = {
         }
     },
     'module_name': 'nirfsg',
+    'restricted_proto': 'nirfsg_restricted',
     'repeated_capabilities': [
         {
             'prefix': 'marker',
