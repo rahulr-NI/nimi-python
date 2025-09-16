@@ -1,4 +1,4 @@
-<%page args="f, config, method_template"/>\
+<%page args="f, config, method_template, grpc_types_var, grpc_client_var"/>\
 <%
     import build.helper as helper
 

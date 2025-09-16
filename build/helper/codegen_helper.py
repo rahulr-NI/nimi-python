@@ -192,9 +192,9 @@ def get_library_interpreter_method_return_snippet(parameters, config, use_numpy_
     return ('return ' + ', '.join(snippets)).strip()
 
 
-def get_grpc_interpreter_method_return_snippet(parameters, config):
+def get_grpc_interpreter_method_return_snippet(parameters, config, use_numpy_array=False):
     '''Returns a string suitable to use as the return argument of a _gprc.LibraryInterpreter method'''
-    parameters_to_use = filter_parameters(parameters, ParameterUsageOptions.API_OUTPUT_PARAMETERS)
+    parameters_to_use = filter_parameters(parameters, ParameterUsageOptions.API_NUMPY_OUTPUT_PARAMETERS if use_numpy_array else ParameterUsageOptions.API_OUTPUT_PARAMETERS)
     snippets = [_get_grpc_interpreter_output_param_return_snippet(p, parameters, config) for p in parameters_to_use]
     return ('return ' + ', '.join(snippets)).strip()
 
@@ -370,6 +370,8 @@ def _get_ctype_variable_definition_snippet_for_scalar(parameter, parameters, ivi
             # This is used for complex waveforms, where the real and imaginary parts are interleaved in the array.
             if corresponding_buffer_parameters[0]['complex_type'] == 'interleaved':
                 definitions.append(parameter['ctypes_variable_name'] + ' = {0}.{1}(0 if {2} is None else len({2}) // 2)  # case S160'.format(module_name, parameter['ctypes_type'], corresponding_buffer_parameters[0]['python_name']))
+            elif corresponding_buffer_parameters[0]['complex_type'] == 'ndim-numpy':
+                definitions.append(parameter['ctypes_variable_name'] + ' = {0}.{1}(0 if {2} is None else {2}.size)  # case S160'.format(module_name, parameter['ctypes_type'], corresponding_buffer_parameters[0]['python_name']))
             else:
                 definitions.append(parameter['ctypes_variable_name'] + ' = {0}.{1}(0 if {2} is None else len({2}))  # case S160'.format(module_name, parameter['ctypes_type'], corresponding_buffer_parameters[0]['python_name']))
         else:
