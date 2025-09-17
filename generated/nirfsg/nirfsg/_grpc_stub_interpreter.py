@@ -730,44 +730,35 @@ class GrpcStubInterpreter(object):
             grpc_types.WaitUntilSettledRequest(vi=self._vi, max_time_milliseconds=max_time_milliseconds),
         )
 
-
+    
     def write_arb_waveform_complex_f32(self, waveform_name, waveform_data_array, more_data_pending):  # noqa: N802
-        waveform_data_array_list = [
-            grpc_complex_types.NIComplexNumberF32(real=val.real, imaginary=val.imag)
-            for val in waveform_data_array.ravel()
-        ]
+        import numpy as np  # local import to keep generated style
+        interleaved = waveform_data_array.view(np.float32)
         self._invoke(
             self._client.WriteArbWaveformComplexF32,
-            grpc_types.WriteArbWaveformComplexF32Request(vi=self._vi, waveform_name=waveform_name, wfm_data=waveform_data_array_list, more_data_pending=more_data_pending),
+            grpc_types.WriteArbWaveformComplexF32Request(vi=self._vi, waveform_name=waveform_name, wfm_data=interleaved, more_data_pending=more_data_pending),
         )
-
 
     def write_arb_waveform_complex_f64(self, waveform_name, waveform_data_array, more_data_pending):  # noqa: N802
-        waveform_data_array_list = [
-            grpc_complex_types.NIComplexNumber(real=val.real, imaginary=val.imag)
-            for val in waveform_data_array.ravel()
-        ]
+        # Preconditions enforced by caller: 1-D C-contiguous numpy.ndarray complex128
+        import numpy as np  # local import consistency
+        interleaved = waveform_data_array.view(np.float64)
         self._invoke(
             self._client.WriteArbWaveformComplexF64,
-            grpc_types.WriteArbWaveformComplexF64Request(vi=self._vi, waveform_name=waveform_name, wfm_data=waveform_data_array_list, more_data_pending=more_data_pending),
+            grpc_types.WriteArbWaveformComplexF64Request(vi=self._vi, waveform_name=waveform_name, wfm_data=interleaved, more_data_pending=more_data_pending),
         )
-
 
     def write_arb_waveform_complex_i16(self, waveform_name, waveform_data_array):  # noqa: N802
         import numpy as np
-        arr = waveform_data_array.ravel()
+        arr = waveform_data_array  # already validated
         if arr.size % 2 != 0:
             raise ValueError("Interleaved int16 array must have even length (real/imag pairs)")
-        arr_pairs = arr.reshape(-1, 2)
-        waveform_data_array_list = [
-            grpc_complex_types.NIComplexI16(real=int(pair[0]), imaginary=int(pair[1]))
-            for pair in arr_pairs
-        ]
+        # Proto expects repeated sint32. We widen int16 -> int32 once; unavoidable copy due to itemsize change.
+        interleaved_int32 = arr.astype(np.int32, copy=False)  # copy will occur because of wider dtype
         self._invoke(
             self._client.WriteArbWaveformComplexI16,
-            grpc_types.WriteArbWaveformComplexI16Request(vi=self._vi, waveform_name=waveform_name, wfm_data=waveform_data_array_list),
+            grpc_types.WriteArbWaveformComplexI16Request(vi=self._vi, waveform_name=waveform_name, wfm_data=interleaved_int32),
         )
-
 
     def write_script(self, script):  # noqa: N802
         self._invoke(

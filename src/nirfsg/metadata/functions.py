@@ -5360,7 +5360,7 @@ functions = {
         'method_templates': [
             {
                 'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_write_method',
+                'library_interpreter_filename': 'write_arb_f32',
                 'method_python_name_suffix': '',
                 'session_filename': 'numpy_write_method'
             }
@@ -5436,7 +5436,7 @@ functions = {
         'method_templates': [
             {
                 'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_write_method',
+                'library_interpreter_filename': 'write_arb_f64',
                 'method_python_name_suffix': '',
                 'session_filename': 'numpy_write_method'
             }
@@ -5512,7 +5512,7 @@ functions = {
         'method_templates': [
             {
                 'documentation_filename': 'numpy_method',
-                'library_interpreter_filename': 'numpy_write_method',
+                'library_interpreter_filename': 'write_arb_i16',
                 'method_python_name_suffix': '',
                 'session_filename': 'numpy_write_method'
             }
